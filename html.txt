@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en”>
+<head>
+ <meta charset="utf-8">
+ <title>html</title>
+</head>
+<body>
+ <p>paragraph<a href="./html.txt">link</a></p>
+ <pre>pretext</pre>
+ <h1>h1</h1>
+ <h2>h2</h2>
+ <h3>h3</h3>
+ <ul>
+  <li>olist item</li>
+ </ul>
+ <ol>
+  <li>ulist item</li>
+ </ol>
+ <table>
+  <tr>
+   <th>1</th>
+   <th>2</th>
+  </tr>
+  <tr>
+   <td>1,1</td>
+   <td>2,1</td>
+  </tr>
+  <tr>
+   <td>1,2</td>
+   <td>2,2</td>
+  </tr>
+ </table>
+</body>
+</html>
