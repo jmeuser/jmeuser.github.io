@@ -1,0 +1,37 @@
+Git
+
+States    Verbs
+committed commit
+staged    stage
+modified  modify
+
+git config --global user.name  "usr"     # set name
+git config --global user.email "e@m.ail" # set email
+git config --global core.editor ed       # set editor
+git config --list                        # list config key-values
+git config x                             # value of key x
+
+git init       # init repo in ./
+git clone x    # clone repo from x to ./
+git clone x y/ # clone repo from x to y/
+
+git status     # status of current working directory
+git status -s  # short status
+git add ./x    # stage|track ./x
+git add ./x/   # stage|track ./x/ recursively
+
+# .gitignore list of files to ignore
+
+git diff          # diff /modified /staged
+git diff --staged # diff /staged /committed
+git diff --cached # git diff --staged
+
+git commit        # commit staged (e git status)
+git commit -v     # commit staged (e git status & git diff --staged)
+git commit -m "x" # commit staged (message x)
+git commit -a     # stage tracked then commit
+
+Sources
+http://git-scm.com/book/en/v2
+https://www.atlassian.com/git/tutorials/setting-up-a-repository
+https://github.com/github/gitignore
