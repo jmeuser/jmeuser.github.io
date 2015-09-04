@@ -16,13 +16,13 @@ ed x      # edit x
 ls        # list names of files ordered alphabetically
 ls -t     # list names of files ordered by time elapsed since last change
 ls -l     # list names of files ordered alphabetically with "long" information
-ls -lt    # list names of files ordered "temporally" with "long information"
+ls -lt    # list names of files ordered temporally with "long information"
 ls -l x   # list information about x
 
 total 104
 -rw-r--r--  1 jmeuser  staff   482 Sep  4 13:41 tth.txt
 
-total 104   # how many blocks of disc space the files occupy
+total 104   # how many blocks of disk space the files occupy
 -rw-r--r--  # read write permissions
 1           # number of links to the file
 jmeuser     # owner of the file
@@ -35,9 +35,23 @@ cat x y z   # print the contents of x followed by the contents of y and so on to
 pr x y z    # print contents of x,y,z with 66 lines/pg; date,time changed; pg.# 
             # does not format lines e.g. long lines get cut off
 pr -x y z   # print y z etc with x columns per page
-pr -m x y z # print x y z etc in parallel columns
+pr -m x y z # print x y z etc. in parallel columns
 
 mv x y      # rename x to y (overwrites y)
 cp x y      # copy x to y (overwrites y)
 rm x y z    # remove x y z etc.
+wc x y z    # count lines; words; characters in x y z etc. (gives total of x y z)
+grep x y z  # print lines of y and z etc. matching the regular expression x (from ed: g/re/p)
 
+sort x y z  # sort lines of x y z alphabetically (by character code e.g. A before a).
+sort -r  x  # sort lines of x in reverse
+sort -n  x  # sort lines of x in numeric order
+sort -nr x  # sort lines of x in reverse numeric order
+sort +n  x  # sort lines of x starting at n+1st field
+
+tail x      # print the last 10 lines of x
+tail -n x   # print the last n lines of x
+tail +n x   # print the nth line to the end
+
+cmp  x y    # gives the first place (from the top down) where x differs from y
+diff x y    # show where and how x is different from y (only on .txt files)
