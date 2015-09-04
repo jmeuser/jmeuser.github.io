@@ -11,7 +11,8 @@
 preformatted text
 &amp; ampersand
  &lt; less than
-&gt; great than
+&gt; greater than
+&eacute; latin small letter e with acute
 </pre>
  <h1>1st Header</h1>
  <h2>2nd Header</h2>
