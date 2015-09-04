@@ -1,0 +1,43 @@
+The Unix Programming Environment by Kernighan and Pike
+
+date      # current date and time
+
+who       # Who is logged in?
+who am i  # Who are you to this terminal?
+
+#         # comment
+ctl-d     # EOF|logout
+mail      # check mail
+write x   # send message to x
+man x     # show local manual for x
+ed        # invoke ed
+ed x      # edit x 
+
+ls        # list names of files ordered alphabetically
+ls -t     # list names of files ordered by time elapsed since last change
+ls -l     # list names of files ordered alphabetically with "long" information
+ls -lt    # list names of files ordered "temporally" with "long information"
+ls -l x   # list information about x
+
+total 104
+-rw-r--r--  1 jmeuser  staff   482 Sep  4 13:41 tth.txt
+
+total 104   # how many blocks of disc space the files occupy
+-rw-r--r--  # read write permissions
+1           # number of links to the file
+jmeuser     # owner of the file
+482         # number of characters in the file
+Sep 4 13:41 # date and time the file was last changed
+tth.txt     # name of file
+
+cat x y z   # print the contents of x followed by the contents of y and so on to stdout
+
+pr x y z    # print contents of x,y,z with 66 lines/pg; date,time changed; pg.# 
+            # does not format lines e.g. long lines get cut off
+pr -x y z   # print y z etc with x columns per page
+pr -m x y z # print x y z etc in parallel columns
+
+mv x y      # rename x to y (overwrites y)
+cp x y      # copy x to y (overwrites y)
+rm x y z    # remove x y z etc.
+
