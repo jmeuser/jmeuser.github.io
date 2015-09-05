@@ -18,15 +18,18 @@ ls -t     temporally list files in
 ls -lt    temporally list information on
 
 cat       concatenate contents of
-tail      give last 10 l's of
-tail -x   give last x l's of
+
+tail      give last 10 lines of
+tail -x   give last x lines of
 tail +x   give x to last lines of 
-pr        give, 66 l/p,
-pr -x     give, 66 l/p and x cols/p,
-pr -m     give, 66 l/p in parallel cols,
+
+pr        give, 66 lines/page,
+pr -x     give, 66 lines/page and x cols/page,
+pr -m     give, 66 lines/page in parallel cols,
 
 grep x    give lines matching x in (from ed: g/re/p)
 grep -v x give lines not matching
+
 sort      alphabetically sort
 sort -r   alphabetically reverse sort
 sort -n   numerically sort
@@ -36,16 +39,30 @@ sort +x   relative to the x+1st field sort
 cmp       give location of 1st difference between
 diff      give all differences between
 
-cd        change director to
+cd        change directory to
 mkdir     make directory named
 rmdir     remove directory named
 
-Noun   Definition
-/      root directory
-.      working|current directory
-..     parent of .
-x/     directory x
-/x/y/z pathname from root to z via /x/ and /y/
+echo      echo
+
+x >  y    put the output of x into y
+x >> y    append the output of x to y
+x <  y    x gets the output of y
+x |  y    pipe x to y
+x ;  y    run x followed by y
+x &       run x in the background
+
+Noun      Definition
+/         root directory
+.         working|current directory
+..        parent of .
+x/        directory x
+/x/y/z    pathname from root to z via /x/ and /y/
+*         a string of characters
+?         a single character
+[...]     one of the characters ...
+'?'       a question mark character
+'*'       an asterisks character
 
 leading or trailing '/'s are often elided
 
