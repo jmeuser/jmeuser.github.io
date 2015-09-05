@@ -1,56 +1,68 @@
 The Unix Programming Environment by Kernighan and Pike
 
-Verb     Definition
-date     give current date and time
-who      give current users
-pwd      print current working directory
-man      give manual for
-write    send message to
-mv       move
-cp       copy
-rm       remove
-ls       alphabetically list files in
-ls -l    alphabetically list information on
-ls -t    temporally list files in
-ls -lt   temporally list information on
-ed       edit
-cat      concatenate contents of
-pr       give, at 66 l/p, the contents of
-pr -x    give, at 66 l/p and x columns/page, the contents of
-pr -m    give, at 66 l/p in parallel columns, the contents of
-wc       give count of lines; words; characters in
-grep x   give lines matching x in (from ed: g/re/p)
-sort     alphabetically sort
-sort -r  alphabetically reverse sort
-sort -n  numerically sort
-sort -nr numerically reverse sort
-sort +x  relative to the x+1st field sort
-tail     give last 10 l's of
-tail -x  give last x l's of
-tail +x  give x to last lines of 
-cmp      give location of 1st difference between
-diff     give all differences between
+Verb      Definition
+date      give date & time
+who       list active users
+pwd       print working directory
+man       give manual for
+write     send message to
 
-Noun Definition
-./   current working directory
+ed        edit
+mv        move
+cp        copy
+rm        remove
+
+ls        alphabetically list files in
+ls -l     alphabetically list information on
+ls -t     temporally list files in
+ls -lt    temporally list information on
+
+cat       concatenate contents of
+tail      give last 10 l's of
+tail -x   give last x l's of
+tail +x   give x to last lines of 
+pr        give, 66 l/p,
+pr -x     give, 66 l/p and x cols/p,
+pr -m     give, 66 l/p in parallel cols,
+
+grep x    give lines matching x in (from ed: g/re/p)
+grep -v x give lines not matching
+sort      alphabetically sort
+sort -r   alphabetically reverse sort
+sort -n   numerically sort
+sort -nr  numerically reverse sort
+sort +x   relative to the x+1st field sort
+
+cmp       give location of 1st difference between
+diff      give all differences between
+
+cd        change director to
+mkdir     make directory named
+rmdir     remove directory named
+
+Noun   Definition
+/      root directory
+.      working|current directory
+..     parent of .
+x/     directory x
+/x/y/z pathname from root to z via /x/ and /y/
 
 leading or trailing '/'s are often elided
 
 C-  control
 A-  alternate
 F-  function
-C-d EOF
+C-D EOF
 
 $ ls -l name.txt
 total 104
 -rw-r--r--  1 usr  staff   482 Sep  4 13:41 name.txt
 
 Noun        Definition
-total 104   number of blocks of disk space occupied by name.txt
+total 104   number disk space blocks occupied by name.txt
 -rw-r--r--  read-write permissions
 1           number of links to name.txt
 jmeuser     owner of name.txt
 482         number of characters in name.txt
 Sep 4 13:41 date and time name.txt was last changed
 name.txt    name of name.txt
-
