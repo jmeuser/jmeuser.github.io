@@ -1,57 +1,56 @@
 The Unix Programming Environment by Kernighan and Pike
 
-date      # current date and time
+Verb     Definition
+date     give current date and time
+who      give current users
+pwd      print current working directory
+man      give manual for
+write    send message to
+mv       move
+cp       copy
+rm       remove
+ls       alphabetically list files in
+ls -l    alphabetically list information on
+ls -t    temporally list files in
+ls -lt   temporally list information on
+ed       edit
+cat      concatenate contents of
+pr       give, at 66 l/p, the contents of
+pr -x    give, at 66 l/p and x columns/page, the contents of
+pr -m    give, at 66 l/p in parallel columns, the contents of
+wc       give count of lines; words; characters in
+grep x   give lines matching x in (from ed: g/re/p)
+sort     alphabetically sort
+sort -r  alphabetically reverse sort
+sort -n  numerically sort
+sort -nr numerically reverse sort
+sort +x  relative to the x+1st field sort
+tail     give last 10 l's of
+tail -x  give last x l's of
+tail +x  give x to last lines of 
+cmp      give location of 1st difference between
+diff     give all differences between
 
-who       # Who is logged in?
-who am i  # Who are you to this terminal?
+Noun Definition
+./   current working directory
 
-#         # comment
-ctl-d     # EOF|logout
-mail      # check mail
-write x   # send message to x
-man x     # show local manual for x
-ed        # invoke ed
-ed x      # edit x 
+leading or trailing '/'s are often elided
 
-ls        # list names of files ordered alphabetically
-ls -t     # list names of files ordered by time elapsed since last change
-ls -l     # list names of files ordered alphabetically with "long" information
-ls -lt    # list names of files ordered temporally with "long information"
-ls -l x   # list information about x
+C-  control
+A-  alternate
+F-  function
+C-d EOF
 
+$ ls -l name.txt
 total 104
--rw-r--r--  1 jmeuser  staff   482 Sep  4 13:41 tth.txt
+-rw-r--r--  1 usr  staff   482 Sep  4 13:41 name.txt
 
-total 104   # how many blocks of disk space the files occupy
--rw-r--r--  # read write permissions
-1           # number of links to the file
-jmeuser     # owner of the file
-482         # number of characters in the file
-Sep 4 13:41 # date and time the file was last changed
-tth.txt     # name of file
+Noun        Definition
+total 104   number of blocks of disk space occupied by name.txt
+-rw-r--r--  read-write permissions
+1           number of links to name.txt
+jmeuser     owner of name.txt
+482         number of characters in name.txt
+Sep 4 13:41 date and time name.txt was last changed
+name.txt    name of name.txt
 
-cat x y z   # print the contents of x followed by the contents of y and so on to stdout
-
-pr x y z    # print contents of x,y,z with 66 lines/pg; date,time changed; pg.# 
-            # does not format lines e.g. long lines get cut off
-pr -x y z   # print y z etc with x columns per page
-pr -m x y z # print x y z etc. in parallel columns
-
-mv x y      # rename x to y (overwrites y)
-cp x y      # copy x to y (overwrites y)
-rm x y z    # remove x y z etc.
-wc x y z    # count lines; words; characters in x y z etc. (gives total of x y z)
-grep x y z  # print lines of y and z etc. matching the regular expression x (from ed: g/re/p)
-
-sort x y z  # sort lines of x y z alphabetically (by character code e.g. A before a).
-sort -r  x  # sort lines of x in reverse
-sort -n  x  # sort lines of x in numeric order
-sort -nr x  # sort lines of x in reverse numeric order
-sort +n  x  # sort lines of x starting at n+1st field
-
-tail x      # print the last 10 lines of x
-tail -n x   # print the last n lines of x
-tail +n x   # print the nth line to the end
-
-cmp  x y    # gives the first place (from the top down) where x differs from y
-diff x y    # show where and how x is different from y (only on .txt files)
