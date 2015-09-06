@@ -1,0 +1,57 @@
+<html><head>
+ <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Inconsolata">
+ <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen">
+</head>
+<body><pre>
+The C Programming Language by Kernighan
+
+Exercises
+
+//c.h
+typedef int I;typedef double F;typedef unsigned char C,*S;typedef long L;typedef void V;
+
+#define F(e...)   for(e)
+#define G(c,a...) if(c){a;}else
+#define I(c...)   if(c)
+#define W(c...)   while(c)
+
+#define J(n,e...) {I j=0,Mj=(n);F(;j&lt;Mj;++j){e;}}
+#define K(n,e...) {I k=0,Mk=(n);F(;k&lt;Mk;++k){e;}}
+
+#include&lt;stdio.h&gt;
+#define GC()      getchar()
+#define O(e...)   printf(e)
+#define PC(x)     putchar(x)
+
+//e1-08. count ' '; '\t'; '\n'
+#include"c.h"
+main(){I n=0,x;W((x=GC())!=EOF)I((x==' ')||(x=='\t')||(x=='\n'))++n;O("%d",n);}
+
+//e1-09. replace &gt;1 ' ' with ' '
+#include"c.h"
+main(){F(I x=0,y;(y=GC())!=EOF;x=y)I((x!=y)||(y!=' '))PC(y);}
+
+//e1-10. change '\b' to \b ; '\t' to \t ; '\\' to \\
+#include"c.h"
+main(){I x;W((x=GC())!=EOF)G(x=='\t',PC('\\');PC('t'))G(x=='\b',PC('\\');PC('b'))G(x=='\\',PC('\\');PC('\\'))PC(x);}
+
+//e1-12. print 1 word/line
+#include"c.h"
+main(){F(I x,b=0;(x=GC())!=EOF;)G(x==' '||x=='\n'||x=='\t',I(b==1){b=0;PC('\n');}){PC(x);b=1;}}
+
+//c1s6-ndwo. count [0-9]; ' '; others
+#include"c.h"
+main(){I c,n[12];J(12,n[j]=0);W((c=GC())!=EOF)G(c&gt;='0'&&c&lt;='9',++n[c-'0'])G(c==' '||c=='\n'||c=='\t',++n[10])++n[11];J(12,O("%d ",n[j]))}
+
+//c1s7. run a power function
+#include"c.h"
+I f(I,I);main(){J(12,O("%d\n",f(2,j)))}I f(I x,I y){I z=1;K(1+y,z*=x);R z;}
+
+//e1-15. run a fahrenheit to celsius function
+#include"c.h"
+F f(I);main(){J(16,O("%d %f\n",20*j,f(20*j)))}F f(I x){R 5.0*(x-32)/9;}
+
+Sources
+
+&lt;a href="http://www.amazon.com/s?field-keywords=The-Programming-Language-Brian-Kernighan"&gt;http://www.amazon.com/s?field-keywords=The-Programming-Language-Brian-Kernighan&lt;/a&gt;
+</pre></body></html>
