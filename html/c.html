@@ -1,0 +1,42 @@
+<html><head>
+ <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Inconsolata">
+ <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen">
+</head>
+<body><pre>
+C
+
+Why C? It's everywhere: deal with it.
+
+Type   Format b&gt; Range&gt;
+char   %c      8 schar|uchar
+schar  %c|%hhi 8 +-127
+uchar  %c|%hhu 8 0,255
+short  %hi    16 +-32767
+ushort %hu    16 0,65545
+int    %i|%d  16 +-32767
+uint   %u     16 0,4294967295
+long   %li    32 +-2147483647
+ulong  %lu    32 0,4294967295
+llong  %lli   64 +-9223372036854775807
+ullong %llu   64 0,18446744073709551615
+float  %f|%lf 32 +-3.4e38
+double %f|%lf 64 +-1.7e308
+
+\a 07 bell
+\b 08 bspace
+\f 0c ffeed
+\n 0a nline
+\r 0d return
+\t 09 htab
+\v 0b vtab
+\\ 5c bslash
+\' 27 squote
+\" 22 dquote
+\? 3f qmark
+
+\ooo oct
+\xhh hex
+
+Sources
+http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1570.pdf
+</pre></body></html>
