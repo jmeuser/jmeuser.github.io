@@ -37,27 +37,8 @@ double %f|%lf 64 +-1.7e308
 \ooo oct
 \xhh hex
 
-// Convenient Conventions
-// I: int
-// F: double float
-// C: unsigned char
-// S: unsigned char string
-// L: long
-// V: voide
-typedef int I;
-typedef double F;
-typedef unsigned char C,*S;
-typedef long L;
-typedef void V;
 
-// Function Prototype
-// Tr: type returned
-// Tx: type of x
-// Ty: type of y
-// Tz: type of z
-// Tr f(Tx x, Ty y, Tz z)
-// Tr f(Tx,Ty,Tz)  parameter names may be elided
-I f(I,I,I)
+#define R return
 
 // Control Operators
 // F: for
@@ -77,6 +58,37 @@ I f(I,I,I)
 
 J(n,x[j]=a+b*j);    // Arithmetic Series
 I x[n];I(n,x[i]=i); // x=:i.n from J
+
+// Notation for Type Declarations
+// I: int
+// F: double float
+// C: unsigned char
+// S: unsigned char string
+// L: long
+// V: voide
+typedef int I;
+typedef double F;
+typedef unsigned char C,*S;
+typedef long L;
+typedef void V;
+
+// Function Prototype
+// Tr: type returned
+// Tx: type of x
+// Ty: type of y
+// Tz: type of z
+// Tr f(Tx x, Ty y, Tz z)
+// Tr f(Tx,Ty,Tz)  parameter names may be elided
+// Functions get arguments "By Value"
+I f(I,I);
+I f(I x, I y){x=x+y; R x;}
+main(){
+I b,a=3;
+b=f(a, 5);
+if(a==3){printf("a=3 gives 1\n");}
+if(a==7){printf("a=7 gives 1\n");}
+} //puts "a=3 gives 1\n" to stdout
+
 
 Sources
 http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1570.pdf
