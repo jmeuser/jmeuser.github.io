@@ -37,6 +37,44 @@ double %f|%lf 64 +-1.7e308
 \ooo oct
 \xhh hex
 
+// Convenient Conventions
+// I: int
+// F: double float
+// C: unsigned char
+// S: unsigned char string
+// L: long
+// V: voide
+typedef int I;
+typedef double F;
+typedef unsigned char C,*S;
+typedef long L;
+typedef void V;
+
+// Function Prototype
+// Tr: type returned
+// Tx: type of x
+// Ty: type of y
+// Tz: type of z
+// Tr f(Tx x, Ty y, Tz z)
+// Tr f(Tx,Ty,Tz)  parameter names may be elided
+I f(I,I,I)
+
+// Control Operators
+// F: for
+// W: while
+// C: cond chain
+#define F(e...)   for(e)
+#define W(c...)   while(c)
+#define C(c,t...) if(c){a;}else
+
+// Index|Array Operators
+// i,j,k: indices
+// Mi,Mj,Mk : !Mi in k or i.Mk in J
+// e: expression
+#define I(n,e...) {I i=0,Mi=(n);F(;i&lt;Mi;++i){e;}}
+#define J(n,e...) {I j=0,Mj=(n);F(;j&lt;Mj;++j){e;}}
+#define K(n,e...) {I k=0,Mk=(n);F(;k&lt;Mk;++k){e;}}
+
 Sources
 http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1570.pdf
 </pre></body></html>
