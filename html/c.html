@@ -65,7 +65,7 @@ I f(I,I,I)
 // C: cond chain
 #define F(e...)   for(e)
 #define W(c...)   while(c)
-#define C(c,t...) if(c){a;}else
+#define C(c,t...) if(c){t;}else
 
 // Index|Array Operators
 // i,j,k: indices
@@ -75,9 +75,8 @@ I f(I,I,I)
 #define J(n,e...) {I j=0,Mj=(n);F(;j&lt;Mj;++j){e;}}
 #define K(n,e...) {I k=0,Mk=(n);F(;k&lt;Mk;++k){e;}}
 
-// Arithmetic Series
-I x[n];
-J(n,x[j]=a+b*j);
+J(n,x[j]=a+b*j);    // Arithmetic Series
+I x[n];I(n,x[i]=i); // x=:i.n from J
 
 Sources
 http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1570.pdf
