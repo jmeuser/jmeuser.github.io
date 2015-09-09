@@ -17,6 +17,10 @@ typedef int I;typedef double F;typedef unsigned char C,*S;typedef long L;typedef
 #define J(n,e...) {I j=0,Mj=(n);F(;j&lt;Mj;++j){e;}}
 #define K(n,e...) {I k=0,Mk=(n);F(;k&lt;Mk;++k){e;}}
 
+#define A(a...)     {if(!(a))R 0;}
+#define P(x,a...)   {if(x)R(a);}
+#define E(x,a...)   {if(x)R O("ERROR: %s\n",(a)),(S)0;}
+
 #include&lt;stdio.h&gt;
 #define GC()      getchar()
 #define PC(x)     putchar(x)
