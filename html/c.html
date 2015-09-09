@@ -90,9 +90,9 @@ if(a==7){printf("a=7 gives 1\n");}
 } //puts "a=3 gives 1\n" to stdout
 
 //Assert, Return Early, Report Errors
-#define A(a...)     {if(!(a))R 0;} 
-#define P(x,a...)   {if(x)R(a);}
-#define E(x,a...)   {if(x)R O("ERROR: %s\n",(a)),(S)0;}
+#define A(e...)     {if(!(e))R 0;} 
+#define P(c,e...)   {if(c)R(e);}
+#define E(c,e...)   {if(c)R O("ERROR: %s\n",(e)),(S)0;}
 // Note (S)0 is a null pointer, and ',' is being used as the comma operator because it discards the side effect of O and returns (S)0 which is a null pointer (of the char type, if you're a compiler and happen to be interested in that sort of thing).
 
 Sources
