@@ -1,0 +1,92 @@
+<html><head>
+ <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Inconsolata">
+ <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen">
+</head>
+<body><pre>
+Hacker Rank
+https://www.hackerrank.com/jmeuser
+
+Problems and Solutions
+
+Problem Statement
+You learnt about STDIN and STDOUT in Solve me first.
+
+This is the second challenge in the introduction series. The purpose of this challenge is to give you a working I/O template in your preferred language. It includes scanning two space-separated integers from STDIN in a loop over T lines, calling a function, returning a value, and printing it to STDOUT.
+
+A pseudo code looks like the following:
+
+read T
+loop from 1 to T
+    read A and B
+    compute the sum
+    print value in a newline
+end loop
+The task is to scan two numbers from STDIN, and print the sum A+B on STDOUT. The code has already been provided for most of the popular languages. This is primarily for you to read and inspect how the IO is handled.
+
+Note: The code has been saved in a template, which you can submit if you want. Or, you may try rewriting it and building it up from scratch.
+
+Input Format 
+The first line contains T (number of test cases) followed by T lines 
+Each line contains A and B, separated by a space.
+
+As you can see that we have provided in advance the number of lines, we discourage the use of scanning till EOF as not every language has an easy way to handle that. In fact, every HackerRank challenge is designed in such a way that multitests begin with a T line to indicate the number of lines.
+
+Output Format 
+An integer that denotes Sum (A+B) printed on new line for every testcase.
+
+Constraints 
+1&lt;:T,A,B&lt;:1000
+
+typedef int I;
+#define K(n,e...) {I k=0,Mk=(n);for(;k&lt;Mk;++k){e;}}
+#include&lt;stdio.h&gt;
+#define I(e...) scanf(e)
+#define O(e...) printf(e)
+main(){I n,x,y;I("%i",&amp;n);K(n,I("%i %i",&amp;x,&amp;y),O("%i\n",x+y))}
+
+
+Problem Statement
+You are given an array of integers of size N. You need to print the sum of the elements of the array.
+
+Input Format 
+The first line of the input consists of an integer N. The next line contains N space-separated integers describing the array.
+
+Constraints 
+1&lt;:N&lt;:1000 
+0&lt;:A[i]&lt;:1000
+
+Output Format 
+Output a single value equal to the sum of the elements of the array.
+
+typedef int I;
+#define K(n,e...) {I k=0,Mk=(n);for(;k&lt;Mk;++k){e;}}
+#include&lt;stdio.h&gt;
+#define I(e...) scanf(e)
+#define O(e...) printf(e)
+main(){I n,x,y=0;I("%d",&amp;n);K(n,I("%d ",&amp;x),y+=x);O("%d",y);}
+
+
+Problem Statement
+Given two points P and Q, output the symmetric point of point P about Q.
+
+Input format
+The first line contains an integer T representing the number of testcases (T &lt;: 15) 
+Each test case contains Px Py Qx Qy representing the (x,y) coordinates of P and Q, all of them being integers.
+
+Constraints 
+1 &lt;: T &lt;: 15 
+-100 &lt;: x, y &lt;: 100
+
+Output format 
+For each test case output x and y coordinates of the symmetric point (each point in a new line).
+
+Solution
+
+typedef int I;
+#define K(n,e...) {I k=0,Mk=(n);for(;k&lt;Mk;++k){e;}}
+#include&lt;stdio.h&gt;
+#define I(e...) scanf(e)
+#define O(e...) printf(e)
+main(){I n,u,v,x,y;I("%i",&amp;n);K(n,I("%i %i %i %i",&amp;u,&amp;v,&amp;x,&amp;y),O("%i %i\n",2*x-u,2*y-v))}
+
+</pre></body></html>
