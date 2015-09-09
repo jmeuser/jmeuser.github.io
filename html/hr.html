@@ -3,18 +3,18 @@
  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen">
 </head>
 <body><pre>
-Hacker Rank
+Hacker Rank Problems and Solutions
 https://www.hackerrank.com/jmeuser
-
-Problems and Solutions
 
 Diagonal Difference
 
 Problem Statement
-You are given a square matrix of size N×N. Calculate the absolute difference of the sums across the two main diagonals.
+You are given a n by n square matrix.
+Calculate the absolute difference of the sums across the two main diagonals.
 
 Input Format
-The first line contains a single integer N. The next N lines contain N integers (each) describing the matrix.
+The first line contains a single integer N.
+The next N lines contain N integers (each) describing the matrix.
 
 Constraints 
 1&lt;:N&lt;:100 
@@ -41,7 +41,7 @@ Problem Statement
 Given two points P and Q, output the symmetric point of point P about Q.
 
 Input format
-The first line contains an integer T representing the number of testcases (T &lt;: 15) 
+The first line contains an integer T representing the number of test cases (T &lt;: 15) 
 Each test case contains Px Py Qx Qy representing the (x,y) coordinates of P and Q, all of them being integers.
 
 Constraints 
@@ -64,12 +64,17 @@ main(){I n,u,v,x,y;I("%i",&amp;n);K(n,I("%i %i %i %i",&amp;u,&amp;v,&amp;x,&amp;
 A Very Big Sum
 
 Problem Statement
-You are given an array of integers of size N. You need to print the sum of the elements of the array.
+You are given an array of integers of size N.
+You need to print the sum of the elements of the array.
 
-Note: The range of the 32-bit integer is (−2)^31 to (2^31)−1 or [−2147483648,2147483647]. When we add several integer values, the resulting sum might exceed this range. You might need to use long long int in C/C++ or long data type in Java to store such sums.
+Note:
+The range of the 32-bit integer is (−2)^31 to (2^31)−1 or [−2147483648,2147483647].
+When we add several integer values, the resulting sum might exceed this range.
+You might need to use long long int in C/C++ or long data type in Java to store such sums.
 
 Input Format
-The first line of the input consists of an integer N. The next line contains N space-separated integers describing the array.
+The first line of the input consists of an integer N.
+The next line contains N space-separated integers describing the array.
 
 Constraints 
 1&lt;:N&lt;:10 
@@ -92,10 +97,12 @@ main(){I n;I("%i",&amp;n);LL x,y=0;K(n,I("%lli ",&amp;x),y+=x);O("%lli",y);}
 Simple Array Sum
 
 Problem Statement
-You are given an array of integers of size N. You need to print the sum of the elements of the array.
+You are given an array of integers of size N.
+You need to print the sum of the elements of the array.
 
 Input Format 
-The first line of the input consists of an integer N. The next line contains N space-separated integers describing the array.
+The first line of the input consists of an integer N.
+The next line contains N space-separated integers describing the array.
 
 Constraints 
 1&lt;:N&lt;:1000 
@@ -103,6 +110,8 @@ Constraints
 
 Output Format 
 Output a single value equal to the sum of the elements of the array.
+
+Solution
 
 typedef int I;
 #define K(n,e...) {I k=0,Mk=(n);for(;k&lt;Mk;++k){e;}}
@@ -117,7 +126,9 @@ Solve me Second
 Problem Statement
 You learnt about STDIN and STDOUT in Solve me first.
 
-This is the second challenge in the introduction series. The purpose of this challenge is to give you a working I/O template in your preferred language. It includes scanning two space-separated integers from STDIN in a loop over T lines, calling a function, returning a value, and printing it to STDOUT.
+This is the second challenge in the introduction series.
+The purpose of this challenge is to give you a working I/O template in your preferred language.
+It includes scanning two space-separated integers from STDIN in a loop over T lines, calling a function, returning a value, and printing it to STDOUT.
 
 A pseudo code looks like the following:
 
@@ -127,21 +138,28 @@ loop from 1 to T
     compute the sum
     print value in a newline
 end loop
-The task is to scan two numbers from STDIN, and print the sum A+B on STDOUT. The code has already been provided for most of the popular languages. This is primarily for you to read and inspect how the IO is handled.
+The task is to scan two numbers from STDIN, and print the sum A+B on STDOUT.
+The code has already been provided for most of the popular languages.
+This is primarily for you to read and inspect how the IO is handled.
 
-Note: The code has been saved in a template, which you can submit if you want. Or, you may try rewriting it and building it up from scratch.
+Note:
+The code has been saved in a template, which you can submit if you want.
+Or, you may try rewriting it and building it up from scratch.
 
 Input Format 
-The first line contains T (number of test cases) followed by T lines 
+The first line contains T (number of test cases) followed by T lines.
 Each line contains A and B, separated by a space.
 
-As you can see that we have provided in advance the number of lines, we discourage the use of scanning till EOF as not every language has an easy way to handle that. In fact, every HackerRank challenge is designed in such a way that multitests begin with a T line to indicate the number of lines.
+As you can see that we have provided in advance the number of lines, we discourage the use of scanning till EOF as not every language has an easy way to handle that.
+In fact, every HackerRank challenge is designed in such a way that multitests begin with a T line to indicate the number of lines.
 
 Output Format 
 An integer that denotes Sum (A+B) printed on new line for every testcase.
 
 Constraints 
 1&lt;:T,A,B&lt;:1000
+
+Solution
 
 typedef int I;
 #define K(n,e...) {I k=0,Mk=(n);for(;k&lt;Mk;++k){e;}}
