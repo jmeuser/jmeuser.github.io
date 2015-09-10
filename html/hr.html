@@ -6,6 +6,38 @@
 Hacker Rank Problems and Solutions
 https://www.hackerrank.com/jmeuser
 
+Time Conversion
+
+Problem Statement
+You are given time in AM/PM format.
+Convert this into a 24 hour format.
+
+Note
+12:00:00AM is 00:00:00
+12:00:00PM is 12:00:00
+
+Input Format
+AM/PM format i.e.
+hh:mm:ssAM or hh:mm:ssPM with
+01&lt;:hh&lt;:12 
+00&lt;:mm&lt;:59 
+00&lt;:ss&lt;:59
+
+Output Format
+24h format i.e.
+hh:mm:ss with
+00&lt;:hh&lt;:23 
+00&lt;:mm&lt;:59 
+00&lt;:ss&lt;:59
+
+Solution (31m, took me a while to find %02i for 00 output format)
+typedef int I;typedef char C;
+#include&lt;stdio.h&gt;
+#define I(e...) scanf(e)
+#define O(e...) printf(e)
+main(){I h,m,s;C x;I("%i:%i:%i%cM",&amp;h,&amp;m,&amp;s,&amp;x);O("%02i:%02i:%02i",h+12*((x=='P')-(h==12)),m,s);}
+
+
 Staircase
 
 Problem Statement
