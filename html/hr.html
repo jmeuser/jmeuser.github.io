@@ -6,6 +6,34 @@
 Hacker Rank Problems and Solutions
 https://www.hackerrank.com/jmeuser
 
+Plus Minus
+
+Problem Statement
+You're given an array containing integer values.
+You need to print the fraction of count of positive numbers, negative numbers and zeroes to the total numbers.
+Print the value of the fractions correct to 3 decimal places.
+
+Input Format
+First line contains N, which is the size of the array. 
+Next line contains N integers A1,A2,A3,...,AN, separated by space.
+
+Constraints 
+1&lt;:N&lt;:100 
+−100&lt;:A[i]&lt;:100
+
+Output Format
+Output three values on different lines equal to the fraction of count of positive numbers, negative numbers and zeroes to the total numbers respectively correct to 3 decimal places.
+
+Solution (1h, with dinner ;) )
+
+typedef int I;
+#define J(n,e...) {I j=0,Mj=(n);for(;j&lt;Mj;++j){e;}}
+#include&lt;stdio.h&gt;
+#define I(e...) scanf(e)
+#define O(e...) printf(e)
+main(){I n,x,a[3]={0};I("%i",&amp;n);J(n,I("%i",&amp;x),++a[(x&lt;=0)+(x==0)];);J(3,O("%.3f\n",1.0*a[j]/n));}
+
+
 Diagonal Difference
 
 Problem Statement
