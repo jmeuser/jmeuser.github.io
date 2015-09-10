@@ -6,6 +6,37 @@
 Hacker Rank Problems and Solutions
 https://www.hackerrank.com/jmeuser
 
+Staircase
+
+Problem Statement
+Your teacher has given you the task to draw the structure of a staircase. Being an expert programmer, you decided to make a program for the same. You are given the height of the staircase. You need to print a staircase as shown in the example.
+
+Input Format
+You are given an integer N depicting the height of the staircase.
+
+Constraints 
+1&lt;:N&lt;:100
+
+Output Format
+Draw a staircase of height N like:
+     #
+    ##
+   ###
+  ####
+ #####
+######
+
+Solution (1h, with X-Files :) )
+I looked for an equivalent to a[3]={0} but with '#' for 0.
+a[100]={'#'} only makes a[1]=='#' so I use J(n,a[j]='#')
+
+typedef int I;typedef char C;
+#define J(n,e...) {I j=0,Mj=(n);for(;j&lt;Mj;++j){e;}}
+#include&lt;stdio.h&gt;
+#define I(e...) scanf(e)
+#define O(e...) printf(e)
+main(){I n;C a[100];I("%i",&amp;n);J(n,a[j]='#');J(n,O("%*.*s",n,1+j,a))}
+
 Plus Minus
 
 Problem Statement
