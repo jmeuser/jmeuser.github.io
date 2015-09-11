@@ -117,7 +117,24 @@ Someone familiar with enumerate of a numeral would probably just write
    !5
 0 1 2 3 4
 
-Some people might say "count out five" for !5 or maybe "aufzuzählen fünf". 
+Some people might say "count out five" for !5 or maybe "aufzuzählen fünf".
+
+"Why use ! for enumerate when we already use it to talk about factorials?" you ask.
+First, you can write */!n for the factorial of n-1.
+Second, calculating with factorial is difficult.
+It occurs frequently, and grows fast.
+It is only one of a large family of similar functions.
+Pick your favorite binary operation T then T/!n gives you its factorial like extension.
+In general T/a is read "T over a".
+If a:2 4 0 1 12 then (T/a)=2 T 4 T 0 T 1 T 12.
+If the idea of right to left evaluation is new you might prefer to think of it this way
+(T/a) = (2 T(4 T(0 T(1 T 12))))
+So if T:+ then (T/a)=+/a and
+(+/a) = 2+4+0+1+12
+So you might notice a familiar factorial like function with T:+
+(+/!5) = 0 + 1 + 2 + 3 + 4
+In general, if n is a natural numeral then
+(+/!n)=(n*n-1)%2
 
 
 Some Collected Drafts
@@ -128,6 +145,7 @@ a&lt;|=b       a less or equals b
 (+/1+!n)=(n*1+n)%2
 (!n m)=(!n);n+!m
 (x^y)=*/x#y
+(*/x#y)=x*/#y claws can be very helpful
 (+/a*x^!#a)=+/a**/x#"!#a suggest dyadic ^ is suspect like ! as factorial.
 (+/a*x^!#a)=*/b-x for some b with (#b)=#a (fundamental theorem of algebra) (add awesome generalizations that simplify)
 
