@@ -155,6 +155,34 @@ n+(n-1)*n%2
 (1+n)*(1+n-1)%2
 This completes the induction.
 
+Another familiar family of functions are the repeated T functions.
+Again, pick your favorite dyad T then T/# gives its repeated extension.
+We'll let T:+ in the following sequence of equivalent expressions.
+3+/#4
++/3#4
++/4 4 4
+4 + 4 + 4
+12
+Notice that 3+/#4 is the same as 3*4.
+This is not surprising since multiplication is often synonymous with repeated addition.
+We can continue this process to power or exponentiation:
+3*/#4
+*/3#4
+*/4 4 4
+4 * 4 * 4
+64
+The name for repeated exponentiation was created by Goodstein.
+In the following expressions let T:*/#
+3T/#4
+T/3#4
+T/4 4 4
+4 */# 4 */# 4
+13407807929942597099574024998205846127479365820592393377723561443721764030073546976801874298166903427690031858186486050853753882811946569946433649006084096
+Which is an example of a number that would have given C programmers a small headache "back in the day".
+The hierarchy of repeated extensions of + (or of succession) is very interesting.
+As you climb up it's easy to make functions that grow faster than what we tend to imagine as being "fast".
+
+
 Some Collected Drafts
 a&lt;|=b       a less or equals b
 */1+!n      times over one plus enum n (factorial of n)
