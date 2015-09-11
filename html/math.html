@@ -15,6 +15,10 @@ u v w  $ _ @  U V W
 x y z  % ^ ?  X Y Z
 { ( [  / " \  ] ) }
 
+The notation used here is highly idiomatic and mnemonic.
+It is inspired by Iverson's J and APL, and Whitney's k.
+It's use as a tool for exploring and using math is inspired by Goodstein.
+
 There is one order of operations: expressions are evaluated from right to left.
 Expressions are read aloud from left to right.
 
@@ -113,7 +117,19 @@ Someone familiar with enumerate of a numeral would probably just write
    !5
 0 1 2 3 4
 
-Some people might say "count out five" for !5
+Some people might say "count out five" for !5 or maybe "aufzuzählen fünf". 
+
+
+Some Collected Drafts
+a&lt;|=b       a less or equals b
+*/1+!n      times over one plus enum n (factorial of n)
++/%#a       plus over quotient num of a (average of a)
++/a*x^!#a   polynomial in x with coefficients a (p:{+/x*y^!#x} so that (1 3 5 7)p is a polynomial operator)
+(+/1+!n)=(n*1+n)%2
+(!n m)=(!n);n+!m
+(x^y)=*/x#y
+(+/a*x^!#a)=+/a**/x#"!#a suggest dyadic ^ is suspect like ! as factorial.
+(+/a*x^!#a)=*/b-x for some b with (#b)=#a (fundamental theorem of algebra)
 
 
 Copyright John Meuser 2015
