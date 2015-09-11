@@ -33,9 +33,9 @@ we write
 
 so that the antecedent event is preceded by some space and the output is not.
 This sequence of events is read "enumerate zero gives the null list".
-Although a native English speaker might say "Enumerating zero gives the null list".
+Although a native English speaker might say "Enumerating zero gives the empty list".
 
-Here is a sequence of events meant to show the results of enumerate of a natural number.
+This sequence of events shows the result of enumerate of a few natural numerals.
 
    !0
 ()
@@ -48,7 +48,7 @@ Here is a sequence of events meant to show the results of enumerate of a natural
    !15
 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14
 
-We can describe ! in terms of itself using join
+We can describe ! in terms of itself using join.
 
    !10
 0 1 2 3 4 5 6 7 8 9
@@ -73,5 +73,40 @@ For example we could have written the previous sequence of events as follows:
 -------------------
 0 1 2 3 4 5 6 7 8 9
 
-The difference is subtle, and it often is, but some context benefit from the one over the other.
+The difference is subtle, and it often is, but some contexts benefit from the one over the other.
+Here is a, seemingly complex, way of calculating the result of evaluating '!5'
+
+                    !5
+----------------------
+                (!4),4
+----------------------
+            ((!3),3),4
+----------------------
+        (((!2),2),3),4
+----------------------
+    ((((!1),1),2),3),4
+----------------------
+(((((!0),0),1),2),3),4
+----------------------
+ ((((((),0),1),2),3),4
+----------------------
+     ((((0),1),2),3),4
+----------------------
+       (((0,1),2),3),4
+----------------------
+       (((0 1),2),3),4
+----------------------
+         ((0 1,2),3),4
+----------------------
+         ((0 1 2),3),4
+----------------------
+           (0 1 2,3),4
+----------------------
+           (0 1 2 3),4
+----------------------
+             0 1 2 3,4
+----------------------
+             0 1 2 3 4
+
+Copyright John Meuser 2015
 </pre></body></html>
