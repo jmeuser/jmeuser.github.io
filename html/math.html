@@ -1,0 +1,77 @@
+<html><head>
+ <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Inconsolata">
+ <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen">
+</head>
+<body><pre>
+a b c  # ! 0  A B C
+d ` e  1 2 3  D ' E
+f g h  4 5 6  F G H
+i j k  7 8 9  I J K  
+l m n  + - *  L M N
+  o    :   ;    O   
+p q r  &lt; = &gt;  P Q R
+s . t  | ~ &amp;  S , T
+u v w  $ _ @  U V W
+x y z  % ^ ?  X Y Z
+{ ( [  / " \  ] ) }
+
+There is one order of operations: expressions are evaluated from right to left.
+Expressions are read aloud from left to right.
+
+!0 gives the empty or null list ()
+
+Rather than write
+
+   !0     input     antecedent
+--------- calculate action
+   ()     output    consequent
+
+we write
+
+   !0
+()
+
+so that the antecedent event is preceded by some space and the output is not.
+This sequence of events is read "enumerate zero gives the null list".
+Although a native English speaker might say "Enumerating zero gives the null list".
+
+Here is a sequence of events meant to show the results of enumerate of a natural number.
+
+   !0
+()
+   !1
+0
+   !2
+0 1
+   !10
+0 1 2 3 4 5 6 7 8 9
+   !15
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14
+
+We can describe ! in terms of itself using join
+
+   !10
+0 1 2 3 4 5 6 7 8 9
+   (!9),9
+0 1 2 3 4 5 6 7 8 9
+
+To show how to calculate (!9),9 we separate it into a sequence of intermediate events
+
+       (!9),9          enumerate nine join nine
+---------------------  evaluate enumerate nine
+(0 1 2 3 4 5 6 7 8),9  join the list 0 1 2 3 4 5 6 7 8 to nine
+---------------------  calculate
+ 0 1 2 3 4 5 6 7 8 9   the vector 0 1 2 3 4 5 6 7 8 9
+
+Notice that there are many different ways of saying the same thing.
+Only context can tell us why we might say things one way rather than another.
+For example we could have written the previous sequence of events as follows:
+
+      (!9),9
+-------------------
+0 1 2 3 4 5 6 7 8,9
+-------------------
+0 1 2 3 4 5 6 7 8 9
+
+The difference is subtle, and it often is, but some context benefit from the one over the other.
+</pre></body></html>
