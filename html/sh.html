@@ -7,4 +7,6 @@ for i in *.txt
 do
 sed $'s/\\&amp;/\\&amp;amp;/g\ns/&lt;/\\&amp;lt;/g\ns/&gt;/\\&amp;gt;/g' $i|cat html-prologue.txt - html-epilogue.txt&gt;../html/${i%.txt}.html
 done
+
+PS1="\e[1;31m.\]\e[m\]"
 </pre></body></html>
