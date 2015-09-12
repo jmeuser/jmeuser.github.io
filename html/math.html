@@ -187,6 +187,89 @@ n=#!n
 4=#4 4 4 4
 (#1 2 3 4)=#0 1 2 3
 
+Why use such a strange notation to say what we already say with regular math notation?
+These notational conventions reveal similarities between operations that are often defined using wildly different notation or notions.
+As has already been shown, any operation that is born from the repetition is give as T/#.
+There is more to this notation if we consider binary operations as parametrized unary operations (this is in the spirit of currying, but has been surprisingly familiar to accountants around the world for a long while).
+Suppose you ask an accounting to add the following list of numerals:
+12 23 424 244 3535 54
+If their calculator wasn’t already cleared they would clear it and start by typing 54 then + which would add 54 to 0 since clearing a calculator starts its value at 0.
+Then they would type 3535+ followed by 244+, 23+, and 12+ finally reaching the sum 4292.
+We summarize these steps by writing:
+12+ 23+ 424+ 244+ 3535+ 54+ 0
+Thus it is revealed that 54+ is an operation called "add 54 to" or "54 plus".
+It is one of a wide family of operations e.g. 12+ "add 12 to" or 23+ "add 23 to"
+Now, the expression
+12+ 23+ 424+ 244+ 3535+ 54+ 0
+becomes the successive composition of parametrized unary operators applied to 0.
+Grouping with parenthesis will separate out the actions from the noun:
+(12+ 23+ 424+ 244+ 353+ 54+) 0
+It is this simple example which suggests a strong and far reaching generalization: use space, or a lack there of, to group and build and denote different compositions of actions.
+One might write
+(-12 12+ 8- +23) 0
+for what is traditionally written (and should still can be written conveniently as)
+(12+8-23+0)-12
+But, in the second case, we have removed any sense of successive actions.
+There is also the issue of "ambiguity" as to whether -12 is an operation "minus twelve" or denotes a quantity "negative twelve".
+The resolution of this ambiguity is found in the origin of negative quantities as a tool for recording debits and credits, or gains and losses.
+
+Historically, the natural numerals 0 1 2 3 4 5 and so on where the only quantities worth considering as "actual", "real", or "existent" quantities.
+(though it took some time for 0 to be thought of as denoting a quantity which could be "measured" as we tend to use the word today)
+The idea which led to today's conception of "negative numbers" is found in recording gains and losses using natural numerals.
+A gain of 3 and a loss of 4 would be interpreted as a net loss of 4.
+The notion of "net loss" or "net gain" is born from the canonicalization of a table of gains and losses.
+These canonical "net gains" or "net losses" are what developed into the modern mathematician's positive and negative numbers i.e. integers.
+
+We consider a single trading event which is recorded as a quantity of gains and a quantity of losses.
+A gain of 3 and loss of 4 is denoted 3n4
+A gain of 5 and loss of 25 is denoted 5n25
+A gain of 0 and loss of 15 is denoted 0n15
+A gain of 3 and loss of 0 is denoted 3n0 or, simply, 3
+thus the unary operation "negate", which is denoted either 0- or -: works as follows
+   -:3
+0n3
+   0- 3
+0n3
+   0 - 3
+0n3
+   - 3
+0n3
+   -3
+-3
+In the last case -3 is a unary operation "minus three" where as - 3 is "negate 3".
+Notice that "negate three" is a two word command and the verb "negate" is separated from the noun "three" by a space just as in - 3.
+The convention that -:3 represents "negate 3" is from :'s use as an adverb when put right next to a verb.
+There is much more that can be said about that later.
+
+For those who object out right to the use of 0n3 to denote what is commonly referred to as "negative three" I will suggest a bit of patience, as many numbers are the result of this same general pattern, and we should consider the origins of such concepts as not only historically interesting but interesting from a pedagogical or behavioral perspective.
+
+Consider fractions.
+Given a pie we are asked how to share it among four children.
+Certainly each child wishes to have part of the pie, and no one child would wish their part to be smaller than any other's part.
+Since there are four children, the whole pie must be broken into four parts.
+Since no child wishes to have less than another, the parts must be equal.
+Finally, we give each child one of the four parts of the pie.
+From this simple, and commonly occurring event, we get numbers for sharing i.e. fractions.
+The one part each child receives from the whole pie is said to be "one forth" of the pie.
+
+Suppose a party is planned and eight children are to be there.
+The pie is cut into eight parts, each being equal to the other in order to eliminate any sense of "unfairness" among the children.
+Due to inclement weather, only four children end up at the party.
+These children, still wishing to have their fair share of pie, are given two out of the eight parts of the whole pie.
+Thus, each child is said to have received "two eighths" of the pie.
+
+The realization that "one forth" of a pie is the same amount of pie as "two eights" of a pie comes from comparing the relative sizes of the resulting collection of pie pieces.
+Here "one of four parts" is denoted by 1f4 (though, ultimately the use of 'f' is inconsequential as long as it is easily distinguished from the other numeral notation introduced here).
+
+The question "is one of four parts the same as two of eight parts" is asking whether two methods of dividing a whole into parts and then selecting some of those parts give the same quantity.
+Here, the single trading event is an act breaking a whole into an equal number of parts and selecting a number of those parts.
+We record such an event by making a table of the number of equal parts the whole is broken into and the number of parts selected.
+So 1f2 records an event where some whole is broken into two equal parts and one of those parts is retained.
+Similarly 2f4 records an event where some whole was split into four equal parts and two of those parts were kept.
+The fact that a record of 1f2 is similar to a record of 2f4 (given the same whole) is what leads to the modern mathematician's notion of rational numbers.
+The use of canonical records (e.g. 1f2 for 2f4 or 16f32) is what most people think of as "rational numbers" rather than the companion concept of "fractions".
+
+
 Some Collected Drafts
 a&lt;|=b       a less or equals b
 */1+!n      times over one plus enum n (factorial of n)
