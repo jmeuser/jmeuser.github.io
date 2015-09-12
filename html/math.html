@@ -199,6 +199,15 @@ a&lt;|=b       a less or equals b
 (+/a*x^!#a)=+/a**/x#"!#a suggest dyadic ^ is suspect like ! as factorial.
 (+/a*x^!#a)=*/b-x for some b with (#b)=#a (fundamental theorem of algebra) (add awesome generalizations that simplify)
 
+e:*/#         /power i.e. x e y is "x to the y"
+r:{x*/+(!y)}  /raising factorial power i.e. 'x r y' is "x to the y rising"
+f:{*/!1+x}    /factorial of
+a:            /finite sequence of numerals
+b:            /finite sequence of numerals
+F:{+/(a r\: * y e % b r\: * f)!x}
+k F           /k-th partial sum of a,b-hypergeometric operator
+
++/(a (*/+)\: * z (*/#) % b (*/+)\: * (*/!:1+))!k  /k-th partial sum of a,b-hypergeometric function at z
 
 Copyright John Meuser 2015
 </pre></body></html>
