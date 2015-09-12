@@ -5,6 +5,74 @@
 <body><pre>
 The Art of Computer Programming by Knuth
 
+1.2 Mathematical Preliminaries
+"Mathematical notation is used for two main purposes in this book: to describe portions of an algorithm, and to analyze the performance characteristics of an algorithm."
+
+I will not be using Knuth's notation, nor classical mathematical notation.
+Rather, I use the notation described in the math section of this website.
+I refer to the notation as ijk because it is the product of my imagination, Iverson's J, and Whitney's k.
+
+1.2.1 Mathematical Induction
+"
+Suppose we want to prove that P(n) is true for all positive integers n.
+ 1 Give a proof that P(1) is true.
+ 2 Give a proof that "if all of P(1),P(2),...,P(n) are true, then P(n+1) is also true"; this proof should be valid for any positive integer n.
+" Knuth's TAOCP V1E3 p.11
+
+In ijk we have,
+   !0
+()
+   !1
+0
+   !2
+0 1
+   !3
+0 1 2
+   !4
+0 1 2 3
+and so on (i.e. (!1+n)=(!n),n ) then P'1+!n or P(1+!n) or just P 1+!n gives 
+(P 1),(P 2),(P 3),..,P n
+So Knuth's description of "an important way to do this" where "this" is "to prove that P(n) is true for all positive integers n" can be rewritten (restated) as
+
+1 Give a proof that P 1 is true.
+2 Give a proof that "if all of P 1+!n are true then P 1+n is also true"; this proof should be valid for any positive integer n.
+
+If we choose to begin with 0 instead of 1 then
+
+1 Give a proof that P 0 is true.
+2 Give a proof that "if all of P!n are true then P n is also true"; this proof should be valid for any positive integer n.
+
+For people who don't like spaces between propositional functions and their arguments:
+
+1 Give a proof that P.0 is true.
+2 Give a proof that "if all P!n are true then P.n is also true"; this proof should be valid for any positive integer n.
+
+For now, I will replace Knuth's notation with the appropriate ijk notation.
+
+"
+We can regard this method as an algorithmic proof procedure.
+In fact, the following algorithm produces a proof of P.n for any positive integer n,
+assuming that steps 1 and 2 above have been worked out:
+
+Algorithm I (Construct a proof).
+Given a positive integer n, this algorithm will output a proof that P.n is true.
+I1.[Prove P.0] Set k:0, and, according to 1, output a proof of P.0 .
+I2.[k=n] If k=n, terminate the algorithm; the required proof has been output.
+I3.[Prove P.k] According to 1, output a proof that if &amp;/P!k then P.k . Also output "We have already proved P!k; hence P.k is true.
+I4.[Increase k.] Increase k by 1 and go to step I2.
+" Knuth's TAOCP V1E3 p.11-12
+
+
+
+"
+Algorithm E (Extended Euclid's Algorithm).
+Given two positive integers m and n, we compute their greatest common divisor d, an we also compute two not-necessarily-positive integers a and b such that d=(a*m)+b*n.
+E1.[Initialize.] Set ax:b:1, a:bx:0, c:m, d:n .
+E2.[Divide.] q:c_%d, r:c!d . (We have c=r+q*d and 0&lt;|=r and r&lt;d.)
+E3.[Remainder zero?] If 0=r, the algorithm terminates; we have in this case d=a*m+b*n as desired.
+E4.[Recycle.] Set c:d, d:r, t:ax, ax:a, a:t-q*a, t:bx, bx:b, b:t-q*b, and go back to E2.
+" Knuth's TAOCP V1E3 p.14
+
 
 Contents
 
