@@ -224,8 +224,8 @@ We consider a single trading event which is recorded as a quantity of gains and 
 A gain of 3 and loss of 4 is denoted 3n4
 A gain of 5 and loss of 25 is denoted 5n25
 A gain of 0 and loss of 15 is denoted 0n15
-A gain of 3 and loss of 0 is denoted 3n0 or, simply, 3
-thus the unary operation "negate", which is denoted either 0- or -: works as follows
+A gain of 3 and loss of 0 is denoted 3n0 or, simply, 3.
+Thus the unary operation "negate", which is denoted either 0- or -: works as follows
    -:3
 0n3
    0- 3
@@ -295,6 +295,38 @@ One can also use (-2%3) to stand for 0n2f3, but the parenthesis matter in this c
 
 Notice that no parenthesis are used here.
 That is because there is nothing else that the expression -2%3 is part of so it is easily known that - means "negate" in this context.
+
+In the notation used here the result of evaluating (-2%3) is different from the result of evaluating (-2 %3).
+As has been said (-2%3) gives 0n2f3 but
+
+ -2 %3
+-------
+ -2 1f3
+-------
+ 1f3-2
+-------
+1f3-6f3
+-------
+ 0n5f3
+
+There is certainly good reason for perhaps interpreting -2 %3 in a different way.
+Some might wish for -2 %3 to give a vector 0n2 1f3.
+For them there are at least two choices: (-2) (%3) or -:2 %:3.
+
+Having gotten this far you might wonder if it's really all worth it.
+Math seems to be doing fine without worrying about this unfamiliar notation that seems to say only what has already been said about math.
+The "superficial" point of difference of this notation is that mathematical expressions built with this notation are immediately computable so that experimentation is as simple as with classical calculators only much more is expressible with only a minimal amount of new notation.
+
+The true value, purpose, or relevance of this notation is hard to communicate because its fundamental point of difference either goes unseen by most mathematicians/computer scientists or is outright denied as being a "relevant" point of difference.
+First, it promotes a finite perspective on mathematics.
+Some use the words "constructive" or "intuitionistic", but neither is fully meant here.
+A consequence of following this notational discipline is that the mathematics done is constructive, as far as "being constructive" has a well defined meaning in the first place.
+Furthermore, results are "intuitionistic" in that they will not be beyond what can be expressed in an mathematics built on an intuitionistic logic.
+But in both cases, neither constructivity nor intuitionistic constraints are what is aimed at.
+
+As a slogan, one might say, as Leopold Kronecker did, that "God made the integers; all else is the work of man", but I would rather say that humans created numerals and all else is the work of humans.
+Perhaps another slogan is Feynman's (or Dirac's or Mermin's) "Shut up and calculate".
+Though their use of the phrase would permit mathematical tools which are denied here (specifically tools from non-recursive analysis).
 
 Some Collected Drafts
 a&lt;|=b       a less or equals b
