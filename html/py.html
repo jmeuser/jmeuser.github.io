@@ -56,6 +56,16 @@ r'...' raw string i.e. escape characters are not interpreted
 "c" 'c' adjacent string constants are automatically concatenated
 
 
+moddiv(x,y) gives (_x%y),x!y
+
+
+
+For Python 2.x 
+from __future__ import division
+x=int(raw_input())
+y=int(raw_input())
+print(x//y)
+print(x/y)
 
 Sources
 https://www.python.org/doc/
