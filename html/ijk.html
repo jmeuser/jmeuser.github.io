@@ -94,7 +94,7 @@ Suppose s:2*,2+,2- which is read "a is two times append two plus append two minu
  s 3
 6 5 0n1
 
-That is a 3 (or a.3) gives the vector 6 5 0n1 whose first component is 6, second component is 5, and their component is negative one.
+That is s 3 (or s.3) gives the vector 6 5 0n1 whose first component is 6, second component is 5, and third component is negative one.
 Then
 
  a:2*,2+,2-
@@ -187,6 +187,12 @@ Or, more as is done in Concrete Math,
 +/^2 1+2*!49
 Which is just as unexpressive as the standard delimitated sigma notation for such an expression.
 
+The binary operation - is likely to be replaced by monus when used on natural numerals (chars).
+When applied to an integer quantity (ints), like 0n2, it becomes minus.
+Arguments are automatically promoted to the meet of their respective types.
+
+
+
 a b c  # ! 0  A B C
 d ` e  1 2 3  D ' E
 f g h  4 5 6  F G H
@@ -211,16 +217,16 @@ p q r s t u v w x y z { | } ~
 " rank(adv)
 # take       shape
 $
-% 
+% quotient
 &amp; meet
 '
-* times
+* times      signum
 + plus
 , append
-- minus(monus?)
-.
-/
-:
+- m[oi]nus   negate(not?)
+. of
+/ over
+: is
 ;
 &lt; less
 = equals
@@ -231,7 +237,7 @@ $
 \
 ]
 ^
-_
+_ drop       floor
 `
 {
 | join
