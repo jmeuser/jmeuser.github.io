@@ -6,7 +6,63 @@
 Hacker Rank Problems and Solutions
 https://www.hackerrank.com/jmeuser
 
-Extra Long Factorials
+Input and Output
+
+Problem Statement
+For any program that we write the basic things that we need to do is take the input and print the expected output.
+
+In C++ you can take the input using cin and print the output using cout.Unlike C where you need the format specifier in printf and scanf, here you can use cin and cout.
+
+Taking Input:
+If you want to input a number: cin&gt;&gt;n ,  where n is the number.
+If you want to input a number and a string: cin&gt;&gt;n&gt;&gt;s, where s is the string.
+
+Printing output:
+If you want to output a single number: cout&lt;&lt;n
+If you want to output a number and a string separated by a new line: cout&lt;&lt;n&lt;&lt;endl&lt;&lt;s (where endl moves the pinter to the new line and then string gets printed.)
+Take three numbers as inputs and print the sum of the three numbers.
+
+Input Format
+The first line of the input contains three integers A,B and C.
+(1&lt;|= &amp; &lt;|=1000) 2\ A,B,C
+
+Output Format
+In a single line print the sum of the three numbers.
+
+Solution
+
+#include &lt;cmath&gt;
+#include &lt;cstdio&gt;
+#include &lt;vector&gt;
+#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+
+int main() {
+    int a,b,c;
+    cin&gt;&gt;a;
+    cin&gt;&gt;b;
+    cin&gt;&gt;c;
+    cout&lt;&lt;a+b+c;
+    return 0;
+}
+
+
+Hello, World !
+
+Problem Statement
+Let's start with the mandatory ritual. Print the string "Hello, World!". You can either use printf (preferred for this tutorial) or cout.
+
+Solution
+
+#include &lt;iostream&gt;
+#include &lt;cstdio&gt;
+using namespace std;
+
+int main() {
+    printf("Hello, World!");
+    return 0;
+}
 
 
 Library Fine
