@@ -6,10 +6,6 @@
 ijk is a notational language for math, science, and society
 Being a product of my imagination, Iverson's J (and APL), and Whitney's k, the name ijk only seemed natural.
 
-Though there may soon be an interactive implementation of ijk, it is, and always will be, a notational language rather than a programming language.
-Thus its design is guided not simply by a desire to add inject math into a programming language, or to bring a programming language into mathematical notation.
-Rather it is meant to be a universal language for discussing, describing, and DOING math and science.
-
 Points of focus are as follows:
 clarity and exactness
 unavoidable necessity
@@ -17,22 +13,91 @@ simplifying generality
 idiomatic and mnemonic
 n-dimensional
 
-N-dimensional statements should be simpler and easier to understand than any specific instance.
+N-dimensional statements are often simpler and clearer than their specific instances.
+This is achieved using Iverson's adverb constructions.
+Summation notation is replaced with +/ .
+For example +/x+y*!z sums the first z terms of an arithmetic sequence.
+It can be read from left to right as "plus over x plus y times enumerate z".
+ 
+The unary verb ! is called enumerate.
+It stores an rectangular array of consecutive numerals in row-major form.
 
-This is achieved using Iverson's adverbs.
-Summation notation is replaced with +/ over the appropriate terms of the sequence.
-For example to sum over the first n terms of an arithmetic series with initial term a and common difference d is +/a+d*!n which is read "plus over a plus d times enumerate n".
-The foundation of most calculations is !n where n is some numeral or an array of numerals.
-The meaning of the expression +/a+d*!n has great generality.
-Each term of the sum is made by applying (a+d*) to each item of !n .
-In general if a takes a numeral and returns a term of a sequence then +/a"!n sums over the first n terms of the sequence a.
-a need not be a simple numeral, rather it may produce a matrix or higher dimensional array.
-Suppose a:2*,2+,2- which is read "a is two times append two plus append two minus" then 
- a 3
+ !0
+()
+ !10
+0 1 2 3 4 5 6 7 8 9
+ !3 3
+0 1 2
+3 4 5
+6 7 8
+ !3 3 3
+ 0  1  2
+ 3  4  5
+ 6  7  8
+
+ 9 10 11
+12 13 14
+15 16 17
+
+18 19 20
+21 22 23
+24 25 26
+
+Some may prefer to allocate !27 and store its shape somewhere else instead of using !3 3 3 .
+
+"
+Given a k-dimensional array with c-word elements A I"!k for &lt;|=/0,I,d we can store it in memory so that 
+(A LOC I) = +/ (A LOC k#0), (*/ c, I, {1+ (1+x)_ d"!k})" 1+ !k
+or
+a:*/ c, {1+ (1+x)_ d !k}
+(A LOC I) = +/ (A LOC k#0), a*I" 1+ !k
+"From TAOCP V1E3 pg.299 (translated to ijk)
+
+The meaning of the expression +/x+y*!z has great generality.
+Each term of the sum is made by applying x+y* to an item of !z .
+The expression x+y* or x+ y* stands for an arithmetical sequence starting at x with step size y.
+An arithmetic sequence starting at 2 with step size 3 named s would be defined by writing
+
+ s:2+3*
+ s 0
+2
+ s 1
+5
+ 2+3* 2
+8
+ 2+ 3* 2
+8
+ s.2
+8
+ s 0 1 2 3
+2 5 8 11
+ s.0 1 2 3
+2 5 8 11
+ s.!4
+2 5 8 11
+ s !4
+2 5 8 11
+ s!4
+2 5 8 11
+ s"!4
+2 5 8 11
+ s"1 !4
+2 5 8 11
+
+Often, there is more than one way to say the same thing.
+
+In general if s takes a numeral and returns a term of a sequence (i.e. if s is a verb) then +/s!n sums over the first n terms of s .
+s need not give a simple numeral.
+It may produce a matrix or higher dimensional array.
+Suppose s:2*,2+,2- which is read "a is two times append two plus append two minus" then
+
+ s 3
 6 5 0n1
+
 That is a 3 (or a.3) gives the vector 6 5 0n1 whose first component is 6, second component is 5, and their component is negative one.
 Then
-a:2*,2+,2-
+
+ a:2*,2+,2-
  (+/a"!3)=(a 0)+(a 1)+a 2
 1
  (+/a"!3)=(2*,2+,2- 0)+(2*,2+,2- 1)+2*,2+,2- 2
@@ -53,6 +118,7 @@ a:2*,2+,2-
 6 9 3
  +/a"!3
 6 9 3
+
 That example shows how one can explore the meaning of the notation and play with math and computer science.
 It is a simple example, and many find it unfamiliar, preferring the classical summation notation.
 The reason is that in these simple examples, that is in the classical uses of summation notation, ijk seems clumsy.
@@ -142,7 +208,7 @@ p q r s t u v w x y z { | } ~
 
 
 ! residue    enumerate
-"
+" rank(adv)
 # take       shape
 $
 % 
@@ -150,7 +216,7 @@ $
 '
 * times
 + plus
-,
+, append
 - minus(monus?)
 .
 /
