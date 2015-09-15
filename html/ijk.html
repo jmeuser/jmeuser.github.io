@@ -316,5 +316,180 @@ _ drop         floor
 }
 ~
 
+Classical Compositions
+(f g h y) and (f @ g @ h y) give (f (g (h y)))
+
+f
+|
+g
+|
+h
+|
+y
+
+(x f g h y) and (x f @ g @ h y) give (x f (g (h y)))
+
+  f
+ / \
+x   g
+    |
+    h
+    |
+    y
+
+(g h y) and (g @ h y) give (g (h y))
+
+g
+|
+h
+|
+y
+
+(x g h y) and (x g @ h y) give (x g (h y))
+
+  g
+ / \
+x   h
+    |
+    y
+
+(f0 f1 ... fn g h y) and (f0 @ f1 @ .. @ fn @ g @ h y) give (f0 (f1 ..(g (h y))..))
+
+f0
+|
+f1
+|
+:
+|
+fn
+|
+g
+|
+h
+|
+y
+
+(x f0 f1 .. fn g h y) and (x f0 @ .. @ fn @ g @ h y) give (x f0 (f1 ..(g (h y))..)
+
+  f0
+ / \
+x   f1
+    |
+    :
+    |
+    fn
+    |
+    g
+    |
+    h
+    |
+    y
+
+Forks
+(f g h) is a fork of f`g`h
+((f g h) y) gives ((f y) g (h y))
+
+  g
+ / \
+f   h
+|   |
+y   y
+
+(x (f g h) y) gives ((x f y) g (x h y))
+
+    g
+   / \
+  f   h
+ /|   |\
+x y   x y
+
+Claws
+(g h) is a claw of g`h
+((g h) y) gives (g (h y))
+
+ g
+ |
+ h
+ |
+ y
+
+(x (g h) y) gives (g (x h y))
+
+  g
+  |
+  h
+ / \
+x   y
+
+(f ]) and (f [) makes f monadic (on either the left or right argument)
+
+Trains
+(f0 f1 .. fn g h) is a train of f0`f1`..`fn`g`h
+if n is even then the train (f0 f1 .. fn g h) is a fork of forks
+if n is even ((f0 f1 .. fn g h) y) gives ((f0 y) f1 (..((fn y) g (h y))..))
+
+f1
+| \
+f0 f3
+|  | \
+y  f2 f5
+   |  | \
+   y  f4 :
+      |   \
+      y    g
+          / \
+         fn  h
+         |   |
+         y   y
+
+if n is even (x (f0 f1 .. fn g h) y) gives ((x f0 y) f1 (..((x fn y) g (x h y))..))
+
+  f1
+  | \
+  f0 f3
+ /|  | \
+x y  f2 f5
+    /|  | \
+   x y  f4 :
+       /|   \
+      x y    g
+            / \
+           fn  h
+          /|   |\
+         x y   x y
+
+if n is odd then the train (f0 f1 .. fn g h) is a claw of forks
+if n is odd ((f0 f1 .. fn g h) y) gives (f0 ((f1 y) f2 (..((fn y) g (h y))..)))
+
+f0
+|
+f2
+| \
+f1 f4
+|  | \
+y  f3 :
+   |   \
+   y    g
+       / \
+      fn  h
+      |   |
+      y   y
+
+if n is odd "x(f0 f1 .. fn g h)y"gives "(f0 (x f1 (..((x fn y)g(x h y))..)))"
+
+  f0
+  |
+  f2
+  | \
+  f1 f4
+ /|  | \
+x y  f3 :
+    /|   \
+   x y    g
+         / \
+        fn  h
+       /|   |\
+      x y   x y
+
 Copyright John Meuser 2015
 </pre></body></html>

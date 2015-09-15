@@ -32,40 +32,55 @@ Assignment
 //= floor quotient gets
 
 Strings
-'...'  string
-"..."  string
-'\''   single quote
-"'"    single quote
-'"'    double quote
-"\""   double quote
+'...'   string
+"..."   string
+'\''    single quote
+"'"     single quote
+'"'     double quote
+"\""    double quote
 escaped characters are shown in REPL, but not from print(x)
-r'...' raw string i.e. escape characters are not interpreted
+r'...'  raw string i.e. escape characters are not interpreted
 
 """...
 ......
-...""" multi-line string (contains input newlines)
+..."""  multi-line string (contains input newlines)
 
 '''...
 ......
-...''' multi-line string (contains input newlines)
+...'''  multi-line string (contains input newlines)
 
 """\
 ...\
-..\""" anew line immediately after \ is ignored
+..\"""  anew line immediately after \ is ignored
 
-"c" 'c' adjacent string constants are automatically concatenated
+"c" 'c' adjacent string literals (constants) are concatenated (just use 'c'+"c")
+
+3*'c'   gives 'ccc'
+
+w='Python'
+w[0]  # gives the character 'P' (first)
+w[-1] # gives the character 'n' (last)
 
 
-moddiv(x,y) gives (_x%y),x!y
-pow(a,b,m)  give  
+
+moddiv(x,y)  # (_x%y),x!y
+pow(a,b,m)   # (a */# b)!m
 
 
-For Python 2.x 
-from __future__ import division
-x=int(raw_input())
-y=int(raw_input())
-print(x//y)
-print(x/y)
+int()
+raw_input()
+input()
+
+a=(1,3)     #tuples data type
+a={'one':1} #dictionary data type
+
+for x in y:
+	stuff
+
+if c:
+	t
+else:
+	f
 
 Sources
 https://www.python.org/doc/
