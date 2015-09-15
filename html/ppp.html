@@ -56,6 +56,33 @@ run-time errors     logical errors found when a program is executed (run)
 
 2.5 Programming Environments
 
+Drill
+Run the hello_world.cpp program in your environment of choice.
+
+20150914T2025
+To get Stroustrup's std_lib_facilities.h to work on my MacBook Air took some effort.
+Ultimately, I was led to http://libcxx.llvm.org and, near the bottom of the page, read:
+
+"
+Using libc++ in your programs
+
+FreeBSD and Mac OS X
+To use your system-installed libc++ with clang you can:
+
+clang++ -stdlib=libc++ test.cpp
+clang++ -std=c++11 -stdlib=libc++ test.cpp
+" http://libcxx.llvm.org on 20150914
+
+Oddly, Apple redirects calls to g++ or gcc to clang without alerting you.
+
+
+Chapter 2 Objects, Types, and Values
+
+3.1 Input
+
+
+
 Sources
 http://www.stroustrup.com/Programming/
+http://libcxx.llvm.org   for compiling Stroustrup's code on a mac
 </pre></body></html>
