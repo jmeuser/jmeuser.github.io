@@ -3,8 +3,16 @@
  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen">
 </head>
 <body><pre>
-ijk is a notational language for math, science, and society
-Being a product of my imagination, Iverson's J (and APL), and Whitney's k, the name ijk only seemed natural.
+N is the intersection of math and computer science.
+It is like a calculator for modern computation.
+Just as the Babylonia, Egyptian, and Roman numerals were replaced by the efficiency of our modern Hindu-Arabic decimal system, so do past notations for computing and calculating give way to N.
+
+N is natural.
+Simple, straight forward, and interactive.
+ 
+
+
+Being a product of my imagination, Iverson's J (and APL), and Whitney's k.
 
 Points of focus are as follows:
 Separate nouns from verbs i.e. keep data away from the actions performed on it.
@@ -95,7 +103,7 @@ Given a k-dimensional array with c-word elements A I"!k for (0&lt;|=I) &amp; I&l
 or
 a:*/ c, {1+ (1+x)_ d !k}
 (A LOC I) = +/ (A LOC k#0), a*I" 1+ !k
-"From TAOCP V1E3 pg.299 (translated to ijk)
+"From TAOCP V1E3 pg.299 (translated to N)
 
 Notice, the math described here is also the code needed to implement such an allocation method.
 
@@ -167,8 +175,8 @@ Then
 
 That example shows how one can explore the meaning of the notation and play with math and computer science.
 It is a simple example, and many find it unfamiliar, preferring the classical summation notation.
-The reason is that in these simple examples, that is in the classical uses of summation notation, ijk seems clumsy.
-The strength of ijk is in the simplicity of statements that are otherwise hard to express using classical summation notation.
+The reason is that in these simple examples, that is in the classical uses of summation notation, N seems clumsy.
+The strength of N is in the simplicity of statements that are otherwise hard to express using classical summation notation.
 
 Knuth, Graham, and Patashnik's Concrete Mathematics is probably the most passionate love poem to summations.
 In it they embrace Iverson's square bracket notation, but ignore his / adverb.
@@ -195,10 +203,10 @@ And not just any odd numbers, those odd numbers that are less than 100.
 The argument is that (1+2*k)^2 is a "bad" way to represent the square of an odd number when manipulating it in a proof using English as its metalanguage.
 (one might write it as {^2 1+ 2*}k )
 
-My contention is that ijk provides a much simpler interface to these concepts (both on a chalk board, in a book, and yes... on a computer).
+My contention is that N provides a much simpler interface to these concepts (both on a chalk board, in a book, and yes... on a computer).
 First, the savings in generalized Sigma-notation comes from its encoding of the information "odds less than 100" by placing constraints on k.
 Those constraints being "0&lt;k&lt;100" {0&lt; &amp; &lt;100}k (read "zero less and less one hundred k") and "k odd".
-I would write this sum using ijk as follows.
+I would write this sum using N as follows.
 First let olt mean "odds less than".
 You might write it casually as:
 
@@ -212,8 +220,8 @@ Or, for someone familiar with this notation (just as you would have to be to use
 "sum of the squares of odds less than one hundred"
 Notice, there is no extraneous variable "k" there is only the information on what actions are to be performed.
 Now, the real difference between the generalized sigma notation and the delimitated form is how we represent odds less than one hundred.
-This is left un identified in ijk as we've used it.
-To review, the whole ijk statement would be
+This is left un identified in N as we've used it.
+To review, the whole N statement would be
 
 olt:   odds less than
 +/ ^2" olt 100

@@ -3,6 +3,10 @@
  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen">
 </head>
 <body><pre>
+Python
+
+Like APL, J, k, LISP, or Scheme, Python can be explored interactively.
+
 Arithmetic Operators
 +  plus
 -  minus
@@ -21,7 +25,7 @@ Comparison Operators
 &gt;= more or equal
 &lt;= less or equal
 
-Assignment
+Assignment Operators (copulas)
 =   gets
 +=  plus gets (x+=y abbreviates x = x + y)
 -=  minus gets
@@ -32,39 +36,60 @@ Assignment
 //= floor quotient gets
 
 Strings
-'...'   string
-"..."   string
-'\''    single quote
-"'"     single quote
-'"'     double quote
-"\""    double quote
-escaped characters are shown in REPL, but not from print(x)
+'abc'   # gives the string 'abc'
+"..."   # gives the string '...' string
+'\''    # gives "'" the string containing only a single quote
+"'"     # gives "'" the string containing only a single quote
+'"'     # gives '"' the string containing only a double quote
+"\""    # gives '"' the string containing only a double quote
 r'...'  raw string i.e. escape characters are not interpreted
-
 """...
-......
 ..."""  multi-line string (contains input newlines)
-
 '''...
-......
 ...'''  multi-line string (contains input newlines)
-
 """\
-...\
-..\"""  anew line immediately after \ is ignored
-
+.\"""   anew line immediately after \ is ignored
 "c" 'c' adjacent string literals (constants) are concatenated (just use 'c'+"c")
-
 3*'c'   gives 'ccc'
 
-w='Python'
-w[0]  # gives the character 'P' (first)
-w[-1] # gives the character 'n' (last)
+escaped characters are shown in REPL, but not from print(x)
+
+w='Python' # set w to stand for the string 'Python'
+w[0]       # gives the character 'P' (first)
+w[-1]      # gives the character 'n' (last)
+w[200]     # gives 'IndexError: string index out of range'
+w[2:]      # gives 'thon'
+w[2:200]   # gives 'thon' i.e. it handles ranges "gracefully"
+w[2:-200]  # gives ''
+w[:2]      # gives 'Py'
+len(w)     # gives 6 i.e. the length of the string referred to by w
+w[0]=2     # gives 'TypeError: 'str' object does not support item assignment'
 
 
+Lists
+s=[1,4,9,16,25]   # a list of squares
+s[1]              # gives 4
+s+[36,49,81,100]  # gives [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+c=[1,8,27,65,125]
+c[3]=64           # changes c[3] from 65 to 64 (lists are mutable unlike strings)
+c                 # gives [1, 8, 27, 64, 125]
+c.append(216)     # appends 216 to the end of c
+c.append(7**3)    # append the cube to c
+c                 # gives [1, 8, 27, 64, 125, 216, 343]
+
+l = ['a','b','c','d','e','f','g']  # l gets a list of letters
+l[2:5] = ['C','D','E']             # replace l[2:5] with ['C', 'D', 'E']
+l                                  # gives ['a','b','C','D','E','f','g']
+l[2:5] = []                        # replaces l[2:5] with nothing: eliminates entries
+l                                  # gives ['a', 'b', 'f', 'g']
+l[:]=[]                            # eliminates all entires from l
+l                                  # gives []
+len(l)                             # the length of an empty list is zero
+
+Math
 
 moddiv(x,y)  # (_x%y),x!y
-pow(a,b,m)   # (a */# b)!m
+pow(a,b,m)   # (a*/#b)!m
 
 
 int()
@@ -75,12 +100,12 @@ a=(1,3)     #tuples data type
 a={'one':1} #dictionary data type
 
 for x in y:
-	stuff
+    stuff
 
 if c:
-	t
+    t
 else:
-	f
+    f
 
 Sources
 https://www.python.org/doc/
