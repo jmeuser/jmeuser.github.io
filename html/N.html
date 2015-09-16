@@ -27,6 +27,7 @@ clear and exact
 unavoidable necessity
 simplifying generality
 idiomatic and mnemonic
+eliminate obstacles to thought
 N-dimensional
 
 N is designed so that you'll love using it whether its on a black board, on a napkin, or on a computer.
@@ -268,21 +269,21 @@ One might define odd:1+2* so that odd n gives the n-th odd number.
 Though, this doesn't make it easy to know whether odd.23 is less than 100 or not.
 We could find out easily by listing out the first 100 odd numbers and seeing where they are less than 100:
 
- &amp;(odd!100)&lt;100
+ ?(odd!100)&lt;100
 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49
 
 This, being very close to k code, is read "where odd of enumerate 100 less 100".
 An someone used to this notation would say "where the first 100 odds are less than 100".
 We could select the maximum number (49) with
 
-&amp;/&amp;(odd!100)&lt;100
+&amp;/?(odd!100)&lt;100
 
 Which is read "meet over where odd of enumerate 100 less 100".
 In this "pidgen" English you can instantly extract its meaning and means of computation.
 So one could write the delimited form as
 
 odd:1+2*
-+/ ^2 odd &amp;/&amp;100&gt;odd!100
++/ ^2 odd &amp;/?100&gt;odd!100
 
 Or, more as is done in Concrete Math,
 
@@ -334,23 +335,23 @@ p q r s t u v w x y z { | } ~
 # take         shape
 $
 % quotient
-&amp; meet         where
+&amp; meet
 '
 * times        signum
 + plus
 , append
 - m[oi]nus     negate(not?)
 . of
-/ over
+/ over         Kronecker Product
 : is
 ; (link?)
 &lt; less
 = equal
 &gt; more
-?
+?              where
 @
 [
-\ (pre,in)fix 
+\ infix        prefix 
 ]
 ^
 _ drop         floor
