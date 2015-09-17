@@ -42,15 +42,15 @@ Strings
 "'"     # gives "'" the string containing only a single quote
 '"'     # gives '"' the string containing only a double quote
 "\""    # gives '"' the string containing only a double quote
-r'...'  raw string i.e. escape characters are not interpreted
+r'...'  # raw string i.e. escape characters are not interpreted
 """...
-..."""  multi-line string (contains input newlines)
+..."""  # multi-line string (contains input newlines)
 '''...
-...'''  multi-line string (contains input newlines)
+...'''  # multi-line string (contains input newlines)
 """\
-.\"""   anew line immediately after \ is ignored
-"c" 'c' adjacent string literals (constants) are concatenated (just use 'c'+"c")
-3*'c'   gives 'ccc'
+.\"""   # a new line immediately after \ is ignored
+"c" 'c' # adjacent string literals (constants) are concatenated (just use 'c'+"c")
+3*'c'   # gives 'ccc'
 
 escaped characters are shown in REPL, but not from print(x)
 
@@ -91,6 +91,29 @@ x = [a,n]                          # x gets list having lists a and n
 x                                  # x gives [['a', 'b', 'c'], [1, 2, 3]]
 x[0][1]                            # gives 'b' i.e. a[1]
 
+print('abc',end=', ')              # prints 'abc, ' without a new line at the end
+
+
+Control
+if c:             # cond c;t;f
+    t
+else:
+    f
+if c0:            # cond c0 t0;
+    t0            #      c1 t1;
+elseif c1:        #       1  d
+    t1
+else:
+    d
+for x in y:       # perform f(x) for each x in y
+    f(x)
+for x in y:       # this will run forever
+    y.insert(0,x)
+for x in y[:]:    # this will not run forever, x iterates over y[:] rather than y
+    y.insert(0,x)
+range(x,y,z)      # x+z*!1+_y%z
+range(len(x))     # !#x
+
 
 
 Math
@@ -109,10 +132,7 @@ a={'one':1} #dictionary data type
 for x in y:
     stuff
 
-if c:
-    t
-else:
-    f
+
 
 Sources
 https://www.python.org/doc/

@@ -52,9 +52,44 @@ Elementary school can do quite a number on even the most eager minds.
 
 
 Draft Material 
+
 (don't look down here unless you're ready to see what it takes to turn an idea into an innovation)
 (seriously, you'll get the wrong impression if you're not prepared)
 (I warned you. Any impression you have past this point is no longer my responsibility, no matter how false it might be.)
+
+What do you mean by exact?
+If you want to compare things within a tolerance then you have to do so explicitly, otherwise N only deals with exact values, no approximations.
+
+But what about all those beautiful real numbers?
+We have a lot to talk about... real numbers have got to go.
+
+Now you're really crazy! 
+No reals? 
+What about all those beautiful analytic results from functional analysis that are the bread and butter of signals processing!?
+Ya... it's hard to accept, but we'll be fine without it, better even.
+
+I don't believe you.
+Don't take my word for it, Goodstein did most of the work in his Recursive Number Theory (1957) and Recursive Analysis (1961).
+
+Oh, but that's all recursive stuff! No one wants to be worried about such a technical esoteric mathematical logical globidy gloopity: it's all just one big chore!
+
+Life is one big chore.
+Also, that's the exact response many people had to his original work: what a chore.
+But, they never meant "what a chore" in a logical senses, they just found his evisceration of classical analysis revolting from a moral standpoint.
+You might think of the response people had to early doctors learning of human anatomy by examining the dead.
+
+Mathematics and morals? You have to be kidding.
+Surprisingly, or perhaps not, mathematicians are people just like you or me.
+They are prone to bouts of collective delusion just as much as any other group or club.
+As computers have become more prevalent, it has been harder for certain delusions to persist: they must be confronted for us to continue moving forward.
+Also, it's important to note that even Russell did not object to a philosophy congruent to that of Goodstein's works.
+Rather he admitted that it was a path he did not have the heart to take after having confronted the foundations as he saw them.
+
+Russell? Goodstein? Now you've gone and introduced philosophy into what you said was a practical problem.
+This seems like nothing us mere mortals must worry ourselves with. 
+
+
+
 
 Separate nouns from verbs i.e. keep data away from the actions performed on it.
 Similarities between subexpressions should be explicitly collected into a single subexpression e.g.
@@ -90,13 +125,17 @@ n choose k
 */ (n-)%(1+) !k
 */n-%1+ !k
 
-A method of computing the n-th Laguerre polynomial at x
-+/ (*/ x^, (- 1)^, (n-%1+ !), 1% (*/1+!)) !1+n
+A method of computing the k-th Laguerre polynomial at x
++/ (*/ x^, 0n1^, (k-%1+ !), 1% (*/1+!)) !1+k
 
 Another method (though the same, just not explicit i.e. breaking into parts)
 C:{*/x-%1+!y}   n C k means n choose k
 f:*/1+!         f k means factorial of k
-+/ (*/ x^, (- 1)^, (n C), 1% f) !1+n
++/ (*/ x^, 0n1^, (k C), 1% f) !1+k
+
+Representation is not, in itself, enough to justify this notation.
+Ease of manipulation and experimentation is what matters.
+Eliminate variables, replace with pronoms.
 
 
 N-dimensional statements are often simpler and clearer than their specific instances.
@@ -309,7 +348,40 @@ As an example of using - with natural numerals and integer numerals:
 0n6
  
 
-The notation for numerals is best thought of the building of compound nouns (komposita) as in Deutsch. 
+The notation for numerals is best thought of the building of compound nouns (komposita) as in Deutsch.
+
+Some notational conventions
+Bounds on the values expected for a pronom are denoted by mx and Mx
+
+ {mx&lt; &amp; &lt;Mx}x
+
+Notice that {mx&lt; &amp; &lt;Mx} or mx&lt; &amp; &lt;Mx is much different from {mx &lt;&amp;&lt; Mx} or mx {&lt;&amp;&lt;} Mx or mx &lt;&amp;&lt; Mx
+
+For binding over a calculated value or compound noun parenthesis are needed
+
+ &lt;(3 4 5) 4
+0 0 1
+ &lt;3 4 5 6
+0 0 0
+ &lt;3 (4 5 6)
+0 0 0
+ &lt;(3) 4 5 6
+0 0 0
+ &lt;(3+4) 4 5 6
+1 1 1
+ &lt;7 (4 5 6)
+1 1 1
+ &lt;7 4, 5, 6   / This gives some sense to this system of evaluation
+1 1 1
+
+
+ ? &lt;100 odd! 100
+ ? &lt;100 odd.! 100
+
+ ?. &lt;100. odd. !. 100
+
+ (?@&lt;100@odd@!)
+
 
 a b c  # ! 0  A B C
 d ` e  1 2 3  D ' E
@@ -342,7 +414,7 @@ $
 , append
 - m[oi]nus     negate(not?)
 . of
-/ over         Kronecker Product
+/ over         table (generalized Kronecker product)
 : is
 ; (link?)
 &lt; less
