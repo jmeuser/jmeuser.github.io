@@ -95,24 +95,24 @@ print('abc',end=', ')              # prints 'abc, ' without a new line at the en
 
 
 Control
-if c:             # cond c;t;f
+if c:               # cond c;t;f
     t
 else:
     f
-if c0:            # cond c0 t0;
-    t0            #      c1 t1;
-elseif c1:        #       1  d
+if c0:              # cond c0 t0;
+    t0              #      c1 t1;
+elseif c1:          #       1  d
     t1
 else:
     d
-for x in y:       # perform f(x) for each x in y
+for x in y:         # perform f(x) for each x in y
     f(x)
-for x in y:       # this will run forever
+for x in y:         # this will run forever
     y.insert(0,x)
-for x in y[:]:    # this will not run forever, x iterates over y[:] rather than y
+for x in y[:]:      # this will not run forever, x iterates over y[:] rather than y
     y.insert(0,x)
-range(x,y,z)      # x+z*!1+_y%z
-range(len(x))     # !#x
+list(range(x,y,z))  # x+z*!1+_y%z
+list(range(len(x))) # !#x
 
 
 

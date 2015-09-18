@@ -1,0 +1,107 @@
+<html><head>
+ <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Inconsolata">
+ <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen">
+</head>
+<body><pre>
+Notes on Recursive Number Theory by R. L. Goodstein
+
+I've used an N like language to describe his work here.
+
+Chapter I Definition by Recursion
+
+1. Variables
+
+"
+In terms of two operations
+1 replacing x by 1+x,
+2 replacing x by 0,
+we define numerals to be signs constructed from x by the repeated applications of the operation 1 followed by an application of operation 2.
+Starting with the sign x the process of constructing numerals may be regarded as a process of eliminating x using only the operations 1 and 2.
+" RNT Goodstein pg. 13
+
+"
+The defining property of a numeral variable x is that it may be replaced by zero or 1+x .
+Any letter may of course serve as a numeral variable, but in this chapter only the letters x,y, z and w will be used.
+By means of variables we can make general statements about numbers, statements which hold true when any particular numeral is substituted for the variable.
+" RNT Goodstein pg. 13
+
+Goodstein is missing a rule which permits the introduction of the letter x (or other rules for the other letters for that matter).
+Such a rule is essential for it is the introduction of x that "starts" the whole game off.
+(Alternatively it is that rule which introduces 'information' to the system.)
+
+                            antecedent
+--- introduce lowercase-ex  action
+ x                          consequent
+
+The rules 1 and 2 would be written schematically as
+
+   x
+----- introduce the successor of
+ 1+x
+
+ x
+--- eliminate lowercase-ex (Introduce zero)
+ 0
+
+Interestingly, the rule 'Eliminate lowercase-ex' can also be thought of as 'Introduce zero'.
+
+Notice also that Goodstein gives a simultaneous definition of numeral and numeral variable.
+Oddly, it does not seem 'numeral variable' is what he has actually defined.
+Rather, it seems he has defined numeral function, specifically the successor function.
+It will be easier to see this after other arithmetic operations are introduced.
+
+A numeral is the result of a sequence of events having the following form:
+
+[1] Introduce lowercase-ex
+[2] Introduce 1+ or stop.
+[3] Eliminate lowercase-ex or go to [2].
+
+For now, there is no way to say what method one must use to "replace x by 1+x".
+This 'generalizing abstraction' is encapsulated in the event schema I've used above.
+
+Antecedent and consequent events are referenced via intuitive pictures.
+In these rules, the event 'an occurrence of a lowercase-ex' is referenced using an occurrence of a lowercase-ex.
+The events 'between' the antecedent and consequent events are suppressed using either a single line or a double line.
+
+Here a single line is denoted as repeated occurrences of a hyphen or minus-sign '-'.
+A double line is denoted by repeated occurrences of an equality-sign '='.
+
+The elision or reference to component events is of principle interest to mathematician in some instances and the philosopher or logician in others.
+
+Those rules which are basic are likely to interest logicians or philosophers.
+Those rules which are derived are likely to interest mathematicians or logicians.
+The products of these rules and their methods are likely to interest scientists or engineers.
+
+Using two rules one can describe just the numerals.
+
+--- Introduce zero
+ 0
+
+   0
+----- Introduce the successor of
+ 1+0
+
+There are multiple reasons for considering this simpler rule set.
+One is the beauty of its simplicity.
+One is it can be used to build a canonical system in which future systems may be interpreted.
+An other is that it points to Kleene's generalized arithmetic from his Introduction to Metamathematics.
+In this case there is just a single type of zero and successor where as in Kleene's generalized arithmetic there are many types of zero and successor.
+
+To the general public mathematics is a behaviorally conditioned performance.
+The use of schema is meant to reinforce this interpretation.
+To 'do math' is to identify and act upon antecedent events which are structurally similar to those often labeled 'mathematical' so as to bring about the relevant consequent.
+The specification of relevant antecedent and consequent events is an ongoing process.
+
+Using the two rules just introduced a numeral may be defined via the following method:
+
+[1] Introduce zero
+[2] Introduce the successor of, stop, or go to [2].
+
+Example results of these sequences of events are
+
+0
+1+0
+1+1+0
+1+1+1+0
+1+1+1+1+0
+</pre></body></html>
