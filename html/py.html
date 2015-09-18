@@ -113,6 +113,29 @@ for x in y[:]:      # this will not run forever, x iterates over y[:] rather tha
     y.insert(0,x)
 list(range(x,y,z))  # x+z*!1+_y%z
 list(range(len(x))) # !#x
+range(x,y,z)        # object returning successive items from an arithmetic list
+for x in y:         # iterate x over y: if c then break past else (i.e. z).  
+    if c:
+        break
+else:
+    z
+for x in y:         # iterate x over y: if c then continue to next iterate.
+    if c:
+        continue
+    z
+while x:            # while x do nothing
+    pass
+def f(x):           # define a function that takes x and does y followed by z.
+    """docstring""" # document the functions behavior
+    y
+    z
+# All variable assignments in a function store the value in the local symbol table;
+# variable references look in the following order
+# 1 local symbol table
+# 2 local symbol tables of enclosing functions
+# 3 global symbol table
+# 4 table of built-in names
+# functions without return statements always return None
 
 
 
