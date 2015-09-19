@@ -7,7 +7,7 @@ Python
 
 Like APL, J, k, LISP, or Scheme, Python can be explored interactively.
 
-Arithmetic Operators
+# Arithmetic Operators
 +  plus
 -  minus
 *  times
@@ -16,7 +16,7 @@ Arithmetic Operators
 ** power
 // floor division
 
-Comparison Operators
+# Comparison Operators
 == equal
 != not equal
 &lt;&gt; not equal
@@ -25,7 +25,7 @@ Comparison Operators
 &gt;= more or equal
 &lt;= less or equal
 
-Assignment Operators (copulas)
+# Assignment Operators (copulas)
 =   gets
 +=  plus gets (x+=y abbreviates x = x + y)
 -=  minus gets
@@ -35,7 +35,7 @@ Assignment Operators (copulas)
 **= power gets
 //= floor quotient gets
 
-Strings
+# Strings
 'abc'   # gives the string 'abc'
 "..."   # gives the string '...' string
 '\''    # gives "'" the string containing only a single quote
@@ -66,7 +66,7 @@ len(w)     # gives 6 i.e. the length of the string referred to by w
 w[0]=2     # gives 'TypeError: 'str' object does not support item assignment'
 
 
-Lists
+# Lists
 s=[1,4,9,16,25]   # a list of squares
 s[1]              # gives 4
 s+[36,49,81,100]  # gives [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
@@ -94,7 +94,7 @@ x[0][1]                            # gives 'b' i.e. a[1]
 print('abc',end=', ')              # prints 'abc, ' without a new line at the end
 
 
-Control
+# Control
 if c:               # cond c;t;f
     t
 else:
@@ -125,6 +125,8 @@ for x in y:         # iterate x over y: if c then continue to next iterate.
     z
 while x:            # while x do nothing
     pass
+
+# Functions
 def f(x):           # define a function that takes x and does y followed by z.
     """docstring""" # document the functions behavior
     y
@@ -137,6 +139,24 @@ def f(x):           # define a function that takes x and does y followed by z.
 # 4 table of built-in names
 # functions without return statements always return None
 
+# Object Methods
+x=[]        # x is an empty list
+y=[]        # y is an empty list
+x.append(0) # append 0 to the list x
+x           # gives [0] i.e. the list containing zero
+y = y + [0] # y is the list y plus the list [0]
+y           # gives [0] i.e. the list containing zero
+# object.method_name(argument) is a call to the method method_name of object
+
+
+def f(x=0,y=1,z=2): # give default values to x,y,z
+    print(x,y,z)
+f()                 # gives 0 1 2
+f(3)                # gives 3 1 2
+f(3,4)              # gives 3 4 2
+f(3,4,5)            # gives 3 4 5
+
+1 in (0,1,2,3)      # gives True since one in the tuple zero, one two, three
 
 
 Math
@@ -144,18 +164,12 @@ Math
 moddiv(x,y)  # (_x%y),x!y
 pow(a,b,m)   # (a*/#b)!m
 
-
 int()
 raw_input()
 input()
 
 a=(1,3)     #tuples data type
 a={'one':1} #dictionary data type
-
-for x in y:
-    stuff
-
-
 
 Sources
 https://www.python.org/doc/

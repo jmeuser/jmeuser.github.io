@@ -88,7 +88,68 @@ Rather he admitted that it was a path he did not have the heart to take after ha
 Russell? Goodstein? Now you've gone and introduced philosophy into what you said was a practical problem.
 This seems like nothing us mere mortals must worry ourselves with. 
 
+Use space wisely.
+Don't fear space.
+Don't abuse space.
+Balance space with proportion.
+Space breaks N expressions into digestible chunks.
+Space is the most powerful part of a sentence.
 
+
+(3*x)+(3*y)+(3*z)
+
+(3*x) + (3*y) + (3*z)
+
+(3 * x) + (3 * y) + (3 * z)
+
+(3*x)+ (3*y)+ (3*z)
+
+(3* x)+ (3* y)+ (3* z)
+
+
+(x+1)*(x+2)*(x+3)
+
+(x+1) * (x+2) * (x+3)
+
+(x + 1) * (x + 2) * (x + 3)
+
+(x+ 1)* (x+ 2)* (x+ 3)
+
+
+x+(x*(1+x))+(x*(1+x)*(2+x))+(x*(1+x)*(2+x)*(3+x))
+
+x + (x*(1+x)) + (x*(1+x)*(2+x)) + (x*(1+x)*(2+x)*(3+x))
+
+x + (x * (1+x)) + (x * (1+x) * (2+x)) + (x * (1+x) * (2+x) * (3+x))
+
+x + (x * (1 + x)) + (x * (1 + x) * (2 + x)) + (x * (1 + x) * (2 + x) * (3 + x))
+
+x+ (x* 1+ x)+ (x* (1+ x)* 2+ x)+ (x* (1+ x)* (2+ x)* 3+ x)
+
+
+1*2*3*4*5*6
+
+1 * 2 * 3 * 4 * 5 * 6
+
+1* 2* 3* 4* 5* 6*
+
+
+x*(x+1)*(x+2)*(x+3)*(x+4)
+
+x * (x+1) * (x+2) * (x+3) * (x+4)
+
+x * (x + 1) * (x + 2) * (x + 3) * (x + 4)
+
+x* (x+ 1)* (x+ 2)* (x+ 3)* x+ 4
+
+
+(1%t)*((2^t)%(1+t))*(((1+1%2)^t)%(1+t%2))*(((1+1%3)^t)%(1+t%3))
+
+(1%t) * ((2^t)%(1+t)) * (((1+1%2)^t)%(1+t%2)) * (((1+1%3)^t)%(1+t%3))
+
+(1 % t) * ((2 ^ t) % (1 + t)) * (((1 + 1 % 2) ^ t) % (1 + t % 2)) * (((1 + 1 % 3) ^ t) % (1 + t % 3))
+
+(1% t)* ((2^ t)% 1+ t)* ((^t 1+ 1% 2)% 1+ t% 2)* (^t 1+ 1% 3)% 1+ t% 3
 
 
 Separate nouns from verbs i.e. keep data away from the actions performed on it.
@@ -116,22 +177,24 @@ x */+ !5
 */ x+ 1, 15, - 23
 
 (1%t)*((2^t)%1+t)*((^t 1+ 1% 2)%1+t%2)*((^t 1+ 1% 3)%1+t%3)
-*/ (1%t), (^t 1+ 1%)%(1+ t%) 1+ !3
+*/ 1%t , (^t 1+ 1%)%(1+t%) 1+!3
 
 Note */ (1%t), (^t 1+ 1%)%(1+ t%) 1+ !n is the n-th partial product of Euler's product expression for Gamma of t .
 
 n choose k
-(*/ n-)%(*/ 1+) !k
-*/ (n-)%(1+) !k
+(*/ n-) % (*/ 1+) !k
+*/ (n-) % (1+) !k
+*/ n- % 1+ !k
+*/ n-%1+ !k
 */n-%1+ !k
 
 A method of computing the k-th Laguerre polynomial at x
-+/ (*/ x^, 0n1^, (k-%1+ !), 1% (*/1+!)) !1+k
++/ (*/ x^ , 0n1^ , k-%1+.! , 1%*/.1+!) !1+ k
 
 Another method (though the same, just not explicit i.e. breaking into parts)
-C:{*/x-%1+!y}   n C k means n choose k
+C:{*/x-%1+ !y}   n C k means n choose k
 f:*/1+!         f k means factorial of k
-+/ (*/ x^, 0n1^, (k C), 1% f) !1+k
++/ (*/ x^ , 0n1^ , k.C , 1%f)!1+ k
 
 Representation is not, in itself, enough to justify this notation.
 Ease of manipulation and experimentation is what matters.
