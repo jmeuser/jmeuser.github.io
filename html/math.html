@@ -90,25 +90,140 @@ The apparent complexity of the rules needed to do so dissuades their immediate i
 Alternatively, it can be introduced as an abbreviation for numerals of the current system.
 Rather than give the entire system of abbreviation in full it will be given as needed.
 
+---
+ 0
+
+ 0
+-----
+ S 0
+
 
 Introduction and Elimination of Pronumerals
 
+---   ---   ---
+ x     y     z
+
+ x     y     z
+---   ---   ---
+ 0     0     0
+
+ x       y       z
+-----   -----   -----
+ S x     S y     S z
+
+
+Repeat
+
+ f^0 y
+-------
+     y
+
+ f^(S x) y
+-----------
+ f f^x y
+
 
 Introduction and Elimination of Addition
+
+Addition is repeated succession.
+
 
  x | y
 ---+---
  x+ y
 
- 0+ y    (1+ x)+ y
-------  -----------
-    y     1+ x+ y
+ 0+ y     (1+ x)+ y
+------   -----------
+    y      1+ x+ y
 
+or
+
+ x+ y
+-------
+ S^x y
+
+
+Introduction and Elimination of Multiplication
+
+Multiplication is repeated addition.
+
+ x | y
+---+---
+ x* y
+
+
+ 0* y    (S x)* y
+------  ----------
+    0    y+ x* y
+
+or
+
+  x* y
+--------
+ y+^x 0
+
+
+Exponentiation
+
+Exponentiation is repeated multiplication.
+
+exp: {x*^y 1}
+
+
+Introduction and Elimination of Predecessor
+
+ 0
+-----
+ P 0
+
+ S x
+---------
+ P S S x
+
+
+ P 0
+-----
+   0
+
+ P S x
+-------
+     x
+
+
+Monus
+
+ x- y
+-------
+ P^y x
+
+S:   successor
+P:   predecessor
+
+sum: {$[x=0;y;S x sum P y]}       Recursive
+sum: {S^x y}                      Iterative
+
+prod:{$[x=0;0;y sum x prod P y}   Recursive
+prod:{(x sum)^y 1}                Iterative
+
+exp: {$[y=0;1;x prod x exp P y}   Recursive
+exp: {(x prod)^y 1}               Iterative
+
+dif: {$[y=0;x;P x dif P y]}   Recursive
+dif: {P^y x}                  Iterative
+
+alt: {$[x=0;0;1 dif alt x]}   Recursive
+alt: {(1 dif)^x 0}            Iterative
+
+hf:  {$[x=0;0;hf+alt x]}                    Recursive
+hf:  {1# ({[u;v] P u; v sum alt u}^x)[x;0]} Iterative
+
+rt:  {$[x=0;(rt x)+ 1- (S x)- (exp 2) S rt x]}         Recursive
+rt:  {$[1- (S x)- (exp 2) S rt P x; rt P x; S rt P x]} Recursive
 
 
 Copying
 
-All of math and science are born from and reducible to imitation.
+All of math and science are born from and reducible to imitation and repetition.
 Imitation is the behavior of performing similar behaviors.
 It is possible to condition the performance of similar behaviors without observing imitation.
 Thus, the occurrence of similar events of human behavior is not necessarily imitation.
