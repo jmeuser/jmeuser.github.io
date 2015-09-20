@@ -43,6 +43,68 @@ Alfred Tarski
 Names are added as they occur to me.
 For now, I'm retelling Goodstein's 'Fundamental concepts of Mathematics'.
 
+Introduction of Numerals
+
+A numeral is an occurrence of a zero or an occurrence of a successor of a numeral.
+A numeral system is a collection of methods for introducing an occurrence of zero and introducing the successor of a numeral of the system.
+
+Our first numeral system uses these rules:
+1 write '0'; and
+2 write '1+ 0' for '0' in a numeral.
+Rule 1 gives the zero numeral and rule 2 gives the successor of a numeral of this system.
+
+Here are example applications of these rules:
+
+--- 1
+ 0
+
+
+-------- 1
+ 0
+-------- 2
+ 1+ 0
+-------- 2
+ 1+ 1+ 0
+
+
+ 1+ 1+ 0
+------------------ 2
+ 1+ 1+ 1+ 0
+------------------ 2
+ 1+ 1+ 1+ 1+ 0
+------------------ 2
+ 1+ 1+ 1+ 1+ 1+ 0
+
+
+Consequently,
+0
+1+ 0
+1+ 1+ 0
+1+ 1+ 1+ 0
+1+ 1+ 1+ 1+ 0
+1+ 1+ 1+ 1+ 1+ 0
+are occurrences of numerals of this system.
+
+It is possible to begin by constructing the familiar Hindu-Arabic positional numeral system.
+The apparent complexity of the rules needed to do so dissuades their immediate introduction.
+Alternatively, it can be introduced as an abbreviation for numerals of the current system.
+Rather than give the entire system of abbreviation in full it will be given as needed.
+
+
+Introduction and Elimination of Pronumerals
+
+
+Introduction and Elimination of Addition
+
+ x | y
+---+---
+ x+ y
+
+ 0+ y    (1+ x)+ y
+------  -----------
+    y     1+ x+ y
+
+
 
 Copying
 
@@ -265,6 +327,8 @@ Specifically, in '1+0' the expression might be copied in the following stages
 
 The reason for continuing to examine these excruciatingly "common/simple/basic" parts of math is because it really is the conceptual foundation for all modern mathematical behavior.
 
+
+Elimination of numerals may be interpreted using modular arithmetic.
 
 
 Contents of Goodstein's Fundamental Concepts of Mathematics
