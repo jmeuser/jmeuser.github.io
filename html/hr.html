@@ -6,6 +6,62 @@
 Hacker Rank Problems and Solutions
 https://www.hackerrank.com/jmeuser
 
+String Split and Join
+Task 
+You are given a string. Split the string on " " (space) delimiter and join using a - hyphen.
+
+Input Format 
+The first line contains a string consisting of words separated by space.
+
+Output Format 
+Print the formatted string as explained above.
+
+Solution (1m)
+
+print('-'.join(input().split()))
+
+
+
+sWAP cASE
+
+Problem Statement
+You are given a string S. Your task is to swap case, i.e., convert all lower case letters to upper case and vice versa.
+
+Solution (10m)
+
+print(''.join([x.upper() if x.islower() else x.lower() for x in input()]))
+
+
+Nested list
+
+Problem Statement
+Now we will see how to implement a nested list.
+There is a classroom of 'n' students and you are given their names and marks in physics.
+Store them in a nested list and print the name of each student who got the second lowest marks in physics.
+NOTE: If there are more than one student getting same marks, make sure you print the names of all students in alphabetical order, in different lines.
+
+Input Format
+Integer N followed by alternating sequence of N strings and N numbers.
+
+Output Format
+Name of student.
+
+Constraints
+1&lt;|=N&lt;|=5
+
+Solution (15m, a horribly slow solution though)
+
+I=[list((input(),float(input()))) for x in range(int(input()))]
+I.sort()
+L=list(set([x[1] for x in I]))
+L.sort()
+L= (L[1] if len(L)&gt;1 else L[0])
+for x in I:
+    if x[1]==L:
+        print(x[0])
+
+
+
 Find second largest number in a list
 
 Solution (20m, finding good initial values for M took a while float("-inf"))
