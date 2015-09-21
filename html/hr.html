@@ -6,6 +6,48 @@
 Hacker Rank Problems and Solutions
 https://www.hackerrank.com/jmeuser
 
+Find second largest number in a list
+
+Solution (20m, finding good initial values for M took a while float("-inf"))
+input()
+I=[int(x) for x in input().split()]
+M=[float("-inf"),float("-inf")]
+for x in I:
+    if x&gt;M[0]:
+        M[1]=M[0]
+        M[0]=x
+    elif M[0]&gt;x and x&gt;M[1]:
+        M[1]=x
+print(M[1])
+
+
+List Comprehensions
+Lets learn about list comprehensions!
+You are given three integers X, Y and Z denoting the dimensions of a Cuboid.
+You have to print a list of all possible coordinates on the three dimensional grid, such that at any point the sum Xi + Yi + Zi is not equal to N.
+If X = 2, then possible values of Xi can be 0, 1 and 2.
+The same applies to Y and Z.
+
+Input Format
+Four integers X, Y, Z and N in four different lines.
+
+Output Format
+You have to print the list, in increasing order.
+
+Solution (20m)
+There is a better way to do this, but this works for now.
+Also, python should have primitive support for multidimensional comprehension.
+
+M=[1+int(input()) for x in range(3)]
+N=int(input())
+T=[[x,y,z] for x in range(M[0]) for y in range(M[1]) for z in range(M[2])]
+L=[]
+for x in T:
+    if N!=sum(x):
+        L.append(x)
+print(L)
+
+
 Sets-Symmetric Difference
 
 Problem Statement
