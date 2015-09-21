@@ -15,7 +15,7 @@ Like APL, J, k, LISP, or Scheme, Python can be explored interactively.
 %  remainder|residue (same sign as divisor: 3%(-6) gives -3)
 ** power
 // floor division
-
+002B36
 # Comparison Operators
 == equal
 != not equal
@@ -170,6 +170,14 @@ input()
 
 a=(1,3)     #tuples data type
 a={'one':1} #dictionary data type
+
+s="test test test"
+x=s.split()         # x is a list of substrings of s that are separated by ' '
+x                   # gives ['test', 'test', 'test']
+
+s='12 3232 4343 4'             # s is a string of numbers separated by spaces
+sum([int(x) for x in s.split()])  # gives 7591 the sum of the numbers in s.
+
 
 Sources
 https://www.python.org/doc/

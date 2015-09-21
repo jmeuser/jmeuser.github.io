@@ -6,6 +6,34 @@
 Hacker Rank Problems and Solutions
 https://www.hackerrank.com/jmeuser
 
+Finding the percentage
+
+Problem Statement
+There is a record of 'n' students, each record having name of student, percent marks obtained in Maths, Physics and Chemistry.
+Marks can be floating values.
+The user enters an integer 'n' followed by names and marks for the 'n' students.
+You are required to save the record in a dictionary data type.
+The user then enters name of a student and you are required to print the average percentage marks obtained by that student, correct to two decimal places.
+
+Input Format
+Integer N followed by name and marks for N students, followed by the name of the particular student.
+
+Output Format
+Average percentage of marks obtained
+
+Constraints 
+2 &lt;= N &lt;= 10 
+0 &lt;= Marks &lt;= 100
+
+Solution (30min, I didn't know string.split() tokenized as I wanted)
+
+I=[input().split() for x in range(int(input()))]  #input
+d={x[0]: [float(y) for y in x[1:]] for x in I}    #dictionary
+a=d[input()] #entry
+print("{0:.2f}".format(sum(a)/len(a))) #output
+
+
+
 Interchange Two Numbers
 This is a poorly written question, it even tries to force you to use tuples.
 Here is a solution that uses tuples in the way that I can best think it wants:
