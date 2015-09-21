@@ -6,6 +6,33 @@
 Hacker Rank Problems and Solutions
 https://www.hackerrank.com/jmeuser
 
+Sets-Symmetric Difference
+
+Problem Statement
+Lets learn about a new datatype 'sets'!
+You are given two set of integers M and N and you have to print their symmetric difference in ascending order.
+The first line of input contains value of M followed by M integers, then value of N followed by N integers.
+Symmetric difference between M and N mean those values which either exist in M or in N but not in both.
+
+Input Format
+Value of M followed by M integers, then value of N followed by N integers.
+
+Output Format
+Integers in ascending order, one per line.
+
+Solution (30m)
+Took a long while to figure out how to sort correctly.
+I've included a report on my error in understanding the sort() method at jmeuser.github.io/html/error.html
+
+input()
+x=set(map(int,input().split()))
+input()
+y=set(map(int,input().split()))
+z=list((x.union(y)).difference(x.intersection(y)))
+z.sort()
+for u in z:
+    print(u)
+
 Tuples
 
 Task 

@@ -8,6 +8,30 @@ Programming Errors
 This is a list of errors that I've made while programming.
 It is organize chronologically.
 
+20150921T1539
+While solving the HackerRank problem Sets - Symmetric Difference I came across an interest error in my thinking about the the sort method of lists.
+
+Here is the code that I thought would work to solve the problem (the final solution can be found at jmeuser.github.io/html/hr.html under Sets - Symmetric Difference).
+
+z=list((x.union(y)).difference(x.intersection(y))).sort()
+
+where x and y are sets that were derived from the input.
+I thought this code would set z to be a sorted list.
+What it returned to z was actually nothing.
+Specifically it returned this type error when I tried to iterate over it
+
+TypeError: 'NoneType' object is not iterable
+
+Sorting occurs "in place" I guess and thus the correct code is as follows:
+
+z=list((x.union(y)).difference(x.intersection(y)))
+z.sort()
+
+These two commands will make it so that z is now a list sorted in ascending order.
+I must admit that I don't like these side effects: there must be some serious performance trade off for such terrible notation.
+
+
+
 20150915T1337
 This python code was meant to be a solution to a simple Hacker Rank problem.
 It asked to produce a pyramid of numbers using only the given for-loop and basic arithmetic.
