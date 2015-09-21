@@ -6,6 +6,29 @@
 Hacker Rank Problems and Solutions
 https://www.hackerrank.com/jmeuser
 
+Tuples
+
+Task 
+You are given an integer N in one line.
+The next line contains N space-separated integers.
+Create a tuple of those N integers.
+Lets call it T. 
+Compute hash(T) and print it.
+Note hash() is one of the function in __builtins__ module.
+
+Input Format 
+The first line contains N.
+The next line contains N space-separated integer values.
+
+Output Format 
+Print the computed value.
+
+Solution (4m)
+
+input()
+print(hash(tuple([int(x) for x in input().split()])))
+
+
 Lists
 Task 
 You have to initialize your list L = [] and follow the N commands given in N lines.
