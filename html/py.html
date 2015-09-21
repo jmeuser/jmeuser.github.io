@@ -179,6 +179,20 @@ s='12 3232 4343 4'             # s is a string of numbers separated by spaces
 sum([int(x) for x in s.split()])  # gives 7591 the sum of the numbers in s.
 
 
+List Methods
+x.append(y)    # add y to the end of the list x (k: x,y)
+x.extend(y)    # join the list y to the end of the list x (k: x,y)
+x.insert(y,z)  # insert z at index z in x
+x.remove(y)    # remove first occurrence of y in x 
+x.pop()        # give last item of x and remove last item of x from x
+x.pop(y)       # give x[y] and remove x[y] from x
+x.index(y)     # give index of first occurrence of y in x (error otherwise)
+x.count(y)     # give count of occurrences of y in x
+x.sort()       # sort x in increasing
+x.reverse()    # reverse the order of items of x
+
+
+
 Sources
 https://www.python.org/doc/
 </pre></body></html>
