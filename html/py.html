@@ -15,7 +15,7 @@ Like APL, J, k, LISP, or Scheme, Python can be explored interactively.
 %  remainder|residue (same sign as divisor: 3%(-6) gives -3)
 ** power
 // floor division
-002B36
+
 # Comparison Operators
 == equal
 != not equal
@@ -139,7 +139,7 @@ def f(x):           # define a function that takes x and does y followed by z.
 # 4 table of built-in names
 # functions without return statements always return None
 
-# Object Methods
+Object Methods
 x=[]        # x is an empty list
 y=[]        # y is an empty list
 x.append(0) # append 0 to the list x
@@ -158,6 +158,35 @@ f(3,4,5)            # gives 3 4 5
 
 1 in (0,1,2,3)      # gives True since one in the tuple zero, one two, three
 
+
+List Methods
+x.append(y)    # add y to the end of the list x (k: x,y)
+x.extend(y)    # join the list y to the end of the list x (k: x,y)
+x.insert(y,z)  # insert z at index z in x
+x.remove(y)    # remove first occurrence of y in x 
+x.pop()        # give last item of x and remove last item of x from x
+x.pop(y)       # give x[y] and remove x[y] from x
+x.index(y)     # give index of first occurrence of y in x (error otherwise)
+x.count(y)     # give count of occurrences of y in x
+x.sort()       # sort x in increasing
+x.reverse()    # reverse the order of items of x
+
+String Validation Methods
+x.isalnum()  # are all characters in string x alphanumeric characters?
+x.isalhpa()  # are all characters in x alphabetic characters?
+x.isdigit()  # are characters of x digits only?
+x.islower()  # are alphabetic characters of x lowercase?
+x.isupper()  # are alphabetic characters of x uppercase?
+
+String Alignment Methods
+x.ljust(y,z)  # right justify x on line of width y padded by char z
+x.center(y,z) # center justify x on line of width y padded by char z
+x.rjust(y,z)  # left justify x on width y line, pad with char z
+
+Textwrap
+import textwrap
+textwrap.wrap(x,y) # give lines of string x with width y
+textwrap.fill(x,y) # gives string of lines of string x with width y
 
 Math
 
@@ -179,22 +208,12 @@ s='12 3232 4343 4'             # s is a string of numbers separated by spaces
 sum([int(x) for x in s.split()])  # gives 7591 the sum of the numbers in s.
 
 
-List Methods
-x.append(y)    # add y to the end of the list x (k: x,y)
-x.extend(y)    # join the list y to the end of the list x (k: x,y)
-x.insert(y,z)  # insert z at index z in x
-x.remove(y)    # remove first occurrence of y in x 
-x.pop()        # give last item of x and remove last item of x from x
-x.pop(y)       # give x[y] and remove x[y] from x
-x.index(y)     # give index of first occurrence of y in x (error otherwise)
-x.count(y)     # give count of occurrences of y in x
-x.sort()       # sort x in increasing
-x.reverse()    # reverse the order of items of x
-
 
 tuple(x)  # gives a tuple of the list items of x
 
 map(f,x)  # gives (in k) f/"x
+
+x.join(y) # join string items of y after inserting x between items of y
 
 Sources
 https://www.python.org/doc/
