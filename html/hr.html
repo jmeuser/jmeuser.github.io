@@ -6,6 +6,94 @@
 Hacker Rank Problems and Solutions
 https://www.hackerrank.com/jmeuser
 
+No Idea!
+
+Problem Statement
+There is an array of n integers, and 2 disjoint sets of m integers each A and B. You like all integers in A and dislike all integers in B. Your initial happiness is 0 and for each integer in the array, i, if i∈A, you add 1 to your happiness, if i∈B, you add −1 to your happiness, else your happiness does not change. Output your final happiness at the end.
+
+Note that since A and B are sets, they have no repeated elements. But, the array might contain duplicate elements.
+
+Constraints 
+1&lt;|=n&lt;|=105 
+1&lt;|=m&lt;|=105 
+1&lt;|=Any integer in the input&lt;|=109
+
+Input Format
+First line contains n and m. 
+Second line contains n integers, the array. 
+Third and fourth lines contain m integers, A and B respectively.
+
+Output Format
+Output a single integer, the answer.
+
+Solution (30m took time to find collections.Counter() )
+
+import collections
+C=collections.Counter()
+input()
+I=input().split()
+A=input().split()
+B=input().split()
+for x in I:
+    C[x] += 1
+O=sum([C[x] for x in A])-sum([C[x] for x in B])
+print(O)
+
+
+DefaultDict Tutorial
+
+Problem Statement
+DefaultDict is a container in the collections class of Python. It is almost the same as the usual dictionary (dict) container but with one difference. The value fields' data-type is specified upon initialization. 
+A basic snippet showing the usage follows:
+
+from collections import defaultdict
+d = defaultdict(list)
+d['python'].append("awesome")
+d['something-else'].append("not relevant")
+d['python'].append("language")
+for i in d.items():
+    print i
+This prints:
+
+('python', ['awesome', 'language'])
+('something-else', ['not relevant'])
+In this challenge, you will be given 2 integers (n and m) and n words which might repeat, say they belong to a word group A. Then you'll be given m other words belonging to word group B. For each of these m words, you have to check whether the word has appeared in A or not. If it has then you have to print indices of all of its occurrences. If it has not then just print −1.
+
+Constraints 
+1&lt;:n&lt;:10000 
+1&lt;:m&lt;:100 
+1&lt;:length of each word in the input&lt;:100
+Input Format
+
+The first line contains n and m. 
+The next n lines contain the words belonging to A. 
+The next m lines contain the words belonging to B.
+
+Output Format
+Output m lines. 
+The ith line should contain the 1 indexed positions of occurrences of the ith word, separated by spaces, of the last m lines of the input.
+
+Solution (5m)
+(I did not solve it as they asked, I did it "the right way" :)
+(Also, vector/tree extensions of basic arithmetic operations are desperately needed)
+
+import itertools
+def where(x):
+    return itertools.chain.from_iterable([[i]*j for i,j in enumerate(x)])
+
+I=[int(x) for x in input().split()]
+A=[input() for x in range(I[0])]
+B=[input() for x in range(I[1])]
+W=[list(where([x==y for x in A])) for y in B]
+O=[[1+x for x in y] for y in W]
+for x in O:
+    if x==[]:
+        print(-1)
+    else:
+        print(*x)
+
+
+
 The Minion Game
 
 Problem Statement
