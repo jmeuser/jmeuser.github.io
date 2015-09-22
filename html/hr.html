@@ -6,6 +6,59 @@
 Hacker Rank Problems and Solutions
 https://www.hackerrank.com/jmeuser
 
+The Minion Game
+
+Problem Statement
+Kevin and Stuart, wants to play 'The Minion Game'.
+Bob is the match referee. Bob's task is to declare the winner and ensure that no rules are broken.
+Stuart is Player 1 and Kevin is Player 2.
+
+About Game
+
+Rules
+The game is a two player game. Players are given a string S.
+Both the players have to make words using the letters of string S.
+Player 1 has to make words starting with consonants.
+Player 2 has to make words starting with vowels. 
+Game ends when both players have made all possible substrings. 
+
+Scoring
+Player get +1 Point for each occurrence of the word in the string S.
+Example:
+If string S = BANANA
+Word made by Player 2 = ANA
+'ANA' is occuring twice in 'BANANA'. Hence, Player 2 will get 2 Points.
+
+Input Format
+Single line containing string S. 
+Note: String S contains only capital alphabets [A-Z].
+
+Constraints
+0&lt;len(S)&lt;=106
+
+Output Format
+Print the name of the winner along with the total score.
+If the game is draw, print Draw.
+
+Solution (40m took time to find a "good" definition for where)
+
+import itertools
+def where(x):
+    return itertools.chain.from_iterable([[i]*j for i,j in enumerate(x)])
+
+s=input()
+L=len(s)
+K=sum([L-x for x in where([y in 'AEIOU' for y in s])])
+S=(L*(L+1)//2)-K
+if K==S:
+    print('Draw')
+elif K&gt;S:
+    print('Kevin',K)
+else:
+    print('Stuart',S)
+
+
+
 Designer Door Mat
 
 Mr. Vincent works in a door mat manufacturing company. One day, he designed a new door mat. 
