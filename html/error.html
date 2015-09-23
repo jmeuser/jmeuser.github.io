@@ -8,6 +8,30 @@ Programming Errors
 This is a list of errors that I've made while programming.
 It is organize chronologically.
 
+
+20150923T1637
+While solving the HackerRank problem "Set .discard(), .remove() &amp; .pop()" I got this error
+
+IndexError: list index out of range
+
+from this code
+
+input()
+s={int(x) for x in input().split()}
+I=[input().split() for x in range(int(input()))]
+for x in I: eval('s.'+x[0]+'('+','.join(x[1])+')')
+print(sum(s))
+
+The problem was that x[1] referred to the second element of x when it should have referred to a potentially empty list of the remaining elements of x i.e. x[1] should have been x[1:].
+The correct code is below.
+
+input()
+s={int(x) for x in input().split()}
+I=[input().split() for x in range(int(input()))]
+for x in I: eval('s.'+x[0]+'('+','.join(x[1:])+')')
+print(sum(s))
+
+
 20150921T1539
 While solving the HackerRank problem Sets - Symmetric Difference I came across an interest error in my thinking about the the sort method of lists.
 

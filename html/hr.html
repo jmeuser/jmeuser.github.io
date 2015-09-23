@@ -6,6 +6,76 @@
 Hacker Rank Problems and Solutions
 https://www.hackerrank.com/jmeuser
 
+Set .discard(), .remove() &amp; .pop()
+
+Task
+You have a non-empty set s and you have to execute N commands given in N lines.
+Commands will be pop, remove and discard.
+
+Input Format
+First line contains integer n, number of elements in set. 
+Second line contains space separated elements of set s. All elements are non-negative integers, less than or equal to 9. 
+Third line contains integer N, number of commands.
+Next N lines contains pop, remove and discard commands.
+
+Constraints
+0&lt;n&lt;20 
+0&lt;N&lt;20
+
+Output Format
+Print sum of elements of set 's' in output.
+
+Solution (8m)
+
+input()
+s={int(x) for x in input().split()}
+I=[input().split() for x in range(int(input()))]
+for x in I: eval('s.'+x[0]+'('+','.join(x[1:])+')')
+print(sum(s))
+
+set.add()
+
+Task
+Apply your knowledge of .add() operation, to help your friend 'Hari'.
+Hari has a huge collection of country stamps. He decided to count total number of distinct country stamps he has collected. He asked you to help him. You pick stamps one by one from a stack of 'N' country stamps.
+Your task is to find the total number of distinct country stamps.
+
+Input Format
+First line contains N, total number of country stamps.
+Next N lines contains, names of the country stamp. 
+Constraints
+0&lt;N&lt;1000
+
+Output Format
+Output the total number of distinct country stamps.
+
+Solution (1m, I did not use the method suggested)
+
+print(len({input() for _ in range(int(input()))}))
+
+
+
+Introduction to Sets
+
+Task
+Ms. Gabriel Williams is a botany professor at District College. One day, she asked her student 'Mickey' to compute an average of all the plants with distinct heights in her greenhouse.
+
+Input Format
+First line contains, total number of plants in greenhouse.
+Second line contains, space separated height of plants in the greenhouse.
+Total number of plants is upto 100 plants.
+
+Output Format
+Output the average value of height.
+
+Solution (5m)
+
+input()
+H={int(x) for x in input().split()}
+print(sum(H)/len(H))
+
+
+
 Piling Up!
 
 Problem Statement

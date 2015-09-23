@@ -205,6 +205,13 @@ import textwrap
 textwrap.wrap(x,y) # give lines of string x with width y
 textwrap.fill(x,y) # gives string of lines of string x with width y
 
+Set Methods
+x.add(y)     # put y in x
+x.remove(y)  # take y from x give KeyError if y is not in x
+x.discard(y) # take y from x
+x.pop()      # return an arbitrary item from x, remove it, and give KeyError if x empty
+
+
 Math
 
 moddiv(x,y)  # (_x%y),x!y
