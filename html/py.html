@@ -206,11 +206,23 @@ textwrap.wrap(x,y) # give lines of string x with width y
 textwrap.fill(x,y) # gives string of lines of string x with width y
 
 Set Methods
-x.add(y)     # put y in x
-x.remove(y)  # take y from x give KeyError if y is not in x
-x.discard(y) # take y from x
-x.pop()      # return an arbitrary item from x, remove it, and give KeyError if x empty
-
+x.add(y)                  # put y in x
+x.remove(y)               # take y from x give KeyError if y is not in x
+x.discard(y)              # take y from x
+x.pop()                   # return an item from x, remove it, and give KeyError if x empty
+len(x)                    #         cardinality of set x
+x in y                    #         is x in y?
+x not in y                #         is x not in y?
+x.issubset(y)             # x &lt;= y  is x a subset of y?
+x.issuperset(y)           # x &gt;= y  is x a superset of y?
+x.union(y)                # x |  y  give union of x and y
+x.intersection(y)         # x &amp;  y  give intersection of x and y
+x.difference(y)           # x -  y  give complement of y in x
+x.symmetric_difference(y) # x ^  y  give symmetric difference of x and y
+x.update(y)               # x |= y  x gets x|y
+x.intersection_update(y)  # x &amp;= y  x gets x&amp;y
+x.difference_update(y)    # x -= y  x gets x-y
+x.symmetric_difference_update(y) # x ^= y  x gets x^y
 
 Math
 
