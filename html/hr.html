@@ -6,6 +6,86 @@
 Hacker Rank Problems and Solutions
 https://www.hackerrank.com/jmeuser
 
+Piling Up!
+
+Problem Statement
+There is a horizontal row of n cubes. Side length of each cube from left to right is given. You need to create a new vertical pile of cubes. The new pile should be such that if cubei is on cubej then sideLengthj≥sideLengthi. But at a time, you can only pick either the leftmost or the rightmost cube only. Print "Yes" if its possible, "No" otherwise.
+
+Input Format
+First line contains a single integer T, denoting the number of test cases. 
+For each testcase, there are 2 lines. 
+First line of each test case contains n. 
+Second line of each test case contains n space separated integers, the sideLengths of the cubes in that order.
+
+Constraints 
+1&lt;|=T&lt;|=5 
+1&lt;|=n&lt;|=105 
+1&lt;|=sideLength&lt;231
+
+Output Format
+For each testcase, output a single line containing a single word, either a "Yes" or a "No".
+
+
+Solution (50m)
+I made a dirty recursive solution first, but it took too long to run on the larger lists, so I turned it into a loopy solution (which is ugly).
+
+Recursive solution (ugly to some people)
+def q(x): return 'Yes' if len(x)&lt;=2 else q(x[1:-1]) if min(x[1],x[-2])&lt;=max(x[0],x[-1]) else 'No'
+I=[[int(x) for x in input().split()] for _ in range(2*int(input()))]
+for x in I[1::2]: print(q(x))
+
+Loopy solution (ugly to some people, though clearly faster because people don't like to optimize recursion since it's hard)
+
+for _ in range(int(input())):
+    l,r=0,int(input())-1
+    L=[int(x) for x in input().split()]
+    q='Yes'
+    while(l&lt;r):
+        if min(L[l+1],L[r-1])&gt;max(L[l],L[r]):
+            q='No'
+            break
+        l+=1
+        r-=1
+    print(q)
+
+
+
+
+Word Order
+
+Problem Statement
+You are given n words. Some words may repeat. For each word, you have to output its number of occurences. But the output order should correspond with the order of the first appearance of the word. See the sample input/output for clarification. Note that each line in the input ends with a "\n" character.
+
+Constraints: 
+1&lt;:n&lt;:105 
+Sum of lengths of all the words do not exceed 106 
+All words are composed of lowercase-latin alphabets only.
+
+Input Format
+First line contains n. 
+n lines follow, ith one contains the ith word.
+
+Output Format
+Output 2 lines. 
+On the first line, output the number of distinct words in the input. 
+In the second line, for each distinct word, output its number of occurences in the order specified in the problem statement.
+
+Solution (10m)
+
+import collections
+C=collections.Counter()
+I=[input() for x in range(int(input()))]
+L=[]
+for x in I:
+    if C[x]==0:
+        L.append(x)
+    C[x]+=1
+O=[C[x] for x in L]
+print(len(L))
+print(*O)
+
+
+
 No Idea!
 
 Problem Statement

@@ -11,7 +11,17 @@ Some Important Definitions
 
 import itertools
 def where(x):
-    return itertools.chain.from_iterable([[i]*j for i,j in enumerate(x)])
+ return itertools.chain.from_iterable([[i]*j for i,j in enumerate(x)])
+
+def where(x):
+ return [i for i in range(len(x)) for _ in range(x[i])]
+
+def drop(x,y):
+ return y[x:]
+
+def take(x,y):
+ return [y[i] for i in x]
+
 
 
 # Arithmetic Operators
