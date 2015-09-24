@@ -236,12 +236,12 @@ cmath.rect(x,y) # rect from polar: x * (math.cos(y) + math.sin(y)*1j)
 
 
 from collections import Counter
-Counter(x) #
-
-
-tuple(x)  # gives a tuple of the list items of x
-
-map(f,x)  # gives (in k) f/"x but without being cast as list
+Counter(x)       # count items of x using a map(dict)
+x.elements()     # give iterator of elements y of counter x each repeated x[y] times
+x.most_common()  # give list of (item, count) ordered by count (equals listed arbitrarily)
+x.most_common(y) # give first y items of x.most_common()
+x.subtract(y)    # subtract item's count in y from item's count in x
+x.update(y)      # add count of items in a Counter y, or Counter(y) if y is list etc.
 
 x.join(y) # join string items of y after inserting x between items of y
 
