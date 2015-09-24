@@ -3,6 +3,30 @@
  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen">
 </head>
 <body><pre>
+20150924T1655 Dyad # take|project? Dyad , inject|affix|append
+These verbs are obviously some of the most important in N regardless of what their ultimate implementation will be, the conceptual kernel of each must be so unavoidably necessary that one could not imagine living without them.
+For # it's operation is projection i.e. it is what a mathematician would most likely call a pi-function (not the number pi, the function pi).
+It's left argument is a list of indexes and its right is the the object to be projected.
+Since N supports something like python's tuples, or C++'s homogenous vectors, it is easy to see that projection is what is happening if you take the items at the left arguments indices.
+What's hard to know is if take is the correctly word for humans to use when referring to these general acts of projection, especially when dealign with tree like objects, dictionary|map like objects, or other objects.
+I'm not saying that anything like dictionary|map is unavoidable as an object(noun), but that one must consider whether take is an appropriate verb for such things over project in case they are ultimately found to be unavoidable nouns for achieving N's goals.
+x # y when x is a numeral and y is a numeral vector (table?) returns x items from y going back to the beginning of y if x exceeds the index of y i.e. the k-th item of x # y is the item of y whose index is the remainder of the length of y divided by k.
+This style of index arithmetic is intended to eliminate references to items outside the index of a noun.
+Some see this as a huge loss of opportunity to collect common index-errors i.e. rather than the whole show stopping just because an index is outside the length of a vector object the show just goes on without alerting the coder.
+My response to a critic from this perspective is that you must handle your errors to know when they occur!
+In other words: own your errors, don't blame the computer.
+IN other other words: you can't reference things outside a noun using clever index arithmetic, because the index arithmetic is wiser than you (don't go against math, work with math).
+Also, a vector is not a list.
+Which brings me to , as injection or affix.
+injection is different in behavior for affix-ion
+an injection usually makes things flat in the relevant way, an affix-ion can be seen as either a nesting (tuples of tuples to python people), or perhaps a type of injection at different locations.
+The use of injection as a descriptor of the behavior of the dyad , is difficult to argue from a design perspective (it is not a friendly word to English speakers), but affix is also connotative of a potentially misleading perspective (that of nesting where no nesting has occurred).
+Though the act of injection might not be easily suggested as it requires a left argument having a sort of permutation like structure.
+For example,  (x;y),z might be interpreted as a command to put z at x in y so as to make a new flat vector i.e. to ammend y so as to make room for z.
+There is also the potential of using integer notation to give a three command form to , so that x 0n2, y gives , an adverbial behavior.
+It's not clear if this makes conceptual sense.
+These subtle idioms of the language are to be developed as needed, and so far affix will probably do fine for the dyad , .
+
 20150924T1602 Hardy, Littlewood, and Pólya Inequalities
 I read this book a while back, and happened to be tying my shoes in my closet today when my gaze came upon it.
 I realized immediately that all the work I've been doing to develop N could be put to good use, or to good test, by translating and interpreting the arguments and result in N and seeing where they fit inside the arguments given by Goodstein in RNT.
