@@ -6,6 +6,217 @@
 Hacker Rank Problems and Solutions
 https://www.hackerrank.com/jmeuser
 
+
+itertools.permutations()
+
+Task
+You are given a string S. 
+Your task is to print all possible permutations of size k of the string in lexicographic sorted order.
+
+Input Format
+Single line containing space separated , string S and value k.
+
+Constraints
+0&lt;N&lt;10 
+0&lt;k&lt;|=len(S) 
+String contains only UPPERCASE characters.
+
+Output Format
+Print permutations of string S in separate lines.
+
+Solution (15m)
+
+from itertools import permutations
+I=input().split()
+p=permutations(sorted(I[0]),int(I[1]))
+O=[''.join(x) for x in p]
+print('\n'.join(O))
+
+
+
+itertools.product()
+
+Task
+Your are given a two lists A and B. Your task is to compute Cartesian Product AXB.
+Note : A and B are sorted lists and the cartesian product's tuples should be emitted in sorted order.
+
+Input Format
+First line contains, space separated elements of list A. 
+Second line contains, space separated elements of list B.
+Both lists have no duplicate integer elements.
+
+Constraints
+0&lt;A&lt;30 
+0&lt;B&lt;30
+
+Output Format
+Output space separated tuples of Cartesian Product.
+
+Solution (10m)
+
+from itertools import product
+A=[int(x) for x in input().split()]
+B=[int(x) for x in input().split()]
+print(*product(A,B))
+
+
+
+Find Angle MBC
+
+ABC is a right angle triangle, right angled at B.
+Therefore, angle ABC=90°.
+Point M is the mid-point of hypotenuse AC.
+You are given the lengths AB and BC. 
+Your task is to find angle MBC ( angle theta°, as shown in figure ) in degrees.
+
+Input Format
+First line contains, length of side AB.
+Second line contains, length of side BC.
+
+Constraints
+0&lt;AB&lt;100
+0&lt;BC&lt;100
+Lengths AB and BC are natural numbers.
+
+Output Format
+Output angle MBC in degrees. 
+Note: Round-off the angle to nearest integer. 
+Examples:
+If angle is 56.5000001°, then output 57°.
+If angle is 56.5000000°, then output 57°.
+If angle is 56.4999999°, then output 56°.
+0°&lt;theta°&lt;90°
+
+Solution (10m had to be written in Python 2.x per questions limits)
+
+import math
+d=math.degrees(math.atan2(int(input()),int(input())))
+O=str(int(round(d)))+'°'
+print(O)
+
+
+
+Polar Coordinates
+
+Task 
+You are given a complex z. Your task is to convert it to polar coordinate.
+
+Input Format
+Single line containing complex number z.
+
+Output Format
+Two lines: 
+First line contains, value of r. 
+Second line contains, value of phi.
+
+Solution (10m)
+
+import cmath
+for x in cmath.polar(complex(input())):
+    print(x)
+
+
+
+Check Strict Superset
+
+Problem Statement
+You are given a set A and N numbers of other sets. 
+Your job is to find whether set A is a strict superset of all the N sets. 
+Print True, if it is a strict superset of all N sets otherwise print False.
+A strict superset has atleast one element which not in its subset.
+
+Input Format
+First line contains, space separated elements of set A.
+Second line contains, integer N.
+Next N lines contain, space separated elements of other sets.
+
+Constraints
+0&lt;len(set(A))&lt;501 
+0&lt;N&lt;21
+0&lt;len(otherSets)&lt;101 
+
+Output Format
+Print True if set A is strict superset of all N the sets otherwise print False.
+
+Solution (15m again... X-Files slows things down and makes them a bit messier)
+
+A=set(input().split())
+I=[set(input().split()) for _ in range(int(input()))]
+q=[(x&lt;=A)&amp;(x!=A) for x in I]
+print(all(q))
+
+
+
+The Captains Room
+
+Problem Statement
+Mr. Anant Asankhya is the manager at INFINITE hotel. The hotel has an infinite amount of rooms.
+One fine day, a finite number of tourists came to stay at the hotel. 
+Tourists consisted of :
+ a Captain.
+ Equal sized group of families (size K each and K ≠ 1).
+The Captain was given a separate room and rest were given one room per group.
+Mr. Anant has an unordered list of randomly arranged room entries. The list consists of room numbers of all the tourists. The room numbers will appear K times per group except for the Captain's room.
+Mr. Anant needs help from you to find the Captain's room number. 
+Total number of Tourists or total group of families is not known to you. 
+You only have the value of K and room number list.
+
+Input Format
+First line consists of K (The size of each group).
+Second line consists of room number list.
+
+Constraints
+1&lt;K&lt;1000
+
+Output Format
+Output the Captain's room number.
+
+Solution (10m, messy and slow solution)
+
+import collections
+C=collections.Counter()
+input()
+for x in input().split():
+    C[x]+=1
+for x in C.items():
+    if x[1]==1:
+        print(x[0])
+        break
+
+
+
+Set Mutations
+
+TASK
+You are given a set A and N numbers of other sets. These N sets have to perform some specific mutation operations to set A.
+Your task is to execute those operations and print the sum of elements of set A.
+
+Input Format
+First line contains, number of elements in set A.
+Second line contains, space separated list of elements of set A.
+Third line contains, N, number of other sets.
+Next 2*N lines are divided into N parts of two lines each.
+First line of each part contains, space separated entries of operation name and length of other set.
+Second line of each part contains, space separated list of elements of other set.
+0 &lt; len(set(A)) &lt; 1000 
+0 &lt; len(otherSets) &lt; 100 
+0 &lt; N &lt; 100
+
+Output Format
+Output the sum of elements of set A.
+
+Solution (10m)
+
+input()
+s=set(input().split())
+I=[[input().split()[0], set(input().split())] for _ in range(int(input()))]
+for x in I:
+    y=x[1]
+    eval('s.'+x[0]+'(y)')
+print(sum({int(x) for x in s}))
+
+
+
 Set .union() Operation
 
 Task

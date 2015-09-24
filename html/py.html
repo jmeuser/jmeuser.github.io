@@ -22,9 +22,7 @@ def drop(x,y):
 def take(x,y):
  return [y[i] for i in x]
 
-
-
-# Arithmetic Operators
+Arithmetic Operators
 +  plus
 -  minus
 *  times
@@ -33,7 +31,7 @@ def take(x,y):
 ** power
 // floor division
 
-# Comparison Operators
+Comparison Operators
 == equal
 != not equal
 &lt;&gt; not equal
@@ -52,7 +50,7 @@ def take(x,y):
 **= power gets
 //= floor quotient gets
 
-# Strings
+Strings
 'abc'   # gives the string 'abc'
 "..."   # gives the string '...' string
 '\''    # gives "'" the string containing only a single quote
@@ -83,7 +81,7 @@ len(w)     # gives 6 i.e. the length of the string referred to by w
 w[0]=2     # gives 'TypeError: 'str' object does not support item assignment'
 
 
-# Lists
+Lists
 s=[1,4,9,16,25]   # a list of squares
 s[1]              # gives 4
 s+[36,49,81,100]  # gives [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
@@ -224,30 +222,25 @@ x.intersection_update(y)  # x &amp;= y  x gets x&amp;y
 x.difference_update(y)    # x -= y  x gets x-y
 x.symmetric_difference_update(y) # x ^= y  x gets x^y
 
-Math
+Boolean Operations
+all(x) # True if all x are True else False
+any(x) # True if an x is True else False
 
+Math
 moddiv(x,y)  # (_x%y),x!y
 pow(a,b,m)   # (a*/#b)!m
 
-int()
-raw_input()
-input()
-
-a=(1,3)     #tuples data type
-a={'one':1} #dictionary data type
-
-s="test test test"
-x=s.split()         # x is a list of substrings of s that are separated by ' '
-x                   # gives ['test', 'test', 'test']
-
-s='12 3232 4343 4'             # s is a string of numbers separated by spaces
-sum([int(x) for x in s.split()])  # gives 7591 the sum of the numbers in s.
+import cmath
+cmath.phase(x)  # gives the phase or argument of the complex number x
+abs(x)          # gives the absolute value of the complex number x
+cmath.polar(x)  # gives polar representation of complex x i.e. (abs(x),cmath.phase(x))
+cmath.rect(x,y) # rect from polar: x * (math.cos(y) + math.sin(y)*1j)
 
 
 
 tuple(x)  # gives a tuple of the list items of x
 
-map(f,x)  # gives (in k) f/"x
+map(f,x)  # gives (in k) f/"x but without being cast as list
 
 x.join(y) # join string items of y after inserting x between items of y
 
