@@ -6,6 +6,30 @@
 Hacker Rank Problems and Solutions
 https://www.hackerrank.com/jmeuser
 
+Most Commons
+
+Problem Statement
+You are given a string S. 
+The string consists of lowercase alphabets.
+Your task is to find top three most common characters in the string S.
+
+Input Format
+Single line containing string S.
+
+Constraints
+3&lt;len(S)&lt;104
+
+Output Format
+Print the most common characters along with their count of occurences in three lines.
+Output must sorted in descending order of count of occurences.
+If count of occurences is same then sort in ascending order of characters.
+
+Solution (30m, took a while to figure out how to sort things correctly, there is a better way to do this all from a different perspective)
+
+from collections import Counter
+for x in sorted(Counter(input()).items(),key=lambda x:(-x[1],x[0]))[:3]:
+    print(*x)
+
 collections.Counter()
 
 Task
