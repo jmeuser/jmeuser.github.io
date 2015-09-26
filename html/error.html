@@ -8,8 +8,31 @@ Programming Errors
 This is a list of errors that I've made while programming.
 It is organize chronologically.
 
+20150926T1405 Python: raw_input() from python 2.x became input() in python 3
+I was solving a problem for my application to LaunchCode and was using an expression
 
-20150923T1637
+[sorted([int(x) for x in input().split()]) for _ in range(int(input()))]
+
+and couldn't understand why it was giving a weird syntax error (I was not able to capture the error, but I tried to recreate it on my personal computer)
+
+&gt;&gt;&gt; input()
+12 12
+Traceback (most recent call last):
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+  File "&lt;string&gt;", line 1
+    12 12
+        ^
+SyntaxError: unexpected EOF while parsing
+
+Here you can see that input() was called from the command line and I gave it 12 12.
+It then gives a syntax error.
+I discovered, after some rapid Googling, that I had learned of input() as a Python 3.x command, and that in Python 2.x I should have used raw_input().
+I'm still not certain what the "real" problem is because it is ultimately irrelevant.
+I just need to know that input() in python 3.x means raw_input() in Python 2.x
+
+
+
+20150923T1637 Python: List Items vs. List Slices
 While solving the HackerRank problem "Set .discard(), .remove() &amp; .pop()" I got this error
 
 IndexError: list index out of range
@@ -32,7 +55,7 @@ for x in I: eval('s.'+x[0]+'('+','.join(x[1:])+')')
 print(sum(s))
 
 
-20150921T1539
+20150921T1539 Python: .sort() occurs "in place"
 While solving the HackerRank problem Sets - Symmetric Difference I came across an interest error in my thinking about the the sort method of lists.
 
 Here is the code that I thought would work to solve the problem (the final solution can be found at jmeuser.github.io/html/hr.html under Sets - Symmetric Difference).

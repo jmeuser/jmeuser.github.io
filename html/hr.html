@@ -6,6 +6,27 @@
 Hacker Rank Problems and Solutions
 https://www.hackerrank.com/jmeuser
 
+Calendar Module
+Task
+You are given the date of the day. Your task is to find what day it is on that date.
+
+Input Format
+Single line containing space separated month, day and year in MM DD YYYY format.
+
+Constraints
+2000&lt;year&lt;3000
+
+Output Format
+Output the correct day.
+
+Solution (15m)
+
+import calendar
+I=[int(x) for x in input().split()]
+print(calendar.day_name[calendar.weekday(I[2],I[0],I[1])].upper())
+
+
+
 Most Commons
 
 Problem Statement
@@ -20,9 +41,9 @@ Constraints
 3&lt;len(S)&lt;104
 
 Output Format
-Print the most common characters along with their count of occurences in three lines.
-Output must sorted in descending order of count of occurences.
-If count of occurences is same then sort in ascending order of characters.
+Print the most common characters along with their count of occurrences in three lines.
+Output must sorted in descending order of count of occurrences.
+If count of occurrences is same then sort in ascending order of characters.
 
 Solution (30m, took a while to figure out how to sort things correctly, there is a better way to do this all from a different perspective)
 
