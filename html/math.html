@@ -448,6 +448,128 @@ The reason for continuing to examine these excruciatingly "common/simple/basic" 
 Elimination of numerals may be interpreted using modular arithmetic.
 
 
+A Collection of Introduction and Elimination Schema
+
+Iterative Definition Schema
+
+The following pair of familiar expressions are given by Goodstein in RNT on pg. 18
+
+"
+The common feature of all the definitions A to S is apparent; each definition takes the form
+
+F(x,0)=a(x)
+F(x,Sy)=b(x,F(x,y))
+
+where F(x,y) is the function defined and a(x), b(x,y) are functions previously define for are variables or definite numerals.
+" Goodstein RNT pg. 18
+
+I've gone ahead and written them using the notation from his book, the classical notation.
+
+Though his expression and discussion are consistent with his methods, they are not as transparent in their meaning as the following graphic presented using introduction and elimination rules via event schema.
+The following are written using N notation.
+
+  a y               0 f y
+----- introduce     ----- eliminate
+0 f y                 a y
+
+x b x f y              x f S y
+--------- introduce   --------- eliminate
+ x f S y              x b x f y
+
+The reason these schema are more representative of their use in defining functions is because they provide a sense of direction and show that the iterative schema of definition is conservative.
+Specifically, one can not build an expression containing f without having established an expression from a or an expression from b and f of a certain form.
+That this definition is "conservative" is given by the symmetry of the introduction and elimination rules.
+The pairing is important, and is the distinguishing feature of Goodstein's system.
+Furthermore these schema give a guide for any notation hoping to capture definition by iteration for any future notation.
+
+This iterative schema of definition is extracted from the similarity of the form of the defining equations for the following elementary arithmetic acts:
+
+"
+In standardized notation the definitions A, M, E, T and S take the forms
+
+A
+Sum(x,0)=x
+Sum(x,Sy)=S(Sum(x,y))
+
+M
+Prod(x,0)=0
+Prod(x,Sy)=Sum(x,Prod(x,y))
+
+E
+Exp(x,0)=1
+Exp(x, Sy)=Prod(x,Exp(x,y))
+
+T
+Tet(x,0)=1
+Tet(x,Sy)=Exp(x,Tet(x,y))
+
+S
+Dif(x,0)=x
+Dif(x,Sy)=P(Dif(x,y))
+
+where P(x) is x-.1 defined by
+
+P(0)=0
+PSx=x.
+" Goodstein RNT pg.18
+
+Goodstein then identifies what anyone would after looking at the iterative schema for definition long enough and wondering why b does not use y as one of its arguments.
+
+"
+Definition scheme I is called iteration; definition by iteration is a particular case of definition by RECURSION of which the scheme is
+
+R
+F(x,0)=a(x)
+F(x,Sy)=b(x,y,F(x,y))
+
+(The difference between iteration and recursion is that in the latter, function b depends upon y as well as upon x and F(x,y).)
+" Goodstein RNT pg. 19
+
+Using schema of a more modern form and the notational conventions of N the schema of recursive definition is depicted as follows:
+
+  a y             0 f y
+----- introduce   ----- eliminate
+0 f y               a y
+
+(x,y) b x f y                x f S y
+------------- introduce   -------------
+   x f S y                (x,y) b x f y
+
+Though, this is not how an experienced user of N notation would write these schema.
+They would use the power of forks, and their abundance in everyday arithmetic to writhe these schema as follows:
+
+  a y             0 f y
+----- introduce   ----- eliminate
+0 f y               a y
+
+x , b f y              x f S y
+--------- introduce   --------- eliminate
+ x f S y              x , b f y
+
+For those unfamiliar with N's use of forks and hooks the expression 'x , b f y' is calculate as follows:
+
+    x , b f y
+----------------- eliminate fork
+(x , y) b (x f y)
+
+which gives the same expression as in the previous non-forked expression.
+Why use forks?
+Because under these schema definition and using N's tacit verb concept we can write:
+
+{0 f   y} = {a y}
+{x f S y} = , b f
+
+Or if one wanted to make expressions that are, in my opinion, more distinct and clear in their meaning and use of constant and projection functions:
+
+{0} f  {y} =   a {y}
+{x} f S{y} = , b f
+
+Both expression are actually a pair of verbs/abbreviations/functions(but not 'real' functions) themselves: they are not what a classical algebra student would interpret as a statement of equality.
+This seems weird at first and pointless if you are not aware of how Goodstein uses equality.
+His expressions, and his entire formal primitive recursive arithmetic, never explicitly uses functions: it uses symbols for what most people would call functions.
+This subtlety seems to have been missed by anyone who has read his work.
+
+
 Contents of Goodstein's Fundamental Concepts of Mathematics
 Ch. 1 Numbers for Counting
 Definition of Counting
