@@ -468,9 +468,9 @@ I've gone ahead and written them using the notation from his book, the classical
 Though his expression and discussion are consistent with his methods, they are not as transparent in their meaning as the following graphic presented using introduction and elimination rules via event schema.
 The following are written using N notation.
 
-  a y               0 f y
------ introduce     ----- eliminate
-0 f y                 a y
+      a y                 0 f y
+    ----- introduce       ----- eliminate
+    0 f y                   a y
 
 x b x f y              x f S y
 --------- introduce   --------- eliminate
@@ -478,7 +478,7 @@ x b x f y              x f S y
 
 The reason these schema are more representative of their use in defining functions is because they provide a sense of direction and show that the iterative schema of definition is conservative.
 Specifically, one can not build an expression containing f without having established an expression from a or an expression from b and f of a certain form.
-That this definition is "conservative" is given by the symmetry of the introduction and elimination rules.
+That this definition is "conservative" and is given by the symmetry of the introduction and elimination rules.
 The pairing is important, and is the distinguishing feature of Goodstein's system.
 Furthermore these schema give a guide for any notation hoping to capture definition by iteration for any future notation.
 
@@ -527,20 +527,20 @@ F(x,Sy)=b(x,y,F(x,y))
 
 Using schema of a more modern form and the notational conventions of N the schema of recursive definition is depicted as follows:
 
-  a y             0 f y
------ introduce   ----- eliminate
-0 f y               a y
+          a y                     0 f y
+        ----- introduce           ----- eliminate
+        0 f y                       a y
 
 (x,y) b x f y                x f S y
-------------- introduce   -------------
+------------- introduce   ------------- eliminate
    x f S y                (x,y) b x f y
 
 Though, this is not how an experienced user of N notation would write these schema.
 They would use the power of forks, and their abundance in everyday arithmetic to writhe these schema as follows:
 
-  a y             0 f y
------ introduce   ----- eliminate
-0 f y               a y
+      a y                 0 f y
+    ----- introduce       ----- eliminate
+    0 f y                   a y
 
 x , b f y              x f S y
 --------- introduce   --------- eliminate
