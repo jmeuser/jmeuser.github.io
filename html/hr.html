@@ -6,6 +6,27 @@
 Hacker Rank Problems and Solutions
 https://www.hackerrank.com/jmeuser
 
+Map and Lambda Functions
+
+Problem Statement
+Let's learn some new python concepts! You have to generate a list of the first N fibonacci numbers, 0 being the first number. Then, apply the map function and a lambda expression to cube each fibonacci number and print the list.
+
+Input Format
+An integer N
+
+Output Format
+A list containing cubes of first N fibonacci numbers.
+
+Constraints 
+0&lt;=N&lt;=15
+
+Solution (10m)
+
+def fib(n):
+    return fib(n-1)+fib(n-2) if n&gt;1 else 1 if n==1 else 0
+print(list(map(lambda x:x**3,[fib(n) for n in range(int(input()))])))
+
+
 Class 2 - Find the torsional angle
 
 Problem Statement
