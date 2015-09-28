@@ -255,6 +255,9 @@ time.strptime(x,y) # change string x from format string y to time.struct_time
 time.mktime(x)     # change struct_time x into the (float) number of seconds since epoch
 
 
+from datetime import datetime # gets datetime class from datetime module
+x=datetime.strptime(y,z) # x gets datetime object from string y formatted by z
+
 time.struct_time # https://docs.python.org/3/library/time.html#time.struct_time
 
 Time String Format Codes (https://docs.python.org/3/library/time.html#time.strftime)
