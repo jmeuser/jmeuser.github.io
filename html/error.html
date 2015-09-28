@@ -8,6 +8,29 @@ Programming Errors
 This is a list of errors that I've made while programming.
 It is organize chronologically.
 
+20150928T1527 Sorted Strings instead of Integers
+In a Hacker Rank problem I was asked to read in a table of data and then to sort by its values down the k-th column.
+My first solution was
+
+I=[input().split() for _ in range(int(input().split()[0]))]
+k=int(input())
+O=sorted(I,key=lambda x: x[k])
+for x in O:
+    print(*x)
+
+Which sorted I correctly, but the atoms of I were strings rather than integers, so the ordering was for strings, where as the question was asking that the input be ordered after interpreting it as a table of integers.
+The correction is to convert each entry in the input table into an integer as it is being read in so that the sorting will take place with regards to integers rather than strings.
+I.e. rather than sorting alphabetically they will be sorted numerically.
+Thus the final correct code is as follows:
+
+I=[[int(x) for x in input().split()] for _ in range(int(input().split()[0]))]
+k=int(input())
+O=sorted(I,key=lambda x: x[k])
+for x in O:
+    print(*x)
+
+
+
 20150928T1121 replace 'import datetime' with 'from datetime import datetime'
 While solving a HackerRank problem on dates and times in different timezones I came across a large number of interesting errors.
 The most significant error was in my thinking that time was no big problem because computers must be great at keeping track of time.
