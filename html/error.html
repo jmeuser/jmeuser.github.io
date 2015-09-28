@@ -8,6 +8,66 @@ Programming Errors
 This is a list of errors that I've made while programming.
 It is organize chronologically.
 
+20150928T1121 replace 'import datetime' with 'from datetime import datetime'
+While solving a HackerRank problem on dates and times in different timezones I came across a large number of interesting errors.
+The most significant error was in my thinking that time was no big problem because computers must be great at keeping track of time.
+While computers are great at keeping track of local time (for the most part, as long as you compute in a temperature controlled environment) there is little else they do well.
+The largest error in time is that our methods of recording it are driving by politics over reason.
+Thus, as long as time is a political problem, there will always be money for the poor programmer that must deal with computing across timezones and political barriers.
+It is my desire that Knuth write some time management algorithms so that we might discover a data structure whose form is unavoidably necessary when dealing with time, but that is only a hope.
+
+My original code was as follows,
+
+import datetime
+I=[[datetime.strptime(input(),'%a %d %b %Y %H:%M:%S %z') for x in range(2)] for _ in range(int(input()))]
+O=[(x[0]-x[1]).total_seconds() for x in I]
+for x in O:
+    print(int(x))
+
+There are actually two errors in this code, though one is much easier to fix than the other.
+The question asked to take in two strings representing a time having the following form:
+
+Day dd Mon yyyy hh:mm:ss +xxxx
+
+Below this descriptive string I was told that +xxxx recorded the timezone.
+I later found out that it is actually a record of an offset from UTC which is, for now, a politically stable time throughout the world (as stable as any political thing can be).
+I immediately Googled "Python 3.x time zones" and was bombarded with an endless stream of "oh god help us all" type posts.
+I ignored them all and went straight to the Python documentation for 3.5 on datetime.
+There it seemed that it was possible to deal with timezones in a semi-meaningful way.
+The documentation told me that the .strptime() method was independent of the operating system or available C libraries so I chose to parse the string that way.
+In the language described by Python for sending format information to .strptime() the date format used in the problem is given by this string
+
+'%a %d %b %Y %H:%M:%S %z'
+
+The %z part is the one that gave me the real trouble.
+I thought that all I needed was to import datetime and use the method .strptime() on the inputs.
+What I didn't understand was that datetime is both the name of a module and the name of a class in that module.
+Furthermore, the module provides a .strptime() method that acts kind of like the .strptime() method of the class with the same name as that module.
+One significant difference is that the module method doesn't deal with the timezone offset in the way that an object of the class does.
+So over a two day period I struggled to understand if I was using the wrong module or not, when, the entire time, I was using the right module, but had been calling a module method rather than an object method.
+Finally, the corrected code was as follows:
+
+from datetime import datetime
+I=[[datetime.strptime(input(),'%a %d %b %Y %H:%M:%S %z') for x in range(2)] for _ in range(int(input()))]
+O=[x[0]-x[1].total_seconds() for x in I]
+for x in O:
+    print(int(x))
+
+Though, there is still one error left.
+This logical error is my having forgot that the absolute value of the difference between the given pairs of date times was needed not the signed difference.
+So, thankfully, arithmetic with timedelta objects is mostly like that with normal numbers so all I needed to do is wrap the difference in an absolute value.
+
+from datetime import datetime
+I=[[datetime.strptime(input(),'%a %d %b %Y %H:%M:%S %z') for x in range(2)] for _ in range(int(input()))]
+O=[abs(x[0]-x[1]).total_seconds() for x in I]
+for x in O:
+    print(int(x))
+
+With that, I passed the tests, and realized I would never get back those two days of confusion ever again.
+This is probably the best example of why you want to record errors you make while programming, because they tend to cross boundaries from logical to runtime and back again.
+
+
+
 20150926T1405 Python: raw_input() from python 2.x became input() in python 3
 I was solving a problem for my application to LaunchCode and was using an expression
 

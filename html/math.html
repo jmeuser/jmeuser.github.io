@@ -472,9 +472,9 @@ The following are written using N notation.
     ----- introduce       ----- eliminate
     0 f y                   a y
 
-x b x f y              x f S y
+y b x f y               S.x f y
 --------- introduce   --------- eliminate
- x f S y              x b x f y
+  S.x f y             y b x f y
 
 The reason these schema are more representative of their use in defining functions is because they provide a sense of direction and show that the iterative schema of definition is conservative.
 Specifically, one can not build an expression containing f without having established an expression from a or an expression from b and f of a certain form.
@@ -531,9 +531,9 @@ Using schema of a more modern form and the notational conventions of N the schem
         ----- introduce           ----- eliminate
         0 f y                       a y
 
-(x,y) b x f y                x f S y
+(x,y) b x f y                   S.x f y
 ------------- introduce   ------------- eliminate
-   x f S y                (x,y) b x f y
+      S.x f y             (x,y) b x f y
 
 Though, this is not how an experienced user of N notation would write these schema.
 They would use the power of forks, and their abundance in everyday arithmetic to writhe these schema as follows:
@@ -542,9 +542,9 @@ They would use the power of forks, and their abundance in everyday arithmetic to
     ----- introduce       ----- eliminate
     0 f y                   a y
 
-x , b f y              x f S y
+x , b f y               S.x f y
 --------- introduce   --------- eliminate
- x f S y              x , b f y
+  S.x f y             x , b f y
 
 For those unfamiliar with N's use of forks and hooks the expression 'x , b f y' is calculate as follows:
 
@@ -556,13 +556,13 @@ which gives the same expression as in the previous non-forked expression.
 Why use forks?
 Because under these schema definition and using N's tacit verb concept we can write:
 
-{0 f   y} = {a y}
-{x f S y} = , b f
+  {0 f y} = {a y}
+{S.x f y} = , b f
 
 Or if one wanted to make expressions that are, in my opinion, more distinct and clear in their meaning and use of constant and projection functions:
 
-{0} f  {y} =   a {y}
-{x} f S{y} = , b f
+ {0} f {y} =   a {y}
+S{x} f {y} = , b f
 
 Both expression are actually a pair of verbs/abbreviations/functions(but not 'real' functions) themselves: they are not what a classical algebra student would interpret as a statement of equality.
 This seems weird at first and pointless if you are not aware of how Goodstein uses equality.

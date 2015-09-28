@@ -6,6 +6,40 @@
 Hacker Rank Problems and Solutions
 https://www.hackerrank.com/jmeuser
 
+Time Delta
+
+Problem Statement
+Timestamps are given in the format:
+Day dd Mon yyyy hh:mm:ss +xxxx
+Here +xxxx represents the timezone. See sample below for details.
+
+Task 
+Given 2 timestamps, print the absolute difference (in seconds) between them.
+
+Input Format 
+First line contains T representing T testcases. 
+Each testcase contains 2 lines, representing time t1 and time t2.
+
+Output Format 
+Print the absolute difference (t1−t2) in seconds.
+
+Constraints 
+It is guaranteed that input contains only valid timestamps and the year can reach up to 3000.
+
+Solution (2 days)
+This is the first real problem requiring an understanding of how to go through documentation to find a solution that is "good enough".
+I learned that, in general, computers and time are difficult to combine.
+Also, the real problem was that I wrote "import datetime" in my original code.
+It should have been "from datetime import datetime", similar but two days difference in solving the problem.
+
+from datetime import datetime
+I=[[datetime.strptime(input(),'%a %d %b %Y %H:%M:%S %z') for x in range(2)] for _ in range(int(input()))]
+O=[abs(x[0]-x[1]).total_seconds() for x in I]
+for x in O:
+    print(int(x))
+
+
+
 Calendar Module
 Task
 You are given the date of the day. Your task is to find what day it is on that date.
