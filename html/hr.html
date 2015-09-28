@@ -6,7 +6,109 @@
 Hacker Rank Problems and Solutions
 https://www.hackerrank.com/jmeuser
 
+Class 2 - Find the torsional angle
+
+Problem Statement
+You are given four points A, B, C and D in the 3-dimensional cartesian coordinate system. You are required to print the angle between the plane made by points A, B, C and B, C, D in degrees(NOT RADIAN). Let the angle be PHI. Cos(PHI) = (X . Y)/|X||Y| where X = AB x BC and Y = BC x CD. Here X.Y mean dot product between X and Y. AB x BC mean cross product between line segment AB and BC. AB = B - A.
+
+Input Format
+X, Y and Z coordinates of a point in one line separated by space, where they are floating numbers.
+
+Output Format
+Angle with precision of two digits after decimal.
+
+Solution (50m I wish I could work these problems in N)
+
+import math
+def minus(x,y):
+    return [u-v for u,v in zip(x,y)]
+def dot(x,y):
+    return sum([u*v for u,v in zip(x,y)])
+def norm(x):
+    return math.sqrt(dot(x,x))
+def det(x,y):
+    return x[0]*y[1]-x[1]*y[0]
+def cross(x,y):
+    return [det(x[1:],y[1:]), det(x[::2],y[::2]), det(x[:-1],y[:-1])]
+def abd(x,y):
+    return math.degrees(math.acos(dot(u,v)/(norm(u)*norm(v))))
+
+a,b,c,d=[[float(x) for x in input().split()] for _ in range(4)] 
+u=cross(minus(b,a), minus(c,b))
+v=cross(minus(c,b), minus(d,c))
+print('{:0.2f}'.format(abd(u,v)))
+
+
+
+Classes: Dealing with Complex Numbers
+
+Problem Statement
+For this challenge, you are given two complex numbers and you have to print the result of their addition, subtraction, multiplication, division and modulus operations.
+The precision of both the real and imaginary part should be two digits after decimal.
+
+Input Format
+Real and imaginary part of a number separated by space.
+
+Output Format
+For two complex numbers C and D, the output should be in the following sequence
+C + D
+C - D
+C * D
+C / D
+mod(C)
+mod(D) 
+
+For complex numbers with non-zero real(A) and complex part(B), the output should be in the following format: 
+A + Bi
+Replace the plus symbol (+) with a minus symbol (-) when B &lt; 0
+
+For complex numbers with a zero complex part i.e. real numbers, the output should just be the real number. 
+For complex numbers where the real part is zero and the complex part(B) is non-zero, the output should be:
+Bi
+
+
+Solution (30m formatting output to a poorly given specification takes a long time)
+
+u=complex(*[float(x) for x in input().split()])
+v=complex(*[float(x) for x in input().split()])
+I=[[x.real,x.imag] for x in [u+v, u-v, u*v, u/v, abs(u), abs(v)]]
+for x,y in I:
+    if y==0:
+        print('{:0.2f}'.format(x))
+    elif x==0:
+        print('{:0.2f}i'.format(y))
+    elif y&lt;0:
+        print('{:0.2f} - {:0.2f}i'.format(x,-y))
+    else:
+        print('{:0.2f} + {:0.2f}i'.format(x,y))
+
 Sort Data
+
+Task
+You are given two values a and b. 
+Your task is to do integer division and print a/b.
+
+Input Format
+First line contains, number of test cases T. 
+Next T line contains, space separated values of a and b.
+
+Constraints
+0&lt;T&lt;10
+
+Output Format
+Print value of a//b. 
+In case of ZeroDivisionError or ValueError, print the error code.
+
+Solution (10m)
+
+I=[input().split() for _ in range(int(input()))]
+for x in I:
+    try:
+        print(int(x[0])//int(x[1]))
+    except (ZeroDivisionError, ValueError) as e:
+        print('Error Code:',e)
+
+
 
 Problem Statement
 You are given data in a tabular format i.e. the data contains N rows and each row contains M space-separated elements.
