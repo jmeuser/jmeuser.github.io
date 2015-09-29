@@ -3,16 +3,155 @@
  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen">
 </head>
 <body><pre>
+20150929T1251 Refining the primitive concepts of N
+The greatest contribution to my development of N has been identifying the dyadic adverb ^ as redo|again|repeat.
+I've settled, for now, on redo because it is appropriately vague on how you will redo the next step, perhaps with some minor edits or changes (which is what happens in most places where it might be used).
+Though, in a barely second place to ^ as redo, are the following definitions/identifications:
+
+&gt; max
+= pd
+&lt; min
+&amp; gcd|meet
+| lcm|join
+~ same
+
+Though, as will hopefully become clearer as I develop N and my presentation of its utility, the identification of append|affix|concat which is denoted , as a binary operation (dyad) should have the greatest impact on how mathematicians view classical expressions such as f(x,y,z) (mostly because this notation maintains its classical meaning in N's new interpretation).
+
+I'll give a brief explanation of what = means (it's not that complicated really).
+
+ 2=1
+1
+ 5=9
+4
+ 9=5
+4
+ 105=99
+6
+
+The dyadic verb = is called "positive difference" and is the most natural "norm" on the natural numbers.
+My contention is that the sign = should no longer be used to denoted equality because that concept is poorly defined in most cases.
+Specifically, = should be included among the arithmetical signs and not among logical signs.
+That is where ~ comes in, as same, it is much more appropriate, in general, for expressing the similarities that we are actually used to seeing in algebraic expressions.
+
+Furthermore, there is a general outlook on arithmetic which is very clearly and exactly described in Goodstein's Recursive Number Theory that supports the use of = as positive difference.
+Specifically, it is important to prove or "know" that if the positive difference between one numeral and another is zero then they must be the same numeral.
+This has far reaching implications in how we conceive of sameness inside a theory and outside a theory.
+In other words, it is important to know where arithmetic ends and where our statements about arithmetic begin.
+Though it might sound like a theoretical issue only, it is not.
+Ask any computer scientist and you will see that the notion of equality is usually a matter of "relevant taste".
+I've decided to subsume equality as a concept under the moniker "same" for now, though it might stick as I go along.
+
+In the other notation of N the positive difference satisfies the following identity:
+
+{x=y} ~ {(x-y)+y-x}
+
+Though this is given in the curly bracket notation (something which I'm still trying to decide whether it helps thinking or if its just a redundant crutch).
+
+To put into symbols the statement that two numerals whose positive difference is zero are the same we write:
+
+(0 ~ x = y) ~ x ~ y
+
+To some people, this might be profound (because it is) and to others it might seem silly because of how simple it is (because it is).
+
+Why make &lt; and &gt; return min and max respectively?
+There are at least two arguments: one is "practical" the other is theoretical|design based.
+The practical argument is that deciding whether one numeral is greater than or less than another is a statement about numerals, where as giving the the maximum of a pair of numerals is an arithmetic action.
+Another practical observation is that no matter where you might be "incrementing or decrementing" (something that you shouldn't be doing with N in the first place, but that's something completely different to write about) you can use the this claw *= to do what you've really been wanting.
+For example
+
+ 1 *= 3
+1
+ 2 *= 3
+1
+ 3 *= 3
+0
+ 5 *= 1
+1
+ 4 *= 2
+1
+ 3 *= 3
+0
+
+There is also the situation that frequently someone wanting to "compare" numbers are doing so because they desire to find the minimum or maximum of them.
+It's different, but it's not different to be different.
+It's different because it's something that cuts closer to the "heart" of arithmetic and its relation to statements about arithmetic.
+This being the theory argument (the details of the theory are easily read in Goodstein RNT, but because people are afraid of thinking I've not gone into detail here so as not to scare them off).
+Suppose you wish to decide whether one number is greater than another.
+Supposing you believe 0 to represent "True" and 1 to represent "False" you could write
+
+less:{x=x&lt;y}
+ 3 less 4
+0
+ 4 less 3
+1
+
+
+Suppose you believe 0 to represent "False" and 1 to represent "True" you could write
+
+less:{1-x=x&lt;y}
+ 3 less 4
+1
+ 4 less 3
+0
+
+"Why do this!" you ask!!?
+Because, orderings and decision is actually hard in general.
+It is highly dependent on representation.
+Under certain conditions you may find it necessary to redefine what it means for things to be less than or greater than: even when it comes to something so primitive as the natural numbers!
+An example, but perhaps not the most accessible example, is the modular representation of integers described by Knuth in TAOCP Vol 2 Semi-Numerical Algorithms.
+"But! Giving the max requires you to make a decision as to which is greater!"
+No, it doesn't: consult the identity that follows.
+
+(x &gt; y) ~ x+y-x
+(x &gt; y) ~ y+x-y
+
+Remember, in N, the dyad - is monus, not minus.
+Minus is actually a powerful abstraction, where as monus is a familiar activity (because you can't take an apple from an empty bag and produce a negative apple).
+The behavior of - on integer numerals is the operation of minus that everyone is happy being familiar with (for now).
+
+The theoretical reason to considering = &lt; &gt; as pd, min, max is because these arithmetic operations are prior to the relations of equality, less than, and greater than.
+It is a subtle but essential distinction, one which is bound to frustrate and baffle those who are not willing to entertain such a fundamental change in perspective.
+
+There is an even deeper reason for defining things this way.
+Propositions about arithmetic and arithmetic should be separated as much as possible so that it is easier to interpret propositions about arithmetic in arithmetic in ways that we have yet to imagine.
+For example, there are different ways we can think of "ordering" the natural numbers.
+Perhaps we want to imagine all the even numbers coming before the odd numbers!
+Our imagination in this regard could change on a whim, but by agreeing on x&lt;y as an abbreviation for x+y-x or y+x-y we are focusing on how the fundamental arithmetic operations of plus and monus combine with each other.
+In other words, whatever it is that we might wish from an arithmetic, we seem to be bound to introduce the concept of plus and monus from which the expression
+
+(x+y-x) ~ y+x-y
+
+is satisfied by any numerals x and y.
+The fact that I have called &lt; min and &gt; max already "plays favorites" to the classical ordering of the natural numerals, but this is a design feature so that users are not immediately confused.
+
+Another way of thinking about these thing is to see that the classical notion that a numeral x is less than or equal to a numeral y is encapsulated in the following proposition:
+
+x ~ y-y-x
+
+Again, this might seem silly, but, much like the makers of the C programming language said, it wears well as one uses it.
+It opens doors from the beginning without overwhelming the user of mathematics with unnecessary or overwhelming choices.
+One might think of it as a more "neutral" way of doing arithmetic.
+A erudite would call this perspective "Post-Gödelian Arithmetic".
+The reason?
+All of these seemingly annoying redefining of age old concepts bare out all the way to the limits of arithmetic.
+Specifically, to the point where arithmetic can be used to say that "There is an equation 0 ~ f n which is verifiable but not provable in our primitive arithmetic".
+This seemingly abstract fact is actually considerably concrete, and the arithmetic conventions of N take this concrete fact into account from the beginning.
+This fact follows form a specific interpretation of propositions about arithmetic as parts of arithmetic (Gödel Numerals).
+
+
+
 20150927T1517 Aren't You Worried about someone stealing your ideas?
 Yes and no.
 I am worried about people not giving credit where credit is due e.g. Goodstein's work is largely overlooked even though he, like Russell, Hilbert, and others, has produced a monumentally important contribution to the foundation of mathematics and mathematical philosophy.
 If someone copies my ideas then at least there will be detailed and public records that my work has been done by me over an iterated period of time.
+
 
 20150927T1512 Primitive Inequalities
 Any inequalities from Hardy, Littlewood, and Pólya Inequalities which are provable or derivable inside Goodstein's Primitive Recursive Arithmetic are to be called Primitive Inequalities.
 Though there is the suggestion that they should be called elementary, there are reasons for not favoring this phrase which clash with the use of elementary to describe a class of functions.
 It is important to identify which inequalities from Hardy, Littlewood, and Pólya Inequalities are provable in Goodstein's system as they are the principle relations used to establish what are commonly accepted as essential analytic results.
 Comparing where these inequalities are used in Goodstein's Recursive Analysis will reveal the different branches of analysis that are united and divided by Goodstein's methods.
+
 
 20150927T1451 The Design of Distributed and Parallel Computing Systems
 We lack a practical foundation for parallel and distributed computing systems.
@@ -23,6 +162,7 @@ Humans think recursively and act iteratively.
 Iterative actions can be parallel or "distributed" (not exclusively).
 The elementary school use of phrases like "do the same thing again" or "repeat that but now on this one" is just one of the ways in which we introduce parallelism (or perhaps just concurrency) into the minds of elementary school students.
 Multidimensional arithmetic is just one access point for putting parallel concepts into the hands of those who need it most.
+
 
 20150927T1440 Goodstein and Iverson and Peter
 I've written much on how the works of Goodstein and Iverson just work together.
@@ -37,7 +177,6 @@ It is very frustrating to me to not see more mention of Peter's work on Recursiv
 This is not only because she is a woman, something which people tend to overlook or forget to mention, but because before her work on recursive functions there was no single collection of what constitute recursive functions and how the differing forms of recursion and recursiveness are or are not reducible to forms of primitive recursion.
 
 As much as modern computation is about recursion, Peter should be more frequently mentioned in modern texts because it is because of her that we have most of our fundamental results in the foundation of recursion and recursiveness.
-
 
 
 20150927T1138 Goodstein Realized Leibniz' Calculus ratiocinator
@@ -141,6 +280,7 @@ I realized immediately that all the work I've been doing to develop N could be p
 Most importantly, HLP consider their work to cover the elementary inequalities in use throughout real, complex, and functional analysis.
 My perspective on real, complex, and functional analysis is significantly different from theirs and most modern mathematicians, so it should be interesting to see where I can fit their results in my head.
 The good thing is that HLP are smarter and wiser than I am likely to ever be, and their results are given in their most fundamental form which is what is of direct interest to me and my notational language N.
+
 
 20150924T1553 Quotes and Goodstein's Introduction of Zero in FCOM
 The main thing to remember is to keep the main thing the main thing.
