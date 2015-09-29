@@ -8,6 +8,49 @@ Programming Errors
 This is a list of errors that I've made while programming.
 It is organize chronologically.
 
+20150929T1039 Converging Substitutions in Strings
+A hacker rank problem asked to replace all occurrences of ' &amp;&amp; ' with ' and ', and ' || ' with ' or '.
+My first solution was as follows:
+
+from re import sub
+I=[input() for _ in range(int(input()))]
+A=[sub(' &amp;&amp; ',' and ',x) for x in I]
+A=[sub(' \|\| ',' or ',x) for x in A]
+for x in A:
+    print(x)
+
+For most of the test-cases this code seemed to work perfectly.
+For some it did not.
+It became apparently that the problem was with the stages at which the substitutions occurred.
+Here is the specific example input that revealed my error:
+
+1
+text &amp;&amp; &amp;&amp; text
+
+With my incorrect algorithm the output is as follows:
+
+text and &amp;&amp; text
+
+Notice that the second occurrence of ' &amp;&amp; ' was not replaced with ' and '.
+This is because it is only after the substitution of ' and ' for the left most occurrence of ' &amp;&amp; ' that the second substring ' &amp;&amp; ' was actually formed.
+That is, it is not until AFTER the substitution sub(' &amp;&amp; ',' and ',x) had been performed on the input string that the second substring ' &amp;&amp; ' would occur.
+Thus, rather than needing a single pass, I needed to perform a convergent iteration of substitutions until the collected lines were no longer changed by a substitution.
+Though this operation is easily called upon in J or k (as it is obviously primitive) it was not so difficult to implement the relevant behavior in python as follows:
+
+from re import sub
+I=[input() for _ in range(int(input()))]
+A=I
+B=[]
+while A!=B:
+    B=A
+    A=[sub(' &amp;&amp; ',' and ',x) for x in A]
+    A=[sub(' \|\| ',' or ',x) for x in A]
+for x in A:
+    print(x)
+
+Though, I do not prefer this solution, as it does not seem properly "clear" or "clean", I was not motivated enough to go beyond this functioning correction to my initial logical error.
+
+
 20150928T1527 Sorted Strings instead of Integers
 In a Hacker Rank problem I was asked to read in a table of data and then to sort by its values down the k-th column.
 My first solution was

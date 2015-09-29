@@ -6,6 +6,66 @@
 Hacker Rank Problems and Solutions
 https://www.hackerrank.com/jmeuser
 
+Regex Substitution
+
+Task
+You are given a text of N lines. The text contains &amp;&amp; and || symbols. 
+Your task is to modify :
+&amp;&amp; to and
+|| to or
+Both &amp;&amp; and || should have space " " on both sides.
+
+Input Format
+First line contains integer, N. 
+Next N lines contains the text.
+
+Constraints
+0&lt;N&lt;100
+Neither &amp;&amp; nor || occur in start or end of each line.
+
+Output Format
+Output the modified text.
+
+Solution (20m had some trouble understanding the form of the desired result from the given specifications)
+
+from re import sub
+I=[input() for _ in range(int(input()))]
+A=I
+B=[]
+while A!=B:
+    B=A
+    A=[sub(' &amp;&amp; ',' and ',x) for x in A]
+    A=[sub(' \|\| ',' or ',x) for x in A]
+for x in A:
+    print(x)
+
+
+
+Validating Email Address with Filter
+
+Problem Statement
+You are given an integer N followed by N email addresses. Your task is to print a list containing valid email addresses, in lexicographic order.
+A valid email address is of the format username@websitename.extension
+Username can only contain letters, digits, dash and underscore. Website name can have letters and digits. Maximum length of the extension is 3. 
+
+Input Format
+An integer N followed by N lines, each containing a string.
+
+Constraints 
+Each line is a nonempty string.
+
+Output Format
+A list containing valid email addresses in lexicographic order. If the list is empty, just output an empty list, [].
+
+Solution (30m, I was going to do it with filters, but that was taking WAY too long so re)
+from re import match
+I=[input() for _ in range(int(input()))]
+re='^[a-zA-Z][a-zA-Z0-9-_]*@[a-zA-Z0-9]+\.[a-zA-Z]{1,3}$'
+O=sorted([x for x in I if match(re,x)])
+print(O)
+
+
+
 Map and Lambda Functions
 
 Problem Statement
