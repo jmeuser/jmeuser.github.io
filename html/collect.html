@@ -3,6 +3,101 @@
  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen">
 </head>
 <body><pre>
+20150929T1522 redo ^
+First, ^ is referred to as “redo” or “repeat” it is the entry point for “recursion” into N notation.
+For a numeral n and unary function f
+
+f^0 y gives y
+f^(S n) y gives  f^n f y
+
+In other words, it’s just iteration (where S is the successor operation).
+Now here’s where things get fun, and perhaps profoundly interesting.
+The generalization of the operator ^ for two binary functions f and g is as follows
+
+0 f^g y gives y
+x f^g y gives (x g y) f^g (x f y)
+
+Thus if P is the predecessor operation then
+
+(S n) f.{y}^P.{x} y gives n f.{y}^P.{x} f y (after computation where {y} is projection of the right argument and {x} is projection of the left argument).
+
+Which is the same as simple iteration in the form (f^n y)
+
+If f and g are both unary we can make the agreement that
+
+0 f^g y gives y
+x f^g y gives g.x f^g f.y
+
+Which lets us write
+
+n S^P.P 0
+
+for the floor of half of n (or the integer half of n).
+
+A function whose recursive definition is classically given via a helper function:
+
+alt 0 gives 0
+alt S n gives 1 - alt n  (here - is monus i.e. m - 0 gives m and m - S n gives P m-n)
+
+so that alt 0 gives 0, alt 1 gives 1, alt 2 gives 0 and so on.
+
+then
+
+hf 0 gives 0
+hf S n gives (hf n) + alt n
+
+where hf is the the integer half function.
+
+Here is probably a more “likable” definition
+
+n *^P 1
+
+is the factorial of n (where P is the predecessor and  * is normal multiplication).
+The following sequence of events showcases how you might imagine working with this notation:
+
+4 *^P 1
+P.4 *^P 4*1
+3 *^P 4
+P.3 *^P 3*4
+2 *^P 3*4
+P.2 *^P 2*3*4
+1 *^P 2*3*4
+P.1 *^P 1*2*3*4
+0 *^P 1*2*3*4
+1*2*3*4
+24
+
+Similarly
+
+n +^P 0
+
+is the sum of the numbers from 1 to n.
+The importance is that these are recursive definitions.
+One can use a different notation, the unary numer function !, to achieve the same things
+
+!2 gives (0,1)
+!3 gives (0,1,2)
+!10 gives (0,1,2,3,4,5,6,7,8,9) 
+and so on
+
+so that the factorial of n can be given as
+
+*/1+!n
+
+which is times over numer n.
+
+*/1+!3
+*/1+(0,1,2)
+*/(1,2,3)
+1*2*3
+6
+
+Which is a more “explicit” method of calculating with factorials (this list the way factorial is usually given in text books when people write (fact n) = 1 * 2 * 3 * 4 * … *n
+
+(x*y) is the same as x+^y 0
+(x exp y) is the same as x*^y 1
+
+
 20150929T1251 Refining the primitive concepts of N
 The greatest contribution to my development of N has been identifying the dyadic adverb ^ as redo|again|repeat.
 I've settled, for now, on redo because it is appropriately vague on how you will redo the next step, perhaps with some minor edits or changes (which is what happens in most places where it might be used).
