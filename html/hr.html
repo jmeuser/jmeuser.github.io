@@ -6,6 +6,28 @@
 Hacker Rank Problems and Solutions
 https://www.hackerrank.com/jmeuser
 
+Validating Roman Numerals
+
+Problem Statement
+You are given a string and you have to validate whether it's a valid Roman numeral. If it is valid, print True, otherwise print False. Try to create a regular expression for a valid Roman numeral.
+
+Input Format
+A string containing Roman Characters
+
+Output Format
+A one line string containing True or False
+
+Constraints
+The number will be between 1 and 3999 (both included)
+
+Solution (20min)
+
+from re import match
+re='^(M{0,3})(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$'
+print('True' if match(re,input()) else 'False')
+
+
+
 Validating Phone Numbers
 
 Problem Statement
