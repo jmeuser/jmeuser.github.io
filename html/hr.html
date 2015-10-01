@@ -7,6 +7,47 @@ href="http://fonts.googleapis.com/css?family=Inconsolata">
 Hacker Rank Problems and Solutions
 https://www.hackerrank.com/jmeuser
 
+Hex Color Code
+
+Problem Statement
+CSS colors are defined using a hexadecimal (HEX) notation for the combination 
+of Red, Green, and Blue color values (RGB).
+
+Specifications of HEX Color Code
+It must start with a '#' symbol.
+It can have 3 or 6 digits.
+Each digit is in the range of 0 to F. (i.e. 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, A, B, 
+C, D, E and F).
+A-F letters can be in lower case too. (i.e. a, b, c, d, e and f are also valid 
+digits).
+
+CSS Code Pattern
+Selector
+{
+	Property: Value;
+}
+
+Input Format
+First line contains, integer N.
+Next N lines contain, CSS Code.
+
+Constraints
+0&lt;N&lt;50
+
+Output Format
+Output color codes with '#' in separate lines.
+
+Solution (20m)
+
+from re import findall
+re=r'[^\A](#[A-Fa-f0-9]{6}|#[A-Fa-f0-9]{3})'
+I=[input() for _ in range(int(input()))]
+O=[x for y in I for x in findall(re,y)]
+for x in O:
+    print(x)
+
+
+
 Validating Roman Numerals
 
 Problem Statement
