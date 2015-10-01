@@ -1,5 +1,6 @@
 <html><head>
- <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Inconsolata">
+ <link rel="stylesheet" type="text/css" 
+href="http://fonts.googleapis.com/css?family=Inconsolata">
  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen">
 </head>
 <body><pre>
@@ -19,7 +20,8 @@ Binary Digits
 2 = 2$'10'
 3 = 2$'11'
 
-Numerals without leading base notation are assumed to be base 10 e.g. 10 = 10$'10'.
+Numerals without leading base notation are assumed to be base 10 e.g. 10 = 
+10$'10'.
 
 Hexadecimal Digits
 (16$'0') = 2$'0000'
@@ -39,14 +41,17 @@ Hexadecimal Digits
 (16$'E') = 2$'1110'
 (16$'F') = 2$'1111'
 
-(16$'9E3779B97F4A7C16') = 2$'1001111000110111011110011011100101111111010010100111110000010110'
+(16$'9E3779B97F4A7C16') = 
+2$'1001111000110111011110011011100101111111010010100111110000010110'
 
-"A sequence of eight bits, or two hexadecimal digits, is commonly called a byte."
+"A sequence of eight bits, or two hexadecimal digits, is commonly called a 
+byte."
 
 bbyte:&amp;/(|/'01'=)",8=#
 hbyte:&amp;/(|/'0123456789ABCDEF'=)",2=#
 
-"Most computers now consider bytes be their basic, individually addressable units of information."
+"Most computers now consider bytes be their basic, individually addressable 
+units of information."
 "One octabyte equals four wydes equals eight bytes equals sixty-four bits."
 
      bit byte wyde tetra octa
@@ -78,7 +83,8 @@ uocta  0 18446744073709551615
 
 "Integers are also commonly represented by using two's complement notation"
 "the leftmost bit indicates the sign"
-"if the leading bit is 1, we subtract 2^n to get the integer corresponding to an n-bit number"
+"if the leading bit is 1, we subtract 2^n to get the integer corresponding to 
+an n-bit number"
 
        &amp;                    |
 sbyte                  -128                 127

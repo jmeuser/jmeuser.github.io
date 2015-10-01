@@ -1,5 +1,6 @@
 <html><head>
- <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Inconsolata">
+ <link rel="stylesheet" type="text/css" 
+href="http://fonts.googleapis.com/css?family=Inconsolata">
  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen">
 </head>
 <body><pre>
@@ -93,7 +94,10 @@ if(a==7){printf("a=7 gives 1\n");}
 #define A(e...)     {if(!(e))R 0;} 
 #define P(c,e...)   {if(c)R(e);}
 #define E(c,e...)   {if(c)R O("ERROR: %s\n",(e)),(S)0;}
-// Note (S)0 is a null pointer, and ',' is being used as the comma operator because it discards the side effect of O and returns (S)0 which is a null pointer (of the char type, if you're a compiler and happen to be interested in that sort of thing).
+// Note (S)0 is a null pointer, and ',' is being used as the comma operator 
+because it discards the side effect of O and returns (S)0 which is a null 
+pointer (of the char type, if you're a compiler and happen to be interested in 
+that sort of thing).
 
 Sources
 http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1570.pdf

@@ -1,5 +1,6 @@
 <html><head>
- <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Inconsolata">
+ <link rel="stylesheet" type="text/css" 
+href="http://fonts.googleapis.com/css?family=Inconsolata">
  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen">
 </head>
 <body><pre>
@@ -65,7 +66,8 @@ r'...'  # raw string i.e. escape characters are not interpreted
 ...'''  # multi-line string (contains input newlines)
 """\
 .\"""   # a new line immediately after \ is ignored
-"c" 'c' # adjacent string literals (constants) are concatenated (just use 'c'+"c")
+"c" 'c' # adjacent string literals (constants) are concatenated (just use 
+'c'+"c")
 3*'c'   # gives 'ccc'
 
 escaped characters are shown in REPL, but not from print(x)
@@ -87,7 +89,8 @@ s=[1,4,9,16,25]   # a list of squares
 s[1]              # gives 4
 s+[36,49,81,100]  # gives [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
 c=[1,8,27,65,125]
-c[3]=64           # changes c[3] from 65 to 64 (lists are mutable unlike strings)
+c[3]=64           # changes c[3] from 65 to 64 (lists are mutable unlike 
+strings)
 c                 # gives [1, 8, 27, 64, 125]
 c.append(216)     # appends 216 to the end of c
 c.append(7**3)    # append the cube to c
@@ -96,7 +99,8 @@ c                 # gives [1, 8, 27, 64, 125, 216, 343]
 l = ['a','b','c','d','e','f','g']  # l gets a list of letters
 l[2:5] = ['C','D','E']             # replace l[2:5] with ['C', 'D', 'E']
 l                                  # gives ['a','b','C','D','E','f','g']
-l[2:5] = []                        # replaces l[2:5] with nothing: eliminates entries
+l[2:5] = []                        # replaces l[2:5] with nothing: eliminates 
+entries
 l                                  # gives ['a', 'b', 'f', 'g']
 l[:]=[]                            # eliminates all entires from l
 l                                  # gives []
@@ -107,7 +111,8 @@ x = [a,n]                          # x gets list having lists a and n
 x                                  # x gives [['a', 'b', 'c'], [1, 2, 3]]
 x[0][1]                            # gives 'b' i.e. a[1]
 
-print('abc',end=', ')              # prints 'abc, ' without a new line at the end
+print('abc',end=', ')              # prints 'abc, ' without a new line at the 
+end
 
 
 # Control
@@ -125,7 +130,8 @@ for x in y:         # perform f(x) for each x in y
     f(x)
 for x in y:         # this will run forever
     y.insert(0,x)
-for x in y[:]:      # this will not run forever, x iterates over y[:] rather than y
+for x in y[:]:      # this will not run forever, x iterates over y[:] rather 
+than y
     y.insert(0,x)
 list(range(x,y,z))  # x+z*!1+_y%z
 list(range(len(x))) # !#x
@@ -147,7 +153,8 @@ def f(x):           # define a function that takes x and does y followed by z.
     """docstring""" # document the functions behavior
     y
     z
-# All variable assignments in a function store the value in the local symbol table;
+# All variable assignments in a function store the value in the local symbol 
+table;
 # variable references look in the following order
 # 1 local symbol table
 # 2 local symbol tables of enclosing functions
@@ -208,7 +215,8 @@ Set Methods
 x.add(y)                  # put y in x
 x.remove(y)               # take y from x give KeyError if y is not in x
 x.discard(y)              # take y from x
-x.pop()                   # return an item from x, remove it, and give KeyError if x empty
+x.pop()                   # return an item from x, remove it, and give KeyError 
+if x empty
 len(x)                    #         cardinality of set x
 x in y                    #         is x in y?
 x not in y                #         is x not in y?
@@ -234,25 +242,31 @@ pow(a,b,m)   # (a*/#b)!m
 import cmath
 cmath.phase(x)  # gives the phase or argument of the complex number x
 abs(x)          # gives the absolute value of the complex number x
-cmath.polar(x)  # gives polar representation of complex x i.e. (abs(x),cmath.phase(x))
+cmath.polar(x)  # gives polar representation of complex x i.e. 
+(abs(x),cmath.phase(x))
 cmath.rect(x,y) # rect from polar: x * (math.cos(y) + math.sin(y)*1j)
 
 from collections import Counter
 Counter(x)       # count items of x using a map(dict)
-x.elements()     # give iterator of elements y of counter x each repeated x[y] times
-x.most_common()  # give list of (item, count) ordered by count (equals listed arbitrarily)
+x.elements()     # give iterator of elements y of counter x each repeated x[y] 
+times
+x.most_common()  # give list of (item, count) ordered by count (equals listed 
+arbitrarily)
 x.most_common(y) # give first y items of x.most_common()
 x.subtract(y)    # subtract item's count in y from item's count in x
-x.update(y)      # add count of items in a Counter y, or Counter(y) if y is list etc.
+x.update(y)      # add count of items in a Counter y, or Counter(y) if y is 
+list etc.
 
 import calendar
 calendar.weekday(y,m,d) # give index of day of week on ymd with 0 = Monday
 calendar.day_name       # array of name of day of week in current local 0=Monday
 
 import time
-time.strptime(x)   # change x from "%a %b %d %H:%M:%S %Y" to time.struct_time form (tuple)
+time.strptime(x)   # change x from "%a %b %d %H:%M:%S %Y" to time.struct_time 
+form (tuple)
 time.strptime(x,y) # change string x from format string y to time.struct_time
-time.mktime(x)     # change struct_time x into the (float) number of seconds since epoch
+time.mktime(x)     # change struct_time x into the (float) number of seconds 
+since epoch
 
 
 from datetime import datetime # gets datetime class from datetime module
@@ -260,7 +274,8 @@ x=datetime.strptime(y,z) # x gets datetime object from string y formatted by z
 
 time.struct_time # https://docs.python.org/3/library/time.html#time.struct_time
 
-Time String Format Codes (https://docs.python.org/3/library/time.html#time.strftime)
+Time String Format Codes 
+(https://docs.python.org/3/library/time.html#time.strftime)
 %a Locale’s abbreviated weekday name.  
 %A Locale’s full weekday name.  
 %b Locale’s abbreviated month name.  
@@ -274,14 +289,20 @@ Time String Format Codes (https://docs.python.org/3/library/time.html#time.strft
 %M Minute as a decimal number [00,59].  
 %p Locale’s equivalent of either AM or PM.
 %S Second as a decimal number [00,61].
-%U Week number of the year (Sunday as the first day of the week) as a decimal number [00,53]. All days in a new year preceding the first Sunday are considered to be in week 0.
+%U Week number of the year (Sunday as the first day of the week) as a decimal 
+number [00,53]. All days in a new year preceding the first Sunday are 
+considered to be in week 0.
 %w Weekday as a decimal number [0(Sunday),6].  
-%W Week number of the year (Monday as the first day of the week) as a decimal number [00,53]. All days in a new year preceding the first Monday are considered to be in week 0.
+%W Week number of the year (Monday as the first day of the week) as a decimal 
+number [00,53]. All days in a new year preceding the first Monday are 
+considered to be in week 0.
 %x Locale’s appropriate date representation.  
 %X Locale’s appropriate time representation.  
 %y Year without century as a decimal number [00,99].  
 %Y Year with century as a decimal number.  
-%z Time zone offset indicating a positive or negative time difference from UTC/GMT of the form +HHMM or -HHMM, where H represents decimal hour digits and M represents decimal minute digits [-23:59, +23:59].  
+%z Time zone offset indicating a positive or negative time difference from 
+UTC/GMT of the form +HHMM or -HHMM, where H represents decimal hour digits and 
+M represents decimal minute digits [-23:59, +23:59].  
 %Z Time zone name (no characters if no time zone exists).  
 %% A literal '%' character.
 

@@ -1,5 +1,6 @@
 <html><head>
- <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Inconsolata">
+ <link rel="stylesheet" type="text/css" 
+href="http://fonts.googleapis.com/css?family=Inconsolata">
  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen">
 </head>
 <body><pre>
@@ -9,7 +10,9 @@ https://www.hackerrank.com/jmeuser
 Validating Roman Numerals
 
 Problem Statement
-You are given a string and you have to validate whether it's a valid Roman numeral. If it is valid, print True, otherwise print False. Try to create a regular expression for a valid Roman numeral.
+You are given a string and you have to validate whether it's a valid Roman 
+numeral. If it is valid, print True, otherwise print False. Try to create a 
+regular expression for a valid Roman numeral.
 
 Input Format
 A string containing Roman Characters
@@ -31,14 +34,17 @@ print('True' if match(re,input()) else 'False')
 Validating Phone Numbers
 
 Problem Statement
-Let's dive into the interesting topic of regular expressions! You are given some inputs and you are required to check whether they are valid mobile numbers.
+Let's dive into the interesting topic of regular expressions! You are given 
+some inputs and you are required to check whether they are valid mobile numbers.
 A valid mobile number is a ten digit number starting with 7, 8 or 9.
 
 Input Format
-The first line contains an integer N followed by N lines, each containing some string.
+The first line contains an integer N followed by N lines, each containing some 
+string.
 
 Output Format
-For every string listed, print YES if it is a valid mobile number and NO if it isn’t.
+For every string listed, print YES if it is a valid mobile number and NO if it 
+isn’t.
 
 Constraints 
 1 &lt;= N &lt;= 10 
@@ -75,7 +81,8 @@ Neither &amp;&amp; nor || occur in start or end of each line.
 Output Format
 Output the modified text.
 
-Solution (20m had some trouble understanding the form of the desired result from the given specifications)
+Solution (20m had some trouble understanding the form of the desired result 
+from the given specifications)
 
 from re import sub
 I=[input() for _ in range(int(input()))]
@@ -93,9 +100,11 @@ for x in A:
 Validating Email Address with Filter
 
 Problem Statement
-You are given an integer N followed by N email addresses. Your task is to print a list containing valid email addresses, in lexicographic order.
+You are given an integer N followed by N email addresses. Your task is to print 
+a list containing valid email addresses, in lexicographic order.
 A valid email address is of the format username@websitename.extension
-Username can only contain letters, digits, dash and underscore. Website name can have letters and digits. Maximum length of the extension is 3. 
+Username can only contain letters, digits, dash and underscore. Website name 
+can have letters and digits. Maximum length of the extension is 3. 
 
 Input Format
 An integer N followed by N lines, each containing a string.
@@ -104,9 +113,11 @@ Constraints
 Each line is a nonempty string.
 
 Output Format
-A list containing valid email addresses in lexicographic order. If the list is empty, just output an empty list, [].
+A list containing valid email addresses in lexicographic order. If the list is 
+empty, just output an empty list, [].
 
-Solution (30m, I was going to do it with filters, but that was taking WAY too long so re)
+Solution (30m, I was going to do it with filters, but that was taking WAY too 
+long so re)
 from re import match
 I=[input() for _ in range(int(input()))]
 re='^[a-zA-Z][a-zA-Z0-9-_]*@[a-zA-Z0-9]+\.[a-zA-Z]{1,3}$'
@@ -118,7 +129,9 @@ print(O)
 Map and Lambda Functions
 
 Problem Statement
-Let's learn some new python concepts! You have to generate a list of the first N fibonacci numbers, 0 being the first number. Then, apply the map function and a lambda expression to cube each fibonacci number and print the list.
+Let's learn some new python concepts! You have to generate a list of the first 
+N fibonacci numbers, 0 being the first number. Then, apply the map function and 
+a lambda expression to cube each fibonacci number and print the list.
 
 Input Format
 An integer N
@@ -139,10 +152,16 @@ print(list(map(lambda x:x**3,[fib(n) for n in range(int(input()))])))
 Class 2 - Find the torsional angle
 
 Problem Statement
-You are given four points A, B, C and D in the 3-dimensional cartesian coordinate system. You are required to print the angle between the plane made by points A, B, C and B, C, D in degrees(NOT RADIAN). Let the angle be PHI. Cos(PHI) = (X . Y)/|X||Y| where X = AB x BC and Y = BC x CD. Here X.Y mean dot product between X and Y. AB x BC mean cross product between line segment AB and BC. AB = B - A.
+You are given four points A, B, C and D in the 3-dimensional cartesian 
+coordinate system. You are required to print the angle between the plane made 
+by points A, B, C and B, C, D in degrees(NOT RADIAN). Let the angle be PHI. 
+Cos(PHI) = (X . Y)/|X||Y| where X = AB x BC and Y = BC x CD. Here X.Y mean dot 
+product between X and Y. AB x BC mean cross product between line segment AB and 
+BC. AB = B - A.
 
 Input Format
-X, Y and Z coordinates of a point in one line separated by space, where they are floating numbers.
+X, Y and Z coordinates of a point in one line separated by space, where they 
+are floating numbers.
 
 Output Format
 Angle with precision of two digits after decimal.
@@ -173,8 +192,11 @@ print('{:0.2f}'.format(abd(u,v)))
 Classes: Dealing with Complex Numbers
 
 Problem Statement
-For this challenge, you are given two complex numbers and you have to print the result of their addition, subtraction, multiplication, division and modulus operations.
-The precision of both the real and imaginary part should be two digits after decimal.
+For this challenge, you are given two complex numbers and you have to print the 
+result of their addition, subtraction, multiplication, division and modulus 
+operations.
+The precision of both the real and imaginary part should be two digits after 
+decimal.
 
 Input Format
 Real and imaginary part of a number separated by space.
@@ -188,16 +210,20 @@ C / D
 mod(C)
 mod(D) 
 
-For complex numbers with non-zero real(A) and complex part(B), the output should be in the following format: 
+For complex numbers with non-zero real(A) and complex part(B), the output 
+should be in the following format: 
 A + Bi
 Replace the plus symbol (+) with a minus symbol (-) when B &lt; 0
 
-For complex numbers with a zero complex part i.e. real numbers, the output should just be the real number. 
-For complex numbers where the real part is zero and the complex part(B) is non-zero, the output should be:
+For complex numbers with a zero complex part i.e. real numbers, the output 
+should just be the real number. 
+For complex numbers where the real part is zero and the complex part(B) is 
+non-zero, the output should be:
 Bi
 
 
-Solution (30m formatting output to a poorly given specification takes a long time)
+Solution (30m formatting output to a poorly given specification takes a long 
+time)
 
 u=complex(*[float(x) for x in input().split()])
 v=complex(*[float(x) for x in input().split()])
@@ -241,10 +267,14 @@ for x in I:
 
 
 Problem Statement
-You are given data in a tabular format i.e. the data contains N rows and each row contains M space-separated elements.
-You can imagine the M items to be different attributes (like height, weight, energy, etc) and each of the N rows as an instance or a sample.
-Your task is to sort the table on the Kth attribute and print the final resulting table.
-[If two attributes are the same for different rows, print the row that appeared first in the input]
+You are given data in a tabular format i.e. the data contains N rows and each 
+row contains M space-separated elements.
+You can imagine the M items to be different attributes (like height, weight, 
+energy, etc) and each of the N rows as an instance or a sample.
+Your task is to sort the table on the Kth attribute and print the final 
+resulting table.
+[If two attributes are the same for different rows, print the row that appeared 
+first in the input]
 
 Input Format
 First line contains N and M separated by a space. 
@@ -257,7 +287,8 @@ Constraints
 each element &lt;|=1000
 
 Output Format 
-Print the N lines of the sorted table, each line has space-separated elements. Check the sample below for clarity.
+Print the N lines of the sorted table, each line has space-separated elements. 
+Check the sample below for clarity.
 
 Solution (10m)
 
@@ -274,7 +305,8 @@ Zipped!
 Task
 The National University, conducts an examination of N students in X subjects. 
 Your task is to compute average scores of each student.
-Average score=Sum of scores obtained in all subjects by a studentTotal number of subjects
+Average score=Sum of scores obtained in all subjects by a studentTotal number 
+of subjects
 The format for general mark sheet is :
 Student ID   ___1_____2_____3_____4_____5__               
 Subject 1   |  89    90    78    93    80
@@ -285,7 +317,8 @@ Average        90    91    82    90    85.5
 
 Input Format
 First line contains, space separated values of N and X. 
-Next X lines contains, space separated marks obtained by students in a particular subject.
+Next X lines contains, space separated marks obtained by students in a 
+particular subject.
 
 Constraints
 0&lt;N&lt;|=100 
@@ -323,16 +356,20 @@ Output Format
 Print the absolute difference (t1−t2) in seconds.
 
 Constraints 
-It is guaranteed that input contains only valid timestamps and the year can reach up to 3000.
+It is guaranteed that input contains only valid timestamps and the year can 
+reach up to 3000.
 
 Solution (2 days)
-This is the first real problem requiring an understanding of how to go through documentation to find a solution that is "good enough".
+This is the first real problem requiring an understanding of how to go through 
+documentation to find a solution that is "good enough".
 I learned that, in general, computers and time are difficult to combine.
 Also, the real problem was that I wrote "import datetime" in my original code.
-It should have been "from datetime import datetime", similar but two days difference in solving the problem.
+It should have been "from datetime import datetime", similar but two days 
+difference in solving the problem.
 
 from datetime import datetime
-I=[[datetime.strptime(input(),'%a %d %b %Y %H:%M:%S %z') for x in range(2)] for _ in range(int(input()))]
+I=[[datetime.strptime(input(),'%a %d %b %Y %H:%M:%S %z') for x in range(2)] for 
+_ in range(int(input()))]
 O=[abs(x[0]-x[1]).total_seconds() for x in I]
 for x in O:
     print(int(x))
@@ -341,7 +378,8 @@ for x in O:
 
 Calendar Module
 Task
-You are given the date of the day. Your task is to find what day it is on that date.
+You are given the date of the day. Your task is to find what day it is on that 
+date.
 
 Input Format
 Single line containing space separated month, day and year in MM DD YYYY format.
@@ -374,11 +412,13 @@ Constraints
 3&lt;len(S)&lt;104
 
 Output Format
-Print the most common characters along with their count of occurrences in three lines.
+Print the most common characters along with their count of occurrences in three 
+lines.
 Output must sorted in descending order of count of occurrences.
 If count of occurrences is same then sort in ascending order of characters.
 
-Solution (30m, took a while to figure out how to sort things correctly, there is a better way to do this all from a different perspective)
+Solution (30m, took a while to figure out how to sort things correctly, there 
+is a better way to do this all from a different perspective)
 
 from collections import Counter
 for x in sorted(Counter(input()).items(),key=lambda x:(-x[1],x[0]))[:3]:
@@ -389,7 +429,8 @@ collections.Counter()
 Task
 Raghu is a shoe shop owner. His shop has X number of shoes. 
 He has a list containing size of each shoe he has in his shop. 
-There are N number of customers, who are willing to pay xi amount of money only if they get the shoe of their desired size.
+There are N number of customers, who are willing to pay xi amount of money only 
+if they get the shoe of their desired size.
 Your task is to compute, how much money Raghu earned.
 
 Input Format
@@ -451,13 +492,16 @@ Problem Statement
 
 You are given a function f(X)=X*^2.
 You are also given K lists. The ith list consists of Ni elements.
-You have to pick exactly one element from each list such that S=(f(X1)+f(X2)+...+f(Xk))%M is  maximized. Xi denotes the element picked from the ith list . Find the maximized value Smax thus obtained.
+You have to pick exactly one element from each list such that 
+S=(f(X1)+f(X2)+...+f(Xk))%M is  maximized. Xi denotes the element picked from 
+the ith list . Find the maximized value Smax thus obtained.
 % denotes the modulo operator.
 
 Input Format 
 First line contains 2 space separated integers K and M. 
 Then follow K lines. 
-The (i+1)th line contains an integer Ni followed by Ni space separated integers denoting the elements in the list.
+The (i+1)th line contains an integer Ni followed by Ni space separated integers 
+denoting the elements in the list.
 
 Output Format 
 A single integer denoting the value Smax.
@@ -481,7 +525,8 @@ itertools.combinations_with_replacement()
 
 Task
 You are given a string S. 
-Your task is to print all possible combinations with replacement of size k, of the string in lexicographic sorted order.
+Your task is to print all possible combinations with replacement of size k, of 
+the string in lexicographic sorted order.
 
 Input Format
 Single line containing space separated , string S and value k.
@@ -508,7 +553,8 @@ itertools.combinations()
 
 Task
 You are given a string S. 
-Your task is to print all possible combinations up to size k, of the string in lexicographic sorted order.
+Your task is to print all possible combinations up to size k, of the string in 
+lexicographic sorted order.
 
 Input Format
 Single line containing space separated, string S and value k.
@@ -536,7 +582,8 @@ itertools.permutations()
 
 Task
 You are given a string S. 
-Your task is to print all possible permutations of size k of the string in lexicographic sorted order.
+Your task is to print all possible permutations of size k of the string in 
+lexicographic sorted order.
 
 Input Format
 Single line containing space separated , string S and value k.
@@ -562,8 +609,10 @@ print('\n'.join(O))
 itertools.product()
 
 Task
-Your are given a two lists A and B. Your task is to compute Cartesian Product AXB.
-Note : A and B are sorted lists and the cartesian product's tuples should be emitted in sorted order.
+Your are given a two lists A and B. Your task is to compute Cartesian Product 
+AXB.
+Note : A and B are sorted lists and the cartesian product's tuples should be 
+emitted in sorted order.
 
 Input Format
 First line contains, space separated elements of list A. 
@@ -675,13 +724,16 @@ print(all(q))
 The Captains Room
 
 Problem Statement
-Mr. Anant Asankhya is the manager at INFINITE hotel. The hotel has an infinite amount of rooms.
+Mr. Anant Asankhya is the manager at INFINITE hotel. The hotel has an infinite 
+amount of rooms.
 One fine day, a finite number of tourists came to stay at the hotel. 
 Tourists consisted of :
  a Captain.
  Equal sized group of families (size K each and K ≠ 1).
 The Captain was given a separate room and rest were given one room per group.
-Mr. Anant has an unordered list of randomly arranged room entries. The list consists of room numbers of all the tourists. The room numbers will appear K times per group except for the Captain's room.
+Mr. Anant has an unordered list of randomly arranged room entries. The list 
+consists of room numbers of all the tourists. The room numbers will appear K 
+times per group except for the Captain's room.
 Mr. Anant needs help from you to find the Captain's room number. 
 Total number of Tourists or total group of families is not known to you. 
 You only have the value of K and room number list.
@@ -713,7 +765,8 @@ for x in C.items():
 Set Mutations
 
 TASK
-You are given a set A and N numbers of other sets. These N sets have to perform some specific mutation operations to set A.
+You are given a set A and N numbers of other sets. These N sets have to perform 
+some specific mutation operations to set A.
 Your task is to execute those operations and print the sum of elements of set A.
 
 Input Format
@@ -721,8 +774,10 @@ First line contains, number of elements in set A.
 Second line contains, space separated list of elements of set A.
 Third line contains, N, number of other sets.
 Next 2*N lines are divided into N parts of two lines each.
-First line of each part contains, space separated entries of operation name and length of other set.
-Second line of each part contains, space separated list of elements of other set.
+First line of each part contains, space separated entries of operation name and 
+length of other set.
+Second line of each part contains, space separated list of elements of other 
+set.
 0 &lt; len(set(A)) &lt; 1000 
 0 &lt; len(otherSets) &lt; 100 
 0 &lt; N &lt; 100
@@ -745,14 +800,22 @@ print(sum({int(x) for x in s}))
 Set .union() Operation
 
 Task
-Students of District College have subscription of English and French newspapers. Some students have subscribed to only English, some have subscribed to only French and some have subscribed to both newspapers.
-You are given two sets of roll numbers of students, who have subscribed to English and French newspapers. Your task is to find total number of students who have subscribed to at least one newspaper.
+Students of District College have subscription of English and French 
+newspapers. Some students have subscribed to only English, some have subscribed 
+to only French and some have subscribed to both newspapers.
+You are given two sets of roll numbers of students, who have subscribed to 
+English and French newspapers. Your task is to find total number of students 
+who have subscribed to at least one newspaper.
 
 Input Format
-First line contains, number of students who have subscribed to English newspaper. 
-Second line contains, space separated list of roll numbers of students, who have subscribed to English newspaper.
-Third line contains, number of students who have subscribed to French newspaper. 
-Fourth line contains, space separated list of roll numbers of students, who have subscribed to French newspaper.
+First line contains, number of students who have subscribed to English 
+newspaper. 
+Second line contains, space separated list of roll numbers of students, who 
+have subscribed to English newspaper.
+Third line contains, number of students who have subscribed to French 
+newspaper. 
+Fourth line contains, space separated list of roll numbers of students, who 
+have subscribed to French newspaper.
 
 Constraints
 0&lt;Total number of students in college&lt;1000
@@ -777,7 +840,8 @@ Commands will be pop, remove and discard.
 
 Input Format
 First line contains integer n, number of elements in set. 
-Second line contains space separated elements of set s. All elements are non-negative integers, less than or equal to 9. 
+Second line contains space separated elements of set s. All elements are 
+non-negative integers, less than or equal to 9. 
 Third line contains integer N, number of commands.
 Next N lines contains pop, remove and discard commands.
 
@@ -800,7 +864,9 @@ set.add()
 
 Task
 Apply your knowledge of .add() operation, to help your friend 'Hari'.
-Hari has a huge collection of country stamps. He decided to count total number of distinct country stamps he has collected. He asked you to help him. You pick stamps one by one from a stack of 'N' country stamps.
+Hari has a huge collection of country stamps. He decided to count total number 
+of distinct country stamps he has collected. He asked you to help him. You pick 
+stamps one by one from a stack of 'N' country stamps.
 Your task is to find the total number of distinct country stamps.
 
 Input Format
@@ -821,7 +887,9 @@ print(len({input() for _ in range(int(input()))}))
 Introduction to Sets
 
 Task
-Ms. Gabriel Williams is a botany professor at District College. One day, she asked her student 'Mickey' to compute an average of all the plants with distinct heights in her greenhouse.
+Ms. Gabriel Williams is a botany professor at District College. One day, she 
+asked her student 'Mickey' to compute an average of all the plants with 
+distinct heights in her greenhouse.
 
 Input Format
 First line contains, total number of plants in greenhouse.
@@ -842,13 +910,18 @@ print(sum(H)/len(H))
 Piling Up!
 
 Problem Statement
-There is a horizontal row of n cubes. Side length of each cube from left to right is given. You need to create a new vertical pile of cubes. The new pile should be such that if cubei is on cubej then sideLengthj≥sideLengthi. But at a time, you can only pick either the leftmost or the rightmost cube only. Print "Yes" if its possible, "No" otherwise.
+There is a horizontal row of n cubes. Side length of each cube from left to 
+right is given. You need to create a new vertical pile of cubes. The new pile 
+should be such that if cubei is on cubej then sideLengthj≥sideLengthi. But at a 
+time, you can only pick either the leftmost or the rightmost cube only. Print 
+"Yes" if its possible, "No" otherwise.
 
 Input Format
 First line contains a single integer T, denoting the number of test cases. 
 For each testcase, there are 2 lines. 
 First line of each test case contains n. 
-Second line of each test case contains n space separated integers, the sideLengths of the cubes in that order.
+Second line of each test case contains n space separated integers, the 
+sideLengths of the cubes in that order.
 
 Constraints 
 1&lt;|=T&lt;|=5 
@@ -856,18 +929,22 @@ Constraints
 1&lt;|=sideLength&lt;231
 
 Output Format
-For each testcase, output a single line containing a single word, either a "Yes" or a "No".
+For each testcase, output a single line containing a single word, either a 
+"Yes" or a "No".
 
 
 Solution (50m)
-I made a dirty recursive solution first, but it took too long to run on the larger lists, so I turned it into a loopy solution (which is ugly).
+I made a dirty recursive solution first, but it took too long to run on the 
+larger lists, so I turned it into a loopy solution (which is ugly).
 
 Recursive solution (ugly to some people)
-def q(x): return 'Yes' if len(x)&lt;=2 else q(x[1:-1]) if min(x[1],x[-2])&lt;=max(x[0],x[-1]) else 'No'
+def q(x): return 'Yes' if len(x)&lt;=2 else q(x[1:-1]) if 
+min(x[1],x[-2])&lt;=max(x[0],x[-1]) else 'No'
 I=[[int(x) for x in input().split()] for _ in range(2*int(input()))]
 for x in I[1::2]: print(q(x))
 
-Loopy solution (ugly to some people, though clearly faster because people don't like to optimize recursion since it's hard)
+Loopy solution (ugly to some people, though clearly faster because people don't 
+like to optimize recursion since it's hard)
 
 for _ in range(int(input())):
     l,r=0,int(input())-1
@@ -887,7 +964,10 @@ for _ in range(int(input())):
 Word Order
 
 Problem Statement
-You are given n words. Some words may repeat. For each word, you have to output its number of occurences. But the output order should correspond with the order of the first appearance of the word. See the sample input/output for clarification. Note that each line in the input ends with a "\n" character.
+You are given n words. Some words may repeat. For each word, you have to output 
+its number of occurences. But the output order should correspond with the order 
+of the first appearance of the word. See the sample input/output for 
+clarification. Note that each line in the input ends with a "\n" character.
 
 Constraints: 
 1&lt;:n&lt;:105 
@@ -901,7 +981,8 @@ n lines follow, ith one contains the ith word.
 Output Format
 Output 2 lines. 
 On the first line, output the number of distinct words in the input. 
-In the second line, for each distinct word, output its number of occurences in the order specified in the problem statement.
+In the second line, for each distinct word, output its number of occurences in 
+the order specified in the problem statement.
 
 Solution (10m)
 
@@ -922,9 +1003,14 @@ print(*O)
 No Idea!
 
 Problem Statement
-There is an array of n integers, and 2 disjoint sets of m integers each A and B. You like all integers in A and dislike all integers in B. Your initial happiness is 0 and for each integer in the array, i, if i∈A, you add 1 to your happiness, if i∈B, you add −1 to your happiness, else your happiness does not change. Output your final happiness at the end.
+There is an array of n integers, and 2 disjoint sets of m integers each A and 
+B. You like all integers in A and dislike all integers in B. Your initial 
+happiness is 0 and for each integer in the array, i, if i∈A, you add 1 to your 
+happiness, if i∈B, you add −1 to your happiness, else your happiness does not 
+change. Output your final happiness at the end.
 
-Note that since A and B are sets, they have no repeated elements. But, the array might contain duplicate elements.
+Note that since A and B are sets, they have no repeated elements. But, the 
+array might contain duplicate elements.
 
 Constraints 
 1&lt;|=n&lt;|=105 
@@ -956,7 +1042,9 @@ print(O)
 DefaultDict Tutorial
 
 Problem Statement
-DefaultDict is a container in the collections class of Python. It is almost the same as the usual dictionary (dict) container but with one difference. The value fields' data-type is specified upon initialization. 
+DefaultDict is a container in the collections class of Python. It is almost the 
+same as the usual dictionary (dict) container but with one difference. The 
+value fields' data-type is specified upon initialization. 
 A basic snippet showing the usage follows:
 
 from collections import defaultdict
@@ -970,7 +1058,11 @@ This prints:
 
 ('python', ['awesome', 'language'])
 ('something-else', ['not relevant'])
-In this challenge, you will be given 2 integers (n and m) and n words which might repeat, say they belong to a word group A. Then you'll be given m other words belonging to word group B. For each of these m words, you have to check whether the word has appeared in A or not. If it has then you have to print indices of all of its occurrences. If it has not then just print −1.
+In this challenge, you will be given 2 integers (n and m) and n words which 
+might repeat, say they belong to a word group A. Then you'll be given m other 
+words belonging to word group B. For each of these m words, you have to check 
+whether the word has appeared in A or not. If it has then you have to print 
+indices of all of its occurrences. If it has not then just print −1.
 
 Constraints 
 1&lt;:n&lt;:10000 
@@ -984,11 +1076,13 @@ The next m lines contain the words belonging to B.
 
 Output Format
 Output m lines. 
-The ith line should contain the 1 indexed positions of occurrences of the ith word, separated by spaces, of the last m lines of the input.
+The ith line should contain the 1 indexed positions of occurrences of the ith 
+word, separated by spaces, of the last m lines of the input.
 
 Solution (5m)
 (I did not solve it as they asked, I did it "the right way" :)
-(Also, vector/tree extensions of basic arithmetic operations are desperately needed)
+(Also, vector/tree extensions of basic arithmetic operations are desperately 
+needed)
 
 import itertools
 def where(x):
@@ -1011,7 +1105,8 @@ The Minion Game
 
 Problem Statement
 Kevin and Stuart, wants to play 'The Minion Game'.
-Bob is the match referee. Bob's task is to declare the winner and ensure that no rules are broken.
+Bob is the match referee. Bob's task is to declare the winner and ensure that 
+no rules are broken.
 Stuart is Player 1 and Kevin is Player 2.
 
 About Game
@@ -1062,7 +1157,8 @@ else:
 
 Designer Door Mat
 
-Mr. Vincent works in a door mat manufacturing company. One day, he designed a new door mat. 
+Mr. Vincent works in a door mat manufacturing company. One day, he designed a 
+new door mat. 
 Design specifications are as follows:
 1. Size of mat must be NXM. (N is an odd natural number and M is 3 times N.)
 2. Design should have 'WELCOME' written in the center. 
@@ -1106,7 +1202,8 @@ Output the design pattern.
 
 Solution (20m)
 
-N, M = map(int,input().split()) # More than 6 lines of code will result in 0 score. Blank lines are not counted.
+N, M = map(int,input().split()) # More than 6 lines of code will result in 0 
+score. Blank lines are not counted.
 T=[(k*'.|.').center(M,'-') for k in range(1,N, 2)]
 print('\n'.join(T))
 print('WELCOME'.center(M,'-'))
@@ -1190,11 +1287,14 @@ for i in range((thickness+1)//2):
 
 #Bottom Pillars
 for i in range(thickness+1):
-    print((c*thickness).center(thickness*2)+(c*thickness).center(thickness*6))    
+    print((c*thickness).center(thickness*2)+(c*thickness).center(thickness*6))  
+  
 
 #Bottom Cone
 for i in range(thickness):
-    print(((c*(thickness-i-1)).rjust(thickness)+c+(c*(thickness-i-1)).ljust(thickness)).rjust(thickness*6))  
+    
+print(((c*(thickness-i-1)).rjust(thickness)+c+(c*(thickness-i-1)).ljust(thicknes
+s)).rjust(thickness*6))  
 
 
 
@@ -1202,7 +1302,8 @@ String Validators
 
 Task
 You are given a string S. 
-Your task is to find if string S contains, alphanumeric characters, alphabetical characters, digits, lowercase and uppercase characters.
+Your task is to find if string S contains, alphanumeric characters, 
+alphabetical characters, digits, lowercase and uppercase characters.
 
 Input Format
 Single line containing, string S.
@@ -1211,14 +1312,17 @@ Constraints
 0&lt;len(S)&lt;1000
 
 Output Format
-In First line, print True if S has alphanumeric character otherwise print False. 
-In Second line, print True if S has alphabetical character otherwise print False. 
+In First line, print True if S has alphanumeric character otherwise print 
+False. 
+In Second line, print True if S has alphabetical character otherwise print 
+False. 
 In Third line, print True if S has digits otherwise print False. 
 In Fourth line, print True if S has lowercase character otherwise print False. 
 In Fifth line, print True if S has uppercase character otherwise print False.
 
 Solution (10m)
-A nasty solution to something that could be done in less space and with less time.
+A nasty solution to something that could be done in less space and with less 
+time.
 
 s=input()
 print(any([x.isalnum() for x in s]))
@@ -1232,7 +1336,8 @@ print(any([x.isupper() for x in s]))
 Find a String
 
 Problem Statement
-In this challenge, the user enters a string and a substring and you have to print the number of times that substring occurs in that string.
+In this challenge, the user enters a string and a substring and you have to 
+print the number of times that substring occurs in that string.
 String traversal will take place from left to right, not from right to left.
 NOTE : Letters of string are case-sensitive.
 
@@ -1257,14 +1362,16 @@ print([''.join(s[x:x+len(ss)]) for x in range(len(s)-len(ss)+1)].count(ss))
 Mutations
 
 Task 
-You have to read a string, change the character at a given index and print the string.
+You have to read a string, change the character at a given index and print the 
+string.
 
 Input Format 
 First line contains a string, S. 
 Next line contains an integer i and a character c.
 
 Output Format 
-Using any of the method explained above. Replace the character at index i with c.
+Using any of the method explained above. Replace the character at index i with 
+c.
 
 Solution (3m)
 
@@ -1277,7 +1384,8 @@ print(s[:i]+c+s[1+i:])
 
 String Split and Join
 Task 
-You are given a string. Split the string on " " (space) delimiter and join using a - hyphen.
+You are given a string. Split the string on " " (space) delimiter and join 
+using a - hyphen.
 
 Input Format 
 The first line contains a string consisting of words separated by space.
@@ -1294,7 +1402,8 @@ print('-'.join(input().split()))
 sWAP cASE
 
 Problem Statement
-You are given a string S. Your task is to swap case, i.e., convert all lower case letters to upper case and vice versa.
+You are given a string S. Your task is to swap case, i.e., convert all lower 
+case letters to upper case and vice versa.
 
 Solution (10m)
 
@@ -1305,9 +1414,12 @@ Nested list
 
 Problem Statement
 Now we will see how to implement a nested list.
-There is a classroom of 'n' students and you are given their names and marks in physics.
-Store them in a nested list and print the name of each student who got the second lowest marks in physics.
-NOTE: If there are more than one student getting same marks, make sure you print the names of all students in alphabetical order, in different lines.
+There is a classroom of 'n' students and you are given their names and marks in 
+physics.
+Store them in a nested list and print the name of each student who got the 
+second lowest marks in physics.
+NOTE: If there are more than one student getting same marks, make sure you 
+print the names of all students in alphabetical order, in different lines.
 
 Input Format
 Integer N followed by alternating sequence of N strings and N numbers.
@@ -1349,7 +1461,8 @@ print(M[1])
 List Comprehensions
 Lets learn about list comprehensions!
 You are given three integers X, Y and Z denoting the dimensions of a Cuboid.
-You have to print a list of all possible coordinates on the three dimensional grid, such that at any point the sum Xi + Yi + Zi is not equal to N.
+You have to print a list of all possible coordinates on the three dimensional 
+grid, such that at any point the sum Xi + Yi + Zi is not equal to N.
 If X = 2, then possible values of Xi can be 0, 1 and 2.
 The same applies to Y and Z.
 
@@ -1377,9 +1490,12 @@ Sets-Symmetric Difference
 
 Problem Statement
 Lets learn about a new datatype 'sets'!
-You are given two set of integers M and N and you have to print their symmetric difference in ascending order.
-The first line of input contains value of M followed by M integers, then value of N followed by N integers.
-Symmetric difference between M and N mean those values which either exist in M or in N but not in both.
+You are given two set of integers M and N and you have to print their symmetric 
+difference in ascending order.
+The first line of input contains value of M followed by M integers, then value 
+of N followed by N integers.
+Symmetric difference between M and N mean those values which either exist in M 
+or in N but not in both.
 
 Input Format
 Value of M followed by M integers, then value of N followed by N integers.
@@ -1389,7 +1505,8 @@ Integers in ascending order, one per line.
 
 Solution (30m)
 Took a long while to figure out how to sort correctly.
-I've included a report on my error in understanding the sort() method at jmeuser.github.io/html/error.html
+I've included a report on my error in understanding the sort() method at 
+jmeuser.github.io/html/error.html
 
 input()
 x=set(map(int,input().split()))
@@ -1425,7 +1542,8 @@ print(hash(tuple([int(x) for x in input().split()])))
 
 Lists
 Task 
-You have to initialize your list L = [] and follow the N commands given in N lines.
+You have to initialize your list L = [] and follow the N commands given in N 
+lines.
 x.append(y)    # add y to the end of the list x (k: x,y)
 x.extend(y)    # join the list y to the end of the list x (k: x,y)
 x.insert(y,z)  # insert z at index z in x
@@ -1436,7 +1554,8 @@ x.index(y)     # give index of first occurrence of y in x (error otherwise)
 x.count(y)     # give count of occurrences of y in x
 x.sort()       # sort x in increasing
 x.reverse()    # reverse the order of items of x
-Commands will be 1 of the 8 commands as given above, other than extend, and each command will have its value separated by space.
+Commands will be 1 of the 8 commands as given above, other than extend, and 
+each command will have its value separated by space.
 
 Solution (20m Took time to find x.join(y) method for a string x)
 
@@ -1454,14 +1573,18 @@ for x in C:
 Finding the percentage
 
 Problem Statement
-There is a record of 'n' students, each record having name of student, percent marks obtained in Maths, Physics and Chemistry.
+There is a record of 'n' students, each record having name of student, percent 
+marks obtained in Maths, Physics and Chemistry.
 Marks can be floating values.
 The user enters an integer 'n' followed by names and marks for the 'n' students.
 You are required to save the record in a dictionary data type.
-The user then enters name of a student and you are required to print the average percentage marks obtained by that student, correct to two decimal places.
+The user then enters name of a student and you are required to print the 
+average percentage marks obtained by that student, correct to two decimal 
+places.
 
 Input Format
-Integer N followed by name and marks for N students, followed by the name of the particular student.
+Integer N followed by name and marks for N students, followed by the name of 
+the particular student.
 
 Output Format
 Average percentage of marks obtained
@@ -1515,17 +1638,23 @@ for i in range(0,n):
 Input and Output
 
 Problem Statement
-For any program that we write the basic things that we need to do is take the input and print the expected output.
+For any program that we write the basic things that we need to do is take the 
+input and print the expected output.
 
-In C++ you can take the input using cin and print the output using cout.Unlike C where you need the format specifier in printf and scanf, here you can use cin and cout.
+In C++ you can take the input using cin and print the output using cout.Unlike 
+C where you need the format specifier in printf and scanf, here you can use cin 
+and cout.
 
 Taking Input:
 If you want to input a number: cin&gt;&gt;n ,  where n is the number.
-If you want to input a number and a string: cin&gt;&gt;n&gt;&gt;s, where s is the string.
+If you want to input a number and a string: cin&gt;&gt;n&gt;&gt;s, where s is 
+the string.
 
 Printing output:
 If you want to output a single number: cout&lt;&lt;n
-If you want to output a number and a string separated by a new line: cout&lt;&lt;n&lt;&lt;endl&lt;&lt;s (where endl moves the pinter to the new line and then string gets printed.)
+If you want to output a number and a string separated by a new line: 
+cout&lt;&lt;n&lt;&lt;endl&lt;&lt;s (where endl moves the pinter to the new line 
+and then string gets printed.)
 Take three numbers as inputs and print the sum of the three numbers.
 
 Input Format
@@ -1557,7 +1686,8 @@ int main() {
 Hello, World !
 
 Problem Statement
-Let's start with the mandatory ritual. Print the string "Hello, World!". You can either use printf (preferred for this tutorial) or cout.
+Let's start with the mandatory ritual. Print the string "Hello, World!". You 
+can either use printf (preferred for this tutorial) or cout.
 
 Solution
 
@@ -1574,17 +1704,22 @@ int main() {
 Library Fine
 
 Problem Statement
-The Head Librarian at a library wants you to make a program that calculates the fine for returning the book after the return date.
+The Head Librarian at a library wants you to make a program that calculates the 
+fine for returning the book after the return date.
 You are given the actual and the expected return dates.
 Calculate the fine as follows:
-If the book is returned on or before the expected return date, no fine will be charged, in other words fine is 0.
-If the book is returned in the same month as the expected return date, Fine = 15 Hackos * Number of late days
-If the book is not returned in the same month but in the same year as the expected return date, 
+If the book is returned on or before the expected return date, no fine will be 
+charged, in other words fine is 0.
+If the book is returned in the same month as the expected return date, Fine = 
+15 Hackos * Number of late days
+If the book is not returned in the same month but in the same year as the 
+expected return date, 
 Fine = 500 Hackos * Number of late months
 If the book is not returned in the same year, the fine is fixed at 10000 Hackos.
 
 Input Format
-You are given the actual and the expected return dates in D M Y format respectively.
+You are given the actual and the expected return dates in D M Y format 
+respectively.
 There are two lines of input.
 The first line contains the D M Y values for the actual return date.
 The next line contains the D M Y values for the expected return date.
@@ -1604,7 +1739,10 @@ typedef int I;
 #include&lt;stdio.h&gt;
 #define I(e...) scanf(e)
 #define O(e...) printf(e)
-main(){I x,ad,am,ay,ed,em,ey;I("%i %i %i\n%i %i %i",&amp;ad,&amp;am,&amp;ay,&amp;ed,&amp;em,&amp;ey);C(ey&lt;ay,x=10000)C(ay&lt;ey,x=0)C(em&lt;am,x=500*(am-em))C(am&lt;em,x=0)C(ed&lt;ad,x=15*(ad-ed))x=0;O("%i",x);}
+main(){I x,ad,am,ay,ed,em,ey;I("%i %i %i\n%i %i 
+%i",&amp;ad,&amp;am,&amp;ay,&amp;ed,&amp;em,&amp;ey);C(ey&lt;ay,x=10000)C(ay&lt;
+ey,x=0)C(em&lt;am,x=500*(am-em))C(am&lt;em,x=0)C(ed&lt;ad,x=15*(ad-ed))x=0;O("%i
+",x);}
 
 Time Conversion
 
@@ -1635,7 +1773,9 @@ typedef int I;typedef char C;
 #include&lt;stdio.h&gt;
 #define I(e...) scanf(e)
 #define O(e...) printf(e)
-main(){I h,m,s;C x;I("%i:%i:%i%cM",&amp;h,&amp;m,&amp;s,&amp;x);O("%02i:%02i:%02i",h+12*((x=='P')-(h==12)),m,s);}
+main(){I h,m,s;C 
+x;I("%i:%i:%i%cM",&amp;h,&amp;m,&amp;s,&amp;x);O("%02i:%02i:%02i",h+12*((x=='P')
+-(h==12)),m,s);}
 
 
 Staircase
@@ -1677,7 +1817,8 @@ Plus Minus
 
 Problem Statement
 You're given an array containing integer values.
-You need to print the fraction of count of positive numbers, negative numbers and zeroes to the total numbers.
+You need to print the fraction of count of positive numbers, negative numbers 
+and zeroes to the total numbers.
 Print the value of the fractions correct to 3 decimal places.
 
 Input Format
@@ -1689,7 +1830,9 @@ Constraints
 −100&lt;:A[i]&lt;:100
 
 Output Format
-Output three values on different lines equal to the fraction of count of positive numbers, negative numbers and zeroes to the total numbers respectively correct to 3 decimal places.
+Output three values on different lines equal to the fraction of count of 
+positive numbers, negative numbers and zeroes to the total numbers respectively 
+correct to 3 decimal places.
 
 Solution (1h, with dinner ;) )
 
@@ -1698,7 +1841,9 @@ typedef int I;
 #include&lt;stdio.h&gt;
 #define I(e...) scanf(e)
 #define O(e...) printf(e)
-main(){I n,x,a[3]={0};I("%i",&amp;n);J(n,I("%i",&amp;x),++a[(x&lt;=0)+(x==0)];);J(3,O("%.3f\n",1.0*a[j]/n));}
+main(){I 
+n,x,a[3]={0};I("%i",&amp;n);J(n,I("%i",&amp;x),++a[(x&lt;=0)+(x==0)];);J(3,O("%.
+3f\n",1.0*a[j]/n));}
 
 
 Diagonal Difference
@@ -1716,7 +1861,8 @@ Constraints
 −100&lt;:A[i]&lt;:100
 
 Output Format
-Output a single integer equal to the absolute difference in the sums across the diagonals.
+Output a single integer equal to the absolute difference in the sums across the 
+diagonals.
 
 Solution (29m)
 
@@ -1727,7 +1873,8 @@ typedef int I;
 #include&lt;stdio.h&gt;
 #define I(e...) scanf(e)
 #define O(e...) printf(e)
-main(){I n,x=0;I("%i",&amp;n);I a[n];J(n,K(n,I("%i",&amp;a[k]));x+=a[j]-a[n-j-1]);O("%i",ABS(x));}
+main(){I n,x=0;I("%i",&amp;n);I 
+a[n];J(n,K(n,I("%i",&amp;a[k]));x+=a[j]-a[n-j-1]);O("%i",ABS(x));}
 
 
 Find Point
@@ -1736,15 +1883,18 @@ Problem Statement
 Given two points P and Q, output the symmetric point of point P about Q.
 
 Input format
-The first line contains an integer T representing the number of test cases (T &lt;: 15) 
-Each test case contains Px Py Qx Qy representing the (x,y) coordinates of P and Q, all of them being integers.
+The first line contains an integer T representing the number of test cases (T 
+&lt;: 15) 
+Each test case contains Px Py Qx Qy representing the (x,y) coordinates of P and 
+Q, all of them being integers.
 
 Constraints 
 1 &lt;: T &lt;: 15 
 -100 &lt;: x, y &lt;: 100
 
 Output format 
-For each test case output x and y coordinates of the symmetric point (each point in a new line).
+For each test case output x and y coordinates of the symmetric point (each 
+point in a new line).
 
 Solution
 
@@ -1753,7 +1903,8 @@ typedef int I;
 #include&lt;stdio.h&gt;
 #define I(e...) scanf(e)
 #define O(e...) printf(e)
-main(){I n,u,v,x,y;I("%i",&amp;n);K(n,I("%i %i %i %i",&amp;u,&amp;v,&amp;x,&amp;y),O("%i %i\n",2*x-u,2*y-v))}
+main(){I n,u,v,x,y;I("%i",&amp;n);K(n,I("%i %i %i 
+%i",&amp;u,&amp;v,&amp;x,&amp;y),O("%i %i\n",2*x-u,2*y-v))}
 
 
 A Very Big Sum
@@ -1763,9 +1914,11 @@ You are given an array of integers of size N.
 You need to print the sum of the elements of the array.
 
 Note:
-The range of the 32-bit integer is (−2)^31 to (2^31)−1 or [−2147483648,2147483647].
+The range of the 32-bit integer is (−2)^31 to (2^31)−1 or 
+[−2147483648,2147483647].
 When we add several integer values, the resulting sum might exceed this range.
-You might need to use long long int in C/C++ or long data type in Java to store such sums.
+You might need to use long long int in C/C++ or long data type in Java to store 
+such sums.
 
 Input Format
 The first line of the input consists of an integer N.

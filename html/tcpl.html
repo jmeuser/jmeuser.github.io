@@ -1,5 +1,6 @@
 <html><head>
- <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Inconsolata">
+ <link rel="stylesheet" type="text/css" 
+href="http://fonts.googleapis.com/css?family=Inconsolata">
  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen">
 </head>
 <body><pre>
@@ -8,7 +9,8 @@ The C Programming Language by Kernighan
 Exercises
 
 //c.h
-typedef int I;typedef double F;typedef unsigned char C,*S;typedef long L;typedef void V;
+typedef int I;typedef double F;typedef unsigned char C,*S;typedef long 
+L;typedef void V;
 #define F(e...)   for(e)
 #define W(c...)   while(c)
 #define C(c,t...) if(c){t;}else
@@ -35,15 +37,20 @@ main(){F(I x=0,y;(y=GC())!=EOF;x=y)C(x!=y||y!=' ',PC(y));}
 
 //e1-10. change '\b' to \b ; '\t' to \t ; '\\' to \\
 #include"c.h"
-main(){I x;W((x=GC())!=EOF)C(x=='\t',O("\\t"))C(x=='\b',O("\\b"))C(x=='\\',O("\\\\"))PC(x);}
+main(){I 
+x;W((x=GC())!=EOF)C(x=='\t',O("\\t"))C(x=='\b',O("\\b"))C(x=='\\',O("\\\\"))PC(x
+);}
 
 //e1-12. print 1 word/line
 #include"c.h"
-main(){I x,b=0;W((x=GC())!=EOF)C(x==' '||x=='\n'||x=='\t',C(b==1,b=0;PC('\n'))){PC(x);b=1;}}
+main(){I x,b=0;W((x=GC())!=EOF)C(x==' 
+'||x=='\n'||x=='\t',C(b==1,b=0;PC('\n'))){PC(x);b=1;}}
 
 //c1s6-ndwo. count [0-9]; ' '; others
 #include"c.h"
-main(){I x,n[12];J(12,n[j]=0);W((x=GC())!=EOF)C(x&gt;='0'&amp;&amp;x&lt;='9',++n[x-'0'])C(x==' '||x=='\n'||x=='\t',++n[10])++n[11];J(12,O("%d ",n[j]))}
+main(){I 
+x,n[12];J(12,n[j]=0);W((x=GC())!=EOF)C(x&gt;='0'&amp;&amp;x&lt;='9',++n[x-'0'])C
+(x==' '||x=='\n'||x=='\t',++n[10])++n[11];J(12,O("%d ",n[j]))}
 
 //c1s7. run a power function
 #include"c.h"
