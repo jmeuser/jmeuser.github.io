@@ -4,6 +4,48 @@ href="http://fonts.googleapis.com/css?family=Inconsolata">
  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen">
 </head>
 <body><pre>
+20151001T1725 Conditional Iteration
+
+(f$g y) gives y if (0 ~ g y) else f$g f y
+
+If I adopt this notation then it would be read "f if g of y"
+
+
+
+20151001T1619 Collecting Definitions for ^ redo possible expansion to $ because 
+recursion is really important
+
+Over the past few days, and perhaps throughout the past year, I've come up with 
+a number of different way to think about using notation for recursion, some 
+much better than others.
+Right now I'm just focusing on my work with N and what I'm currently calling 
+the Redo operation ^.
+Here are the definitions collected into a single place.
+The definitions here assume that f and g denote dyadic verbs (binary operations 
+or binary functions (but not really in N since everything is actually an 
+abbreviation for a numeral or an abbreviation for a verb):
+
+Definition A
+(0 f^g y) ~ y
+(x f^g y) ~ (x g y) f^g x f y
+
+Definition B
+  (0 f^g y) ~ 0 g y
+(S.x f^g y) ~ (x f^g y) g x f y
+
+Definition C
+  (x f^g 0) ~ x g 0
+(x f^g S y) ~ (x f^g y) g x f y
+
+Definition D
+(x f^g y) gives y if (0 ~ x g y) else x f^g f y
+(f^g y) gives y if (0 ~ g y) else f^g f y
+
+Definition E
+(x f^g y) gives y if (0 ~ x) else (x g y) f^g f y
+
+
+
 20151001T0811 Finally Folding Long Lines
 Up until today the lines of this website ran all the way to their end.
 Now they don't because I added fold -s to the shell command I use to transform 
