@@ -4,6 +4,270 @@ href="http://fonts.googleapis.com/css?family=Inconsolata">
  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen">
 </head>
 <body><pre>
+20151002T1227 Why use ^ rather than / ? Or what relationships are there between 
+^ and / with !  ?
+
+If space is not a concern, and if you are inclined to view things in a 
+classical way then the following way of calculating is more appropriate:
+
++/!4
++/ 0 1 2 3
+0 + 1 + 2 + 3
+0 + 1 + 5
+0 + 6
+6
+
+Where as, with at least one of the definitions for ^ redo given below, you 
+could write this as:
+
+0 +^+ 4
+(0 +^+ 3) + 0 + 3
+(0 +^+ 3) + 3
+(0 +^+ 2) + 0 + 2 + 3
+(0 +^+ 2) + 0 + 5
+(0 +^+ 2) + 5
+(0 +^+ 1) + 0 + 1 +5
+(0 +^+ 1) + 0 + 6
+(0 +^+ 1) + 6
+(0 +^+ 0) + 0 + 0 + 6
+(0 +^+ 0) + 0 + 6
+(0 +^+ 0) + 6
+0 + 0 + 6
+0 + 6
+6
+
+The previous sequence of events constitutes a calculation using one of the 
+definitions for ^ given below.
+It is not the most efficient definition, and clearly this execution shows how 
+one should and could improve the definition.
+It is a good example of how one might hope to relate ^ and / as follows
+
+(+/f!n) ~ +^f n
+
+In other words, if you you wanted to add the values of f from 0 to n-1 then you 
+could do it in one of two ways:
+
+The +/f!n way:
+[1] list the arguments you want to give to f using (!n)~ 0,1,2,3,4,..,n-1
+[2] Calculate f of !n i.e.
+f!n
+f 0,1,2,..,n-1
+(f 0),(f 1),(f 2)..,f n-1
+[3] sum over these values:
++/f!n
++/f 0,1,2,..,n-1
++/(f 0),(f 1),(f 2),..,f n-1
+(f 0) + (f 1) + (f 2) + .. + f n-1
+
+The +^f n way:
+[1] Apply definition of verb +^f to n
++^f n
+(+^f n-1) + f n-1
+(+^f n-2) + (f n-2) + f n-1
+..
+(+^f 0) + (f 1) + (f 2) + .. + (f n-2) + f n-1
+(f 0) + (f 1) + (f 2) + .. + (f n-2) + f n-1
+
+Notice that if you were actually calculating with +^f instead of +/f you can 
+compute each value of f as it is needed and not before.
+When using +/f!n you must generate enough space to keep all the values, so that 
+at any step in the calculation you generate all the data you will add all the 
+way up until the end.
+I think the similarities are undeniably important.
+Specifically, the case when you would use the form +/f is if you have some data 
+in an array A and you want to sum its transformation through f i.e. +/f A.
+If you do not already have an array of data A and you have to generate it for 
+the purpose of making a current computation then you can do it in place using 
++^f n although it is likely that you will have to make a transformation from n 
+via a helper function g before f so that the final form might look more like 
++^f.g n so that at each step you get 
+
++^f.g n
+(+^f.g n-1) + f.g n-1
+(+^f.g n-2) + (f.g n-2) + f.g n-1
+and so on.
+
+It doesn't make much of a difference on small data sets (as is often the case 
+with most operations), but the difference on huge data sets is profoundly 
+different.
+For one the form +^f needs only as much space as is needed to accumulate the 
+sum + at each step, where as +/f goes over a potentially huge set of data in 
+order to summarize it by a single numeral.
+
+It's important to recall that the "classical" motivation for using ^ in this 
+way is from iteration of a monadic (unary) verb (function):
+
+%^2 300     N.B. % means "integer square root" and %^2 "integer square root 
+repeat two"
+%^1 % 300
+%^1 17
+%^0 % 17
+%^0 4
+{y} 4   N.B. {y} means "the right argument"; projection of right argument; 
+identity
+4
+
+Many people are most familiar with using ^ to indicate the exponential 
+function, but in N if you were to use ^ with two numeral arguments you might be 
+surprised (or not):
+
+ 2^3
+2 2 2
+ 5^6
+5 5 5 5 5
+ 5^(3 3)
+5 5 5
+5 5 5
+5 5 5
+
+It just repeats (or copies) the left argument by the right argument.
+This gives an analogy making sense with functions:
+
+ f^3 x
+f f f x
+ f^5 x
+f f f f f x
+ f^(3 3)
+(f^3 x) , f^3 x
+ f^(3 3; 3 3) x
+(f^3 x),(f^3 x);
+(f^3 x),(f^3 x)
+
+Though the last few showcase that behavior on functions is a bit different when 
+the right argument is a rectangular array of numerals.
+Interestingly, or perhaps not, the following calculate the same value using 
+these notational conventions:
+
+ f^(3 3; 3 3) x
+(f^3 x),(f^3 x);
+(f^3 x),(f^3 x)
+
+ f^3 (x,x);x,x
+
+The adverb rank " should be used in order to deal with the application of f^3 
+on different frames of its argument.
+There is still a lot of work for me to do on organized array actions.
+There are a lot of conventions, and so far I am most pleased by Iverson's use 
+of cells and frames in J via the rank " adverb (operator).
+The only way to really get frames, cells, atoms, and items of rectangular 
+arrays (and eventually trees) to work "right" is to see how they're used in 
+Applied Analysis.
+Specifically, the use of rectilinear arrays as tensors in simulations and 
+approximations of physical phenomenon.
+
+As I said earlier, the use of ^ is most often associated with exponentiation.
+In general, exponentiation is actually a very different operation from its more 
+familiar "power of" denotation.
+Specifically, people think of 2^4 as "two to the fourth power" or "two to the 
+power of four" and from this definition "to the power of" is repeated 
+multiplication of the left argument by the right argument number of times.
+So in classical notation one would calculate 2^4 as follows:
+
+2^4
+2 * 2 * 2 * 2
+2 * 2 * 4
+2 * 8
+16
+
+With N's current notation for ^ , power is calculated as follows:
+
+(2*)^4 1
+2* 2* 2* 2* 1
+2* 2* 2* 2
+2* 2* 4
+2* 8
+16
+
+So that the thing which is repeated four times is the act of multiplying by 2.
+The verb (function) "multiply by two" is written in N as 2* and for now the 
+parenthesis around it in (2*)^4 1 are needed so that ^ can distinguish it from 
+2 *^4 1 which currently has no clear meaning in N's notation.
+
+People might find it clumsy to use (2*)^4 1 instead of the classical 2^4 which 
+seems much simpler.
+It is easy to to define power using E as a binary verb:
+
+ E:{(x*)^y 1}
+ 2 E 4
+16
+
+Why not just use the classical notation?
+The reason is not only do you gain the ability to use ^ in all those settings 
+where you are "repeating" any sorts of operations on any sorts of arguments 
+(something which cuts to the heart of arithmetic and math in general), but, in 
+general, exponentiation is hard outside of elementary number theory.
+
+If you open a book on real analysis you'll find the first chapter (or maybe 
+more) dedicated to a characterization of the set of real numbers.
+For example, in Rudin's well known Principles of Mathematical Analysis, the 
+real numbers are introduced as an ordered field having the least upper bound 
+property and containing the rational numbers.
+Furthermore we are told (it is proven) that any other ordered field with the 
+least upper bound property and containing the rational numbers is isomorphic 
+(read "the same as") with the real numbers.
+The real numbers are "constructed" by Rudin using Dedekind Cuts (in actuality 
+he uses Russell's refinement of Dedekind's original construction: Russell 
+noticed that you don't need to keep the left and right side of a cut, you only 
+need one side and that's enough for the same exact argument to go through).
+The construction proceeds from the set of rational numbers by first collecting 
+all those subsets of the rationals that are Dedekind Cuts (they have certain 
+properties that are obviously similar to those you are looking for in an 
+ordered field with the least upper bound property).
+He then proves that the arithmetic of rational numbers can be extended to these 
+cuts and completed to satisfy the requirements of an ordered field having the 
+least upper bound property.
+
+From the characterizing properties of the real numbers as an ordered field with 
+the least upper bound property that contains the rational numbers it is proven 
+that it is possible to defining an operation of "n-th root" of every real 
+number.
+The proof of existence of a number satisfying the property of an n-th root is 
+given by first constructing a bounded set and showing that its least upper 
+bound is the unique number satisfying the property of an n-th root.
+
+My contention is that this construction is highly misleading, and hardly 
+"gives" the real number that is the n-th root.
+In fact, whenever we take the n-th root of a number we're always doing it with 
+a rational number because we can not write out by hand anything but a reference 
+to most "real numbers".
+Said another way, we can claim that x is a real number, which means it might be 
+defined via any number of logical statements, but we may have little to know 
+knowledge of how to approximate or "realize" x as some kind of abbreviated 
+quantity.
+
+Alternatively, one can proceed down Goodstein's Recursive Analysis.
+There is also Bishop's Constructive Analysis, but I have yet to read it again 
+after having entered on such a detailed study of Goodstein's works.
+
+Back to the exponentiation: in N and in Goodstein's system, if you want to give 
+the n-th root of a number (specifically of a rational number), then it must be 
+given via a primitive recursive function, something which is easily calculated 
+and easily computed.
+The need for ease of calculation aids in any proof that the procedure gives the 
+desired quantity, but also lends to insight into managing the calculation of 
+sometimes hard to get numerals.
+
+The use of sets to "build" a number is idealistically valid, but the practical 
+construction of numerals is less a matter of collections and more a matter of 
+proper abbreviations and algorithms for their efficient manipulation.
+This is true EVEN in the case of using sets and not just numerals and function 
+signs for operations on numerals.
+
+In the future, it will hopefully be easier to see that one can recreate the 
+real numbers and their various operations, by crossing the proper ordinal 
+barrier via an argument by transfinite induction.
+This is likely to have the benefit of making certain analytic arguments (in the 
+classical sense) more the product of primitive recursive analysis.
+
+It's at this point that I must remark: this document is called "collect" for a 
+reason.
+It is nothing more than a collection of raw and unprocessed thoughts.
+It is a way of thinking out loud in an attempt to discover what it is that I 
+have to say about different topics with the intent of giving focus to my future 
+thoughts on the investigated topics.
+
+
+
 20151001T1725 Conditional Iteration
 
 (f$g y) gives y if (0 ~ g y) else f$g f y
