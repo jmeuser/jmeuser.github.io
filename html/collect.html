@@ -4,6 +4,121 @@ href="http://fonts.googleapis.com/css?family=Inconsolata">
  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen">
 </head>
 <body><pre>
+20151002T1416 Less Than, Greater Than and N
+
+(remember - means monus in N not minus e.g. 0 ~ 1-5)
+
+In the current version of N notation the signs &gt; and &lt; are the classical 
+operations of max and min respectively e.g.
+
+ 3&gt;5
+5
+ 3&lt;5
+3
+ 300&gt;432
+432
+
+This is in stark contrast to the classical interpretation of &gt; as greater 
+than and &lt; as less than.
+In N, for any numerals x and y we have
+
+(x &gt; y) ~ x + y - x
+(x &gt; y) ~ y + x - x
+(x &lt; y) ~ x - x - y
+(x &lt; y) ~ y - y - x
+
+From which it follows that
+
+(x &gt; y) ~ y &gt; x
+(x &lt; y) ~ y &lt; x
+
+These being STATEMENTS ABOUT numerals rather than an abbreviation for A numeral.
+One could use these statements to say "max and min are commutative" but one 
+would NOT say "max and min are reflexive" for reflexivity is a property of 
+relations and, in N, &gt; and &lt; are not relations.
+(now, yes, you can construct a relation or interpret them as relations, but if 
+you fit these operations into Goodstein's Equation Calculus then you will see 
+that they are clearly just abbreviations for numerals and not "relations")
+
+Given a pair of numerals x and y to say "x is greater than or equal to y" we 
+could write:
+
+x ~ x + y - x
+x ~ x &gt; y      N.B. "x is the same as the max of x and y"
+
+It is not yet clear to me if allowing ~ to be defined in different ways by the 
+user is a good design idea or a bad one, but I've been toying with the idea of 
+giving people the power to redefine ~ as they see fit so that they can project 
+statements about arithmetic onto arithmetic as they see fit.
+
+In N's current system it is easiest to say that a statement (x ~ y) is "True" 
+when the sgn of their positive difference is 0 and "False" when the sgn of 
+their positive difference is  1.
+An alternate way of looking at this, using just positive difference, is to say 
+that a statement (x ~ y) is true if the positive difference of x and y is 0 
+otherwise, we are given shades of Falseness depending on how big the positive 
+difference is or how far it is from 0.
+So for now we might think of ~ as an abbreviation for *= which maps statements 
+about arithmetic into arithmetic (that ~ is the only symbol required to build a 
+complete formalization of all elementary number theory via primitive recursive 
+functions is the whole point of Goodstein's equation calculus where he uses = 
+for ~ and |x,y| for the positive difference, I've just done the proper thing 
+and simplified his concepts using hindsight).
+ 
+~ : *=  (read as "same is signum positive difference" or "same means the claw 
+of signum with positive difference" or "same abbreviates signum positive 
+difference" or some as yet documented interpretation)
+
+Thus ~ is an abbreviation for the claw *= which is sgn pd so that
+ 0 *= 0
+0
+ 0 ~ 0
+0
+ 12 *= 6
+1 
+ 12 ~ 0
+1
+
+Under this interpretation of ~ we can define the relations leq (less than or 
+equal to) and  geq (greater than or equal to) to give numerals as well
+
+leq:{x ~ x - x - y}
+leq:{x ~ x &lt; y}
+leq:{x}~&lt;           N.B. This last definition is a fork of the left 
+identity, same, and max
+
+ 3 leq 4
+0
+
+(
+In J the left identity is given by [ and the right identity is given by ] these 
+are the simplest of the immensely useful identity/projection functions 
+introduced and used with great effect by Gödel and Kleene in their work on 
+mu-recursive functions.
+I'm not sure if I should use them in N for the same reason, or if they should 
+be reserved for the now familiar index notation so often found in modern 
+programming languages.
+In this case the definition leq:[~&lt; would be shorter and read "leq 
+abbreviates left identity same min" which could be expanded from Pidgin English 
+to "leq is an abbreviation for the left identity being the same as the minimum".
+One can actually define left and right identity from plus and monus so that
+
+LI:{(x + y) - y}
+RI:{(x + y) - x}
+
+This suggests that one should consider the primitive patters of all expressions 
+having the form
+
+u f v g w
+(u f v) g w
+
+where u,v,w are one of the numerals x or y and f,g are one of the verbs + or - 
+(plus or monus).
+)
+
+
+
+
 20151002T1227 Why use ^ rather than / ? Or what relationships are there between 
 ^ and / with !  ?
 
@@ -231,7 +346,7 @@ In fact, whenever we take the n-th root of a number we're always doing it with
 a rational number because we can not write out by hand anything but a reference 
 to most "real numbers".
 Said another way, we can claim that x is a real number, which means it might be 
-defined via any number of logical statements, but we may have little to know 
+defined via any number of logical statements, but we may have little to no 
 knowledge of how to approximate or "realize" x as some kind of abbreviated 
 quantity.
 
