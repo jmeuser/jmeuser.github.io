@@ -4,6 +4,141 @@ href="http://fonts.googleapis.com/css?family=Inconsolata">
  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen">
 </head>
 <body><pre>
+John Meuser's Notebook
+These are clumps of raw unprocessed thought dredged into words and maybe even 
+sentences.
+They are organized as a stack i.e. the most recent note is at the top.
+
+20151003T2055 Rehashing Notes on ^ and Factorial Powers Example
+
+I’ve been spending a lot of time recently working on N notation for primitive 
+recursion beginning with the following “natural” definition:
+
+(f^0 n) ~ n
+(f^(S m) n) ~ f^m f n
+
+This conforms to classical iterative notation for repeated application of a 
+function in a fixed point manner.
+
+The extension of this operation is where I believe primitive recursive 
+definitions can be introduced simply and with a sort of fitting surprise, I 
+just have yet to find the best or most surprising form.
+
+In N, J, and k the following notation is frequently used without concern for 
+the space needed to perform the computation:
+
++/ f !4
++/ f 0 1 2 3
++/ (f 0), (f 1), (f 2), f 3
+(f 0) + (f 1) + (f 2) + (f 3)
+
+This is the notation that will eventually replace classical summation notation 
+(and product notation etc.).
+But, as you can see it first stores all the values of f at each numeral 0 1 2 3 
+before summing it.
+Hence the actual utility of the expression +/f (which you could read as “sum 
+over f of”) is best used on pre-existing data.
+
+I think that ^ can be used, in a natural way, to provide the same facilities 
+without taking up any space other than what is needed to compute each step of 
+the sum:
+
+(+^f 1) ~ f 0
+(+^f S n) ~ (+^f n) + f n
+
+So that
+
+(+^f 4)
+(+^f 3) + f 3
+(+^f 2) + (f 2) + f 3   (this being when you could compute the sum of f.2 and 
+f.3 and simply store the result and continue the iterate calculation)
+(+^f 1) + (f 1) + (f 2) + (f 3)
+(f 0) + (f 1) + (f 2) + (f 3)
+
+Thus the factorial powers “x to the k falling” and “x to the k rising” (which 
+occur frequently in CS and numerical math) would be written as:
+
+x *^- k
+x *^+ k
+
+respectively if the following conventions are followed for a pair of dyadic 
+verbs (binary functions) f and g:
+
+(m f^g 1) ~ m g 0
+(m f^g S n) ~ (m f^g n) f m g n
+
+For example
+
+x*^-3
+(x*^-2)* x - 2
+(x*^-1)* (x - 1) * x - 2
+x * (x - 1) * (x - 2)
+
+There are still some “notational kinks to work out” but this method of 
+combining binary operations via the classical “power of” operation has been a 
+long time coming.
+
+One reason for abandoning the use of ^ as “exponent” is because the existence 
+of roots of real numbers is, I believe, a highly suspicious belief to hold with 
+any certainty for, as far as I know, it is still unknown whether or not there 
+is a primitive recursive real number which cannot have a primitive recursive 
+expansion. In other words, when it comes to sitting down and calculating roots 
+via rational root approximations we have not yet established with certainty 
+whether there might be a primitive recursive real number (i.e. a “real number” 
+whose rational approximations are calculable with pen and paper) which does not 
+have a primitive recursive expansion (i.e. pick a scale of measurement, like we 
+do with decimals, and try to write out successive decimal approximations to 
+that real number). This startling fact is one reason to consider using ^ for 
+composing arithmetic operations rather than as an arithmetic operation in 
+itself.
+
+To contradict my last statement I do allow for numeral arguments to both sides 
+of ^ and expect they should abbreviate the following:
+
+ 2^3
+2 2 2
+
+ 2^(4 4)
+2 2 2 2
+2 2 2 2
+2 2 2 2
+2 2 2 2
+
+ 5^(3 3 3)
+5 5 5
+5 5 5
+5 5 5
+
+5 5 5
+5 5 5
+5 5 5
+
+5 5 5
+5 5 5
+5 5 5
+
+which is a 3 by 3 by 3 “brick” (as it is referred to in J) all of whose atoms 
+are 5.
+Functions to rectangular arrays behave as follows:
+
+ f^(3 3) n
+(f^3 n) , f^3 n
+
+ f^(3 3; 3 3) n
+(f^3 n), (f^3 n);
+(f^3 n), (f^3 n)
+
+The reason for these conventions comes from the analysis of a multidimensional 
+array via its frames, cells, items, and atoms.
+
+A practical/theoretical reason for me to obsess over these silly notational 
+things is to be found in Hardy, Littlewood, and Polya’s Inequalities. If you 
+flip towards later chapters, or even earlier chapters, you find that they are 
+hardly doing tensor analysis and yet primitive inequalities are thwarted by 
+their own notation.
+
+
+
 20151002T1416 Less Than, Greater Than and N
 
 (remember - means monus in N not minus e.g. 0 ~ 1-5)
