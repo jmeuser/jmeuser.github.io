@@ -9,7 +9,120 @@ These are clumps of raw unprocessed thought dredged into words and maybe even
 sentences.
 They are organized as a stack i.e. the most recent note is at the top.
 
-20151005T1900 A formalization of the notational language N 
+20151005T1909 Residue v. Remainder
+
+The dyadic verb ! has been remainder or what some computer scientists and 
+programmers might call the mod operation.
+There are a variety of definitions amongst mathematicians and computer 
+scientists as to what constitutes a mod or remainder operation.
+The classical remainder operation is usually extracted from the classical 
+Euclidean algorithm for division.
+The statement of the relevant theorem is as follows:
+
+Euclidean Division
+Given numerals a and b with 1 ~ @ b (one same signum of b i.e. b greater than 
+zero) there exists unique q and r such that
+
+a ~ r + b * q
+r ~ r &gt; 0
+r ~ r &lt; b - 1
+
+where a is the dividend, b is the divisor, q is the quotient, and r is the 
+remainder.
+
+From Goodstein's RNT the remainder and quotient are defined via recursive 
+functions satisfying the relevant logical relations between dividend, divisor, 
+quotient, and remainder from Euclidean Division.
+
+"
+The notions of quotient and remainder are introduced into recursive number 
+theory by means of the recursive functions Q(a,b) and R(a,b) which we define as 
+follows:
+
+To simply the formulae we write alpha(c,d) for alpha(|c,d|) so that 
+alpha(c,d)=0,1 according as c,d are equal or unequal, and define
+
+ R(0, b) = 0
+R(Sa, b) = S R(a, b) * alpha(S R(a, b), b)
+
+and
+
+ Q(0, b) = 0
+Q(Sa, b) = Q(a, b) + (1 - alpha(S R(a, b), b))
+
+That these functions have in fact the required properties is shown by the 
+following formulae:
+
+a = b * Q(a, b) + R(a, b)
+b &gt; 0 -&gt; R(a, b) &lt; b
+((a = b * c + r) &amp; (r &lt; b)) -&gt; (c = Q(a, b) &amp; r = R(a, b)).
+
+" Goodstein RNT Chapter IV pg. 86
+
+Translating this to the relevant N operations:
+
+  (0 ! b) ~ 0
+(a S`! b) ~ (a S`! b) * (a S! b) @= b
+
+  (0 % b) ~ 0
+(a S`% b) ~ (a % b) + 1 - (a S% b) @= b
+
+
+
+20151005T1849 N:Complete The Square Draft Design
+
+This is just draft design work to see how it looks to put in all the 
+excruciating details using the current conventions of N.
+
+        0 ~ *x + 6*x + 7
+ (0 + -7) ~ *x + 6*x + 7 + -7
+      0n7 ~ *x + 6*x + 7 + 0n7
+      0n7 ~ *x + 6*x + 7n7
+      0n7 ~ *x + 6*x + 0
+      0n7 ~ *x + 6*x
+        3 ~ 6%2
+        9 ~ *3
+(0n7 + 9) ~ *x + 6*x + 9
+      9n7 ~ *x + 6*x + 9
+     *x+3 ~ *x + 6*x + 9
+      9n7 ~ *x+3
+        2 ~ *x+3
+
+The previous derivation is done without the use of parenthesis using a more 
+subtle "space" convention: symbols which are immediately adjacent to each other 
+are "grouped" into a parenthesis enclosed expression when you consider 
+evaluation from left to right.
+For clarity I decided not to use the following conventions:
+
+0+-.7 ~ 0 + -7
+0n7+9 ~ 0n7 + 9
+
+The reason for this "grouping with space" is because it mirrors exactly the 
+methods used in standard written notation throughout the world: space is used 
+to separate words and one can think of 0n7+9 as a sort of German compound 
+noun-verb i.e. a single world referring to its result under classical 
+evaluation (remember that 0n7 is the pair "zero negative 7" or "positive zero 
+negative seven" though the latter is unlikely to be used with much frequency).
+
+The same argument with parenthesis instead of spaced grouping:
+
+        0 ~ (* x) + (6 * x) + 7
+ (0 + -7) ~ (* x) + (6 * x) + 7 + -7
+      0n7 ~ (* x) + (6 * x) + 7 + 0n7
+      0n7 ~ (* x) + (6 * x) + 7n7
+      0n7 ~ (* x) + (6 * x) + 0
+      0n7 ~ (* x) + 6 * x
+        3 ~ 6 % 2
+        9 ~ * 3
+(0n7 + 9) ~ (* x) + (6 * x) + 9
+      9n7 ~ (* x) + (6 * x) + 9
+(* x + 3) ~ (* x) + (6 * x) + 9
+      9n7 ~ * x + 3
+        2 ~ * x + 3
+
+
+
+20151004T1900 A formalization of the notational language N 
 Goodstein, in his Recursive Number Theory, builds an equational calculus for 
 primitive recursive functions.
 That is one way of describing his work.
