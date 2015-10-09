@@ -6,9 +6,155 @@ href="http://fonts.googleapis.com/css?family=Inconsolata">
 <body><pre>
 Python
 
-Like APL, J, k, LISP, or Scheme, Python can be explored interactively.
+Assignment
 
-Some Important Definitions
+=   gets
+
++=    plus gets (x += y is x = x + y)
+-=    minus gets
+*=    times gets
+/=    quotient gets
+%=    residue gets
+**=   power gets
+//=   floor-quotient gets
+
+
+
+
+
+Logic
+
+bool(x)   True if x is true else False
+not x     False if x else True
+
+x or y    x if x else y
+x and y   y if x else x
+
+any(x)   True if any item of x is true
+all(x)   True if all items of x are true
+
+==   equal
+!=   not equal
+&lt;&gt;   not equal
+&gt;    more
+&lt;    less
+&gt;=   more or equal
+&lt;=   less or equal
+
+
+
+
+
+Arithmetic
+
+int(x)
+bin(x)
+complex(x,y)   give x + y * 1j
+
++    plus
+-    minus
+*    times
+/    quotient
+%    remainder (divisor's sign: 3 % -6 == -3)
+**   power
+//   floor-quotient
+
++=    plus gets (x += y is x = x + y)
+-=    minus gets
+*=    times gets
+/=    quotient gets
+%=    residue gets
+**=   power gets
+//=   floor-quotient gets
+
+abs(x)
+
+==   equal
+!=   not equal
+&lt;&gt;   not equal
+&gt;    more
+&lt;    less
+&gt;=   more or equal
+&lt;=   less or equal
+
+
+
+
+
+Characters
+
+\'   escape sequence for single quote
+\"   escape sequined for double quote
+
+
+
+
+
+Strings
+
+'abc'   give string 'abc'
+"abc"   give string 'abc'
+
+'"'   give string '"'
+"'"   give string "'"
+
+'\''   give string "'"
+"\""   give string '"'
+
+'''
+a
+b
+c'''   give string '\na\nb\nc'
+"""
+a
+b
+c"""   give string '\na\nb\nc'
+
+'''
+"""
+'''   give string '\n"""\n'
+"""
+'''
+"""   give string "\n'''\n"
+
+'''\
+a\
+b\
+c\
+'''    give string 'abc'
+"""\
+a\
+b\
+c\
+"""    give string 'abc'
+
+'a' 'b' 'c'   give string 'abc'
+"a" "b" "c"   give string 'abc'
+'a' "b" 'c'   give string 'abc'
+
+r'...'  raw string i.e. escape characters are not interpreted
+3*'c'   gives 'ccc'
+
+
+
+
+Control
+
+x or y   x if x else y
+x and y  y if x else x
+
+
+
+
+
+Idioms
+x[1:]==x[:-1]   True if all items of x are the same
+
+
+
+
+
+k
 
 import itertools
 def where(x):
@@ -23,291 +169,38 @@ def drop(x,y):
 def take(x,y):
  return [y[i] for i in x]
 
-Some Important Idioms
-x[1:]==x[:-1] # gives True if all items of x are the same
-
-Arithmetic
-+  plus
--  minus
-*  times
-/  quotient
-%  remainder (same sign as divisor: 3%(-6) gives -3)
-** power
-// floor division
-== equal
-!= not equal
-&lt;&gt; not equal
-&gt;  more
-&lt;  less
-&gt;= more or equal
-&lt;= less or equal
-
-# Assignment Operators (copulas)
-=   gets
-+=  plus gets (x+=y abbreviates x = x + y)
--=  minus gets
-*=  times gets
-/=  quotient gets
-%=  residue gets
-**= power gets
-//= floor quotient gets
-
-Strings
-'abc'   # gives the string 'abc'
-"..."   # gives the string '...' string
-'\''    # gives "'" the string containing only a single quote
-"'"     # gives "'" the string containing only a single quote
-'"'     # gives '"' the string containing only a double quote
-"\""    # gives '"' the string containing only a double quote
-r'...'  # raw string i.e. escape characters are not interpreted
-"""...
-..."""  # multi-line string (contains input newlines)
-'''...
-...'''  # multi-line string (contains input newlines)
-"""\
-.\"""   # a new line immediately after \ is ignored
-"c" 'c' # adjacent string literals (constants) are concatenated (just use 
-'c'+"c")
-3*'c'   # gives 'ccc'
-
-escaped characters are shown in REPL, but not from print(x)
-
-w='Python' # set w to stand for the string 'Python'
-w[0]       # gives the character 'P' (first)
-w[-1]      # gives the character 'n' (last)
-w[200]     # gives 'IndexError: string index out of range'
-w[2:]      # gives 'thon'
-w[2:200]   # gives 'thon' i.e. it handles ranges "gracefully"
-w[2:-200]  # gives ''
-w[:2]      # gives 'Py'
-len(w)     # gives 6 i.e. the length of the string referred to by w
-w[0]=2     # gives 'TypeError: 'str' object does not support item assignment'
 
 
-Lists
-s=[1,4,9,16,25]   # a list of squares
-s[1]              # gives 4
-s+[36,49,81,100]  # gives [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
-c=[1,8,27,65,125]
-c[3]=64           # changes c[3] from 65 to 64 (lists are mutable unlike 
-strings)
-c                 # gives [1, 8, 27, 64, 125]
-c.append(216)     # appends 216 to the end of c
-c.append(7**3)    # append the cube to c
-c                 # gives [1, 8, 27, 64, 125, 216, 343]
-
-l = ['a','b','c','d','e','f','g']  # l gets a list of letters
-l[2:5] = ['C','D','E']             # replace l[2:5] with ['C', 'D', 'E']
-l                                  # gives ['a','b','C','D','E','f','g']
-l[2:5] = []                        # replaces l[2:5] with nothing: eliminates 
-entries
-l                                  # gives ['a', 'b', 'f', 'g']
-l[:]=[]                            # eliminates all entires from l
-l                                  # gives []
-len(l)                             # the length of an empty list is zero
-a = ['a', 'b', 'c']
-n = [1, 2, 3]
-x = [a,n]                          # x gets list having lists a and n
-x                                  # x gives [['a', 'b', 'c'], [1, 2, 3]]
-x[0][1]                            # gives 'b' i.e. a[1]
-
-print('abc',end=', ')              # prints 'abc, ' without a new line at the 
-end
 
 
-# Control
-if c:               # cond c;t;f
-    t
-else:
-    f
-if c0:              # cond c0 t0;
-    t0              #      c1 t1;
-elseif c1:          #       1  d
-    t1
-else:
-    d
-for x in y:         # perform f(x) for each x in y
-    f(x)
-for x in y:         # this will run forever
-    y.insert(0,x)
-for x in y[:]:      # this will not run forever, x iterates over y[:] rather 
-than y
-    y.insert(0,x)
-list(range(x,y,z))  # x+z*!1+_y%z
-list(range(len(x))) # !#x
-range(x,y,z)        # object returning successive items from an arithmetic list
-for x in y:         # iterate x over y: if c then break past else (i.e. z).  
-    if c:
-        break
-else:
-    z
-for x in y:         # iterate x over y: if c then continue to next iterate.
-    if c:
-        continue
-    z
-while x:            # while x do nothing
-    pass
+Built-In Functions
 
-# Functions
-def f(x):           # define a function that takes x and does y followed by z.
-    """docstring""" # document the functions behavior
-    y
-    z
-# All variable assignments in a function store the value in the local symbol 
-table;
-# variable references look in the following order
-# 1 local symbol table
-# 2 local symbol tables of enclosing functions
-# 3 global symbol table
-# 4 table of built-in names
-# functions without return statements always return None
-
-Object Methods
-x=[]        # x is an empty list
-y=[]        # y is an empty list
-x.append(0) # append 0 to the list x
-x           # gives [0] i.e. the list containing zero
-y = y + [0] # y is the list y plus the list [0]
-y           # gives [0] i.e. the list containing zero
-# object.method_name(argument) is a call to the method method_name of object
+abs(x)        give the classical norm of xall(x)        give True if each item of x is trueany(x)        give True if any item of x is trueascii()
+bin(x)        give binary (string) form of int xbool(x)       give True if x is true else give Falsebytearray() bytes()
+callable()chr(x)        give string for Unicode character at xclassmethod()compile()complex(x,y)  give x + y * 1j
+delattr()dict()dir()divmod()
+enumerate()eval()exec()
+filter()float()format()frozenset()
+getattr()globals()
+hasattr()hash()help()hex()
+id()input()int()isinstance()issubclass()iter()
+len()list()locals()
+map()max()memoryview()min()
+next()
+object()oct()open()ord()
+pow()print()property()
+range()repr()reversed()round()
+set()setattr()slice()sorted()staticmethod()str()sum()super()
+tuple()type()
+vars()
+zip()
+__import__()
 
 
-def f(x=0,y=1,z=2): # give default values to x,y,z
-    print(x,y,z)
-f()                 # gives 0 1 2
-f(3)                # gives 3 1 2
-f(3,4)              # gives 3 4 2
-f(3,4,5)            # gives 3 4 5
-
-1 in (0,1,2,3)      # gives True since one in the tuple zero, one two, three
 
 
-List Methods
-x.append(y)    # add y to the end of the list x (k: x,y)
-x.extend(y)    # join the list y to the end of the list x (k: x,y)
-x.insert(y,z)  # insert z at index z in x
-x.remove(y)    # remove first occurrence of y in x 
-x.pop()        # give last item of x and remove last item of x from x
-x.pop(y)       # give x[y] and remove x[y] from x
-x.index(y)     # give index of first occurrence of y in x (error otherwise)
-x.count(y)     # give count of occurrences of y in x
-x.sort()       # sort x in increasing
-x.reverse()    # reverse the order of items of x
-
-String Validation Methods
-x.isalnum()  # are all characters in string x alphanumeric characters?
-x.isalhpa()  # are all characters in x alphabetic characters?
-x.isdigit()  # are characters of x digits only?
-x.islower()  # are alphabetic characters of x lowercase?
-x.isupper()  # are alphabetic characters of x uppercase?
-
-String Alignment Methods
-x.ljust(y,z)  # right justify x on line of width y padded by char z
-x.center(y,z) # center justify x on line of width y padded by char z
-x.rjust(y,z)  # left justify x on width y line, pad with char z
-
-Textwrap
-import textwrap
-textwrap.wrap(x,y) # give lines of string x with width y
-textwrap.fill(x,y) # gives string of lines of string x with width y
-
-Set Methods
-x.add(y)                  # put y in x
-x.remove(y)               # take y from x give KeyError if y is not in x
-x.discard(y)              # take y from x
-x.pop()                   # return an item from x, remove it, and give KeyError 
-if x empty
-len(x)                    #         cardinality of set x
-x in y                    #         is x in y?
-x not in y                #         is x not in y?
-x.issubset(y)             # x &lt;= y  is x a subset of y?
-x.issuperset(y)           # x &gt;= y  is x a superset of y?
-x.union(y)                # x |  y  give union of x and y
-x.intersection(y)         # x &amp;  y  give intersection of x and y
-x.difference(y)           # x -  y  give complement of y in x
-x.symmetric_difference(y) # x ^  y  give symmetric difference of x and y
-x.update(y)               # x |= y  x gets x|y
-x.intersection_update(y)  # x &amp;= y  x gets x&amp;y
-x.difference_update(y)    # x -= y  x gets x-y
-x.symmetric_difference_update(y) # x ^= y  x gets x^y
-
-Boolean Operations
-all(x) # True if all x are True else False
-any(x) # True if an x is True else False
-
-Math
-moddiv(x,y)  # (_x%y),x!y
-pow(a,b,m)   # (a*/#b)!m
-
-import cmath
-cmath.phase(x)  # gives the phase or argument of the complex number x
-abs(x)          # gives the absolute value of the complex number x
-cmath.polar(x)  # gives polar representation of complex x i.e. 
-(abs(x),cmath.phase(x))
-cmath.rect(x,y) # rect from polar: x * (math.cos(y) + math.sin(y)*1j)
-
-from collections import Counter
-Counter(x)       # count items of x using a map(dict)
-x.elements()     # give iterator of elements y of counter x each repeated x[y] 
-times
-x.most_common()  # give list of (item, count) ordered by count (equals listed 
-arbitrarily)
-x.most_common(y) # give first y items of x.most_common()
-x.subtract(y)    # subtract item's count in y from item's count in x
-x.update(y)      # add count of items in a Counter y, or Counter(y) if y is 
-list etc.
-
-import calendar
-calendar.weekday(y,m,d) # give index of day of week on ymd with 0 = Monday
-calendar.day_name       # array of name of day of week in current local 0=Monday
-
-import time
-time.strptime(x)   # change x from "%a %b %d %H:%M:%S %Y" to time.struct_time 
-form (tuple)
-time.strptime(x,y) # change string x from format string y to time.struct_time
-time.mktime(x)     # change struct_time x into the (float) number of seconds 
-since epoch
-
-
-from datetime import datetime # gets datetime class from datetime module
-x=datetime.strptime(y,z) # x gets datetime object from string y formatted by z
-
-time.struct_time # https://docs.python.org/3/library/time.html#time.struct_time
-
-Time String Format Codes 
-(https://docs.python.org/3/library/time.html#time.strftime)
-%a Locale’s abbreviated weekday name.  
-%A Locale’s full weekday name.  
-%b Locale’s abbreviated month name.  
-%B Locale’s full month name.  
-%c Locale’s appropriate date and time representation.  
-%d Day of the month as a decimal number [01,31].  
-%H Hour (24-hour clock) as a decimal number [00,23].  
-%I Hour (12-hour clock) as a decimal number [01,12].  
-%j Day of the year as a decimal number [001,366].  
-%m Month as a decimal number [01,12].  
-%M Minute as a decimal number [00,59].  
-%p Locale’s equivalent of either AM or PM.
-%S Second as a decimal number [00,61].
-%U Week number of the year (Sunday as the first day of the week) as a decimal 
-number [00,53]. All days in a new year preceding the first Sunday are 
-considered to be in week 0.
-%w Weekday as a decimal number [0(Sunday),6].  
-%W Week number of the year (Monday as the first day of the week) as a decimal 
-number [00,53]. All days in a new year preceding the first Monday are 
-considered to be in week 0.
-%x Locale’s appropriate date representation.  
-%X Locale’s appropriate time representation.  
-%y Year without century as a decimal number [00,99].  
-%Y Year with century as a decimal number.  
-%z Time zone offset indicating a positive or negative time difference from 
-UTC/GMT of the form +HHMM or -HHMM, where H represents decimal hour digits and 
-M represents decimal minute digits [-23:59, +23:59].  
-%Z Time zone name (no characters if no time zone exists).  
-%% A literal '%' character.
-
-x.join(y) # join string items of y after inserting x between items of y
 
 Sources
+
 https://www.python.org/doc/
 </pre></body></html>
