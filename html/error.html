@@ -9,6 +9,65 @@ Errors
 This is a list of errors that I've made.
 It is organize in reverse chronological order.
 
+
+
+
+
+20151010T1535 \r and \n
+Always check to see whether \r or \n are used to indicate "new lines"
+The following code was written as a solution to the HTML Parser - Part 2 
+problem at HackerRank:
+
+from html.parser import HTMLParser
+class hp(HTMLParser):
+    def handle_data(self, x):
+        if x!='\n':
+            print('&gt;&gt;&gt; Data')
+            print(x)
+    def handle_comment(self, x):
+        y = x.split('\n')
+        if 1==len(y):
+            print('&gt;&gt;&gt; Single-line Comment')
+            print(*y)
+        else:
+            print('&gt;&gt;&gt; Multi-line Comment')
+            for z in y:
+                print(z)
+N = int(input())
+I = ''.join([input() for _ in range(N)])
+p = hp()
+p.feed(I)
+
+The reason I used '\n' was because the problem statement said that I should not 
+print data that is a single character '\n', but in the representation of the 
+input (in the definition of I) I did not know that each line was ended with a 
+'\r' instead of a '\n'.
+Thus the corrected code is:
+
+from html.parser import HTMLParser
+class hp(HTMLParser):
+    def handle_data(self, x):
+        if x!='\r':
+            print('&gt;&gt;&gt; Data')
+            print(x)
+    def handle_comment(self, x):
+        y = x.split('\r')
+        if 1==len(y):
+            print('&gt;&gt;&gt; Single-line Comment')
+            print(*y)
+        else:
+            print('&gt;&gt;&gt; Multi-line Comment')
+            for z in y:
+                print(z)
+N = int(input())
+I = ''.join([input() for _ in range(N)])
+p = hp()
+p.feed(I)
+
+
+
+
+
 20151004T1300 HTMLParser : html.parser :: Python 2.x : Python 3.x 
 The module HTMLParser from Python 2.x has been renamed html.parser in Python 3.x
 It took a surprisingly long amount of time to figure this out even though I was 

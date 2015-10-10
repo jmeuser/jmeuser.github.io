@@ -8,6 +8,63 @@ Hacker Rank Problems and Solutions
 https://www.hackerrank.com/jmeuser
 All problem statements are from www.hackerrank.com.
 
+HTMLParser - Part 2
+
+Task
+You are given an HTML code snippet of N lines. 
+Your task is to print single−line comments, multi−line comments and data.
+
+Format for printing the result is:
+&gt;&gt;&gt; Single-line Comment  
+Comment
+&gt;&gt;&gt; Data                 
+My Data
+&gt;&gt;&gt; Multi-line Comment  
+Comment_multiline[0]
+Comment_multiline[1]
+&gt;&gt;&gt; Data
+My Data
+&gt;&gt;&gt; Single-line Comment:  
+Note : Do not print data if data == '\n'.
+
+Input Format
+First line contains, integer N, number of lines in HTML code snippet.
+Next N lines contain, HTML code.
+
+Constraints
+0&lt;N&lt;100
+
+Output Format
+Print the single−line comments, multi−line comments and data in order of their 
+occurence from top to bottom in the snippet.
+Ensure proper formatting, as explained in the problem statement.
+
+Solution (20m)
+
+from html.parser import HTMLParser
+class hp(HTMLParser):
+    def handle_data(self, x):
+        if x!='\r':
+            print('&gt;&gt;&gt; Data')
+            print(x)
+    def handle_comment(self, x):
+        y = x.split('\r')
+        if 1==len(y):
+            print('&gt;&gt;&gt; Single-line Comment')
+            print(*y)
+        else:
+            print('&gt;&gt;&gt; Multi-line Comment')
+            for z in y:
+                print(z)
+N = int(input())
+I = ''.join([input() for _ in range(N)])
+p = hp()
+p.feed(I)
+
+
+
+
+
 HTML Parser - Part 1
 
 Task
