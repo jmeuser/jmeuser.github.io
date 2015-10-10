@@ -8,6 +8,64 @@ Hacker Rank Problems and Solutions
 https://www.hackerrank.com/jmeuser
 All problem statements are from www.hackerrank.com.
 
+Detect HTML tags, attributes and attribute values
+
+Problem Statement
+You are given an HTML code snippet of N lines.
+Your task is to detect and print all HTML tags, attributes and attribute values.
+
+Print the detected items in the following format:
+
+Tag1
+Tag2
+-&gt; Attribute2[0] &gt; Attribute_value2[0]
+-&gt; Attribute2[1] &gt; Attribute_value2[1]
+-&gt; Attribute2[2] &gt; Attribute_value2[2]
+Tag3
+-&gt; Attribute3[0] &gt; Attribute_value3[0]
+
+-&gt; symbol indicates that tag contains an attribute. It is immediately 
+followed by the name of attribute and attribute value. 
+&gt; symbol acts as a separator of attribute and attribute value.
+
+If an HTML tag has no attribute then simply print the name of the tag.
+Note: Do not detect any HTML tag, attribute and attribute value, inside the 
+HTML comment tags (&lt;!-- Comments --&gt;).Comments can be multiline also.
+All attributes have an attribute value.
+
+Input Format
+First line contains, integer N, number of lines in HTML code snippet.
+Next N lines contain, HTML code.
+
+Constraints
+0&lt;N&lt;100
+
+Output Format
+Print the HTML tags, attributes and attribute values in order of their 
+occurence from top to bottom in the snippet.
+Ensure proper formatting, as explained in the problem statement.
+
+Solution (1m, it was almost exactly the same as HTMLParser - Part 1)
+
+from html.parser import HTMLParser
+class h(HTMLParser):
+    def handle_starttag(self, t, a):
+        print(t)
+        for x,y in a:
+            print('-&gt;',x,'&gt;',y)
+    def handle_startendtag(self, t, a):
+        print(t)
+        for x,y in a:
+            print('-&gt;',x,'&gt;',y)
+p = h()
+I = [input() for _ in range(int(input()))]
+for x in I:
+    p.feed(x)
+
+
+
+
+
 HTMLParser - Part 2
 
 Task
