@@ -77,6 +77,10 @@ This is because my first introduction to the functions of this module was under
 the name from Python 2.x (HTMLParser) and my brain simply parsed html.parser as 
 HTMLParser since that is the name of the class that I was trying to 
 
+
+
+
+
 20151002T1031 El Capitan Mail: Unable to Send Outgoing Email
 I tried to send an email from Mail today.
 It must have been the first time I had tried to send an email after upgrading 
@@ -106,6 +110,8 @@ That solved the problem.
 This is the first error I've reported on that isn't strictly a programming 
 error, and I hope to increase this pattern of reporting on errors outside the 
 scope of pure programming.
+
+
 
 
 
@@ -252,6 +258,9 @@ Though, I do not prefer this solution, as it does not seem properly "clear" or
 my initial logical error.
 
 
+
+
+
 20150928T1527 Sorted Strings instead of Integers
 In a Hacker Rank problem I was asked to read in a table of data and then to 
 sort by its values down the k-th column.
@@ -277,6 +286,8 @@ k=int(input())
 O=sorted(I,key=lambda x: x[k])
 for x in O:
     print(*x)
+
+
 
 
 
@@ -375,6 +386,8 @@ runtime and back again.
 
 
 
+
+
 20150926T1405 Python: raw_input() from python 2.x became input() in python 3
 I was solving a problem for my application to LaunchCode and was using an 
 expression
@@ -404,6 +417,8 @@ I just need to know that input() in python 3.x means raw_input() in Python 2.x
 
 
 
+
+
 20150923T1637 Python: List Items vs. List Slices
 While solving the HackerRank problem "Set .discard(), .remove() &amp; .pop()" I 
 got this error
@@ -428,6 +443,9 @@ s={int(x) for x in input().split()}
 I=[input().split() for x in range(int(input()))]
 for x in I: eval('s.'+x[0]+'('+','.join(x[1:])+')')
 print(sum(s))
+
+
+
 
 
 20150921T1539 Python: .sort() occurs "in place"
@@ -456,6 +474,8 @@ These two commands will make it so that z is now a list sorted in ascending
 order.
 I must admit that I don't like these side effects: there must be some serious 
 performance trade off for such terrible notation.
+
+
 
 
 
