@@ -9,6 +9,370 @@ These are clumps of raw unprocessed thought dredged into words and maybe even
 sentences.
 They are organized as a stack i.e. the most recent note is at the top.
 
+20151013T1516 What's been going on with N? Introducing rod | and poly $ and 
+Eliminating meet and join.
+
+The past week has been full of new developments in my life and with N.
+I've been admitted into the wonderful non-profit program run by LaunchCode.
+That process took a considerable amount of time and attention, and the results 
+were more than satisfactory.
+Consequently, I have dedicated little time to working directly on the 
+development of N, but that has not stopped my brain from continuing to crunch 
+away at it as I'm thinking about something else.
+As a result there have been some major changes in the basic vocabulary and the 
+full organization of N, its development, and its documentation.
+
+First, and perhaps most importantly, I've realized that the act of "modulus" as 
+it is usually called in the classical computer science languages has a well 
+defined meaning in the multidimensional case i.e. when there is a list of 
+numerals as its left arguments.
+Furthermore, this conceptual extension is harmonious with the basic elements 
+needed to evaluate polynomials (something which I was already going to make 
+primitive, but which now has a new balance).
+
+These new verbs are the dyad rod | and the dyad $ poly.
+Though, having just written that, I think that the elimination of the &amp; and 
+| as meet and join are to thank for opening my mind to these new definitions.
+What I've done is to realize, in a more decisive way, the interplay between 
+Goodstein's work in Recursive Number Theory and the methods a programmer might 
+use to work with propositions and conditions, or, in general, relations between 
+numerals and basic propositional logic.
+
+To be clear: the binary operations of * (times) and + (plus) are more than 
+simply adequate for use as models for the logical versions of join and meet, 
+but introduce a much needed deviation from common habits: that of using 0 to 
+represent False and 1 to represent True.
+As is common in the history of human discovery, the use of 0 and 1 to represent 
+false and true is as silly as the use of positive charge and negative charge to 
+describe a quantity related to electrons and protons.
+Unlike in the case of physics, there is no loss in abandoning common 
+convention, especially when the resulting simplicity is intoxicatingly 
+convenient and reinforces the larger system of thought that N embodies.
+
+Though it may never become popular, the interpretation of true as 0 and false 
+as 1 lends itself to another common generalization: that of "shades of 
+falsehood".
+Beginning with binary arithmetic it is obvious that * is what one is compelled 
+to interpret the logical operation of "or" with:
+
+* 0 1
+0 0 0
+1 0 1
+
+From this table it becomes obvious that x*y is false only when both x and y are 
+false i.e. x*y is true only when x is true or y is true.
+Furthermore:
+
++ 0  1
+0 0  1
+1 1 10
+
+and
+
+*+ 0 1
+ 0 0 1
+ 1 1 1
+
+That is, the claw sgn plus is a way of forcing a purely classical result from 
+what classical logicians desire in an operation of "and".
+
+Most people are more inclined to accept the interpretation of true as being 0 
+if false is interpreted as being greater than zero.
+Note, that up to this point the notion of true and false are being interpreted 
+using the general judgement of ~ (same) i.e.
+
+0 ~ x
+
+means "x is true" and
+
+1 ~ * x
+
+means "x is false".
+Notice that this is just one example of a family of problems whose general 
+question is:
+
+"What logical statements are reducible to the relation of sameness between 
+primitive recursive functions?"
+
+The most thorough answer of which is, as you might anticipate if you've 
+followed any of my work here, to be found in Goodstein's works Recursive Number 
+Theory and Recursive Analysis.
+Though, it must be noted, that it is not Goodstein's goal in either of those 
+works to establish the supremacy of his equational calculus in answering the 
+call of "logical analysis" rather that modern mathematics is satisfactorily 
+encompassed by a system of notation that is surprisingly simpler than anything 
+which we have yet encountered.
+
+Though it is clearly my intent that such questions be thoroughly answered as a 
+result of N's continued development as a notation language, there is the more 
+pressing matter of getting the right mathematical tools in the hands of the 
+largest number of people possible.
+The right tools are those which reflect our modern knowledge of math and 
+science (in particular computer science).
+
+There is much more to be said about this all, but for now such abstract 
+concepts are not relevant to the immediate development of N as a powerful tool 
+for thought.
+
+The use of the word "rod" to describe | is based not only on its appears as a 
+rod, but also on its function as it relates to the rods of a generalized abacus.
+
+In the normal operation of an abacus there are a collection of parallel rods 
+each of which has the same number of beads upon it.
+It is from this ingenious machine that the modern positional notational systems 
+and the standard arithmetic algorithms are born.
+
+Suppose you wish to find the remainder of 210 divided by 10.
+One method which will produce the desired solution is to count to 210 using a 
+standard abacus where each rod has nine beads on it.
+Counting to 210 on such an abacus seems silly because one can easily represent 
+the base ten numeral 210 on an abacus by simply producing the following 
+configuration:
+
+===============
+  o    o    o  
+  o    o    o
+  o    o    o 
+  o    o    o 
+  o    o    o 
+  o    o    o 
+  o    o    o 
+  |    o    o 
+  o    |    o     
+  o    o    |
+===============
+  2    1    0
+
+The remainder of 210 divided by 10 is 0 which can be read from they right most 
+rod of the abacus.
+Now, suppose you wish to find the remainder of 12 divided by 7 then you could 
+count to twelve on an abacus having six beads to each rod i.e. a base 7 abacus:
+
+==============
+  o    o    o 
+  o    o    |
+  o    o    o 
+  o    o    o 
+  o    o    o 
+  o    |    o     
+  |    o    o
+===============
+  0    1    5
+
+Again, using the right most rod we read off the remainder as 5.
+In N these actions would be written:
+
+ 10|210
+0
+ 7|12
+5
+
+This process works in general for finding the remainder of dividing any two 
+numerals (as long as you agree to count the number of beads on the right most 
+rod using a decimal system).
+
+The generalization where the left argument to | is a list of numerals should 
+now seem obvious: it is the resulting down beads on an abacus each of whose 
+rods has the specified number of beads.
+
+For example to find 2 4 | 15 we use the following abacus:
+
+==========
+  o    o 
+  |    o 
+  |    o     
+  |    |
+==========
+
+Just as when we count with an abacus having a finite number of rods, we pretend 
+to perform a carry but have no way of recording it, so that information is lost 
+in the process of counting, but in this generalization of the rank one | we do 
+not require that information.
+So counting out fifteen on this abacus gives the final position:
+
+==========
+  |    | 
+  |    o 
+  |    o     
+  o    o
+==========
+  1    3
+
+So that,
+
+ 2 4 | 15
+1 3
+
+That is, 2 4 rod 15 gives 1 3 (full English "two four rod fifteen gives one 
+three").
+As a consequence of this convention for rod | one can now easily bridge the gap 
+from numerals to lists of numerals e.g.
+
+ 10 10 | 15
+1 5
+ 2 2 2 2 2 2 | 101100
+1 0 1 1 0 0
+ 2 2 2 2 2 2 | 44
+1 0 1 1 0 0
+
+Since the dyad | is derived from the remainder of Euclidean Division the 
+convention is that 0 | x should return x so that 0 2 | x should return the 
+quotient of x divided by 2 followed by the remainder of x divided by 2:
+
+ 0 2 | 3
+1 1
+ 0 5 | 13
+2 3
+
+Thus, going back to our use of abaci, the use of 0 in the expression 0 5 | 13 
+indicates that the rod has an infinite number of beads that can be brought down 
+from the rod second from the right.
+
+In J the operation called rod here is named anti-base #: and its partner is 
+base #.
+
+In N the name rod is used just as a place holder for what I hope will be a 
+better name than "anti-base".
+The use of the word rod is catchy though as it describes both the symbol | and 
+the origin of its behavior in reading off the rods of an abacus.
+This is one of those design coincidences that might be called a fitting 
+surprise, as such it may be that rod ends up being the final name for the 
+operation | .
+
+The further generalization of rod | to a left argument being a rank two array 
+or an array of higher rank will have to wait until I know more about polynomial 
+operations and matrices/tensors.
+
+For now, the operation of "base" from J is called poly for polynomial and 
+denoted $.
+The reason for choosing $ is because it contains rod, but weaves together all 
+of the beads (giving the value of the polynomial with given coefficients).
+
+To calculate 1 0 1 $ 2 we must start with a three rod abacus having one bead on 
+each rod
+
+=============
+ o    o    o 
+ |    |    |
+=============
+
+Then we count with this abacus until we reach the final configuration:
+
+=============
+ |    o    |
+ o    |    o
+=============
+ 1    0    1
+
+Which is analogous to using the abacus to count down from a starting position 
+and accumulating the relevant number of beads or objects.
+
+Though, this is not useful when the list of numerals on the left contains 
+numerals that are beyond the numeral on the right e.g. 1 3 2 $ 2 .
+This suggests that what we are really doing is starting with the same abacus
+
+=============
+ o    o    o 
+ |    |    |
+=============
+
+but before counting backwards we count out as follows
+
+
+      =============
+       o    o    o 
+       |    |    |
+      =============
+-------------------- count 2: start with the right rod (since 2 is the right 
+numeral in 1 3 2)
+      =============
+       o    |    o 
+       |    o    |
+      =============
+-------------------- count 3: start with second rod from right rod in 
+antecedent configuration
+ ==================
+  |    o    o    o
+  o    |    |    |
+ ==================
+-------------------- count 1: start with third rod from right
+ ==================
+  |    |    o    o
+  o    o    |    |
+ ==================
+  1    1    0    0
+
+In decimal notation this is the configuration of a binary abacus that was used 
+to record a count of 12.
+
+Why does any of this matter?
+That is a good question to ask, because as I have introduced them here, these 
+operations do not seem to have much connection to anything that you would 
+"really want to do".
+In other words, its seems like a fun game to play when using an abacus to 
+relate our method of writing out numerals with actual counts of a collection of 
+objects, but it doesn't seem like the type of thing that one would be naturally 
+led to consider.
+To support this dismissive position, one can consult Goodstein's Fundamental 
+Concepts of Mathematics and see that the ideas are not introduced until a 
+little less than half way through his 319 page book.
+
+The occurrence of these concepts at the middle point of his book is not a 
+coincidence, it is the turning point which separates "elementary" mathematics, 
+the type you are used to doing up till high school, from "higher" math.
+The concept that ties together these operations | and &amp; (which is the new 
+symbol for $).
+
+Sorry I must take a moment to remind anyone reading this of two things: this is 
+a notebook, it is not a blog or collection of well thought out posts, it is a 
+notebook i.e. a record of the flow of thought.
+It is, consequently, subject to the type of orthogonal divergence that is 
+characteristic of a relatively creative mind.
+
+So, the notation | is now called digits and &amp; is called base.
+This follows Godostein's convention and also gives the antithesis of the binary 
+operations | and &amp; that is found in their classical use as synonyms for the 
+logical operations of | and &amp; (which as I've already said many times before 
+do not have a place in the primitive vocabulary of N).
+
+Also, &amp; is like | only all wound up and looking kind of like a bag.
+
+Back to the regular flow of thought.
+
+The introduction of the polynomial concept is a pivotal one, it is where 
+algebra and analysis get interesting.
+Polynomials, as introduced by Goodstein and as introduced here, are a way of 
+introducing new numbers to a preexisting collection of numbers.
+Given a collection of numbers, say the rational numbers (which one can 
+represent as triples like 1n3r5 or 4r5 in N), we can form new numbers as lists 
+of rational numbers.
+These lists are written down formally using a formal base such as the symbol 
+'x'.
+The construction of one system of numbers from another is only "natural" after 
+one becomes more familiar with repeated use of an "arithmetic of pairs" to move 
+from natural numbers to integers, from natural numbers to fractions, from 
+integers to rational numbers, from rational numbers to the rational numbers 
+together with rational multiples of the square root of two.
+That there is a general method which ties together some of these "arithmetics 
+of pairs of numbers" is the result of years of human investigation, 
+imagination, and creation.
+
+For now, most kids are introduced to polynomials as functions, and their 
+algebraic nature is irreversibly mixed in a vague and ultimately unhelpful way 
+with their analytic nature.
+The interpretation of polynomials as numbers to an as yet defined base would be 
+unfamiliar to most high school students familiar with polynomials.
+
+There is much more to be said to complete this narrative and to explain why 
+these operations are unavoidably necessary in a notational language for math, 
+science, and society: they are currently the best way to deal with a large 
+class of mathematical descriptions without introducing anything more than lists 
+of numbers.
+
+
+
+
+
 20151012T1234 Even more draft material from N.html
 
 There have been a lot of changes to the basic vocabulary and structure of some 
