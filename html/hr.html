@@ -8,6 +8,38 @@ Hacker Rank Problems and Solutions
 https://www.hackerrank.com/jmeuser
 All problem statements are from www.hackerrank.com.
 
+XML 1 - Find the Score
+
+Problem Statement
+You are given a valid XML document and you have to print its score. The first 
+line of input is the number of XML lines followed by the XML lines. Score is 
+given by the sum of score of each element. For any element, score is equal to 
+the number of attributes it has.
+
+Input Format
+The first line shows the number of lines in XML document followed by the XML 
+document.
+
+Output Format
+An integer score
+
+Solution (1hr I started to try and understand XML in general, but just finished 
+the problem instead)
+
+import xml.etree.ElementTree as ET
+I = ''.join([input() for _ in range(int(input()))])
+
+root = ET.fromstring(I)
+
+def score(root):
+    return len(root.attrib) + sum([score(child) for child in root])
+
+print(score(root))
+
+
+
+
+
 Detect HTML tags, attributes and attribute values
 
 Problem Statement
