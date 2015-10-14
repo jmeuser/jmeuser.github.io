@@ -9,6 +9,265 @@ These are clumps of raw unprocessed thought dredged into words and maybe even
 sentences.
 They are organized as a stack i.e. the most recent note is at the top.
 
+20151014T1203 From same to similar ~ and [m f n] bracket notation
+
+My original purpose in naming the dyad ~ same was because "same" is a four 
+letter word where as "similar" is a seven letter word.
+I now prefer similar regardless of the three additional letters needed to write 
+it in English.
+It has not been my intent to assume that the user of N speaks English, nor that 
+ASCII is the only characters to which they have access (though it is still not 
+wise to assume any specific character set as there is unlikely to be any 
+universal agreement even among standards committees as to what constitutes a 
+likely or "final" character set, perhaps the notion of character sets will end 
+up being nothing more than an archeological or anthropological topic, even 
+geological!).
+I had considered, for a time, developing pronunciations of each verb that 
+appeal to a sort of Pidgin English, something like that spoken in certain parts 
+of the world, but have since ignored that path of inquiry as it did not help me 
+while I was using and developing N.
+
+The use of the word same was needlessly limiting.
+Similar is the word which I had originally intended to describe the concept 
+embodied in ~ but it seemed vague.
+I have since accepted that it is the simplicity of "similar"'s vagueness that 
+is a strength to the over all design of N.
+One of the emerging properties of N is the use of ~ as the single "judgement" 
+operation.
+That is, the only judgement that one must make is one of similarity between a 
+left and right argument.
+My reasons for this are philosophical, logical, and mathematical.
+The mathematical reasoning is embodied in my use of the verbs &lt; = &gt; as 
+arithmetic operations rather than as relations between numerals.
+The logical reasoning is embodied in Goodstein's equation calculus.
+The philosophical reason is based on Russell's Human Knowledge.
+Jokingly, but most certainly not, Russell makes the audacious suggestion that, 
+with proper provisions, one might confidently construct a theory of human 
+knowledge whose principle relation is that of similarity.
+He goes on to describe how the relation of similarity is one between events, 
+and that with proper axioms (in the philosophic sense not in the mathematical 
+logic sense) one can reclaim the reasoning that is characteristic of hard 
+sciences such as physics (primarily the reasoning by induction from the facts).
+What I'm doing is far removed from Russell's grand scheme, but Goodstein's 
+equation calculus uses the single judgement of "equality" to develop Number 
+Theory and Recursive Analysis.
+Thus showing that Russell's outlandish simplification might actually be less 
+outlandish than it seems at first glance.
+
+My want to name ~ "similar" is also born from an idea that I had which would 
+allow users of the notation to redefine ~ as it suits their current content.
+Interestingly, there is no need for this, as it is clear that by using 
+Goodstein's equational calculus all relevant judgements are actually special 
+instances of a similarity judgement.
+In Goodstein's case the most interesting part of the similarity judgment is 
+characterize by his primitive recursive uniqueness rule:
+
+"
+the 
+primitive recursive uniqueness rule
+
+U
+F(Sx) = H(x, F(x))
+ F(x) = H^x F(0)
+
+where the iterative function H^x t is define by the primitive recursion H^0 t = 
+t, H^Sx t = H(x, H^x t)
+" Goodstein, Recursive Number Theory, pg. 104
+
+together with the standard features of similarity: transitivity, 
+Indiscernibility of Similars (my  generalization of Leibniz's Indiscernibility 
+of Identicals)
+
+In N notation transitivity of similarity is encoded in the rule:
+
+ x ~ y
+ x ~ z
+-------
+ y ~ z
+
+Indiscernability of Similars is encoded in the rules:
+
+    f ~ g
+-------------
+ f[x] ~ g[x]
+
+    x ~ y
+-------------
+ f[x] ~ f[y]
+
+Although, in the rules just given, there is a certain "favoritism" given to the 
+difference between a constant and a constant function, as I would prefer these 
+be written as:
+
+    x ~ y
+-------------
+ x[z] ~ y[z]
+
+    x ~ y
+-------------
+ z[x] ~ z[y]
+
+The idea of "Indiscernability of Similars" is that once you accept a similarity 
+you are committed to an inherent vagueness between similar i.e. it is not 
+possible to "distinguish" between similars under  given similarity relation.
+
+In these rules I've used the as yet well defined/described "abstraction" 
+notation [].
+In classical computer science (and in some mathematical settings) the square 
+brackets are used in so called "index notation".
+For example, if A is an array and we wish to refer to the item of this array 
+located in the first row and the second column (assuming zero indexing i.e. we 
+start by labeling with zero rather than one) then we would write his as A[0,1] .
+In N, we would write the same thing, but instead of interpreting A[0,1] as an 
+ad-hoc abbreviation it fits into a larger framework.
+
+Here A is some function (in this case we believe it to be a function or verb 
+which when given a pair of numeral arguments returns the relevant entry in a 
+rectangular array) and A[0,1] is a claw of A with the constant function [0,1].
+Thus for any arguments m and n we have
+
+A(0,1) ~ m A[0,1] n
+
+for the following are similar:
+
+m A[0,1] n
+A m [0,1] n
+A 0,1
+A(0,1)
+
+Inside of the square brackets the letters m and n take on special meaning (they 
+are bound to their enclosing pair of brackets) so that, for example:
+
+3 [m+n] 5
+3 + 5
+8
+
+or
+
+3 [n*3] 5
+5 * 3
+15
+
+or
+
+3 [m-3] 5
+3 - 3
+0
+
+3 [A 2,n,m] 4
+A 2,4,3
+
+or
+
+A[3,n] 4,5
+A 3,4,5
+
+or
+
+A[n,4,5] 2,3
+A 2,3,4,5
+
+so that any train or claw of verbs can actually be written using explicit 
+constructions with [].
+
+As with any standard lambda functions we can specify what are the pronoms to be 
+"bound" in a given brace expression:
+
+3 [[x y] x+y] 5
+3 + 5
+8
+
+3 [[y x] x-y] 5
+5 - 3
+2
+
+3 [ [3+n] n + m] 5
+[3+n] 5 + 3
+[3+n] 8
+3 + 8
+11
+
+The last example shows that, for now, the pronoms m and n are bound to their 
+immediate square bracket expression and any inner or outer occurrence of that 
+pronom inside a nested bracket or outside are unaware of each other.
+
+What if there are more than three pronoms in the argument list of a bracket 
+expressions?
+
+[[x y z] x + y + z] 3,4,5,6,7
+3 + 4 + 5
+3 + 9
+12
+
+3 [[x y z] x + y + z] 4,5,6,7
+3 + 4 + 5
+3 + 9
+12
+
+3 4 [[x y z] x + y + z] 4,5,6,7
+3 4 + 4 + 5
+3 4 + 9
+12 13
+
+3 4 [[x y z] x + y + z] 4 5 6 7; 8 9 10 11
+3 4 + 4 5 6 7 + 8 9 10 11
+3 4 + 12 14 16 18
+(3 + 12 14 16 18); 4 + 12 14 15 18
+15 17 19 21; 16 18 20 22
+
+15 17 19 21
+16 18 20 22
+
+For now, these examples are representative of the referral of argument pronoms 
+to the corresponding items of the right argument.
+In the future it might seem reasonable to allow the specification of items of 
+the left and right arguments e.g.
+
+3 4 5 [[[x y] u v] u + v + y,x] 5 6 7
+5 + 6 + 4 , 3
+5 + 6 + 4 3
+5 + 10 9
+15 14
+
+Though, the notation becomes a lot less expressive at this level and it is 
+likely that your function definition (whatever it might be) is better suited to 
+breaking into pieces.
+
+f:[n,m]
+3 4 5 [[x y z] y + z + f x] 5 6 7
+
+This idea of breaking things into pieces using proper pronom definition might 
+be taken so far as to eliminate the nesting of bracket expressions.
+This is a restriction that I will consider, but for now I see no deep reason 
+for eliminating it outright.
+
+note that 
+
+[n,m] 3
+3,3
+3 3
+
+[n,n] 3
+3,3
+3 3
+
+[n,m] 3,4,5
+4,3
+4 3
+
+[n,m] 3 4 5;6 7 8;9 10 11
+6 7 8, 3 4 5
+6 7 8 3 4 5
+
+So there's that too... you have to think in terms of items be they items of an 
+array or items that have been "linked" together.
+Needless to say, the only place to find order amongst these many different 
+types of interpretations is in the well worn paths of mathematics.
+
+
+
+
+
 20151013T1516 What's been going on with N? Introducing rod | and poly $ and 
 Eliminating meet and join.
 
