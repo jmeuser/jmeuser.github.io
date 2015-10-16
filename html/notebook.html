@@ -9,6 +9,293 @@ These are clumps of raw unprocessed thought dredged into words and maybe even
 sentences.
 They are organized as a stack i.e. the most recent note is at the top.
 
+20151015T1038 More on the behavior of Base _ 
+
+There are two conventions that "make sense" for the behavior of base.
+
+The first is that the index of the numeric atom of a left argument should be 
+the "place value" of that "digit".
+From the polynomial perspective this means that the index of the coefficient 
+gives the power of the respective variables of the term to which that 
+coefficient belongs.
+
+The alternate convention is that, knowing the shape of the left argument of 
+"digits" (coefficients), the "place value" of an atom of the left argument is 
+the shape monus the atom's index monus one (because indexing of elements starts 
+at zero in N as in many other notational and programming languages).
+
+The second convention follows more closely the finitists perspective: prior to 
+performing some calculation on a table of numerals we already know the "limits" 
+of the table of numerals.
+In other words, prior to calculation we are certain we have all the data with 
+which we will calculate.
+Not wanting to squander this precious data, we use it for all its worth by 
+using the convention that the most significant "digit" be placed at the 
+beginning of a row-major representation of the coefficient table.
+One need not appeal to a particular representation of the table (e.g. 
+row-major), but could appeal to the extension of classical positional numeral 
+systems where the most significant digit is also the "first" (or zeroth) digit.
+
+It is my belief that, for now, the second convention is the most appropriate 
+for N.
+Appealing to the ultimate similarity between APL and N one can say that the 
+information about the shape of a homogenous array of numerals is stored as part 
+of that array's internal representation as an APL array (which is sometimes the 
+name used to refer to the single data structure that is used to implement APL 
+and J).
+
+Another reason to prefer the second convention is because it follows the 
+standard Positional Numeral Notation that we learn in elementary school and 
+simply generalizes the idea to rectilinear arrays of digits rather than just 
+lists.
+
+So now for examples, to bring some concreteness to this all.
+In order to make things clear I have to give examples of various dimensions of 
+the left and right arguments.
+Starting with the simplest and most familiar we have the standard 
+representation of numeral in a positional numeral system to a given base:
+
+In this first example the left argument is a one dimensional list of "binary 
+digits" and the base is two
+
+ 1 0 1 1 1 _ 2
+23
+
+The second example is still to base 2, but the "digits" are now more familiar 
+as "coefficients" of a polynomial.
+As from the second convention described above, the power to which 2 is taken 
+for each coefficient is equal to the length of the list minus the index of its 
+"digit/coefficient" monus one:
+
+ 1 0 2 1 0 _ 2
+26
+
+Here it makes sense to take time to describe a specific way in which one might 
+come to calculate this value using "more primitive" operations of N.
+
+First, let d be the list of digits and b the base:
+
+ d: 1 0 2 1 0
+
+ b: 2
+
+Now, let k be the "shape" or "length" of d 
+
+ k:#d
+
+ k
+5
+
+For now, # is shape, and it returns an atom when d is a one dimensional array, 
+but returns a list when d is any higher dimension (this convention makes sense 
+when you use # as shape in various calculations).
+
+Now, we let x be the list of "place values" corresponding to each digit in d 
+under the assumption that the base is b
+
+ x: b pow $|k
+16 8 4 2 1
+
+ |5
+0 1 2 3 4
+
+ $ 0 1 2 3 4
+4 3 2 1 0
+
+ 2 pow 4 3 2 1 0
+16 8 4 2 1
+
+Now, the terms t of the polynomial are
+
+ t: d*x
+
+ t
+16 0 8 2 0
+
+ 1 0 2 1 0 * 16 8 4 2 1
+16 0 8 2 0
+
+So that the decimal numeral corresponding to 1 0 2 1 0 _ 2 is the sum of the 
+terms:
+
+ +/t
+26
+
+ +/ d * b pow $|#d
+26
+
+Note that this is only one method of calculating this value (and it is 
+certainly not the most efficient).
+Though it is the classical method of setting up a polynomial term by term and 
+calculating all of the information in pen and paper steps.
+
+Now for the calculation of a multi base numeral i.e. a multivariable polynomial.
+As is readily seen in Birkhoff and MacLane's Algebra there is an obvious 
+morphism between permutations of iterated constructions of polynomial rings 
+from the same commutative ring.
+Furthermore there is a morphism between the a multivariable polynomial ring 
+over a commutative ring and iterated constructions of single-variable 
+polynomial ring over a commutative ring.
+
+All of these concepts are subsumed under symmetries in the left argument to 
+base via the relevant transformations between the cells and frames of a 
+multidimensional array of coefficients.
+
+Using the second convention of base described above, the entries of the 
+coefficient matrix are associated with the "place value" whose index is the 
+shape of the coefficient matrix (digits) monus the index of the coefficient 
+monus one.
+
+Alternatively, using digits |, one can build an array whose i,j-th entry is the 
+index i,j (i.e. a list whose 0-th item is i and who's 1-th item is j).
+Supposing the shape of the coefficient matrix is 2 3 e.g.
+
+2 4 6
+3 5 7
+
+Then the array corresponding to the place-values (powers) of the two base 
+numeral (two variable polynomial) is given as a brick from the following 
+calculation
+
+ 2 3| 2 3# $|2*3
+1 2
+1 1
+1 0
+
+0 2
+0 1
+0 0
+
+ 2*3
+6
+
+ |6
+0 1 2 3 4 5
+
+ $0 1 2 3 4 5
+5 4 3 2 1 0
+
+ 2 3# 5 4 3 2 1 0
+5 4 3
+2 1 0
+
+ 2 3| 5 4 3; 2 1 0
+1 2
+1 1
+1 0
+
+0 2
+0 1
+0 0
+
+This can seem confusing, but it ultimately isn't (it's just that the details of 
+these elementary parts of arithmetic and polynomials are scattered about 
+through modern text books under the guise of polynomial functions and crazy 
+algebra and an often mystical invocation of ad hoc modular arithmetic).
+
+Specifically, it is the purpose of these operations (digits | and base _) to 
+lift the vale from this often misunderstood relation between digits, bases, 
+place-values, numerals, and polynomials.
+
+Before going to far into the detail of a specific way of calculating _ for 
+array arguments let me give a concrete example.
+In this example d is an array of digits (or coefficients for polynomial people).
+
+ d: 2 4 6; 3 5 7
+
+ d
+2 4 6
+3 5 7
+
+ #d
+2 3
+
+The shape of d (denoted #d) is 2 3 i.e. it has two rows and three columns.
+For our bases (in polynomial language this would be the values of the variables 
+x and y in a bivariable polynomial) we choose 3 and 5 (primes just to make life 
+easier for now).
+
+ b: 3;5
+
+ b
+3
+5
+
+ #b
+2 1
+
+Here the shape of b (denoted #b) is 2 1 i.e. it has two rows and one column.
+We now visualize the computations to come as follows:
+
+  25 5 1
+ +-------
+3| 2 4 6
+1| 3 5 7
+
+The first axis of the coefficient matrix (digits) d is the row axis and along 
+this axis we list the powers (place values) of the first base along the first 
+axis of b (3) and along the second axis of the digits (the column axis in the 
+case) we list the powers of the second base along the first axis of b (5).
+
+Now the place value of each coefficient (digit) is given by the corresponding 
+value of the power of each base in the digit's row and column.
+Each row of the following table contains the factors of each term in the 
+polynomial with coefficients d and arguments b
+
+3 25 2
+3  5 4
+3  1 6
+1 25 3
+1  5 5
+1  1 7
+
+For me it is easier to see the place values next to the coefficients (as this 
+is how it properly generalizes, though some people might prefer seeing the 
+coefficients to the left it is easier to see that the place-values are ordered 
+in a reverse lexicographic order):
+
+1 2 2
+1 1 4
+1 0 6
+0 2 3
+0 1 5
+0 0 7
+
+For those familiar with thinking about sparse matrices, this table can be 
+interpreted as as a representation of a space matrix, the remainder of whose 
+entries are zero.
+
+Now, to complete the calculation we can sum the column of products across each 
+row
+
+ +/ */' 3 25 2; 3 5 4; 3 1 6; 1 25 3; 1 5 5; 1 1 7
+235
+
+ */' 3 25 2; 3 5 4; 3 1 6; 1 25 3; 1 5 5; 1 1 7
+150
+ 60
+ 18
+ 75
+ 25
+  7
+
+ +/ 150; 60; 18; 75; 25; 7
+235
+
+Having performed the computation for one instance, we can now go back and see 
+what the general form of this method of calculation takes, and how it is 
+similar to the expression for the lower dimensional case:
+
++/ d * b pow (#b)# (#b)| |*/#d
+
+Again this is a notebook and as such is not composed of complete thoughts.
+The previous N expression is a complete description of the behavior of base _ 
+on any array of digits and bases.
+
+
+
+
+
 20151014T1203 From same to similar ~ and [m f n] bracket notation
 
 My original purpose in naming the dyad ~ same was because "same" is a four 

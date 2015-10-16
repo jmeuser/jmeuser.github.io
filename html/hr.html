@@ -26,10 +26,11 @@ An integer score
 Solution (1hr I started to try and understand XML in general, but just finished 
 the problem instead)
 
-import xml.etree.ElementTree as ET
+import xml.etree.ElementTree
+
 I = ''.join([input() for _ in range(int(input()))])
 
-root = ET.fromstring(I)
+root = xml.etree.ElementTree.fromstring(I)
 
 def score(root):
     return len(root.attrib) + sum([score(child) for child in root])
