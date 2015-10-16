@@ -8,6 +8,38 @@ Hacker Rank Problems and Solutions
 https://www.hackerrank.com/jmeuser
 All problem statements are from www.hackerrank.com.
 
+XML2 - Find the maximum depth
+
+Problem Statement
+You are given a valid XML document and you have to print the maximum level of 
+nesting in it. The first line of input is the number of XML lines followed by 
+the XML lines. Take the depth of root as 0.
+
+Input Format
+The first line shows the number of lines in XML document followed by the XML 
+document.
+
+Output Format
+An integer value
+
+Solution (20m)
+
+import xml.etree.ElementTree
+
+I = ''.join([input() for _ in range(int(input()))])
+
+root = xml.etree.ElementTree.fromstring(I)
+
+def m(r):
+    d = [m(c) for c in r]
+    return 0 if []==d else 1 + max(d)
+
+print(m(root))
+
+
+
+
+
 XML 1 - Find the Score
 
 Problem Statement
