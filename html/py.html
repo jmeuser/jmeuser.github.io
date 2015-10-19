@@ -7,9 +7,7 @@ href="http://fonts.googleapis.com/css?family=Inconsolata">
 Python
 
 Assignment
-
-=   gets
-
+=     gets
 +=    plus gets (x += y is x = x + y)
 -=    minus gets
 *=    times gets
@@ -18,189 +16,111 @@ Assignment
 **=   power gets
 //=   floor-quotient gets
 
-
-
-
-
 Logic
-
 bool(x)   True if x is true else False
 not x     False if x else True
-
 x or y    x if x else y
 x and y   y if x else x
-
-any(x)   True if any item of x is true
-all(x)   True if all items of x are true
-
-==   equal
-!=   not equal
-&lt;&gt;   not equal
-&gt;    more
-&lt;    less
-&gt;=   more or equal
-&lt;=   less or equal
-
-
-
-
+any(x)    True if any item of x is true
+all(x)    True if all items of x are true
+==        equal
+!=        not equal
+&lt;&gt;        not equal
+&gt;         more
+&lt;         less
+&gt;=        more or equal
+&lt;=        less or equal
 
 Arithmetic
-
 int(x)
 bin(x)
 complex(x,y)   give x + y * 1j
-
-+    plus
--    minus
-*    times
-/    quotient
-%    remainder (divisor's sign: 3 % -6 == -3)
-**   power
-//   floor-quotient
-
-+=    plus gets (x += y is x = x + y)
--=    minus gets
-*=    times gets
-/=    quotient gets
-%=    residue gets
-**=   power gets
-//=   floor-quotient gets
-
++              plus
+-              minus
+*              times
+/              quotient
+%              remainder (divisor's sign: 3 % -6 == -3)
+**             power
+//             floor-quotient
++=             plus gets (x += y is x = x + y)
+-=             minus gets
+*=             times gets
+/=             quotient gets
+%=             residue gets
+**=            power gets
+//=            floor-quotient gets
 abs(x)
-
-==   equal
-!=   not equal
-&lt;&gt;   not equal
-&gt;    more
-&lt;    less
-&gt;=   more or equal
-&lt;=   less or equal
-
-
-
-
+==             equal
+!=             not equal
+&lt;&gt;             not equal
+&gt;              more
+&lt;              less
+&gt;=             more or equal
+&lt;=             less or equal
 
 Characters
-
 \'   escape sequence for single quote
 \"   escape sequined for double quote
 
-
-
-
-
 Strings
+'abc'    give string 'abc'
+"abc"    give string 'abc'
+'"'      give string '"'
+"'"      give string "'"
 
-'abc'   give string 'abc'
-"abc"   give string 'abc'
-
-'"'   give string '"'
-"'"   give string "'"
-
-'\''   give string "'"
-"\""   give string '"'
-
+'\''     give string "'"
+"\""     give string '"'
 '''
 a
 b
-c'''   give string '\na\nb\nc'
+c'''     give string '\na\nb\nc'
 """
 a
 b
-c"""   give string '\na\nb\nc'
-
+c"""     give string '\na\nb\nc'
 '''
 """
-'''   give string '\n"""\n'
+'''      give string '\n"""\n'
 """
 '''
-"""   give string "\n'''\n"
-
+"""      give string "\n'''\n"
 '''\
 a\
 b\
 c\
-'''    give string 'abc'
+'''      give string 'abc'
 """\
 a\
 b\
 c\
-"""    give string 'abc'
-
-'a' 'b' 'c'   give string 'abc'
-"a" "b" "c"   give string 'abc'
-'a' "b" 'c'   give string 'abc'
-
+"""      give string 'abc'
+'a' 'b'  give string 'ab'
+"a" "b"  give string 'ab'
+'a' "b"  give string 'ab'
 r'...'  raw string i.e. escape characters are not interpreted
 3*'c'   gives 'ccc'
 
-
-
-
 Control
-
-x or y   x if x else y
-x and y  y if x else x
-
-
-
-
+x or y    x if x else y
+x and y   y if x else x
 
 Idioms
 x[1:]==x[:-1]   True if all items of x are the same
 
+Built-In Functions
+abs(x)        give the classical norm of xall(x)        give True if each item of x is trueany(x)        give True if any item of x is trueascii()bin(x)        give binary (string) form of int xbool(x)       give True if x is true else give Falsebytearray() bytes()callable()chr(x)        give string for Unicode character at xclassmethod()compile()complex(x,y)  give x + y * 1jdelattr()dict()dir()divmod()enumerate()eval()exec()filter()float()format()frozenset()getattr()globals()hasattr()hash()help()hex()id()input()int()isinstance()issubclass()iter()len()list()locals()map()max()memoryview()min()next()object()oct()open()ord()pow()print()property()range()repr()reversed()round()set()setattr()slice()sorted()staticmethod()str()sum()super()tuple()type()vars()zip()__import__()
 
-
-
-
-k
-
+Implementations of k Functions
 import itertools
 def where(x):
  return itertools.chain.from_iterable([[i]*j for i,j in enumerate(x)])
-
 def where(x):
  return [i for i in range(len(x)) for _ in range(x[i])]
-
 def drop(x,y):
  return y[x:]
-
 def take(x,y):
  return [y[i] for i in x]
 
-
-
-
-
-Built-In Functions
-
-abs(x)        give the classical norm of xall(x)        give True if each item of x is trueany(x)        give True if any item of x is trueascii()
-bin(x)        give binary (string) form of int xbool(x)       give True if x is true else give Falsebytearray() bytes()
-callable()chr(x)        give string for Unicode character at xclassmethod()compile()complex(x,y)  give x + y * 1j
-delattr()dict()dir()divmod()
-enumerate()eval()exec()
-filter()float()format()frozenset()
-getattr()globals()
-hasattr()hash()help()hex()
-id()input()int()isinstance()issubclass()iter()
-len()list()locals()
-map()max()memoryview()min()
-next()
-object()oct()open()ord()
-pow()print()property()
-range()repr()reversed()round()
-set()setattr()slice()sorted()staticmethod()str()sum()super()
-tuple()type()
-vars()
-zip()
-__import__()
-
-
-
-
-
 Sources
-
 https://www.python.org/doc/
 </pre></body></html>
