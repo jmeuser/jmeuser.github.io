@@ -9,6 +9,45 @@ These are clumps of raw unprocessed thought dredged into words and maybe even
 sentences.
 They are organized as a stack i.e. the most recent note is at the top.
 
+20151019T1705 Work on Building and Interpreter for N
+
+For now, N is an dynamically typed interpreted language, and though it is 
+likely to have a compiled component, I will not consider that now for I can not 
+spread myself so thin at such an early stage of its development.
+Rather than waste time over details of the compilation of a language like N, I 
+will base my current N interpreter on Hui's implementation of a J interpreter.
+
+Hut's implementation of J is written in C.
+The modern J compiler (interpreter) is written in C as well and shares much of 
+the same structure as its original version written by Hui.
+As with any semi-popular language, there have been a number of updates and 
+changes since it's original implementation.
+I am not able to review all of the changes that have been made since Hui's 
+original implementation, and wish only to extract from J's current and past 
+interpreter the basic data structures and algorithms needed to implement a 
+functioning interpreter for N.
+
+The principle data structure used in Hui's implementation of J is the, so 
+called, "APL array".
+It is a simple yet powerful way of representing all of J's words in a way that 
+can be easily manipulated by the basic tools available in C (in particular 
+macros).
+The data type of the APL Array in Hui's C implementation of J is named A.
+I will adhere to that convention in what I write here.
+
+The C data type A is defined as follows:
+
+typedef long I;
+typedef struct {I t,c,n,r,s[1];} *A;
+
+There is much to say about the way in which Hui and other APL-ers use (or in 
+some people's perspective "abuse") the C programming language.
+I will continue to write about this in a future note.
+
+
+
+
+
 20151019T1538 Keeping sets without needing them
 
 The importance of sets in modern mathematical and computational arguments is 
@@ -20,16 +59,32 @@ modern morphic analog to set-class theory.
 
 In practice, there is a certain synthesis of set theoretic and category 
 theoretic ideas which combine to give a smooth passage between one perspective 
-and the other.
-A passageway is through equivalence relations and quotient sets.
+to the other.
+This passageway is often paved with equivalence relations and quotient sets.
 In particular, to each function between a pair of sets there is an associated 
-equivalence relation, that is equivalence by value, and to this equivalence 
-relation is an ass
+equivalence relation, defined as equivalence by value, and to this equivalence 
+relation is an associated collection of equivalence classes.
+When the function in question carries a relevant structure from one set to the 
+other (a structure which is encoded in functional relations on that set, for 
+example in a unary and binary operation for a group), then the equivalence 
+classes are often endowed with a similar or relevant structure.
+The symmetries of these structures are usually identified through appropriate 
+functions (morphisms), but their "concrete" instances are classically 
+identified with sets of equivalent items.
 
-
-Equivalence relations and quotient sets: using same to keep sets without 
-needing them.
-
+Rather than deal with the totality of a class-set of equivalence classes, the 
+existence of which is unlikely to ever be fully established with ultimate 
+satisfaction, it seems easier to manage the test used to establish the 
+equivalence of two items.
+The decision as to whether two items are equivalent under a given function 
+(morphism, or in particular primitive recursive morphism) is a bridge between 
+the category theoretic perspective and the class theoretic descriptions of 
+mathematics.
+It not only appeals to our innate desire to seek out similarities which 
+simplify, but provides an accessible and rich access point to the category 
+theoretic and set theoretic perspectives on mathematics (the one beginning from 
+composition the other on belongingness i.e. the one based on act and the other 
+on object).
 
 
 
@@ -165,7 +220,7 @@ we might these words upon the page, there will continue to be entire sectors of
 humanity which might otherwise avoid suffering if not for their fear or 
 ignorance of mathematics and mathematical methods.
 
-N is meant to straighten out the knotted mass that mathematics has become to 
+N is meant to straighten out the knotted mess that mathematics has become to 
 the general public.
 The importance of mathematics in our everyday life has become more apparent 
 than it has ever been in the past.

@@ -8,6 +8,71 @@ Hacker Rank Problems and Solutions
 https://www.hackerrank.com/jmeuser
 All problem statements are from www.hackerrank.com.
 
+Arrays - DS
+
+Problem Statement
+An array is a series of elements of the same type placed in contiguous memory 
+locations that can be individually referenced by adding an index to a unique 
+identifier.
+You'll be an given array of N integers and you have to print the integers in 
+the reverse order.
+
+Input Format
+The first line of the input contains N,where N is the number of integers.The 
+next line contains N integers separated by a space.
+
+Constraints
+1&lt;=N&lt;=1000
+1&lt;=Ai&lt;=10000, where Ai is the ith integer in the array.
+
+Output Format
+Print the N integers of the array in the reverse order in a single line 
+separated by a space.
+
+Solution 1 (5m)
+
+#include&lt;stdio.h&gt;
+typedef int I;
+#define R return
+#define F(e...) for(e)
+#define J(n,e...) {I j=0, Mj=(n); F(; j&lt;Mj; ++j){e;}}
+#define I(e...) scanf(e)
+#define O(e...) printf(e)
+
+int main() {
+    I n; I("%i", &amp;n);
+    I a[1000]; J(n, I("%i ", &amp;a[j]));
+    J(n, O("%i ", a[n-j-1]))
+    R 0;
+}
+
+Solution 2 (15m using a function)
+
+#include &lt;stdio.h&gt;
+typedef int I; typedef void V;
+#define R return
+#define F(e...) for(e)
+#define J(n,e...) {I j=0, Mj=(n);F(;j&lt;Mj;++j){e;}}
+#define I(e...) scanf(e)
+#define O(e...) printf(e)
+
+V reverse(I*,I);
+V reverse(I *a, I n){I t; J(n/2, t=a[j]; a[j]=a[n-j-1]; a[n-j-1]=t;)}
+
+I main() {
+    I a[1000], n;
+    I("%i",&amp;n);
+    J(n,I("%i ",&amp;a[j]));
+    reverse(a,n);
+    J(n, O("%i ",a[j]))
+    R 0;
+}
+
+
+
+
+
+
 XML2 - Find the maximum depth
 
 Problem Statement
@@ -2126,6 +2191,9 @@ typedef int I;
 main(){I 
 n,x,a[3]={0};I("%i",&amp;n);J(n,I("%i",&amp;x),++a[(x&lt;=0)+(x==0)];);J(3,O("%.
 3f\n",1.0*a[j]/n));}
+
+
+
 
 
 Diagonal Difference
