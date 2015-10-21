@@ -9,6 +9,275 @@ These are clumps of raw unprocessed thought dredged into words and maybe even
 sentences.
 They are organized as a stack i.e. the most recent note is at the top.
 
+20151020T1721 My Developing Style of Programming in C
+
+As I wrote in an earlier post (20151019T1705) on building an interpreter for N 
+based on Hui's implementation of J, there is much to be said about the way that 
+APLers use (or abuse) C.
+As I've programmed in C I've found myself bouncing between two extremes in my 
+opinion of it: love and hate.
+At certain times I have loved some concepts (such as pointers) and have then 
+gone on to hate them.
+These mixed emotions are the mark of difficult design decisions that were made 
+at different times and under different circumstances.
+One could look towards history in order to understand the development and 
+subsequent spread of C across the world of computing, and use the 
+socio-political context to explain why one design decision may have been made 
+over another.
+It would be an interesting study, and one which I am not currently capable of 
+undertaking (even if I was capable it does not seem like the right time for me 
+to dedicate my time to such a study, there are other things I think I should be 
+work on).
+
+Ultimately, whatever design decisions the creators of C made, the only design 
+decisions that matter are those that are enforced by your local compiler.
+No matter how well written a specification one gives, there is no guarantee 
+that such specifications will be enforced.
+It is the same problem with laws which one might wish to write and enforce 
+throughout the world.
+The ability to enforce a law is the limit of that law's power in practice (even 
+the most well crafted law, one which appeals to universally understood 
+principles of everyday human life, must be enforced either compulsively or 
+impulsively in order to have any relevant impact).
+
+In the development of a programming language like C, there are certain laws 
+which are written so as to make it impossible NOT to enforce them.
+Either they are tied to some characterizing feature of a language, or they are 
+seemingly indispensable as a result of an appeal to "common sense".
+It is often the laws which appeal to "common sense" that have the most 
+surprising results in practice.
+
+C macro definitions are, for me, an example of an application of "common sense" 
+that has had more than its fair share of unintended consequences.
+So far, some of the most interesting uses of macros is the result of thinking 
+like an APLer.
+
+For me, the most powerful macro definition that I've incorporated into my 
+everyday C code is something I saw in Hui's record of Arthur Whitney's one page 
+interpreter for J
+
+#define DO(n,x)  {I i=0,_n=(n);for(;i&lt;_n;++i){x;}}
+
+It is a wonderful macro and immediately simplifies (both conceptually and 
+notationally) a MASSIVE family of methods for solving problems with C.
+
+For now, I use the following similar macros:
+
+typedef int I;
+#define F(e...) for(e)
+#define I(m,e...) {I i=0,_i=(m);F(;i&lt;_i;++i){e;}}
+#define J(n,e...) {I j=0,_j=(n);F(;j&lt;_j;++j){e;}}
+
+First, there is no conflict between the use of I to refer to the type int and 
+the use of I(m,e...) as function-like macro.
+Specifically, the preprocessor performs the relevant expansion for all I(m,e) 
+expressions and then the compiler takes care of interpreting I as int from the 
+typedef expression.
+
+Second, there is no conceptual conflict between the use of I to refer to a 
+macro expansion and to refer to a type when declaring variables.
+
+Third, the use of I and J are used to reinforce the convention of referring the 
+the I,J-th cell of a two dimensional array.
+This is further reinforced by using m and n as the first argument to the 
+function-like macro definition.
+m is commonly used to name the number of rows of a matrix, and n is used to 
+name the number of columns.
+
+It is not necessary that I(m,e) and J(n,e) be used only for matrix (two 
+dimensional array) like operations, but that one can and should organize their 
+thinking around such pictures when they help (and they often do when 
+programming with C).
+
+The 'e...' is used to refer to an expression whose command will be followed for 
+each item along the I-th or J-th axis up to (but not including) the limit 
+specified by the first argument of I(m,e) or J(n,e).
+
+Suppose you wish to take a list of m*n space separated integers into an m by n 
+array.
+Assume m and n are less than 100.
+Using these macros you could this as:
+
+I a[100][100];
+I(m,J(n, scanf("%i",&amp;a[i][j])))
+
+Alternatively, you could simply read in the m*n integers into a single array 
+and deal with the shape of the data using m and n specifically:
+
+I a[10000];
+I(m*n,scanf("%i",&amp;a[i]))
+
+Suppose the integer list has been read into a single array and that you wish to 
+output the m by n array to stdout.
+
+I(m, J(n, printf("%i ", a[n*i+j])); printf("\n"))
+
+All together you might write this simple program as follows:
+
+#include&lt;stdio.h&gt;
+
+typedef int I;
+#define R return
+#define F(e...) for(e)
+#define I(m,e...) {I i=0,_i=(m);F(;i&lt;_i;++i){e;}}
+#define J(n,e...) {I j=0,_j=(n);F(;j&lt;_j;++j){e;}}
+
+I main(){
+ I m=3,n=3,a[9];
+ I(m*n,scanf("%i",&amp;a[i]))
+ I(m, J(n, printf("%i ", a[n*i+j])); printf("\n"))
+ R 0;
+}
+
+
+
+
+
+20151020T1615 Tables of Data, Pointers, Box &lt;, and Unbox &gt;
+
+For now the notions of box and unbox (open?) are included in N's basic 
+vocabulary.
+They are analogous to the C operations of &amp; and * which, respectively, give 
+a pointer to a noun or the noun to which that pointer points.
+In simpler language: you can put things in boxes and you can take them out of 
+boxes.
+These boxes are located somewhere, and sometimes these boxes are right next to 
+each other.
+Boxes that are right next to each other are usually called one dimensional 
+contiguous arrays of data.
+There are a lot of fancy concepts related to pointers and boxes and all the 
+wonderfully grotesque things you can do with such powerful and primitive 
+abstractions.
+
+Ultimately, my reason for considering the verbs box &lt; and unbox &gt; is not 
+because they reflect the pointer "objects" of the C programming language.
+Rather, they can be said to have a number theoretic origin, or even a 
+"philosophical" origin.
+
+The philosophic origin is a consequence of using distinct signs when 
+calculating.
+A method of defining distinctness of signs is to "separate" the one from the 
+other by enclosing them in "disjoint" boxes.
+I do not have time here to explain the details of this argument, but its 
+essential feature is that whatever it means for two things to be "distinct" as 
+signs that we use to calculate we must have a concept of "box" in order to 
+decide whether two signs are distinct.
+One way of thinking about this is to imagine that you've written the letter 'a' 
+onto of the letter 'b'.
+Both occurrences are kind of muddled together and you might be able to 
+distinguish that there is a letter a and a letter b but as they are written on 
+top of each other you can not simply say that they are distinct signs for they 
+might be a single sign that happens to "look like" the letter a written over 
+the letter b.
+One of the reasons I've had to create N and that I became interested in J in 
+the first place is because of this very problem of defining distinctness of 
+signs.
+My ultimate goal is not to appeal to any purely physical interpretation of an 
+occurrence or instance of a sign, but rather identify what design constraints 
+are unavoidably necessary for anything derived from the use of signs as not 
+necessarily physical "things".
+
+To avoid all of these vague and ultimately irrelevant philosophical 
+digressions, I'm inclined to pursue the notions of box and unbox without having 
+reached any certain conclusions regarding their role in the definition of 
+distinct.
+
+Box and unbox are unary verbs denoted by &gt; and &lt; .
+They are conceptually similar to J's verbs box and open.
+Which are themselves conceptually similar to the use of pointers and arrays in 
+C.
+Any introduction to J's use of box and open explains their primary use is in 
+the construction of heterogeneous arrays.
+In J there is a family of nouns that are called arrays and each of the atoms in 
+an array must be of the same type.
+This means that if you have a J array and you know that one of the atoms is a 
+character then you know that all of the atoms are characters.
+Frequently, you want to indicate relationships between atoms of different 
+types: perhaps you wish to associated the name of a person with the age of that 
+person.
+In C the concept used to encode this idea is a structure and the special word 
+'struct' is reserved for such situations.
+J, and ultimately N, take a much richer approach to the methods of relating 
+data of differing types to each other.
+
+First, in J, boxes are atomic nouns.
+This means that one can build an array of boxes without violating the condition 
+that the array of nouns be homogenous (i.e. that every atom of the array be of 
+the same type).
+From this perspective box is a type of atomic noun.
+Given a noun A one can box A (written &lt;A) in order to "put A in a box".
+So if we write (in J)
+
+   A =: 123
+   B =: &lt;A
+
+then,
+
+   B
++---+
+|123|
++---+
+
+The output of sending B to the interpreter is a visual representation of the 
+fact that B is a box whose contents are the noun referred to by the name A.
+When one works with B, one need not know anything of B's contents, except that 
+it is a box, but can use the fact that B contains a noun of a certain type in 
+order to build up relations using spatial relations between boxes in an array.
+
+Thus, with boxes, one can truly realize the supreme principle of computing: 
+compute with data tables.
+
+The arithmetic of C pointers is ultimately less expressive than the concept of 
+boxes from J, and yet they can be used to serve the same purpose.
+
+So, knowing that B is a box containing A, we can get at the contents of B by 
+"opening" or "unboxing" it.
+
+   &gt;B
+123
+
+Using arrays of boxes one can provide a complete implementation of C structs.
+Whether that is a good thing or not is something I currently have nothing to 
+say about.
+
+My primary purpose in using box is that it is analogous to the use of powers of 
+primes to encode an array of data into a single numeral.
+Using powers of primes is not an efficient way to box and unbox, but it is a 
+primitive and essential concept which leads to a number of fundamental and 
+impactful results in basic number theory and discrete math.
+
+From a practical perspective, we know that most computer hardware stores data 
+in "boxes" which are composed of memory cells (e.g. in DRAM a bit is modeled as 
+a capacitor, and a line of capacitors are used to store a word).
+These memory cells are located in specific places, and through a combination of 
+changes in relative voltages across specific lines, a computation occurs on the 
+data stored in a specific location.
+To perform a computation on data stored in a given location, we must know the 
+location at which the data its stored (this being a characterizing part of most 
+modern computations).
+Though it may be possible in the future to produce methods of storage, reading, 
+and writing which make it difficult to give a physical "location" to the stored 
+data, there will still be a point along the "scale of computation" that a human 
+must decide whether data belongs to, or came from, one box or another.
+This alone is perhaps one of my stronger arguments for accepting the notion of 
+box at some level.
+Whatever concept it is that is encapsulated in the notion of box and its 
+relation to "data location" I believe it to be an important one, one worth 
+working with in any actively developed programming language.
+
+An alternate argument is that as long as we believe computing is something 
+which takes place with respect to tables of data we will need to know to what 
+part of a table a specific piece of data belongs in order to not make a 
+complete mess of things.
+
+It was not my purpose to write so much about the arguments for or against the 
+use of the "box" concept in computing.
+I'm done for now.
+
+
+
+
+
 20151019T1705 Work on Building and Interpreter for N
 
 For now, N is an dynamically typed interpreted language, and though it is 
@@ -17,7 +286,7 @@ spread myself so thin at such an early stage of its development.
 Rather than waste time over details of the compilation of a language like N, I 
 will base my current N interpreter on Hui's implementation of a J interpreter.
 
-Hut's implementation of J is written in C.
+Hui's implementation of J is written in C.
 The modern J compiler (interpreter) is written in C as well and shares much of 
 the same structure as its original version written by Hui.
 As with any semi-popular language, there have been a number of updates and 
