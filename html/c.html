@@ -6,8 +6,6 @@ href="http://fonts.googleapis.com/css?family=Inconsolata">
 <body><pre>
 C
 
-Why C? It's everywhere: deal with it.
-
 Type   Format b&gt; Range&gt;
 char   %c      8 schar|uchar
 schar  %c|%hhi 8 +-127
@@ -38,40 +36,31 @@ double %f|%lf 64 +-1.7e308
 \ooo oct
 \xhh hex
 
-
-#define R return
-
-// Control Operators
-// F: for
-// W: while
-// C: cond chain
+// Return, For, While, Conditional
+#define R         return
 #define F(e...)   for(e)
 #define W(c...)   while(c)
 #define C(c,t...) if(c){t;}else
 
-// Index|Array Operators
-// i,j,k: indices
-// Mi,Mj,Mk : !Mi in k or i.Mk in J
-// e: expression
-#define I(n,e...) {I i=0,Mi=(n);F(;i&lt;Mi;++i){e;}}
-#define J(n,e...) {I j=0,Mj=(n);F(;j&lt;Mj;++j){e;}}
-#define K(n,e...) {I k=0,Mk=(n);F(;k&lt;Mk;++k){e;}}
+// sequence
+#define I(m,e...) {I i=0,_i=(m);F(;i&lt;_i;++i){e;}}
+#define J(n,e...) {I j=0,_j=(n);F(;j&lt;_j;++j){e;}}
 
-J(n,x[j]=a+b*j);    // Arithmetic Series
-I x[n];I(n,x[i]=i); // x=:i.n from J
-
-// Notation for Type Declarations
-// I: int
-// F: double float
-// C: unsigned char
-// S: unsigned char string
-// L: long
-// V: voide
+// types
 typedef int I;
 typedef double F;
 typedef unsigned char C,*S;
 typedef long L;
 typedef void V;
+
+// Assert, Predicate, Error
+#define A(e...)     {if(!(e))R 0;} 
+#define P(c,e...)   {if(c)R(e);}
+#define E(c,e...)   {if(c)R O("ERROR: %s\n",(e)),(S)0;}
+// Note (S)0 is a null pointer, and ',' is being used as the comma operator 
+because it discards the side effect of O and returns (S)0 which is a null 
+pointer (of the char type, if you're a compiler and happen to be interested in 
+that sort of thing).
 
 // Function Prototype
 // Tr: type returned
@@ -89,15 +78,6 @@ b=f(a, 5);
 if(a==3){printf("a=3 gives 1\n");}
 if(a==7){printf("a=7 gives 1\n");}
 } //puts "a=3 gives 1\n" to stdout
-
-//Assert, Return Early, Report Errors
-#define A(e...)     {if(!(e))R 0;} 
-#define P(c,e...)   {if(c)R(e);}
-#define E(c,e...)   {if(c)R O("ERROR: %s\n",(e)),(S)0;}
-// Note (S)0 is a null pointer, and ',' is being used as the comma operator 
-because it discards the side effect of O and returns (S)0 which is a null 
-pointer (of the char type, if you're a compiler and happen to be interested in 
-that sort of thing).
 
 Sources
 http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1570.pdf

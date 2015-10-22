@@ -9,6 +9,48 @@ These are clumps of raw unprocessed thought dredged into words and maybe even
 sentences.
 They are organized as a stack i.e. the most recent note is at the top.
 
+20151021T1421 Table from Hui's Implementation of J's Types
+
+I've copied the following table from Hui's "An Implementation of J" because it 
+is likely that I will reference it in the future and it gives a clear 
+correspondence between the types used in J and how they are mapped onto types 
+in C:
+
+AT(x) C  Description
+BOOL  B  Boolean
+CHAR  C  literal
+INT   I  integer
+FL    D  floating point
+CMPX  Z  complex
+BOX   A  boxed
+
+VERB  V  verb
+ADV   V  adverb
+CONJ  V  conjunction
+
+NAME  C  name
+LPAR  I  left parenthesis
+RPAR  I  right parenthesis
+ASGN  I  assignment
+MARK  I  parser marker
+SYMB  SY symbol table
+
+Following this table there is an explanation that internally types are fullword 
+integers that are also powers of two so that one can produce and use the 
+following definitions:
+
+#define NUMERIC (BOOL+INT+FL+CMPX)
+#define NOUN    (NUMERIC+CHAR+BOX)
+
+and use them in the following phrases:
+
+NUMERIC&amp;AT(x)
+NOUN&amp;AT(x)
+
+
+
+ 
+
 20151020T1721 My Developing Style of Programming in C
 
 As I wrote in an earlier post (20151019T1705) on building an interpreter for N 
