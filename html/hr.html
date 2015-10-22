@@ -8,6 +8,196 @@ Hacker Rank Problems and Solutions
 https://www.hackerrank.com/jmeuser
 All problem statements are from www.hackerrank.com.
 
+For Loop
+
+Input Format
+You will be given two positive integers, a and b (a&lt;=b), separated by a 
+newline.
+
+Output Format
+For each integer n in [a,b] (so all numbers in that range):
+If 1&lt;=n&lt;=9, then print the English representation of it. That is "one" 
+for 1, "two" for 2, and so on.
+Else if n&gt;9 and it is even, then print "even".
+Else if n&gt;9 and it is odd, then print "odd".
+
+Solution (C++, 15m)
+
+#include&lt;cstdio&gt;
+#define R return
+#define IN(e...) scanf(e)
+#define OUT(e...) printf(e)
+#define C(c,t...) if(c){t;}else
+typedef int I;
+typedef void V;
+#define F(e...) for(e)
+#define I(n,e...) {I i=0,_i=(n);F(;i&lt;_i;++i){e;}}
+inline V f(I n){
+ C(n==1,OUT("one"))
+  C(n==2,OUT("two"))
+  C(n==3,OUT("three"))
+  C(n==4,OUT("four"))
+  C(n==5,OUT("five"))
+  C(n==6,OUT("six"))
+  C(n==7,OUT("seven"))
+  C(n==8,OUT("eight"))
+  C(n==9,OUT("nine"))
+  C(n%2==0,OUT("even"))
+  OUT("odd");
+ OUT("\n");
+}
+I main(){
+ I m,n;IN("%i\n%i",&amp;m,&amp;n);
+ I(1+n-m,f(m+i));
+ R 0;
+}
+
+
+
+
+
+Conditional Statements
+You are given a positive integer, n,:
+If 1&lt;=n&lt;=9, then print the English representation of it. That is "one" 
+for 1, "two" for 2, and so on.
+Otherwise print "Greater than 9" (without quotes).
+
+Input Format
+Input will contain only one integer, n.
+
+Output Format
+Print the output as described above.
+
+Solution (C++, 10m)
+
+#include&lt;cstdio&gt;
+#define IN(e...) scanf(e)
+#define OUT(e...) printf(e)
+#define R return
+#define C(c,t...) if(c){t;}else
+typedef int I;
+I main(){
+ I n;
+ IN("%i",&amp;n);
+ C(n==1,OUT("one"))
+  C(n==2,OUT("two"))
+  C(n==3,OUT("three"))
+  C(n==4,OUT("four"))
+  C(n==5,OUT("five"))
+  C(n==6,OUT("six"))
+  C(n==7,OUT("seven"))
+  C(n==8,OUT("eight"))
+  C(n==9,OUT("nine"))
+  OUT("Greater than 9"); 
+ R 0;
+}
+
+
+
+
+
+Basic Data Types
+
+Input Format
+Input will consists of an int, long, long long, char, float and double, each 
+separated by a space.
+
+Output Format
+Print the elements in the same order, but each in a new line.
+
+Solution (C++, 10m)
+
+#include&lt;cstdio&gt;
+#define IN(e...) scanf(e)
+#define OUT(e...) printf(e)
+#define R return
+typedef int I;
+typedef long L;
+typedef long long LL;
+typedef char C;
+typedef float F;
+typedef double D;
+I main() {
+ I i;L li;LL lli;C c;F f;D lf;
+ IN("%i %li %lli %c %f %lf",&amp;i,&amp;li,&amp;lli,&amp;c,&amp;f,&amp;lf);
+ OUT("%i\n%li\n%lli\n%c\n%f\n%lf",i,li,lli,c,f,lf);
+ R 0;
+}
+
+
+
+
+
+2D Array - DS
+
+Problem Statement
+You are given a 6*6 2D array. An hourglass in an array is a portion shaped like 
+this:
+
+a b c
+  d
+e f g
+
+For example, if we create an hourglass using the number 1 within an array full 
+of zeros, it may look like this:
+
+1 1 1 0 0 0
+0 1 0 0 0 0
+1 1 1 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+
+Actually there are many hourglasses in the array above. The three leftmost 
+hourglasses are the following:
+
+1 1 1     1 1 0     1 0 0
+  1         0         0
+1 1 1     1 1 0     1 0 0
+
+The sum of an hourglass is the sum of all the numbers within it. The sum for 
+the hourglasses above are 7, 4, and 2, respectively.
+
+In this problem you have to print the largest sum among all the hourglasses in 
+the array.
+
+Input Format
+There will be exactly 6 lines, each containing 6 integers seperated by spaces. 
+Each integer will be between -9 and 9 inclusive.
+
+Output Format
+Print the answer to this problem on a single line.
+
+Solution (15m)
+
+#include &lt;stdio.h&gt;
+#define IN(e...) scanf(e)
+#define OUT(e...) printf(e)
+#define MAX(m,n) ((m)&gt;(n)?(m):(n))
+#define R return
+#define F(e...) for(e)
+typedef int I;
+#define I(m,e...) {I i=0,_i=(m);F(;i&lt;_i;++i){e;}}
+#define J(n,e...) {I j=0,_j=(n);F(;j&lt;_j;++j){e;}}
+#define K(n,e...) {I k=0,_k=(n);F(;k&lt;_k;++k){e;}}
+
+I main() {
+ I s,a[6][6],M=-63;
+ I(6,J(6,IN("%i ",&amp;a[i][j])));
+ I(4,J(4,
+  s=0;
+  K(3,s+=a[i][j+k]);
+  s+=a[i+1][j+1];
+  K(3,s+=a[i+2][j+k]);
+  M=MAX(M,s);));
+ OUT("%i\n",M);
+ R 0;
+}
+
+
+
+
+
 Arrays - DS
 
 Problem Statement
