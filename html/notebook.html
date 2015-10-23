@@ -85,8 +85,8 @@ Then
 w ~ (2 2 2 2 2 2 2 2 | w) _ 2
 
 There are an unlimited number of ways of representing a node and its fields 
-using math and arithmetic, but only a very small finite number of them are 
-helpful to humans and computers alike.
+using math and physics, but only a very small finite number of them are helpful 
+to humans and computers alike.
 
 Leaving behind this digression we go onto a concrete example of encoding data 
 into nodes and fields.
@@ -138,7 +138,7 @@ the expressions shown above under N's simple right to left evaluation rule).
 
 The one thing which you will not see me do is to write these relations using = 
 because = is the arithmetic operation called "positive difference" where as ~ 
-is the relation of similarity (the only relation used by N).
+is a similarity judgement (the only judgement used by N).
 A programmer might think of a statement like (x ~ y) as an assertion, something 
 you might use for a pre-condition or post-condition.
 
@@ -164,7 +164,9 @@ IsFaceUp  : TRUE 0 = TAG
 
 In this case 1=TAG is the composition of TAG followed by 1= which is the 
 projection of positive difference having left argument 1.
-Though, I for one, prefer to avoid referring to true and false at all costs.
+Though, I for one, prefer to avoid referring to true and false at all costs not 
+only because they are still vague concepts, but because they ultimately seem to 
+have no purpose in the study of mathematics.
 
 
 
@@ -204,10 +206,10 @@ When we calculate we act on a certain collection of events (antecedents) that
 have "just" occurred, and transform them (via intermediate events) into 
 occurrences of events.
 
-There is a lot to be said about this philosophical goop, and clearing it up 
-will take time, I'm going to stop here and start a new note that is dedicated 
-to summarizing the results from Knuth's Chapter 2 on Information Structures 
-using N.
+There is a lot to be said about this philosophical goop, and clearing it will 
+take time, I'm going to stop here and start a new note that is dedicated to 
+summarizing the results from Knuth's Chapter 2 on Information Structures using 
+N.
 
 
 
@@ -237,9 +239,9 @@ ASGN  I  assignment
 MARK  I  parser marker
 SYMB  SY symbol table
 
-Following this table there is an explanation that internally types are fullword 
-integers that are also powers of two so that one can produce and use the 
-following definitions:
+Following this table there is an explanation that, internally, types are 
+fullword integers that are also powers of two so that one can produce and use 
+the following definitions:
 
 #define NUMERIC (BOOL+INT+FL+CMPX)
 #define NOUN    (NUMERIC+CHAR+BOX)
