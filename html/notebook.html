@@ -9,6 +9,208 @@ These are clumps of raw unprocessed thought dredged into words and maybe even
 sentences.
 They are organized as a stack i.e. the most recent note is at the top.
 
+20151023T1204 Notes on Chapter Two Information Structures of Knuth's TAOCP
+
+It will be shown that N simplifies Knuth's presentation.
+
+"
+Computer programs usually operate on tables of information.
+" Knuth TAOCP V1 pg. 232
+
+Calculate with tables of data.
+
+"
+Our concern will be almost entirely with structure as represented inside a 
+computer
+" Knuth TAOCP V1 pg. 232
+
+"
+The information in a table consists of a set of nodes (called "records," 
+"entities," or "beads" by some authors); we will occasionally say "item" or 
+"element" instead of "node." Each node consists of one or more consecutive 
+words of the computer memory, divided into named parts called fields.
+" Knuth TAOCP V1 pg. 233
+
+Using N, a node can be represented as a list of boxes: the contents of each box 
+represents one of its field.
+For now, the "size" of each box is unspecified and is assumed to be big enough 
+to contain its field without causing overflow (or underflow).
+
+For example, the N expression (123; "abc"; 0) is a node whose first field has 
+the value 123, whose second field has the value "abc", and whose third field 
+has the value 0.
+If you were to put (123; "abc"; 0) into an N interpreter you would observe the 
+following behavior:
+
+ 123; "abc"; 0
++---+---+-+
+|123|abc|0|
++---+---+-+
+
+That is, you would be shown a visual representation of the node and its fields.
+In english the expression (123; "abc"; 0) would be read "one hundred twenty 
+three linked to the string lowercase-a lowercase-b lowercase c linked to zero".
+In N, the verb link ; is a simplified way of putting things into boxes and 
+forming an array of boxes.
+Another way of saying (123; "abc"; 0) is ((&lt;123), (&lt;"abc"), &lt;0).
+So, link lets you avoid having to put each noun in a box before joining them 
+together.
+
+Alternatively, a node can be, more faithfully but less expressively, 
+represented as a two dimensional array of binary digits.
+The number of columns represents the length of a word in the computer you're 
+working with, and the number of rows represents the number of words needed to 
+contain the fields of your node.
+Each row may contain more than one field, and the contents of that field must 
+be accessed by knowing its location in the word (row) and its "size" (the 
+number of digits needed to encode the data of that field).
+
+Although, in modern computers, a node is most likely represented as a list of 
+machine words (i.e. a one dimensional array of binary numerals having the word 
+length of the computer) and the fields are extracted from each word by 
+transforming them into their morphic word form using boolean arithmetic or via 
+some alternate method.
+
+For example a word 11001010 may have a field represented from the second from 
+the left digit to the fifth from the left digit.
+This can be extracted by first selecting only those digits using the word 
+01111000 and then shifting the result to the right two places: 00001001 .
+
+Alternatively, the transformation from word to list of words representing the 
+digits of that word are achieved through the use of the N verbs _ and | (base 
+and digits).
+Let w be a word with 8 binary digits.
+Then
+
+w ~ (2 2 2 2 2 2 2 2 | w) _ 2
+
+There are an unlimited number of ways of representing a node and its fields 
+using math and arithmetic, but only a very small finite number of them are 
+helpful to humans and computers alike.
+
+Leaving behind this digression we go onto a concrete example of encoding data 
+into nodes and fields.
+
+"
+suppose the elements of our table are intended to represent playing cards; we 
+might have two-word nodes broken into five fields, TAG, SUIT, RANK, NEXT, and 
+TITLE
+" Knuth TAOCP V1 pg. 233
+
+For now, we assume that our node is a list of boxes each of whose contents 
+represents a field of that node.
+A node will have five fields hence it will be a list of five boxes.
+Following Knuth's naming convention for each field we can define the fields as 
+follows:
+
+tag  : &gt;0#
+suit : &gt;1#
+rank : &gt;2#
+next : &gt;3#
+title: &gt;4#
+
+Thus, tag is the contents of the box at index 0 ("tag is open zero take") and 
+so on.
+
+If N is a node then
+
+1 ~ tag N
+
+means that the card represented by N is face down and,
+
+0 ~ tag N
+
+means that the card represented by N is face up.
+If one wanted, they could more faithfully reproduce the notation used by Knuth 
+using the following definitions:
+
+TAG  : &gt;0#
+SUIT : &gt;1#
+RANK : &gt;2#
+NEXT : &gt;3#
+TITLE: &gt;4#
+
+and when writing these functions include parenthesis (which are unnecessary in 
+the expressions shown above under N's simple right to left evaluation rule).
+
+1 ~ TAG(N)
+0 ~ TAG(N)
+
+The one thing which you will not see me do is to write these relations using = 
+because = is the arithmetic operation called "positive difference" where as ~ 
+is the relation of similarity (the only relation used by N).
+A programmer might think of a statement like (x ~ y) as an assertion, something 
+you might use for a pre-condition or post-condition.
+
+So the predicate "is face down" is represented as
+
+1 ~ TAG
+
+One might abbreviate this predicate (and its sister) as follows
+
+IsFaceDown: 1~TAG
+IsFaceUp  : 0~TAG
+
+Now, it is possible to get closer to Knuth's use of = by representing true and 
+false as the following forms of judgement:
+
+TRUE:0~
+FALSE:1~*
+
+So that,
+
+IsFaceDown: TRUE 1 = TAG
+IsFaceUp  : TRUE 0 = TAG
+
+In this case 1=TAG is the composition of TAG followed by 1= which is the 
+projection of positive difference having left argument 1.
+Though, I for one, prefer to avoid referring to true and false at all costs.
+
+
+
+20151023T1142 Philosophy, Data Structures and N
+
+It is one of the principle purposes of the design of my notational language N 
+to remove barriers to clear and exact thought.
+As such I must test its fitness to clarify my own thoughts and perhaps even the 
+thoughts of others (sadly I do not have N in a state where it exists outside of 
+my mind i.e. I haven't yet written an interpreter for its parts as its parts 
+are still being developed).
+I will be introducing a section on my website describing data structures with N.
+In this case N is meant to be used as a notational language, but it also serves 
+as a programming language for those familiar with the standard interpretation 
+of N (the standard method of evaluation).
+For now I am the only person who has any direct knowledge of how an N statement 
+is to be evaluated in general.
+This is in part because I have not settled on a final system, and also because 
+I have not experimented with different implementations of the language (I 
+haven't even put it into a single language).
+Thankfully, the descriptions of basic data structures in Knuth's The Art of 
+Computer Programming: Fundamental Algorithms are written in English and I need 
+only process that information into N in order to "put it to the test".
+
+Data Structures
+
+Calculate by operating on tables of data.
+Data are records of events.
+Properties of the occurrence of events are transformed into events that make it 
+easier for us to perform calculations upon them.
+Data structures are general principles for recording events.
+Relevant properties of an event are transformed into a state of a table of data.
+
+A calculation is a certain sequence of events e.g. performing long division on 
+a pair of numbers, or running a program to sort a list of numbers in a computer.
+When we calculate we act on a certain collection of events (antecedents) that 
+have "just" occurred, and transform them (via intermediate events) into 
+occurrences of events.
+
+There is a lot to be said about this philosophical goop, and clearing it up 
+will take time, I'm going to stop here and start a new note that is dedicated 
+to summarizing the results from Knuth's Chapter 2 on Information Structures 
+using N.
+
+
+
 20151021T1421 Table from Hui's Implementation of J's Types
 
 I've copied the following table from Hui's "An Implementation of J" because it 
