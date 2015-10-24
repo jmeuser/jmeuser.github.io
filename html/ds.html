@@ -6,7 +6,30 @@ href="http://fonts.googleapis.com/css?family=Inconsolata">
 <body><pre>
 Data Structures
 
+Datum, Data, Words
+A datum is an occurrence of a sign.
+A word is the operational unit of data.
+
 Nodes, Fields, Links
+A node is one or more consecutive words of memory.
+Node words are split into named parts called fields.
+The address of a node is the location in memory of its first word.
+
+Linear Lists, First, Last, Successor, Predecessor
+A linear list of n nodes is a collection of nodes labeled by 0, 1, ..., n-1.
+The first node of the list is 0 and the last is n-1.
+If k is not the last node then k+1 is its successor.
+If k is not the first then k-1 is its predecessor.
+
+A circular list is a linear list where the successor of the last node is the 
+first and the predecessor of the first is the last.
+
+
+
+
+
+Notes from Knuth's TAOCP
+
 "
 The information in a table consists of a set of nodes (called "records," 
 "entities," or "beads" by some authors); we will occasionally say "item" or 
@@ -15,7 +38,7 @@ words of the computer memory, divided into named parts called fields.
 " Knuth TAOCP V1 3rd ed pg. 233
 
 "
-The address of a nod, also called a link, pointer, or reference to that node, 
+The address of a node, also called a link, pointer, or reference to that node, 
 is the memory location of its first word. The address is often taken relative 
 to some base location, but in this chapter for simplicity we will take the 
 address to be an absolute memory location.
@@ -35,7 +58,7 @@ A linear list is a sequence of n &gt;=0 nodes X[1], X[2],...,X[n] whose
 essential structural properties involve only the relative positions between 
 items as they appear in a line. The only things we care about in such 
 structures are the facts that, if n &gt; 0, X[1] is the first node and X[n] is 
-the last; and if 1 &lt; k &lt; n, the nth node X[k] is preceded by X[k-1] and 
+the last; and if 1 &lt; k &lt; n, the kth node X[k] is preceded by X[k-1] and 
 followed by X[k+1].
 " Knuth TAOCP V1 3rd ed pg. 238
 
