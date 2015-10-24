@@ -31,10 +31,47 @@ Linear Lists
 Stacks, Queues, and Deque
 
 "
-A linear list is a sequence of n&gt;= nodes X[1], X[2],...,X[n] whose essential 
-structural properties involve only the relative positions between items as they 
-appear in a line. The only things we care about in such structures are the 
-facts that, if n &gt; 0, X[1] is the first node and X[n] is the last; and if 1 
-&lt; k &lt; n, the nth node X[k] is preceded by X[k-1] and followed by X[k+1].
+A linear list is a sequence of n &gt;=0 nodes X[1], X[2],...,X[n] whose 
+essential structural properties involve only the relative positions between 
+items as they appear in a line. The only things we care about in such 
+structures are the facts that, if n &gt; 0, X[1] is the first node and X[n] is 
+the last; and if 1 &lt; k &lt; n, the nth node X[k] is preceded by X[k-1] and 
+followed by X[k+1].
 " Knuth TAOCP V1 3rd ed pg. 238
+
+"
+The operations we might want to perform on linear lists include, for example, 
+the following.
+1 Gain access to the nth node of the list to examine and/or to change the 
+contents of its fields.
+2 Insert a new node just before or after the kth node.
+3 Delete the kth node.
+4 Combine two or more linear lists into a single list.
+5 Split a linear list into two or more lists.
+6 Make a copy of a linear list.
+7 Determine the number of nodes in a list.
+8 Sort the nodes of the list into ascending order based on certain fields of 
+the nodes.
+9 Search the list for the occurrence of a node with a particular value in some 
+field.
+" Knuth TAOCP V1 3rd ed pg. 238-239
+
+"
+Linear lists in which insertions, deletions, and access to values occur almost 
+always at the first or the last node are very frequently encountered, and we 
+give them special names:
+
+ A stack is a linear list for which all insertions and deletions (and usually 
+all accesses) are made at one end of the list.
+
+ A queue is a linear list for which all insertions are made at one end of the 
+list; all deletions (and usually all accesses) are made at the other end.
+
+ A deque ("double-ended queue") is a linear list for which all insertions and 
+deletions (and usually all accesses) are made at the ends of the list.
+...
+We also distinguish output-restricted or input-restricted deques, in which 
+deletions or insertions, respectively, are allowed to take place at only one 
+end.
+" Knuth TAOCP V1 3rd ed pg. 239
 </pre></body></html>
