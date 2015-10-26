@@ -6,17 +6,14 @@ href="http://fonts.googleapis.com/css?family=Inconsolata">
 <body><pre>
 Data Structures
 
-Datum, Data, Words
-Data are collections of signs.
-A word is the unit of data used by a specific central processing unit.
-
-Nodes, Fields, Links
+Words, Nodes, Fields, Links
+A word is the unit of data of a CPU.
 A node is one or more consecutive words of memory.
 Node words are split into named parts called fields.
 The address of a node is the location in memory of its first word.
 
 Linear Lists
-The n nodes of a linear list are labeled by 0, 1, ..., n-1.
+The n nodes of a linear list are labeled by 0,1,...,n-1.
 The first node of the list is 0, the last is n-1, and an end is 0 or n-1.
 If k is not the last node then k+1 is its successor.
 If k is not the first node then k-1 is its predecessor.
@@ -24,21 +21,24 @@ A circular list is a linear list where the successor of the last node is the
 first and the predecessor of the first is the last.
 
 Operations on Linear Lists
-Get the address of a node of a linear list.
-Get the address of the kth node of a linear list.
-Get a field of a node of a linear list.
-Alter a field of a node of a linear list.
-Add a node to a linear list.
-Take a node from a linear list.
-Join linear lists into a linear list.
-Cut a linear list into linear lists.
-Copy a linear list.
-Count the nodes in a linear list.
+Count the nodes.
+Get the address of a node.
+ Get the address of the kth node.
+ Get the address of a word of a node.
+  Get the value of a word of a node.
+  Get the value of a field of a node.
+  Change the value of a field of a node.
+Add a node.
+ Join a collection of linear lists.
+ Copy a linear list.
+Take a node.
+ Cut a linear list into linear lists.
 Sort nodes of a linear list relative to a field.
 Search the nodes of a linear list for a field having a specific value.
+ Select nodes with a field having a specific value.
 
 Types of Linear Lists
-Stack
+stack
 queue
 deque
  output-restricted
