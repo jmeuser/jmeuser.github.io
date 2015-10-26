@@ -9,6 +9,203 @@ These are clumps of raw unprocessed thought dredged into words and maybe even
 sentences.
 They are organized as a stack i.e. the most recent note is at the top.
 
+20151025T1635 Representation in J
+
+The representations in J are of principle importance to using the language in 
+the most vivid way possible.
+The representations used in J are as follows:
+
+atomic
+boxed
+tree
+linear
+paren
+explicit
+
+Below I've included the descriptions from the jsoftware dictionary as to how 
+each of these representations function in practice.
+My interest in them is their use in understanding the code that has been 
+written.
+In the past, John von Neumann spent some time developing methods of visually 
+representing the flow of control in an algorithm using boxes and arrows.
+Iverson employed an updated version of this original idea in his book A 
+Programming Language.
+It is no longer popular to write out an algorithm visually except in the case 
+where the visuals are exceptionally vivid and are perhaps necessary for a human 
+to understand the structure of the algorithm being presented.
+One reason for considering alternate representations of a section of code is 
+because certain structural properties can be used to identify logical errors 
+that would be impossible for even the cleverest compiler to spot.
+A pointless example is the common logical error of misplaced parenthesis (or 
+lack of parenthesis where they should otherwise be) in order to capture the 
+proper calculations in the proper order.
+
+Though using graphical visuals to program is not popular in most professional 
+programming environments, it finds free reign in tools meant to teach children 
+how to command little robots about an environment based on a limited 
+instruction set.
+For example, Lego has produced a number of products over the past ten or so 
+years that have sported a variety of visual interfaces to programming a child's 
+(or enthusiasts) self made robotic creation.
+
+The following descriptions are from 
+http://www.jsoftware.com/help/dictionary/dx005.htm
+
+"
+Atomic. The atomic representation of the entity named y and is used in gerunds. 
+The result is a single box containing a character list of the symbol (if 
+primitive) or a two-element boxed list of the symbol and atomic representation 
+of the arguments (if not primitive). Symbol-less entities are assigned the 
+following encodings:
+
+0  Noun
+2  Hook
+3  Fork
+4  Bonded conjunction or train of adverbs
+
+For example:
+   plus=: +
+   5!:1 &lt;'plus'
++-+
+|+|
++-+
+   noun=: 3 1 4 1 5 9
+   5!:1 &lt;'noun'
++---------------+
+|+-+-----------+|
+||0|3 1 4 1 5 9||
+|+-+-----------+|
++---------------+
+   increment=: 1&amp;+
+   5!:1 &lt;'increment'
++-------------+
+|+-+---------+|
+||&amp;|+-----+-+||
+|| ||+-+-+|+|||
+|| |||0|1|| |||
+|| ||+-+-+| |||
+|| |+-----+-+||
+|+-+---------+|
++-------------+
+"
+
+"
+Boxed. 
+   nub=: (i.@# = i.~) # ]
+   5!:2 &lt;'nub'
++-------------------+-+-+
+|+--------+-+------+|#|]|
+||+--+-+-+|=|+--+-+|| | |
+|||i.|@|#|| ||i.|~||| | |
+||+--+-+-+| |+--+-+|| | |
+|+--------+-+------+| | |
++-------------------+-+-+
+"
+
+"
+Tree. A literal matrix that represents the named entity in tree form. Thus:
+   5!:4 &lt;'nub'
+            +- i.
+      +- @ -+- # 
+  +---+- =       
+  |   +- ~ --- i.
+--+- #           
+  +- ]
+"
+
+"
+Linear. The linear representation is a string which, when interpreted, produces 
+the named object. For example:
+   5!:5 &lt;'nub'
+(i.@# = i.~) # ]
+
+   5!:5 &lt;'a' [ a=: o. i. 3 4
+3.14159265358979324*i.3 4
+
+   lr=: 3 : '5!:5 &lt;''y'''
+   lr 10000$'x'
+10000$'x'
+"
+
+"
+Paren. Like the linear representation, but is fully parenthesized.
+   5!:6 &lt;'nub'
+((i.@#) = (i.~)) # ]
+"
+
+"
+Explicit. The left argument is 1 (monadic) or 2 (dyadic); the right argument is 
+the boxed name of a verb, adverb, or conjunction. For example:
+
+   perm=: 3 : 0
+    z=. i.1 0
+    for. i.y do. z=.,/(0,.1+z){"2 1\:"1=i.&gt;:{:$z end.
+   )
+
+   1 (5!:7) &lt;'perm'
++-+----------+-------------------------------+
+|0|1 _1 0    |z=.i.1 0                       |
++-+----------+-------------------------------+
+|1|65536 2 1 |for.                           |
++-+----------+-------------------------------+
+|2|2 _1 1    |i.y                            |
++-+----------+-------------------------------+
+|3|131072 6 1|do.                            |
++-+----------+-------------------------------+
+|4|1 _1 1    |z=.,/(0,.1+z){"2 1\:"1=i.&gt;:{:$z|
++-+----------+-------------------------------+
+|5|32 3 1    |end.                           |
++-+----------+-------------------------------+
+The result of 5!:7 is a 3-column boxed matrix. Column 0 are the boxed integers 
+0 1 2 ... n-1. Column 1 are boxed 3-element integer vectors of control 
+information: control word code, goto line number, and source line number. 
+Column 2 are boxed control words and sentences.
+
+The result of 5!:7 is a 0 3 empty matrix if the named object is not an explicit 
+definition, or is undefined for the specified valence.
+"
+
+
+
+
+
+20151025T1554 Lists, Tables, Arrays, Cells, Frames, Boxes
+
+One of the biggest differences between J and k is the way in which they deal 
+with heterogeneous and homogeneous data structures.
+Here a homogeneous data structure is one whose atoms are all of the same type.
+A heterogeneous data structure is one whose atoms are of a different type.
+In J, an array of nouns must be homogenous.
+There are many reasons that one might wish to use this constraint.
+The first is simply a result of being built atop the C programming language 
+where arrays must be homogenous.
+
+For computing, homogeneity simplifies the allocation scheme (assuming that the 
+primitive types have a well defined "size" in storage and that the homogenous 
+structure is not "too big" relative to the type of memory in which it is being 
+stored).
+For mathematics, homogeneity simplifies the use and proof of properties of a 
+structure.
+
+k allows heterogeneous LISTS (in the LISP sense) where as in J the closest 
+thing is a list of boxes each of which are atomic but which can contain (upon 
+being "opened") a noun of any type (perhaps even another box).
+So that a tree in k is a list and a tree in J is a one dimensional array of 
+boxes.
+
+(Though in J a tree might also be represented as an array of dimensions having 
+rank greater than one. This same structure of boxes might also be used to 
+represent forests, although it is in no way "better" than k's use of LISTS. In 
+general, one representation is rarely "better" than another in all but the most 
+trivial way (i.e. in its efficiency) rather there are usually design trade offs 
+(though these trade offs could potentially be included in the term efficiency 
+if it is widened to include the entire process of which any algorithm is only a 
+part)).
+
+
+
+
+
 20151023T1204 Notes on Chapter Two Information Structures of Knuth's TAOCP
 
 It will be shown that N simplifies Knuth's presentation.
