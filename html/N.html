@@ -46,6 +46,7 @@ _ base     floor
 ~ similar  evaluate
 
 Design
+fast
 clear
 exact
 simple
@@ -55,52 +56,76 @@ idiomatic
 unavoidable
 N-dimensional
 
-Rules
-x and y stand for a numeral variable signs
-k,m,n stand for terms
-f,g,h stand for function signs
+Rules of the Similarity Calculus (using bracket notation i.e. variables)
+m,n are variable signs
+f,g,h stand for verbs
+M,N,Q,R stand for sentences
 
-     f(x) ~ g(x)
-     -----------
-     f(n) ~ g(n)
+     [f n] ~ [g n]
+     -------------
+     (f N) ~ (g N)
 
-        m ~ n
-     -----------
-     f(m) ~ f(n)
-
-        k ~ m
-        k ~ n
-        -----
-        m ~ n
-
-   f(1+x) ~ x g f(x)
+   [m f n] ~ [m f n]
    -----------------
-     f(x) ~ g^x f(0)
+   (M f N) ~ (M f N)
+
+         M ~ N
+     -------------
+     (f M) ~ (f N)
+
+         M ~ N
+         Q ~ R
+   -----------------
+   (M f N) ~ (Q f R)
+
+        N ~ Q
+        N ~ R
+        -----
+        Q ~ R
+
+  [f 1+n] ~ [n g (f n)]
+  ---------------------
+    [f n] ~ [g^n (f 0)]
 
 where
 
-     f(n) ~ (f n)
-  (m)f(n) ~ (m f n)
+  [g^0 N] ~ [N]
+[g^1+n N] ~ [n g g^n N]  
 
-  x(f g)y ~ f x g y
+    [m+0] ~ [m]
+  [m+1+n] ~ [1+m+n]
 
-x(f g h)y ~ (x f y) g x h y
+    [0-1] ~ [0]
+[(1+n)-1] ~ [n]
 
+    [m-0] ~ [m]
+  [m-1+n] ~ [(m-n)-1]
 
-  (g^0 n) ~ n
-(g^1+x n) ~ x g g^x n
+    [m*0] ~ [0]
+  [m*1+n] ~ [m+m*n]
 
-      x+0 ~ x
-    x+1+y ~ 1+x+y
+Full Parenthesis Notation
+As with classical algebra, full parenthesis notation is hardly used by humans.
+It is included here for the sake of completeness and exactness.
+It is also included to show how removing space practically eliminates human 
+readability.
 
-      0-1 ~ 0
-  (1+x)-1 ~ x
+         (f N) ~ (f(N))
+       (f g N) ~ (f(g(N)))
+     (f g h N) ~ (f(g(h(N))))
 
-      x-0 ~ x
-    x-1+y ~ (x-y)-1
+       ((f) N) ~ (f(N))
+     ((f g) N) ~ (f(g(N)))
+   ((f g h) N) ~ (f(g(h(N))))
 
-      x*0 ~ 0
-    x*1+y ~ x+(x*y)
+       (M f N) ~ ((M)f(N))
+     (M f g N) ~ (f((M)g(N)))
+   (M f g h N) ~ (((M)f(N))g((M)h(N)))
+
+     (M (f) N) ~ ((M)f(N))
+   (M (f g) N) ~ (f((M)g(N)))
+ (M (f g h) N) ~ ((((M)f(N))g((M)h(N)))
+
 
 
 
