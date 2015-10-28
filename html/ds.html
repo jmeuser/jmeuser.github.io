@@ -19,30 +19,62 @@ If k is not the last node then k+1 is its successor.
 If k is not the first node then k-1 is its predecessor.
 A circular list is a linear list where the successor of the last node is the 
 first and the predecessor of the first is the last.
+An empty linear list has no nodes, no ends, no successors, and no predecessors.
 
 Operations on Linear Lists
-Count the nodes.
-Get the address of a node.
- Get the address of the kth node.
- Get the address of a word of a node.
-  Get the value of a word of a node.
-  Get the value of a field of a node.
-  Change the value of a field of a node.
-Add a node.
- Join a collection of linear lists.
- Copy a linear list.
-Take a node.
+Introduce data.
+ Introduce linear lists.
+ Introduce a linear list.
+ Introduce an empty linear list.
+ Introduce a node to a linear list.
+ Introduce a node before or after a node of a linear list.
+ Introduce a node before or after the kth node of a linear list.
+ Introduce a node before or after an end of a linear list.
+Read data.
+ Read linear lists.
+ Read a linear list.
+ Read nodes of a linear list.
+ Read a node of a linear list.
+ Read a word of a node of a linear list.
+ Read a field of a word of a node of a linear list.
+ Read the kth node of a linear list.
+ Read the jth word of the kth node of a linear list.
+ Read the ith field of the jth word of the kth node of a linear list.
+ Read the address of a node of a linear list.
+ Read the address of the kth node of a linear list.
+ Read the address of a word of a node of a linear list.
+ Read the value of a word of a node of a linear list.
+ Read the value of a field of a node of a linear list.
+Modify data.
+ Modify the address of a node of a linear list.
+ Modify the address of the kth node of a linear list.
+ Modify the address of a word of a node of a linear list.
+ Modify the value of a word of a node of a linear list.
+ Modify the value of a field of a node of a linear list.
+Eliminate data.
+ Eliminate linear lists.
+ Eliminate a linear list.
+ Eliminate an empty linear list.
+ Eliminate nodes of a linear list.
+ Eliminate a node of a linear list.
+ Eliminate the kth node of a linear list.
+Transform data.
+ Count the nodes.
  Cut a linear list into linear lists.
-Sort nodes of a linear list relative to a field.
-Search the nodes of a linear list for a field having a specific value.
- Take nodes with a field having a specific value.
+ Sort nodes of a linear list relative to a field.
+ Search the nodes for a field with a specific value.
 
 Types of Linear Lists
-stack
-queue
-deque
- output-restricted
- input-restricted
+A stack is a linear list for which all introductions and eliminations occur at 
+one end.
+A queue is a linear list for which all introductions occur at one end, and all 
+eliminations occur at the other end.
+A deque is a linear list for which all introductions and eliminations occur at 
+the ends.
+An output-restricted deque is a deque for which all eliminations occur at one 
+end.
+An input-restricted duque is a deque for which all introductions occur at one 
+end.
 
 
 
