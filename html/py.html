@@ -9,74 +9,75 @@ Python
 Print("Hello, World")
 
 Assignment
-=     gets
-+=    plus gets (x += y is x = x + y)
--=    minus gets
-*=    times gets
-/=    quotient gets
-%=    residue gets
-**=   power gets
-//=   floor-quotient gets
+=   gets
++=  plus gets (x += y is x = x + y)
+-=  minus gets
+*=  times gets
+/=  quotient gets
+%=  residue gets
+**= power gets
+//= floor-quotient gets
 
 Logic
-bool(x)   True if x is true else False
-not x     False if x else True
-x or y    x if x else y
-x and y   y if x else x
-any(x)    True if any item of x is true
-all(x)    True if all items of x are true
-==        equal
-!=        not equal
-&lt;&gt;        not equal
-&gt;         more
-&lt;         less
-&gt;=        more or equal
-&lt;=        less or equal
+bool(x) True if x is true else False
+not x   False if x else True
+x or y  x if x else y
+x and y y if x else x
+any(x)  True if any item of x is true
+all(x)  True if all items of x are true
+==      equal
+!=      not equal
+&lt;&gt;      not equal
+&gt;       more
+&lt;       less
+&gt;=      more or equal
+&lt;=      less or equal
 
 Arithmetic
-int(x)         S to I
-bin(x)         binary string of x
-complex(x,y)   give x + y * 1j
-+              plus
--              minus
-*              times
-/              quotient
-%              remainder (divisor's sign: 3 % -6 == -3)
-**             power
-//             floor-quotient
-abs(x)         the absolute value of x
-divmod(x,y)    (x // y , x % y)
-pow(x,y,z)     (x**y)%z
-max(x)         maximum item in x
-min(x)         minimum item in x
-+=             plus gets (x += y is x = x + y)
--=             minus gets
-*=             times gets
-/=             quotient gets
-%=             residue gets
-**=            power gets
-//=            floor-quotient gets
-==             equal
-!=             not equal
-&lt;&gt;             not equal
-&gt;              more
-&lt;              less
-&gt;=             more or equal
-&lt;=             less or equal
+int(x)       integer form of the string x
+bin(x)       binary string form of the integer x
+complex(x,y) complex number with real part x and imaginary part y; x + y * 1j
+x+y          x plus y
+x-y          x minus y
+x*y          x times y
+x/y          quotient of x divided by y
+x%y          remainder of x divided by y; x mod y; (divisor's sign: 3 % -6 == 
+-3)
+x**y         x to the power of y
+x//y         integer quotient of x divided by y
+abs(x)       absolute value of x
+divmod(x,y)  (x // y , x % y)
+pow(x,y,z)   (x**y)%z
+max(x)       maximum item of x
+min(x)       minimum item of x
+x+=y         x plus gets y; x = x + y
+-=           minus gets
+*=           times gets
+/=           quotient gets
+%=           residue gets
+**=          power gets
+//=          floor-quotient gets
+==           equal
+!=           not equal
+&lt;&gt;           not equal
+&gt;            more
+&lt;            less
+&gt;=           more or equal
+&lt;=           less or equal
 
 Lists
 
-len(x)          length of x
-x.append(y)     add y to the end of the list x
-x.extend(y)     join the list y to the end of the list x
-x.insert(y,z)   insert z at index z in x
-x.remove(y)     remove first occurrence of y in x 
-x.pop()         give last item of x and remove last item of x from x
-x.pop(y)        give x[y] and remove x[y] from x
-x.index(y)      give index of first occurrence of y in x (error otherwise)
-x.count(y)      give count of occurrences of y in x
-x.sort()        sort x in increasing order
-x.reverse()     reverse the order of items of x
+len(x)        length of x
+x.append(y)   insert y after the last item of x
+x.extend(y)   join the list y to the end of the list x
+x.insert(y,z) insert z before the item of x with index y
+x.remove(y)   remove first occurrence of y in x
+x.pop()       return then remove the last item of x
+x.pop(y)      return then remove the item of x with index y
+x.index(y)    give index of first occurrence of y in x (error otherwise)
+x.count(y)    give count of occurrences of y in x
+x.sort()      sort x in increasing order
+x.reverse()   reverse the order of items of x
 
 Sets
 x.add(y)                   put y in x
@@ -203,22 +204,22 @@ x.update(y)       add count of items in a Counter y, or Counter(y) if y is list
 etc.
 
 import calendar
-calendar.weekday(y,m,d) # give index of day of week on ymd with 0 = Monday
-calendar.day_name       # array of name of day of week in current local 0=Monday
+calendar.weekday(y,m,d) give index of day of week on ymd with 0 = Monday
+calendar.day_name       array of name of day of week in current local 0=Monday
 
 import time
-time.strptime(x)   # change x from "%a %b %d %H:%M:%S %Y" to time.struct_time 
+time.strptime(x)   change x from "%a %b %d %H:%M:%S %Y" to time.struct_time 
 form (tuple)
-time.strptime(x,y) # change string x from format string y to time.struct_time
-time.mktime(x)     # change struct_time x into the (float) number of seconds 
+time.strptime(x,y) change string x from format string y to time.struct_time
+time.mktime(x)     change struct_time x into the (float) number of seconds 
 since epoch
 
 import textwrap
-textwrap.wrap(x,y) # give lines of string x with width y
-textwrap.fill(x,y) # gives string of lines of string x with width y
+textwrap.wrap(x,y) give lines of string x with width y
+textwrap.fill(x,y) gives string of lines of string x with width y
 
 from datetime import datetime
-x=datetime.strptime(y,z) # x gets datetime object from string y formatted by z
+x=datetime.strptime(y,z) x gets datetime object from string y formatted by z
 time.struct_time # https://docs.python.org/3/library/time.html#time.struct_time
 Time String Format Codes 
 (https://docs.python.org/3/library/time.html#time.strftime)

@@ -55,9 +55,11 @@ double %f|%lf 64 +-1.7e308
 #define OUT(e...) printf(e)
 
 // Assert, Predicate, Error
-#define A(e...)     {if(!(e))R 0;} 
-#define P(c,e...)   {if(c)R(e);}
-#define E(c,e...)   {if(c)R OUT("ERROR: %s\n",(e)),(S)0;}
+#define A(e...)   {if(!(e))R 0;} 
+#define P(c,e...) {if(c)R(e);}
+#define E(c,e...) {if(c)R OUT("ERROR: %s\n",(e)),(S)0;}
+
+
 
 Sources
 http://www.stroustrup.com/4th.html

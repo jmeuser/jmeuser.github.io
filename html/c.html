@@ -35,9 +35,9 @@ typedef void V;
 #define K(n,e...) {I k=0,_k=(n);F(;k&lt;_k;++k){e;}}
 
 // Assert, Predicate, Error
-#define A(e...)     {if(!(e))R 0;} 
-#define P(c,e...)   {if(c)R(e);}
-#define E(c,e...)   {if(c)R O("ERROR: %s\n",(e)),(S)0;}
+#define A(e...)   {if(!(e))R 0;} 
+#define P(c,e...) {if(c)R(e);}
+#define E(c,e...) {if(c)R O("ERROR: %s\n",(e)),(S)0;}
 
 Type   Format b&gt; Range&gt;
 char   %c      8 schar|uchar
