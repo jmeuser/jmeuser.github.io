@@ -9,6 +9,13 @@ C
 #include&lt;stdio.h&gt;
 main(){printf("Hello, World\n");}
 
+// Types
+typedef int I;
+typedef double F;
+typedef unsigned char C,*S;
+typedef long L;
+typedef void V;
+
 // Arithmetic
 #define MON(m,n) ((m)&gt;(n)?(m)-(n):0)
 #define PD(m,n)  ((m)&gt;(n)?(m)-(n):(n)-(m))
@@ -22,22 +29,22 @@ main(){printf("Hello, World\n");}
 #define W(c...)   while(c)
 #define C(c,t...) if(c){t;}else
 
-// types
-typedef int I;
-typedef double F;
-typedef unsigned char C,*S;
-typedef long L;
-typedef void V;
-
 // sequence
 #define I(m,e...) {I i=0,_i=(m);F(;i&lt;_i;++i){e;}}
 #define J(n,e...) {I j=0,_j=(n);F(;j&lt;_j;++j){e;}}
 #define K(n,e...) {I k=0,_k=(n);F(;k&lt;_k;++k){e;}}
 
+// Unformatted I/O, Formatted I/O
+#include&lt;stdio.h&gt;
+#define S()     getchar()
+#define T()     putchar()
+#define IS(e...) scanf(e)
+#define OS(e...) printf(e)
+
 // Assert, Predicate, Error
 #define A(e...)   {if(!(e))R 0;} 
 #define P(c,e...) {if(c)R(e);}
-#define E(c,e...) {if(c)R O("ERROR: %s\n",(e)),(S)0;}
+#define E(c,e...) {if(c)R FO("ERROR: %s\n",(e)),(S)0;}
 
 Type   Format b&gt; Range&gt;
 char   %c      8 schar|uchar
