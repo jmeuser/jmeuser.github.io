@@ -17,8 +17,8 @@ The n nodes of a linear list are labeled by 0,1,...,n-1.
 The first node of the list is 0, the last is n-1, and an end is 0 or n-1.
 If k is not the last node then k+1 is its successor.
 If k is not the first node then k-1 is its predecessor.
-A circular list is a linear list where the successor of the last node is the 
-first and the predecessor of the first is the last.
+A linear list is circular if the successor of the last node is the first and 
+the predecessor of the first is the last.
 An empty linear list has no nodes, no ends, no successors, and no predecessors.
 
 Operations on Linear Lists
@@ -71,10 +71,8 @@ A queue is a linear list for which all introductions occur at one end, and all
 eliminations occur at the other end.
 A deque is a linear list for which all introductions and eliminations occur at 
 the ends.
-An output-restricted deque is a deque for which all eliminations occur at one 
-end.
-An input-restricted duque is a deque for which all introductions occur at one 
-end.
+A deque is output-restricted if all eliminations occur at one end.
+A deque is input-restricted if introductions occur at one end.
 
 
 
