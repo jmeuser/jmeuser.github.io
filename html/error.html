@@ -5,9 +5,58 @@ href="http://fonts.googleapis.com/css?family=Inconsolata">
 </head>
 <body><pre>
 Errors
-
 This is a list of errors that I've made.
 It is organize in reverse chronological order.
+
+
+
+20151104T1353 java is not javac
+A common mistake, which brought me back to my first experiences with Java over 
+five years ago, is to use the command "java" from the command line instead of 
+using the command "javac".
+The "c" in "javac" stands for compile, which is exactly what you want to do to 
+a plain text document.
+The particular problem I had was silly, I was trying to check the my JDK 
+installation had gone smoothly by writing the simplest little Hello World 
+program as prescribed in the oracal/java tutorial and got the following error:
+
+Error: Could not find or load main class HelloWorldApp.java
+
+At which point I realized I had written:
+
+$java HelloWorldApp.java
+
+instead of the correct solution which is:
+
+$javac HelloWorldApp.java
+
+Once I did the right thing I was able to get everything working and knew that, 
+as far as I know, I've probably installed the JDK to my mac.
+My fingers are now crossed that I do not have any of the trouble that some 
+people seemed to have when they were working with Java during the lifetime of 
+OS X Yosemite.
+
+
+
+
+
+20151104T1339 JRE is not JDK
+I made the mistake of installing jre-8u65-macosx-x64.dmg instead of 
+jdk-8u65-macosx-x64.dmg and was surprised when I went to Terminal.app and typed 
+in "java" and "javac" only to be confronted by the message
+
+Error: No Java runtime present, requesting install.
+
+Which made me scratch my head a little.
+The solution was, as I have already said, to install the latest JDK rather than 
+the latest JRE.
+The Java Developer Kit contains all those tools that you need in order to work 
+at developing with java on your machine, but the Java Runtime Environment is, 
+as it obviously says, only what is needed in order to run a program compiled 
+into Java bytecode.
+The JDK lets you write plaintext then compile to Java bytecode and then lets 
+you use a Java virtual machine which is part of the JRE to actually run the 
+compiled bytecode on your local machine through the Java virtual machine.
 
 
 
