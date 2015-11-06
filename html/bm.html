@@ -1,0 +1,1087 @@
+<html><head>
+ <link rel="stylesheet" type="text/css" 
+href="http://fonts.googleapis.com/css?family=Inconsolata">
+ <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen">
+</head>
+<body><pre>
+Notes on Basic Math by Serge Lang
+
+Contents
+
+Part I Algebra
+
+Chapter 1 Numbers
+The integers
+Rules for addition
+Rules for multiplication
+Even and odd integers; divisibility
+Rational numbers
+Multiplicative inverses
+
+Chapter 2 Linear Equations
+Equations in two unknowns
+Equations in three unknowns
+
+Chapter 3 Real Numbers
+Addition and multiplication
+Real numbers: positivity
+Powers and roots
+Inequalities
+
+Chapter 4 Quadratic Equations
+
+Interlude On Logic and Mathematical Expressions
+On reading books
+Logic
+Sets and elements
+Notation
+
+Part II Intuitive Geometry
+
+Chapter 5 Distance and Angles
+Distance
+Angles
+The Pythagorean theorem
+
+Chapter 6 Isometries
+Some standard mappings of the plane
+Isometries
+Composition of Isometries
+Congruences
+
+Chapter 7 Area and Application
+Area of a disc of radius r
+Circumference of a circle of radius r
+
+Part III Coordinate Geometry
+
+Chapter 8 Coordinates and Geometry
+Coordinate systems
+Distance between points
+Equations of a circle
+Rational points on a circle
+
+Chapter 9 Operations on Points
+Dilations and reflections
+Addition, subtraction, and the parallelogram law
+
+Chapter 10 Segments, Rays, and Lines
+Segments
+Rays
+Lines
+Ordinary equation for a line
+
+Chapter 11 Trigonometry
+Radian measure
+Sine and cosine
+The graphs
+The tangent
+Addition Formulas
+Rotations
+
+Chapter 12 Some Analytic Geometry
+The straight line again
+The parabola
+The ellipse
+The hyperbola
+Rotation of hyperbolas
+
+Part IV Miscellaneous
+
+Chapter 13 Functions
+Definition of a function
+Polynomial functions
+Graphs of functions
+Exponential function
+Logarithms
+
+Chapter 14 Mappings
+Definition
+Formalism of mappings
+Permutations
+
+Chapter 15 Complex Numbers
+The complex plane
+Polar form
+
+Chapter 16 Induction and Summations
+Induction
+Summation
+Geometric Series
+
+Chapter 17 Determinants
+Matrices
+Determinants of order 2
+Properties of 2 by 2 determinants
+Determinants of order 3
+Properties of 3 by 3 determinants
+Cramer's Rule
+
+Numbers
+
+The Integers
+(Z. *. 0 &lt;) n means n is a positive integer e.g. 1 2 3 4 5 6 7 8 9 10 11
+0 = n means n is zero
+N. n means n is a natural number i.e. zero or positive integer
+natural number line with origin labeled 0
+(Z. *. 0 &gt;) n means n is a negative integer e.g. _1 _2 _3 _4 _5 _6 ..
+Z. n means n is an integer (zero, positive integer, negative integer)
+integer number line as iterated measurement from 0
+addition as iterated motion on the number line
+(Z. n) implies (n = n + 0) and n = 0 + n
+n - ~ as (- n) +   subtraction as adding a negative
+(Z. n) implies (0 = n + - n) and 0 = (- n) + n
+n and - n are on opposite sides of 0 on the standard number line
+read - n as "minus n" or "the additive inverse of n"
+
+Rules For Addition
+(n + m) = m + n                   commutative
+((n + m) + k)=n + m + k           associative
+0 = n + - n                       right inverse
+0 = (- n) + n                     left inverse
+n = - - n                         idempotent
+(- n + m) = (- n) - m             negation distributes over addition
+(*. / 0 &lt; n) implies 0 &lt; + / n    positive additivity
+(*. / 0 &gt; n) implies 0 &gt; + / n    negative additivity
+(n = m + k) implies m = n - k     left solvable
+(n = m + k) implies k = n - m     right solvable
+((n + m) = n + k) implies m = k   cancelation rule
+(n = n + m) implies m = 0         unique right identity
+(n = m + n) implies m = 0         unique left identity
+
+Rules For Multiplication
+(n * m) = m * n                   commutative
+((n * m) * k) = n * m * k         associative
+n = 1 * n                         identity
+0 = 0 * n                         annihilator
+(n * (m + k)) = (n * m) + n * k   left-distributive
+((n + m) * k) = (n * k) + m * k   right-distributive
+(- n) = _1 * n                    minus is multiplication by negative one
+(- n * m)=(- n) * m               minus permutes over multiplication
+(- n * m) = n * - m               minus permutes over multiplication
+(n * m) = (- n) * - m
+(n ^ k) = * / k #: n              exponentiation is iterated multiplication
+(n ^ m + k) = (n ^ m) * n ^ k
+(* / n ^ m) = n ^ + / m
+(n ^ m ^ k) = n ^ m * k
+(n ^ * / m) = ^ / n , m
+((n + m) ^ 2) = (n ^ 2) + (2 * n * m) + m ^ 2
+(*: n + m) = (*: n) + (+: n * m) + *: m
+((n - m) ^ 2) = (n ^ 2) - (2 * n * m) + m ^ 2
+(*: n - m) = (*: n) - (+: n * m) + *: m
+((n + m) * n - m) = (n ^ 2) - m ^ 2
+((n + m) * n - m) =(*: n) - *: m
+n ((+ * -) = (*: [) - (*: ])) m
+
+Even And Odd Integers; Divisibility
+odd integers: 1 3 5 7 9 11 13 ..
+even integers: 2 4 6 8 10 12 14 ..
+'n is even' means n = 2 * m for some m with Z. m
+'n is odd' means n = 1 + 2 * m for some m with Z. m
+if E means even and I means odd then
+ E = E + E and E = I + I
+ I = E + I and I = I + E
+ E = E * E and I = I * I
+ E = I * E and E = E * I
+ E = E ^ 2 and I = I ^ 2
+ 1 = _1 ^ E and _1 = _1 ^ I
+n (-. |) m means "n divides m" if n = m * k for some integer k
+n (-. |) n and 1 (-. |) n
+"a is congruent to b modulo d" if a - b is divisible by d
+if (a - b) | d and (x - y) | d then ((a + x) - b + y) | d 
+if (a - b) | d and (x - y) | d then ((a * x) - b * y) | d
+
+Rational Numbers
+fractions: mrn with m , n integer numerals and -. n = 0 e.g. 0r1 _2r3 3r4 ...
+dividing by zero does not give meaningful information
+rational number line
+(m % n) = s % t if *. / (-. 0 = n , t) , (m * t) = n * s
+m = m % 1
+(-. 0 = a , n) implies (m % n) = (a * m) % a * n  cancellation rule
+(- m % n) = (- m) % n
+(- m % n) = m % - n
+(*. / (Q. r) , 0 &lt; r) iff *. / (r = n % m) , (Z. , 0 &lt;) n , m
+"d is a common divisor of a and b" if d divides both a and b
+the lowest form of a is mrn where 1 is the only common divisor of m and n
+every positive rational has a lowest form
+if -. n = 1 and the only common divisor of m and n is 1 then mrn = m % n
+((a % d) + b % d) = (a + b) % d
+((m % n) + a % b) = ((m * b) + a * n) % n * b
+(0 = 0 % 1) and 0 = 0 % n
+(a = 0 + a) and a = a + 0
+negative rational numbers have the form _mrn
+_mrn = - mrn and mrn = - _mrn
+rational addition is commutative and associative
+((m % n) * a % b) = (m * a) % n * b
+((m % n) ^ k) = (m ^ k) % n ^ k
+(Q. r) &lt;: -. 2 = r ^ 2
+a real number that is not rational is called irrational
+rational * is associative, commutative, and distributes over +
+(Q. r) &lt;: (a = 1 * a) *. 0 = 0 * a
+! = (* / 1 + i.) i.e. (! n) = 1 * 2 * 3 * ... * n
+! = ] * (! &lt;:) i.e. (! 1 + n) = (1 + n) * ! n
+(n ! m) = (! n + m) % (! n) * ! m   binomial coefficients
+(n ! m) = ((! + /) % (* / !)) n , m   multinomial coefficients
+(n ! m) = m ! n
+(n ! m + 1) = (n ! m) + (n - 1) ! m
+decimals
+
+Multiplicative Inverses
+(*. / (Q. a) , -. a = 0) implies *. / (Q. b) , 1 = a * b
+"b is a multiplicative inverse of a" if *. / 1 = a (* ~ , *) b
+(b = c) if *. / (-. 0 = a) , 1 = (a * b) , (b * a) , (a * c) , c * a
+(-. 0 = a) implies *. / (1 = a * % a) , 1 = (% a) * a
+(-. 0 = a =: n % m) implies *. / ((% a) = m % n) , (% a) = (n % m) ^ _1
+(1 = a * b) implies b = a ^ _1
+(0 = a * b) implies +. / 0 = a , b
+((a % b) = c % d) if *. / (-. 0 = b , d) , (a * d) = b * c
+(b = c) if *. / (-. 0 = a) , (a * b) = a * c   times cancellation law
+(*. / -. 0 = b , c) implies ((a * b) % a * c) = b % c  quotient cancellation law
+((a % b) + c % d) = ((a * d) + b * c) % b * d
+((x ^ n) - 1) % x - 1) = (x ^ n - 1) + (x ^ n - 2) + ... + x + 1
+if n is odd then (((x ^ n) + 1) % x + 1) = - ` + / x ^ n - 1 + i. n
+
+Linear Equations
+
+Equations In Two Unknowns
+assuming c = (a * x) + b * y and u = (v * x) + w * y yields 
+ x = ((w * c) - u * b) % (w * a) - v * b
+ y = ((v * c) - w * u) % (v * b) - w * a
+elimination method: common multiples
+
+Equations In Three Unknowns
+iterate elimination method
+
+Real Numbers
+
+Addition And Multiplication
+the real number line
+addition of real numbers is commutative, associative, a = 0 + a , 0 = a + - a
+(0 = a + b) implies b = - a  unique additive inverse
+* is commutative,associative,distributes over +, a = 1 * a, 0 = 0 * a
+((a + b) ^ 2) = (a ^ 2) + (2 * a * b) + b ^ 2
+((a - b) ^ 2) = (a ^ 2) - (2 * a * b) + b ^ 2
+((a + b) * a - b) = (a ^ 2) - b ^ 2
+every nonzero real number has a unique multiplicative inverse
+the E , I system satisfies the addition and multiplication properties
+
+Real Numbers: Positivity
+positivity as being on a side of 0 on the number line
+a &gt; 0 means "a is positive"
+(*. / 0 &lt; a , b) implies *. / 0 &lt; (a * b) , a + b
+(*. / 0 &lt; a) implies (*. / 0 &lt; * / , + /) a
+~: / (0 = a) , (0 &lt; a) , 0 &gt; - a
+a &lt; 0 means -. *. / (0 = a) , (- a) &gt; 0
+"a is negative" means a&lt;0
+(a &lt; 0) iff 0 &lt; - a
+(0 &lt; 1) and 0 &gt; _1
+every positive integer is positive
+(0 &gt; a * b) if (0 &lt; a) and 0 &gt; b
+(0 &gt; a * b) if (0 &gt; a) and 0 &lt; b
+(0 &lt; a) implies 0 &lt; 1 % a
+(0 &gt; a) implies 0 &gt; 1 % a
+assume completeness: (a &gt; 0) implies *. / (0 &lt; %: a) , a = (%: a) ^ 2
+"the square root of a" means %: a
+an irrational number is a real number that is not rational e.g. %: 2
+Assuming *. / a = *: b , x yields
+ 0 = - / *: b , x
+ 0 = x (+ * -) b
+ +. / 0 = x (+ , -) b
+ +. / x = (- , ]) b
+((x ^ 2) = y ^ 2) implies (x = y) or x = - y
+(| x) = %: *: x  absolute value
+(% (%: x + h) + %: x) = ((%: x + h) - %: x) % h  rationalize 
+0 &lt; a ^ 2
+(%: a % b) = (%: a) % %: b alternatively ((%: % /) = (% / %:)) a , b
+(*. / (Q. x , y , z , w) , (N. *. 0 &lt;) n) implies (
+*. / (Q. c , d) , (c + (d * %: n)) = (x + y * %: n) * z + w * %: n
+(| a - b) = | b - a
+
+Powers And Roots
+assume *. / (0 &lt; a) , (N. , 0 &lt; ) n implies a = (n %: a) ^ n for a unique 
+n %: a
+"the nth-root of a" means n %: a
+(a ^ 1 % n) = n %: a
+(0 &lt; a , b) implies ((n %: a) * n %: b) = n %: a * b
+fractional powers: *. / (Q. x) , 0 &lt; a implies there exists a ^ x such that
+((a ^ x) = a ^ n) if x = n
+((a ^ x) = n %: a) if x = 1 % n
+(a ^ x + y) = (a ^ x) * a ^ y
+(a ^ x * y) = (a ^ x) ^ y
+((a * b) ^ x) = (a ^ x) * b ^ x
+*. / (1 = a ^ 0) , 1 = * / #: 0
+(a ^ - x) = 1 % a ^ x
+(a ^ m % n) = (a ^ m) ^ 1 % n
+(a ^ m % n) = (a ^ 1 % n) ^ m
+
+Inequalities
+a &lt; b means 0 &lt; b - a
+a &lt; 0 means 0 &lt; - a
+a &lt; b means b &gt; a
+inequalities on the numberline
+a &lt;: b means a &lt; b or a = b
+a &gt;: b means a &gt; b or a = b
+(*. / (a &lt; b) , b &lt; c) implies a &lt; c
+(*. / (a &lt; b) , 0 &lt; c) implies (a * c) &lt; b * c
+(*. / (a &lt; b) , c &lt; 0) implies (b * c) &lt; a * c
+x is in the open interval a , b if (a &lt; *. b &gt;) x
+x is in the closed interval a,b if (a &lt;: *. b &gt;:) x
+x is in a clopen interval a,b if +. / ((a &lt; *. b &gt;:) , (a &lt;: *. b 
+&gt;)) x
+(a &lt;),(a &lt;:) , (a &gt;) , a &gt;:  infinite intervals
+intervals and the numberline
+(*. / (0 &lt; a) , (a &lt; b) , (0 &lt; c) , c &lt; d) implies (a * c) &lt; b * 
+d
+(*. / (a &lt; b) , (b &lt; 0) , (c &lt; d) , d &lt; 0) implies (a * c) &gt; b * 
+d
+(*. / (0 &lt; x) , x &lt; y) implies (1 % y) &lt; 1 % x
+(*. / (0 &lt; b) , (0 &lt; d) , (a % b) &lt; c % d) implies (a * d) &lt; b * c
+(a &lt; c) implies ((a + c) &lt; b + c) and (a - c) &lt; b - c
+(*. / (0 &lt; a) , a &lt; b) implies (a ^ n) &lt; b ^ n
+(*. / (0 &lt; a) , a &lt; b) implies (a ^ 1 % n) &lt; b ^ 1 % n
+(*. / (0 &lt; b , d) , (a % b) &lt; c % d) implies ((a % b) &lt; (a + c) % b + 
+d)
+(*. / (0 &lt; b , d) , (a % b) &lt; c % d) implies ((a + c) % b + d) &lt; c % d)
+(*. / (0 &lt; b , d , r) , (a % b) &lt; c % d) implies (
+ (a % b) &lt; (a + r * c) % b + r * d)
+(*. / (0 &lt; b , d , r) , (a % b) &lt; c % d) implies (
+ ((a + r * c) % b + r * d) &lt; c % d)
+(*. / (0 &lt; b , d , r) , (r &lt; s) , (a % b) &lt; c % d) implies (
+((a + r * c) % b + r * d) &lt; (a + s * c) % b + s * d)
+
+Quadratic Equations
+((*. / 
+ (-. a = 0) , 
+ (0 = (a * x ^ 2) + (b * x) + c) , 
+ (0 &lt;: (b ^ 2) - 4 * a * c)) 
+implies
++. / 
+ (x = (- b + %: (b ^ 2) - 4 * a * c) % 2 * a) , 
+ (x = (- b - %: (b ^ 2) - 4 * a * c) % 2 * a))
+(0 &gt; (b ^ 2) - 4 * a * c) implies -. *. / (R. x) , 0 = (a * x ^ 2) + (b * x) 
++ c
+
+On Logic And Mathematical Expressions
+
+Logic
+proof as list of statements each either assumed or derived from a deduction rule
+converse: the converse of "if A, then B" is "if B, then A"
+"A iff B" means "if A, then B" and "if B, then A"
+proof by contradiction: take A false, derive a contradiction, conclude A true
+equations are not complete sentences
+logical equivalence as A iff B
+
+Sets And Elements
+set: a collection of objects
+element: an object in a set
+subset: s0 is a subset of s1 if every element of s0 is an element of s1
+empty set: a set that does not have any elements
+set equality: s0 equals s1 if s0 is a subset of s1 and s1 is a subset of s0.
+
+Indices
+"let x,y be something" includes the possibility that x=y
+"let x,y be distinct somethings" excludes the possibility that x=y
+x0 x1 x2 x3 .. xn is a finite sequence
+
+Distance And Angles
+
+Distances
+assume p0 d p1 gives the distance between the points p0 , p1
+assume that for any points p0,p1,p2
+0 &lt;: p0 d p1   nonnegative
+(0 = p0 d p1) iff p0 = p1   nondegenerate
+(p0 d p1) = p1 d p0   symmetric
+(p0 d p1) &lt;: (p0 d p2) + p2 d p1   triangle inequality
+note the geometric meaning of the triangle inequality
+the length of a side of a triangle is at most the sum of the others
+assume that two distinct points lie on one and only one line
+ (-. p0 = p1) implies *. / (p0 p1 i p0 , p1),
+ (*. / p2 p3 i p0 , p1) implies p2 p3 i = p0 p1 i
+define betweenness as equality case of the triangle inequality
+ (p0 p1 B p2) iff (p0 d p1) = (p0 d p2) + p1 d p2
+define segment as the points between a pair of endpoints
+ (p0 p1 W p2) iff p0 p1 B p2  (by definition of B we have p0 p1 i p2)
+assume the length of a segment is the distance between its endpoints
+ (mW p0 p1) = p0 d p1
+assume rulers pick out unique points
+ (*./(0&lt;:a),a&lt;:p0 d p1) implies *./(p0 p1 W p2),a=p0 d p2 for some p2
+ ((*./(p0 p1 W),(= p0 d))p2,p3) implies p2=p3
+define circle as the points equidistant from a common point
+ (p0 p1 o p2) if (p0 d p1)=p0 d p2  geometric circle from metric
+define (p0 r bdB) as the circle with center p0 and radius r
+ (p0 r bdB p1) if r=p0 d p1  metric circle as boundary of a ball
+prove two points uniquely define a circles
+ (p0 p1 o p2) implies (p0 p1 o = p0 p2)
+prove a point and radius uniquely define a circle
+ (p0 r bdB p1) implies (p0 r bdB p2) iff p0 p1 o p2
+define (p0 r clB p1) as the disc with center p0 and radius r
+ (p0 r clB p1) if r&gt;:p0 d p1
+
+Angles
+assume distinct points lie on a unique line
+ (-.p0=p1) implies *./(p0 p1 i p0,p1),
+ (*./p2 p3 i p0,p1) implies (p2 p3 i = p0 p1 i)
+assume a pair of nonparallel lines share a unique point
+ (-.p0 p1 p2 H p3) implies (p0 p1 i *. p2 p3 i)p4 for some p4
+ (*./(-.p0 p1 p2 H p3),(p0 p1 i *. p2 p3 i)p4,p5) implies p4=p5
+assume a point belongs to a unique parallel to a line
+ p0 p1 p2 H p2
+ (*./(p0 p1 p2 H p3),p2 p3 i p4) implies p0 p1 p2 H p4
+ (*./p0 p1 p2 H p3,p4) implies (p2 p3 i = p2 p4 i)
+assume "parallel to" is an equivalence relation
+ p0 p1 p0 H p1
+ (p0 p1 p2 H p3) implies p2 p3 p0 H p1
+ (*./(p0 p1 p2 H p3),p0 p1 p4 H p5) implies p2 p3 p4 H p5
+assume a point belongs to a unique perpendicular to a line
+ (*./(p0 p1 p2 L p3),p2 p3 i p4) implies p0 p1 p2 L p4
+ (*./p0 p1 p2 L p3,p4) implies (p2 p3 i = p2 p4 i)
+assume a parallel to a perpendicular is perpendicular
+ (*./(p0 p1 p2 L p3),p2 p3 p4 H p5) implies p0 p1 p4 L p5
+assume a perpendicular to a perpendicular is parallel
+ (*./(p0 p1 p2 L p3),p2 p3 p4 L p5) implies p0 p1 p4 H p5
+define a halfline as points on the same side of a line relative to a vertex
+ (p0 p1 R p2) if (p2 B p0 p1)+.p1 B p0 p2
+assume a halfline is determined by its vertex and any other point on it
+ ((p0 p1 R p2)*.-.p0=p2) implies p0 p1 R = p0 p2 R
+define (p0 p1 R) as the halfline with vertex p0 to which p1 is incident
+assume a pair of distinct points determine two distinct rays
+ (-.p0=p1)&lt;:p0 p1 R (-.=) p1 p0 R
+assume a point on a line divides it into two distinct halflines
+ (p0 p1 i p2)&lt;: (p0 p1 R p2)+.(p0 p1 i p3) implies (p0 p1 R p3)+.p0 p2 R p3
+assume two distinct halflines sharing a vertex separate the plane into two parts
+define angle as one of the parts of the plane separated by such halflines
+assume two points on a circle divide it into two distinct arcs
+note Lang uses counterclockwise oriented angles rather than neutral angles
+assume p0 p1 p2 c is the counterclockwise arc of (p1 p0 o) from p0 to (p1 p2 R)
+define (p0 p1 p2 V) as the angle from p1 p0 R to p1 p2 R containing p0 p1 p2 c
+define the vertex of (p0 p1 p2 V) as p1
+define (p0 p1 p2 V) is a zero angle as (p1 p0 R = p1 p2 R)
+define (p0 p1 p2 V) is a full angle as (p2 p1 p0 V) is a zero angle
+note special notation to distinguish a full angle from a zero angle
+define (p0 p1 p2 V) is a straight angle as (p0 p1 i p2)
+prove if (p0 p1 p2 V) is a straight angle then so is (p2 p1 p0V)
+define (p0 p1 p2 r clBV) as the sector of (p1 r clB) determined by (p0 p1 p2 V)
+ (p0 p1 p2 r clBV p3) if (p1 r clB p3)*.(p0 p1 p2 V p3)
+define mclB p0 r as the measure of the area of (p0 r clB)
+define mclBV p0 p1 p2 r as the the measure of the area of (p0 p1 p2 r clBV)
+define (mV p0 p1 p2) using the ratio (mclBV p0 p1 p2 r) to mclB p1 r
+ (mV p0 p1 p2)=x deg if *./(0&lt;:x),(x&lt;:360),((mclBV p0 p1 p2 r)%mclB p0 
+r)=x%360
+define "x deg" as "x degrees"
+prove the measure of a full angle is 360 deg
+ (p0 p1 R p2) implies (360 deg)= mV p2 p1 p0
+prove the measure of a zero angle is 0 deg
+prove the measure of a straight angle is 180 deg
+define a right angle as one whose measure is half a straight angle i.e. 90 deg
+ (p0 p1 p2 V) is right iff 90=mV p0 p1 p2
+assume the area of a disc of radius r is pi*r^2 where pi is near 3.14159
+prove that the measure of an angle is independent of r
+
+Pythagorean Theorem
+define p W p0 as +. / 2 (p0 W ~) \ p
+define noncolinear points p0,p1,p2 as -. p0 p1 i p2
+define triangle as segments between three points
+ (p0 p1 p2 A p3) if p0 p1 p2 p0 W p3
+define the triangle with vertices p0 , p1 , p2 as (p0 p1 p2 A)
+define the sides of (p0 p1 p2 A) as (p0 p1 W), (p1 p2 W), and (p2 p0 W)
+define triangular region as the points bounded by and having a triangle
+define area of a triangle as area of a triangular region
+define mA p0 p1 p2 as the measure of the area of (p0 p1 p2 A)
+note triangular regions are also called simplexes
+note pairs of sides of a triangle determine angles
+define a right triangle as one having a right angle
+ (p0 p1 p1 p2 Z p3) if *./ (p0 p1 p2 A p3) , 90 = mV p1 p2 p0
+define the legs of a right triangle as the sides of its right angle
+define the hypotenuse of a right triangle as the non-leg side
+assume right triangles with corresponding legs of equal length are congruent
+ (*./(p0 p1 p2 Z),(p3 p4 p5 Z),((p1 d p2)=p4 d p5),(p2 d p0)=p5 d p3) implies
+ *./((mV p0 p1 p2)=mV p3 p4 p5),((mV p1 p0 p2)=mV p4 p3 p5),
+ ((p0 d p1)=p3 d p4),(mA p0 p1 p2)=mA p3 p4 p5
+assume parallels perpendicular to parallels cut corresponding segments equally
+ (*./(p0 p1 p2 H p3),(p0 p1 p0 L p2),p0 p1 p1 L p3) implies 
+ *./((p0 d p1)=p2 d p3),(p1 d p2)= p3 d p0
+define (0=mH p0 p1 p2 p3) if -.(p0 p1 p2 H p3)
+define ((p0 d p1)=mH p2 p0 p3 p1) if p2 p0 p3 H p1
+prove the distance between parallel lines is unique
+(*./(p0 p1 p2 H p3, p4)(p2 p3 p3 L p5)(p0 p1 i p5,p6)p2 p4 p4 L p6)&lt;:(p3 d 
+p5)=p4 d p6
+define rectangle as four sides: opposites parallel and adjacents perpendicular
+ (p0 p1 p2 p3 Z p4) if 
+ *. / (p0 p1 p2 H p3) , (p1 p2 p3 H p0) ,
+ (p0 p1 p1 L p2) , (p1 p2 p2 L p3) , (p2 p3 p3 L p0) , (p3 p0 p0 L p1) ,
+ p0 p1 p2 p3 p0 W p4
+define (p0 p1 p2 p3 Z) as a rectangle with vertices p0 p1 p2 p3
+prove the opposite sides of a rectangle have the same length
+note area of a rectangle means area of region bounded and containing a rectangle
+define (mZ p0 p1 p2 p3) as area of (p0 p1 p2 p3 Z)
+define a square as a rectangle all of whose sides have the same length
+prove the area of a square with side length a is a ^ 2
+prove that (p0 p0 p1 p2 Z) uniquely determines (p3 p0 p1 p2 Z)
+prove the sum of the non-right angles in a right triangle is 90 deg
+ (p0 p0 p1 p2 Z) implies 90 = (mV p1 p0 p2) + mV p1 p2 p0
+prove the sum of the angles in a right triangle is 180 deg
+ (p0 p0 p1 p2 Z) implies 180 = (mV p0 p1 p2) + (mV p1 p2 p0) + mV p2 p0 p1
+prove the area of a right triangle with leg lengths a,b is -: a * b
+prove the Pythagorean theorem
+ (p0 p1 p1 L p2) implies (*: p0 d p2) = + / *: (p0 d p1) , (p1 d p2)
+prove a triangle is right iff it satisfies the pythagorean theorem
+define the diagonals of (p0 p1 p2 p3 Z) as (p0 p2 W) and p1 p3 W
+prove the lengths of the diagonals of a rectangle (and square) are the same
+prove the length of the diagonal of a square with side length 1 is %: 2
+prove a right triangle with legs of length 3,4 has hypotenuse of length 5
+define perpendicular bisector as line perpendicular to segment through midpoint
+ (p0 p1 t p2) if ((-: p0 d p1) = p0 d p3) implies +. / (p2 = p3) , p0 p3 p3 L p2
+prove (p0 p1 t p2) iff (p0 d p2) = p1 d p2
+prove the *: of the diagonal of a rectangular solid is + / *: of its sides
+prove the area of a triangle with base length b and height h is -: b * h
+prove the hypotenuse of a right triangle is greater than or equal to a leg
+prove (*. / (p0 p1 p2 L p3) , (p0 p1 i p3 , p4)) implies (p2 d p3) &lt;: p2 d p4
+prove opposite interior angles are the same
+prove corresponding angles are the same
+prove opposite angles are the same
+prove the perpendicular bisectors of the sides of a triangle meet at a point
+
+Isometries
+
+Some Standard Mappings Of The Plane
+define p0 is mapped to p1 as (p0 ; p1)
+note map is similar in meaning to association,function,verb,arrow
+define map of the plane as associating each point of the plane with another
+define the value of M0 at p0 or the image of p0 under M0 as (M0 p0)
+define M0 maps p0 onto p1 as p1 = M0 p2
+define (M0 = M1) as (M0 p0) = M1 p0 for all p0
+define the p0 constant map as (p0 Mp)
+ p0 = p0 Mp p1
+note (p0 [) is the constant map
+ p0 = (p0 [ p1)
+define the identity map as ]
+ p0 = ] p0
+note ] is the identity map
+ p0 = ] p0
+define the reflection map about (p0 p1 i) as (p0 p1 Mt)
+ p0 = p1 p2 Mt p3 if (p1 p2 i p4) iff p0 p3 t p4
+define the reflection map about p0 as Mm
+ (p0 = p1 Mm p2) if p0 p2 m p1
+define the dilation about p0 of p1 to p2 as (p0 p1 p2 MH)
+ (p0 = p1 p2 p3 MH p4) if
+ (*. / (p3 p1 p1 L p5,p6)(p1 p2 o p5)(p1 p3 o p6))&lt;:(p3 p5 p6 H p4)*.p0 p3 i 
+p4
+define dilation by r0 about p0 as (p0 r0 IH)
+ (p0 = p1 r0 IH p2) if (p1 d p2)=r*p1 d p0
+define the counterclockwise rotation about p1 by (p0 p1 p2 V) as (p0 p1 p2 Mo)
+ (p0 = p1 p2 p3 Mo p4) if 
+ (*./(p2 p4 o p5)(p2 p1 i p5)(p2 p3 i p6)(p2 p6 p6 L p1)p5 p6 Ed p4 p7)&lt;:
+ (p2 p4 o p0)*.p2 p7 i p0
+note the rotation map defined assumes acute angles
+define the counterclockwise rotation about p0 by r0 degrees as (p0 r0 Io)
+ (p0 = p1 r0 Io p2) if *./(0&lt;:r0)(r0&lt;:360)r0=mV p2 p1 p0
+note 0&lt;:r0 implies (p0 r0 Io) is c.c. and r0&lt;:0 implies (p0 r0 Io) is 
+clockwise
+prove p0 180 Io = p0 Mm
+prove p0 180 Io = p0 _180 Io
+prove (p0 0 Io = ])
+prove (p0 360 Io = ])
+note rotation by 0 or 360 degrees is the identity transformation
+define (p0 r0 oV) as (p0 r1 oV) with *./(0&lt;:r1),(r1&lt;360),r0=r1+360*n for 
+some n
+prove rotation by a negative angle is rotation by a positive angle
+define the arrow from p0 to p1 as a0 =: p0 ; p1
+ ((p0 S a0) *. p0 T a0) if a0 = p0 ; p1
+define p0 is an object of a0 if p0 S a0 or p0 T a0
+ (p0 O a0) if (p0 S a0) +. p0 T a0
+note, in general, a0;a1 is an arrow with objects a0,a1, source a0 and target a1
+ *. / ((a0 , a1) O a0 ; a1) , (a0 S a0 ; a1) , a1 T a0 ; a1
+define p0 p1 W as the directed line segment associated with the arrow p0;p1
+ (p0 p1 W = p1 p0 W) iff p0 = p1
+define translation by (p0 p1 W) as (p0 p1 MW)
+ (p0 = p1 p2 MW p3) if
+ ((p1 p3 p3 L p0) *. p1 p3 p2 H p0) +.
+ *. / ((p1 p2 i p3)(-.p1 p2 i p4)(p1 p4 p2 H p5)p4 p5 p1 H p2)&lt;:p0=p4 p5 MW 
+p3
+define p0 is a fixed point of M0 if p0 = M p0
+prove that every point is a fixed point of ]
+prove that p0 is the only fixed point of p0 Mp
+prove p0 is the only fixed point of p0 Mm
+prove p0 is a fixed point of (p1 p2 Mt) iff (p1 p2 i p0)
+prove (-. 0 = mV p0 p1 p2) implies p1 is the only fixed point of p0 p1 p2 MV
+prove (-. 0 = r0) implies p0 is the only fixed point of p0 r0 IV
+prove that (-. p0 = p1) implies (p0 p1 MW) has no fixed points
+prove if -. 1 = r0 implies p0 is the only fixed point of p0 r0 IH
+prove every point is a fixed point of p0 1 IH
+
+Isometries
+define M0 is an isometry if it preserves distance: (d=d I0)
+ (p0 d p1) = (I0 p0) d I0 p1
+prove isometries map distinct points to distinct points
+ (-. p0 = p1) implies -. (M0 p0) = M0 p1
+define y is in the image of A under M0 if y = M0 x for some x in A
+assume point and line reflects, rotations, and translations are isometries
+prove isometries of points are points
+prove isometries of line segments are line segments
+prove isometries of lines are lines
+prove isometries of circles are circles
+prove isometries of discs are discs
+prove isometries of circular arcs are circular arcs
+prove if -. p0 = p1 fixed points of an isometry then so are points on p0 p1 i
+prove an isometry wit three fixed points is the identity
+prove (p0 1 IH) and (p0 _1 IH) are isometries (the only of the family IH)
+prove isometries of parallel lines are parallel
+prove isometries of perpendiculars are perpendicular
+note isometries in 3 space
+
+Composition of isometries
+define the composition of M0 with M1, M1 followed by M0, as (M1 M0)
+ (p0 = (M0 M1) p1) if (p2 = M1 p1) implies p0 = M0 p2
+prove if M0 is an isometry then M0 = (] M0) and M0 = (M0 ])
+prove the composition of two (p0 180 Io) is ]
+prove the composition of isometries is an isometry
+prove the composition of rotations about a point is a rotation about that point
+ p0 (r0 + r1) Io = (p0 r1 Io p0 r0 Io)
+prove that the composition of translations is a translation
+ p0 p2 MW = (p1 p2 MW p0 p1 MW)
+prove the composition of dilations about a point is a dilation about that point
+ p0 (r0 * r1) IH = (p0 r1 IH p0 r0 IH)
+prove the composition of isometries is associative (arrows in general)
+define (M0 ^: 2) as (M0 M0)
+define (M0 ^: 3) as (M0 M0 M0)
+define (M0 ^: 1 + n) as (M0 M0^:n)
+define (M0 ^: 0) as ] and (M0^:1) as M0
+prove MI = (p0 Mm) ^: 2
+prove MI = (p0 Mm) ^: 2 * n
+prove (p0 Mm) = (p0 Mm) ^: 1 + 2 * n
+prove (M0 ^: n0 + n1) = (M0 ^: n0 M0 ^: n1)
+prove if M0 is a reflection through a line then (M0 ^: 2) is MI
+note not all isometries commute
+
+Inverse Isometries
+define M0 as the inverse of M1 if (] = (M0 M1)) and (] = (M1 M0))
+prove the inverse of a map is unique if it has one
+define (M0 ^: _1) as the inverse of M0 if it has one
+note (y = M0 x) iff (x = (M0 ^: _1)y) or ([ = (M0 ])) = (] = ((M0 ^: _1) [))
+prove reflections are their own inverses
+prove identity is its own inverse
+prove ] = (p0 p1 MW p1 p0 MW) and ] = (p1 p0 MW p0 p1 MW)
+prove (p0 p1 MW) and (p1 p0 MW) are inverses of each other
+prove ] = (p0 r0 Io p0 -r0 Io) and ] = (p0 -r0 Io p0 r0 Io)
+prove (p0 r0 Io) and (p0 -r0 Io) are inverses of each other
+ (p0 -r0 Io) = (p0 r0 Io) ^: _1
+prove ((M0 M1) ^: _1) = (M1 ^: _1 M0 ^: _1)
+define M0 ^: _n0 as (M0 ^: _1) ^: n0
+prove (M0 ^: n0 + n1) = (M0 ^: n0) M0 ^: n1
+prove if M0,M1 are isometries *./(M0=M1)p0,p1,p2 then (M0=M1) if M0^:_1 exists
+prove every isometry actually does have an inverse
+prove reflections about perpendicular lines commute
+prove M0 , M1 , M2 isometries (M0 M1) = (M0 M2) implies M1 = M2
+note symmetries of the square via isometries
+note symmetries of the triangle via isometries
+note symmetries of the hexagon via isometries
+note do these isometric symmetries characterize these shapes?
+
+Characterization Of Isometries
+prove -. p0 = p1 fixed points of isometry M0 implies +. / (MI = M0) , p0 p1 MT 
+= M0
+prove an isometry with only one fixed point is +. / Mo , Mo MT
+prove an isometry without a fixed point is +. / MW , (MW Mo) , ((MW Mo) Mm)
+
+Congruences
+define p00,p01,..,p0n is congruent to p10,p11,..,p1m if p00,..,p0n=M0 p11,..,p0m
+note if one set is the image of another under an isometry then they're congruent
+prove circles with the same radius are congruent
+prove discs with the same radius are congruent
+prove segments with the same length are congruent
+prove right triangles whose corresponding legs are congruent are congruent
+prove triangles whose corresponding sides are congruent are congruent
+prove squares whose sides are congruent are congruent
+prove rectangles whose corresponding sides are congruent are congruent
+assume the area of a region is equal to the area of its image under an isometry
+prove congruence is an equivalence relation
+prove any two lines are congruent
+prove the sides of a triangle with angle measures 60 deg have equal length
+define equilateral triangle if its sides are all the same length
+prove SAS characterization of congruence
+prove AAS characterization of congruence
+prove inscribed circle in a triangle angle bisectors
+
+Area And Applications
+
+Area Of A Disc Of Radius r
+note a unit length determines a unit area
+assume area of a square with side length a is a^2
+assume area of a rectangle with side lengths a,b is a*b
+prove the area of the dilation by r of a square of area a is a*r^2
+assume the area of the dilation by r of a region with area a is a*r^2
+define o.1 as the length of of a circle with radius 1
+prove the area of the dilation by r of a disc of radius 1 is o.-:r^2
+note approximate regions with squares to find their area
+note upper/lower bounds as areas inside and outside of figure
+define ellipse as nonuniform scaling of a disc
+prove map circle to ellipse algebraically
+note scaling and volume in 3-space is similar
+
+Circumference Of A Circle Of Radius r
+assume ((o. 1) = mbdB p0 1) and (o. r) = mbdB p0 r
+note approximate by dividing disc into n sectors with angles 360%n
+note disc area to circle length
+prove the length of the dilation by r of a segment of length a is r*a
+assume the length of the dilation by r of an arbitrary curve of length a is r*a
+
+Coordinates And Geometry
+
+Coordinate Systems
+define an origin as the intersection of perpendicular lines (called axis)
+note the classical origin is the intersection of a horizontal and vertical line
+note pick unit length, cut axes into segments left/right up/down
+note cut plane into squares with unit side lengths
+note label each point of intersection with a pair of integers
+note intersection of perpendicular lines to axes through a point gives its 
+coordinate
+define the coordinate of the origin as 0,0
+note meaning of the positive/negative components as motions
+define x-coordinate is usually the first, y-coordinate is usually the second
+prove the axes divide the plane into four quadrants
+define the positive side of the second axis as counterclockwise the first
+note plot points
+assume/prove every point corresponds to a unique pair of numbers
+assume/prove every pair of numbers corresponds to a unique point
+note points in 3-space
+
+Distance Between Points
+points on the number line are labeled so that algebraic definitions work simply
+note the distance between points in the plane is found using the pythagorean 
+theorem
+prove the distance between points p0 and p1 on a number line is %:(p0-p1)^2
+ (*./(p0=a0,b0),p1=a1,b1) implies (p0 d p1)=%:@+/@*:(a1-a0),(b1-b0)
+assume distance as d=:%:@+/@*:- satisfies the required geometric properties
+define the plane as all pairs of real numbers with distance %:@+/@*:-
+prove (0 = p0 d p1) iff p0 = p1
+define dilation as * i.e. (r * x , y) = (r * x) , r * y
+prove (0 &lt;: r) implies (d r * x , y) = r * d x , y 
+prove ((r * [) d r * ]) = r * d
+prove distance works in 3-space
+
+Equation Of A Circle
+assume (p0 p1 o p2) iff (p0 d p1) = p0 d p2
+assume p0 r0 bdB p1 if r0 = p0 d p1
+define p0 r0 bdB as the circle centered at p0 with radius r0
+prove ((p0=:r0,r1) r2 bdB p1=:r3,r4) iff (*:r0)=+/*:p0-p1
+prove is the equation of a circle in r3,r4 with center r1,r2 and radius r0 is
+ (*: r0) = + / *: (r1 , r2) - r3 , r4
+prove (p0 r0 bdB p1) iff (*: r0) = + / *: p0 - p1
+
+Rational Points On A Circle
+prove ((*:c)=+/*:a,b) iff (1=+/*:(a,b)%c) iff 1=+/*:(x=:a%c),(y=:b%c) when -.c=0
+note to solve (*:c)=+/*:a," for integers a,b,c solve 1=+/*:x,y for rationals x,y
+define a rational point as one whose components are rational numbers
+prove (*./(t=:y%1+x),(1=+/*:x,y),-._1=x) &lt;: *./x=((1- % 1+)*:t),y=(2* 
+%(1+*:))t
+prove 1=+/*:x,y rational &lt;: *./x=(1- % 1+)*:t),y=((2*)%(1+*:))t for rational 
+t
+prove distinct rationals give distinct solutions
+ (*./(0&lt;:s),s&lt;t) implies &lt;/((1-)%(1+))*:s,t
+
+Operations On Points
+
+Dilations And Reflections
+assume (r0*r1,r2)=(r0*r1),r0*r2
+prove (p0= p1 r0 IH p2) iff (p0=p1+r0*p2-p1) or (p0=(r0*p2)+(1-r0)*p1)
+prove (p0= p1 Mm p2) iff (p0=p1-p2-p1) or (p0=(+:p1)-p2)
+prove ((r0*r1)d r0*r2)=(|r0)* r1 d r2
+note the n-dimensional case
+
+Addition Subtraction And The Parallelogram Law
+assume ((a0,a1)+b0,b1)=(a0+b0),a1+b1
+prove commutativity (p0+p1)=p1+p0
+prove associativity: (p0+p1+p2)=(p0+p1)+p2
+prove 0,0 is an additive identity: (p0=p0+0,0) and p0=(0,0)+p0
+prove additive inverses exist: ((0,0)=p0+-p0) and (0,0)=(-p0)+p0
+prove the points (0,0);p0;p1;p0+p1 are vertices of a parallelogram
+ (0,0),p0,p1,:p0+p1 W is a parallelogram
+prove p0=(p0-p1)+p1
+prove (0,0);p0;p1;p0-p1 are vertices of a parallelogram
+prove (p0=p1 p2 MW p3) iff (p0=p1+(p2-p1)+p3-p1) or p0=p3+p2-p1
+define norm p0 as (0,0) d p0
+ norm =:(0,0) d
+prove (p0 d p1)=norm p0-p1
+prove (p0 d p1)=norm p1-p0
+prove M0 is an isometry iff (norm p0-p1)=norm (M0 p0)-M0 p1
+prove (p0 r0 bdB p1) iff (p1=(0,0) p0 MW p2) for some p2 with r0=norm p1 p2
+prove every circle is the translation of a circle about the origin
+ (p0 r0 bdB p1) iff (p1=(0,0) p0 MW p2) for some p2 with (0,0) r0 bdB p2
+prove associativity: (r0*r1*p0)=(r0*r1)*p0
+prove distributivity: (r0*p0+p1)=(r0*p0)+r0*p0
+prove identity: p0=1*p0
+prove annihilator: (0,0)=0*p0
+prove translation is an isometry
+ (p0 d p1)=(p2 p3 MW p0) d p2 p3 MW p1
+prove a reflection through the origin followed by a translation is a 
+point-reflection
+ (p0 p1 MW (0,0) Mm)= p2 Mm for some p2
+prove a dilation through the origin followed by a translation is a 
+point-dilation
+ (p0 p1 MW (0,0) r0 MH)= p2 r1  MH for some p2 and r1
+prove the reflection of a circle through a point is a circle
+for some p4,p5 (*./(p0=p1 Mm p2),p3 p4 o p2) iff (p4 p5 o p0)
+prove the dilation of a circle through a point is a circle
+prove ((]=(M0 p0 p1 MW) and ]=p0 p1 MW M0) iff (M0 p2)=p0+(p0-p1)+p2-p0
+prove the inverse of a translation is a translation
+prove ((]=M0 p0 r0 IH) and ]=p0 r IH M0) iff (M0 p1)=p0+(%r)*p1-p0
+prove the inverse of a dilation is a dilation
+prove (p0 = p1 p2 MW p0) iff (p0=p0+p2-p1) iff ((0,0)=p2-p1) iff p1=p2
+prove translation doesn't have fixed points unless it is the identity
+prove the fixed points of a transformation via its coordinate definition
+prove (*./(p0=a0,a1),(e0=1,0),e1=0,1) implies p0=(a0*e0)+a1*e1
+prove p0,(p0+r*e0),(p0+r*e1),:(p0+(r*e0)+r*e1) W is a rectangle
+
+Segments, Rays, And Lines
+
+Segments
+prove (p0 p1 W p2) iff *./(p2=p0+(p1-p0)*t),(0&lt;:t),t&lt;:1
+prove the point halfway between p0 and p0+p1 is p0+-:p1
+prove every segment is a translation of a segment from the origin
+prove every segment is a translation of a dilation of a unit segment from the 
+origin
+prove (p0 p1 W p2) iff *./(p2=((1-t)*p0)+t*p1),(0&lt;:t),t&lt;:1
+assume (p0 p1 W) is a directed segment ordered by ((1-t)*p0)+t*p1 with 0&lt;:t 
+and t&lt;:1
+note p0 p1 W is also called a located vector
+define the source of p0 p1 W as p0
+define the target of p0 p1 W as p1
+note p0 p1 W is also said to be located at p0
+prove (p0 p1 MW = p1 p0 MW) iff p0=p1
+note a point can be represented as an arrow whose source and target are equal
+
+Rays
+define the ray with vertex p0 in the direction of (0,0) p1 W as p0 (p0 + p1) R
+prove p0 p1 R p2 iff *. / (p2 = p0 + t * p1 - p0) , (R. *. 0 &lt;:) t for some t
+prove p0 p1 R = p0 (p1 - p0) R
+prove (R. *. 0 &lt;)t implies p0 p1 R = p0 (t * p1) R
+define p0 p1 R has the same direction as p2 p3 R if 
+ *. / ((R. *. 0 &lt;:) t) , (p1 - p0) = t * p3 - p2 
+note this induces a sensed parallel axiom
+note multidimensional forms
+
+Lines
+define p0 p1 W is parallel to p2 p3 W if *. / (R. t) , (p1 - p0) = r * p3 - p2
+prove parallelism in this way is an equivalence relation
+define p0 parallel to p1 if *. / (-. 0 = p0 , p1) , (R. t) , p0 = t * p1 for 
+some t
+prove a located vector belongs to a unique line
+ p0 p1 W p2 implies p0 p1 i p2
+prove (-.p0=0,0) implies ((0,0),:p0 i p1) iff p1=t*p0 for some t
+note the line passing through p0 parallel to (0,0) p1 W is all points p0+t*p1 
+for some t
+prove p0 p1 i p2 iff p2=p0+t*p1 for some t
+note p0+t*p1 is called a parametric representation of the line i p0 (p0+p1)
+note in N the parametric representation is actually p0 + p1 *
+note t is called a parameter in p0+t*p1
+note the following argument in N
+ p0 =: a0 , a1   p0 is the ordered pair a0,a1
+ p1 =: b0 , b1   p1 is the ordered pair b0,b1
+ p =: p0 + p1 *   parametric description of the line through p0 parallel to p1
+ x =: 0 { p   zeroth coordinate of p
+ y =: 1 { p   first coordinate of p
+ p = (x , y)
+ x = a0 + b0 *
+ y = a1 + b1 *
+ xaxis =: 0 , ~
+ p = xaxis x  suppose p is equal to a point on the xaxis
+ (x , y) = 0 , ~ x p = (x , y) and (x , 0) = xaxis x
+ (x = x) *. 0 = y   pairs are equal iff their components are
+ x = x   this is always true, so we don't get any new information
+ 0 = y   thus (p=xaxis x) iff (0=y)
+ (0 = y) t   does there exist t such that 1=((0=y)t) ?
+ (0 = a1 + b1 *) t
+ (0 t) = (a1 + b1 *) t
+ 0 = a1 + b1 * t
+ t =: b1 % ~ s
+ 0 = a1 + b1 * b1 % ~ s
+ 0 = (a1 +) ] s   by algebra 1=]*(%]) or (-.0=[)&lt;: ]=[ * ] % [
+ 0 = a1 + s
+ s =: (- a1) + u
+ 0 = a1 + (- a1) + u
+ 0 = ] u
+ 0 = u
+ t = b1 % ~ (- a1) + 0
+ t = b1 % ~ (- a1)
+ t = (- a1) % b1
+ t = - a1 % b1
+   p - a1 % b1   yields a point on the x-axis, it is unique (by other arguments)
+note mW O p0 can be used to represent the magnitude of a velocity (speed)
+note when do two parametrically described lines intersect?
+prove when a line crosses a circle
+for what x and y does (p=(x,y))*.(*:r)=(+/(*:x,y))
+prove if *./-.O=A,B  then A=:a0,a1 is parallel to B=:b0,b1 iff 0=(a0*b1)-a1*b0
+prove if two lines are not parallel then they have exactly one point in common
+prove if P=:p,q and (*:r)&gt;:+/*:P then P+A* intersects (*:r)=(+/(*:(0 1{))) 
+twice
+prove if A=:a0,a1 and B=:b0,b1 then (x,y)=(A +)(B *) iff x=a0 + b0 * and y=a1 + 
+b1 *
+
+Ordinary Equation For A Line
+prove (x , y) = ((a0 , a1) +) ((b0 , b1) *) then
+ x = a0 + b0 *
+ y = a1 + b1 *
+ ]
+ (b % ~) (b *)
+ ((b % ~) ]) (b *)
+ ((b % ~) (a - ~ a +)) (b *)
+ (b % ~) ((a - ~ a +) (b *))
+ (b % ~) (a - ~ ((a +) (b *)))
+ (b % ~) (a - ~) x
+ NB. alternatively (and going along the classical route)
+ (a0 , a1) + (b0 , b1) * t
+ (a0 , a1) + (b0 * t) , (b1 * t)
+ (x =: a0 + b0 * t) , (y =: a1 + b1 * t)
+ t
+ t * 1
+ t * (b0 % b0)
+ (t * b0) % b0
+ (b0 * t) % b0
+ (0 + b0 * t) % b0
+ ((- a0) + a0 + b0 * t) % b0
+ ((- a0) + x) % b0
+ (x - a0) % b0
+ t = (x - a0) % b0
+ t = (y - a1) % b1  NB. By a similar argument.
+prove the ordinary tacit form has x,y on the right
+ (x , y) = (A +) (B *) 
+ ]
+ (B % ~) (B *)
+ (B % ~ A - ~ A + B *)
+ (B % ~ A - ~) (x , y)
+ ] = (b0 % ~ a0 - ~) x
+ ] = (b1 % ~ a1 - ~) y
+ ((b0 % ~ a0 - ~) x) = ((b1 % ~ a1 - ~) y)
+ y = (a1 + b1 * b0 % ~ a0 - ~) x
+
+Trigonometry
+
+Radian Measure
+define x=mV p0 p1 p2 if *./(0&lt;:x),(x&lt;:o.1),(x%o.1)=(mclBV p1 1 p0 
+p2)%(mclB p1 1)
+prove if x=mV p0 p1 p2 then (mclB p1 1)=o.1r2 implies x=mclBV p1 1 p0 p2
+prove (deg x)=((o.1)%180)*(rad x)
+note from now on: radians only
+prove (x%o.1)=(mbdBV p0 1 p1 p2)%(mbdB p0 1)
+if x&gt;:o.2 then "x rad" means "w rad" with *./(0&lt;:w),(w&lt;o.2),(x=w+n*o.2)
+if *./(0&lt;z),(x=-z) then (rad x) means "w rad" with 
+*./(0&lt;:w),(w&lt;o.2),(z=(n*o.2)-w)
+
+Sine And Cosine
+if *. / (O p2 K p3) , (-. p3 = O) , (p3 = (a , b)) then "sine V p3 O (1,0)" is 
+b % r =: %: + / *: a , b
+"cosine V p3 O (1,0)" is a%r
+sine and cosine are independent of the point p3 (prove)
+geometrically this means that any two such triangles are similar
+if O 1 bdB p3=:a,b then (sine V p3 O (1,0))=b and (cosine V p3 O (1,0))=a
+for O 1 bdB p3=:(a,b) define (sine mV p3 O (1,0))=b and (cosine mV p3 O (1,0))=a
+the sign of sine and cosine depending on the quadrant its relevant angle 
+occupies
+Q1:+,+ Q2:-,+ Q3:-,- Q4:+,-
+if (LA p0 p1 p2) then (sin V p1 p0 p2)=(d p1 p2)%(d p0 p1)
+if (LA p0 p1 p2) then (cos V p1 p0 p2)=(d p0 p2)%(d p0 p1)
+"sin x" is (sine rad x)
+"cos x" is (cosine rad x)
+from the definition of rad (for an arbitrary angle) (sin x)=sin x+n*o.2
+(cos x) = cos x + n * o. 1
+using plane geometry and the Pythagorean theorem:
+=======================
+x      sin x    cos x
+-----------------------
+o.1r6  1r2      (%:3)%2
+o.1r41 %%:21    %%:2
+o.1r3  (%:3)%2  1r2
+o.1r2  1        0
+o.1    0        _1
+o.2    0        1
+=======================
+consider 1,1,%:2 and 1,(%:3),2 right triangles (and their angles)
+reflect o.1r6, o.1r3, o.1 over longest leg and compute
+if 1=$x then 1=+/*:(sin,cos)x since
+ 1
+ (*: r) % *: r
+ ((*: a) + *: b) % *: r
+ ((*: a)% *: r) + (*: b) % *: r
+ (*: a % r) + *: b % r
+ + / *: ((a % r) , b % r)
+ + / *: (sin x) , cos x
+ + / *: (sin , cos) x
+(cos x) = sin x + o. 1r2 and (sin x) = cos x - o. 1r2
+(sin - x) = - sin x and (cos x) = cos - x
+determine a distance using small angle measurements and a known length
+polar coordinates
+ r = %: + / *: x , y
+ V =: mV (x , y) O (1 , 0)
+ (x % r) = cos V
+ (y % r) = sin V
+
+The Graphs
+plot ] , sin
+
+The Tangent
+tan =: sin % cos
+tan only gives relevant information when -.0=cos
+if *. / (O p2 K p3) , (-. p3 = O) , (p3 = a , b) then (b % a) = tan mV p3 O p2
+tangent of the angle made by a line crossing the x-axis is the lines slope
+ plot ],tan
+we only plot tables of values
+cot=: % tan 
+sec=: % cos 
+cosec =: % sin
+1 = - / *: (tan , sec) x
+1 = - / *: (csc , cot) x
+
+Addition Formulas
+(sin x + y) = ((sin x) * cos y) + (cos x) * sin y
+(cos x + y) = ((cos x) * sin y) - (sin x) * sin y
+(sin x - y) = ((sin x) * cos y) - (cos x) * sin y
+(cos x - y) = ((cos x) * sin y) + (sin x) * sin y
+(sin +: x) = +: * / (sin , cos) x
+(cos +: x) = - / *: (cos , sin) x
+(*: cos x) = (1 + cos +: x) % 2 or (+: *: cos x) = 1 + cos +: x
+(*: sin x) = (1 - cos +: x) % 2 or (+: *: sin x) = 1 - cos +: x
+(* / sin (m , n) * x) = -: - / cos (m (- , +) n) * x
+(((sin m *) * (cos n *)) x) = -: + / sin (m (+ , -) n) * x
+(* / cos (m , n) * x) = -: - / cos (m (+ , -) n) * x
+
+Rotations
+Since (r , V + x) = O x oV r , V then
+ x0 = r * cos V
+ y0 = r * sin V
+ x1 = r * cos V + x
+ x1 = r * ((cos V) * cos x) - (sin V) * sin x
+ y1 = r * sin V + x
+ y1 = r * ((sin V) * cos x) + (sin V) * cos x
+ x1 = ((cos V) * x0) - (sin V) * y0
+ y1 = ((sin V) * x0) + (cos V) * y0
+the rotation matrix for x is 2 2 $ (cos , (- sin) , sin , cos) x
+dilation matrix compositions of actions as multiplications of matrices
+
+Some Analytic Geometry
+
+The Straight Line Again
+the plot of points for which c = F yields 1 is called the graph of F
+an arbitrary point on the graph of ]=a* has the form (1 , a) *
+a point on the graph of ] = (- ]) is of the form (1 , -1) *
+the graph of [ = (b + a *) is a straight line parallel to the graph of [ = a * ]
+ y1 =: y - b so y1 = a * x with points of the form (x , a * x) and [ = (b + a 
+*) are (] , (b + a *))
+the slope of a line that is the graph of [ = (b + a * ]) is a
+*. / (y0 = b + a * x0) , y1 = b + a * x1 implies *. / ((y1 - y0) = a * x1 - x0) 
+, a = (y1 - y0) % x1 - x0
+(a = (y - y0) % x - x0) iff ((y - y0) % x - x0) = (y1 - y0) % x1 - x0
+0 = c + (a * x) + b * y  equation of a line
+
+The Parabola
+(y - b) = c * (x - a) ^ 2 is called a parabola
+
+The Ellipse
+((a , b) *) shear dilation
+1 = + / *: (u % a) , (v % b) is an ellipse
+
+The Hyperbola
+c = x * y is a hyperbola
+
+Rotation Of Hyperbolas
+c = - / *: y , x
+</pre></body></html>
