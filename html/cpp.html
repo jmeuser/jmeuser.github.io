@@ -34,34 +34,10 @@ typedef void V;
 #define J(n,e...) {I j=0,_j=(n);F(;j&lt;_j;++j){e;}}
 #define K(n,e...) {I k=0,_k=(n);F(;k&lt;_k;++k){e;}}
 
-Type   Format b&gt; Range&gt;
-char   %c      8 schar|uchar
-schar  %c|%hhi 8 +-127
-uchar  %c|%hhu 8 0,255
-short  %hi    16 +-32767
-ushort %hu    16 0,65545
-int    %i|%d  16 +-32767
-uint   %u     16 0,4294967295
-long   %li    32 +-2147483647
-ulong  %lu    32 0,4294967295
-llong  %lli   64 +-9223372036854775807
-ullong %llu   64 0,18446744073709551615
-float  %f|%lf 32 +-3.4e38
-double %f|%lf 64 +-1.7e308
-
-// scanf, printf
-#include&lt;cstdio&gt;
-#define IN(e...) scanf(e)
-#define OUT(e...) printf(e)
-
-// Assert, Predicate, Error
-#define A(e...)   {if(!(e))R 0;} 
-#define P(c,e...) {if(c)R(e);}
-#define E(c,e...) {if(c)R OUT("ERROR: %s\n",(e)),(S)0;}
-
 
 
 Sources
 http://www.stroustrup.com/4th.html
 https://isocpp.org/
+http://en.cppreference.com/w/
 </pre></body></html>
