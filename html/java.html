@@ -56,25 +56,7 @@ s.nextString()  // return next String token of s
 s.nextLine()    // return next String line of s
 s.close()       // close s
 
-/*
-This example shows that you must be careful when reading tokens using a scanner.
-Reading a token that is "at" the end of a line does not put the scanner "past" 
-the new line character which is "really at" the end of a line.
-If you read an int from a string like "12\nHello\n" then a .nextLine() gives 
-"\n" not "Hello\n".
-*/
-import java.util.Scanner;
-public class temp{
- public static void main(String[] args){
-  String x;
-  x = "12\nHello World\n";
-  Scanner sc = new Scanner(x);
-  int y = sc.nextInt();
-  System.out.println(sc.nextLine()); // prints the newline character to stdout
-  String s = sc.nextLine();
-  System.out.printf("%-15s%05d%n",s,y);
- }
-}
+
 
 System.out.printf(fmt,x,y,z);
 

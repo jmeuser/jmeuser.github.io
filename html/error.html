@@ -8,6 +8,39 @@ Errors
 This is a list of errors that I've made.
 It is organize in reverse chronological order.
 
+20151108T1239 Java, Scanner, .nextInt(), .nextLine() and '\n'
+One must be careful when using a Scanner in order to get data of differing 
+types.
+Specifically, if you are using a Scanner to get an integer at the end of a 
+line, and then you want to read in the next line as a String you must remember 
+that .nextLine() will give you the remainder of the current line before it will 
+skip over a '\n' in order to get at the "next line".
+
+The following Java code showcases how you might work around this problem.
+In general, parsing is never as easy as it seems.
+
+/*
+This example shows that you must be careful when reading tokens using a scanner.
+Reading a token that is "at" the end of a line does not put the scanner "past" 
+the new line character which is "really at" the end of a line.
+If you read an int from a string like "12\nHello\n" then a .nextLine() gives 
+"\n" not "Hello\n".
+*/
+import java.util.Scanner;
+public class temp{
+ public static void main(String[] args){
+  String x;
+  x = "12\nHello World\n";
+  Scanner sc = new Scanner(x);
+  int y = sc.nextInt();
+  System.out.println(sc.nextLine()); // prints the newline character to stdout
+  String s = sc.nextLine();
+  System.out.printf("%-15s%05d%n",s,y);
+ }
+}
+
+
+
 
 
 20151104T1353 java is not javac
