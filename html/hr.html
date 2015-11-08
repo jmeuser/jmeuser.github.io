@@ -8,6 +8,90 @@ Hacker Rank Problems and Solutions
 https://www.hackerrank.com/jmeuser
 All problem statements are from www.hackerrank.com.
 
+All Domains  Java  Introduction  Java Stdin and Stdout 2
+Problem Statement
+In most of the problems in Hackerrank, you need to read input from stdin or 
+standard input and write your output in stdout or standard output.
+One way to take input from stdin is to use Scanner class and reading from 
+System.in. Alternatively, you can use BufferedReader class.
+You can write your output to stdout simply using System.out.printf function.
+In this problem you just need to read the inputs from stdin and print them in 
+stdout.
+
+Input Format:
+There will be three lines of input. The first line will have an integer. The 
+second line will have a double number. The last line will consist of a string.
+
+Output Format:
+Print the string in the first line, the double in the second line and the 
+integer in the third line. See the sample output for exact formatting. 
+To make the problem easier, some part of the code is already provided in the 
+editor. Note that Scanner's nextInt() method doesn't read the last newline 
+character of the input, you need to keep this in mind if you use nextLine() 
+after using nextInt().
+
+Solution (Java, 10m)
+
+import java.util.Scanner;
+public class Solution {
+ public static void main(String[] args) {
+  Scanner sc=new Scanner(System.in);
+  
+  int x=sc.nextInt();
+  double y =sc.nextDouble();
+  sc.nextLine(); // throw away rest of line after y
+  String s = sc.nextLine();
+
+  System.out.println("String: "+s);
+  System.out.println("Double: "+y);
+  System.out.println("Int: "+x);
+ }
+}
+
+
+
+All Domains  Java  Introduction  Java If-Else
+Problem Statement
+Given an integer N as input, check the following:
+If N is odd, print "Weird".
+If N is even and, in between the range of 2 and 5(inclusive), print "Not Weird".
+If N is even and, in between the range of 6 and 20(inclusive), print "Weird".
+If N is even and N&gt;20, print "Not Weird".
+We given you partially completed code in the editor, complete it to solve the 
+problem.
+
+Input Format
+There is a single line of input: integer N.
+
+Constraints 
+1&lt;=N&lt;=100
+
+Output Format
+Print "Weird" if the number is weird. Otherwise, print "Not Weird". Do not 
+print the quotation marks.
+
+Solution (Java, 2m)
+
+import java.util.Scanner;
+ public class Solution {
+  public static void main(String[] args) {
+   Scanner sc=new Scanner(System.in);
+   int n=sc.nextInt();            
+   String ans="";
+   if(n%2==1) ans = "Weird";
+   else {
+    if(2&lt;=n &amp;&amp; n&lt;=5)  ans = "Not Weird";
+    if(6&lt;=n &amp;&amp; n&lt;=20) ans = "Weird";
+    if(20&lt;n) ans = "Not Weird";                
+   }
+   System.out.println(ans);
+  }
+}
+
+
+
+
+
 All Domains  Java  Introduction  Java Stdin and Stdout 1
 Problem Statement
 In most of the Hackerrank challenges, you need to read input from stdin 
@@ -35,8 +119,6 @@ public class Solution {
     }
 
 }
-
-
 
 
 
