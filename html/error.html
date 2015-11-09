@@ -8,6 +8,30 @@ Errors
 This is a list of errors that I've made.
 It is organize in reverse chronological order.
 
+20151108T1321 Opening files in a specific application from within Terminal 
+Version 2.6 (361)
+Using the command
+
+$open x
+
+where x is a file name will open x in the whatever application the OS thinks is 
+appropriate for that file.
+Thus, if you input
+
+$open x.java
+
+the OS will take it upon itself to open this in Xcode (for example).
+Sadly, that is not what I wanted.
+I wanted to simply view a file x.java in TextEdit (I can't even remember why I 
+wanted to do this honestly).
+I discovered that the following solves the problem:
+
+$open -a TextEdit x.java
+
+
+
+
+
 20151108T1239 Java, Scanner, .nextInt(), .nextLine() and '\n'
 One must be careful when using a Scanner in order to get data of differing 
 types.

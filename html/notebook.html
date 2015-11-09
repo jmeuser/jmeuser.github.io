@@ -9,6 +9,249 @@ These are clumps of raw unprocessed thought dredged into words and maybe even
 sentences.
 They are organized as a stack i.e. the most recent note is at the top.
 
+20151108T1328 How I Solve Problems: An Example, Remove Specified Characters
+I solved the following problem using Java and I thought I would write about it 
+here:
+
+ Make an efficient method that eliminates characters from an ASCII string.
+
+This is a common problem, at least common in the sense that it's a simple 
+little question you might be asked in order to prove that you have the ability 
+to write a program that runs and accomplishes a mildly trivial task.
+I like little problems like this: they are kind of like solving a Sudoku puzzle 
+(something I used to do a lot of during my math classes in high school).
+
+My primary reason for being interested in this problem is that the solution 
+which came to my mind was deeply inspired by my work on my language N as well 
+as my experience with J and k.
+First, whenever I solve a problem I do my best to follow (rigorously) the 
+general problem solving method created by Polya:
+
+Understand the problem.
+Make a plan.
+Carry out the plan.
+Look back.
+
+To begin to understand a problem you must ask yourself three things:
+
+What is the unknown?
+What are the data?
+What are the constraints?
+
+If you can not identify the unknown of a problem then you have not even begun 
+to solve it.
+It is knowledge of the unknown that separates an unsolved problem from a solved 
+one.
+If you identify the unknown and it is familiar to you, then often that means 
+that you have solved the problem before, and that you can draw on that 
+experience to solve the problem at hand.
+If you do not have a clear description of the unknown, something that you've 
+written or described using your own language, then you must work towards 
+getting this most basic bit of understanding before jumping into making plans, 
+much less carrying out those plans.
+
+Here the unknown is, in its most general form, a method or algorithm.
+It is an answer to the question "What are the constraints?" that gives insight 
+into what makes the unknown algorithm unique.
+That is, there are plenty of algorithms, but there are only a few that satisfy 
+the constraints given to us.
+The principle constraint is that we must make an algorithm that eliminates 
+characters from a string.
+As an additional constraint we are asked to make the method "efficient".
+
+Now, by identifying the unknown and combining that knowledge with the 
+constraints we go from searching for an algorithm out of the unlimited number 
+of algorithm out there, to finding only those algorithms which eliminate 
+characters from a string, and among those we must find an algorithm that is 
+"efficient".
+
+The goal of eliminating characters from a string is less vague than the goal of 
+making such a method "efficient".
+It is often the vagueness of the term "efficient" that can lead to wildly 
+different solutions to the same general algorithmic problem.
+Some people might imagine efficiency as a purely temporal or spacial problem: 
+don't take too much time or don't take up too much space.
+Some people think of efficiency as a spatiotemporal problem: don't take up too 
+much space-time.
+
+Most people forget that efficiency is not simply a computational property: it's 
+a property that is so vague as to include a wide range of meaningful "metrics".
+We could measure efficiency using a "maintenance metric", that is, a 
+measurement of the amount of energy or effort needed to maintain the code along 
+side a vast collection of interwoven methods scattered across servers 
+throughout the globe.
+
+Whenever you are asked to make something, anything, "efficient" you are 
+immediately forced to seek out more specific design constraints.
+In most contexts you can assume that it's "good" to write code that not only 
+runs quickly without taking up too much space, but also makes this fact obvious 
+to anyone who reads your code.
+That is, you not only want to guarantee that your code runs without using too 
+much time or space, but also that it is easy for someone to come along and see 
+just why it is that your code "should" run fast without using much space.
+
+Sadly, even the most well written code in the world does not guarantee that the 
+method will ultimately perform well alongside all the other tasks being 
+completed by other methods competing for the same or nearby computational 
+resources.
+This is one of the reasons that testing and experimentation are unavoidable and 
+invaluable when developing something that must be "efficient".
+No matter what you feel you code should do, you must ask yourself "what are the 
+facts and what are the truths that the facts bare out".
+This is often where the answer to the question "What are the data?" comes into 
+play.
+
+The word "data" is a neutral term which is often just a sophisticated way of 
+referring to  "the facts".
+In this problem the most obvious fact is that we're working with ASCII 
+characters only.
+This might also be included as a constraint, but sometimes it's hard to 
+separate the two, sometimes it's not.
+The fact that we're working only with strings having ASCII characters is a 
+valuable one.
+This immediately makes it easier to write an "efficient" algorithm.
+
+There are 128 ASCII characters that are often interpreted as numerals from zero 
+to one hundred and twenty seven.
+In most modern computers numerals are represented using a form of binary 
+positional numeral notation.
+As a result, all 128 ASCII characters were encoded as seven bit binary digits 
+with 0000000 being the first ASCII character and 1111111 being the last.
+In today's computing world it is most common for the words of a computer to be 
+8, 16, 32, or 64 bit quantities.
+So ASCII is commonly put into an 8 bit word where 0000 0000 is the first ASCII 
+character and 0111 1111 is the last.
+The remaining numerals from 1000 0000 to 1111 1111 are often used when parsing 
+programming languages that use the ASCII character set in their source code 
+e.g. the digraphs of J are treated as single "characters" in Hui's 
+implementation of J.
+
+Ultimately, the relation between ASCII characters and our solution to this 
+problem is that since there are only 128 ASCII characters in total, we can 
+easily using a boolean array to make quick decisions as to whether a character 
+in a string should or should not be removed.
+(If we had more time to solve this problem we might wish to look up Bloom 
+Filters or other related structures for encoding the relation of belongingness 
+within a computer or the digits of a binary numeral).
+
+The plan thus far is:
+ Let s be an array of characters representing the input string.
+ Let r be an array of characters representing the characters to be removed from 
+s.
+ Let f be a binary array (boolean array) of length 128 each of whose atoms is 0.
+ Note, s is for string, r is for remove, and f is for flag.
+ For each character c in r change the c-th atom of f to 1.
+ Thus, if f[c] is 1 then c is a character that should be eliminated, otherwise 
+f[c] is 0 and c is a character that should be kept.
+
+Now all that is left to do is to go through each character c in s and decide 
+whether it should be eliminated based on the value of f[c].
+If none of the characters in s are in r then we would simply return s.
+So, if N is the number of characters in s then we must return an array of N 
+characters.
+We might want to create an array of N characters to which we will copy only 
+those characters of s that are not in r, but this would be a waste of space for 
+we already have an array of characters created that can be used to build the 
+output string, namely s.
+
+Suppose we created an output array of N characters, call it x.
+Let the vowels (excluding the letter 'y') be the characters to be eliminated 
+from the string "Hello World." .
+To make the discussion concrete, we will use Java:
+
+char[] s = "Hello World.".toCharArray();
+char[] r = {'a','e','i','o','u'};
+char[] x = new char[12]; // there are twelve characters in s
+
+It is part of Oracle's implementation of Java that the default value of a 
+character (and hence the characters in a new character array) is the unicode 
+sign denoted by '\u0000'.
+Although s does not contain the character '\u0000' it corresponds to the NUL 
+ASCII character with numeric value 0000 0000.
+As a result one can not simply return x after having copied only those 
+characters not in r from s to x.
+The returned string must be a slice of x.
+Each time when we copy a character from s to x that is not in r we must keep 
+track of what slice of x corresponds to the desired result.
+The index of the leftmost atom in the relevant slice of x is always 0 no matter 
+how many characters are transferred from s.
+The index of the rightmost atom of the relevant slice of x starts at 0, but is 
+incremented each time a character is copied from s to x by inserting it on the 
+right.
+This inspires the following method of copying.
+
+First we set up the flags.
+
+boolean[] f = new boolean[128]; // there are 128 ASCII characters 
+for(char c : r) {
+ f[c] = true;
+}
+
+Now we copy only those characters of s that are not in r using the boolean 
+array of flags f.
+
+int rightmost = 0;
+for(char c: s) {
+ if(!f[c]) {
+  rightmost++;
+  x[rightmost] = c;
+ }
+}
+
+Finally, we need only return that slice of x which contains the characters in s 
+not in r.
+
+return new String(x, 0, rightmost);
+
+Now that we have a working solution we can make it "efficient".
+Notice that if s is very long then it is wasteful to create a whole new array 
+of characters the same length as s, as we did with x in the method just 
+presented.
+Rather, we can use s as follows:
+
+int rightmost = 0;
+for(char c : s) {
+ if(!f[c]) {
+  rightmost++;
+  s[rightmost]=c;
+ }
+}
+
+The principle reason this method works is because the index of the character 
+being examined in s is always after the index rightmost.
+
+Here is a complete example implementation of a solution together with a main 
+method to run it all.
+
+public class temp{
+
+ public static void main(String[] args){
+  String x = "Hello, this is a sentence.";
+  String y = "aeiou";
+  System.out.println(x);
+  System.out.println(y);
+  String z = removeChars(x,y);
+  System.out.println(z);
+ }
+
+ public static String removeChars(String str, String rmv){
+  char[] s = str.toCharArray();
+  char[] e = rmv.toCharArray();
+
+  boolean[] f = new boolean[128]; // assumes ASCII
+  for(char c:e) f[c]=true;
+
+  int R = 0;
+  for(char c:s)
+   if(!f[c])
+    s[R++]=c;
+
+  return new String(s,0,R);
+ }
+}
+
+
+
 20151108T1249 Notes from now.html
 This is a record of what I had originally put into my list of things that I am 
 working on at the moment.
