@@ -8,6 +8,109 @@ Errors
 This is a list of errors that I've made.
 It is organize in reverse chronological order.
 
+20151109T1342 Java local variables are not Assigned default values to 
+uninitialized local variables
+While solving a Hacker Rank problem I came across the following interesting 
+error.
+I was under the false impression that Java gave default values to variables 
+that had been declared but not initialized, but this is not the case for local 
+variables.
+The error occurred while I was trying to run the following code:
+
+import java.util.Scanner;
+public class Solution {
+ public static void main(String[] args) {
+  Scanner sc = new Scanner(System.in);
+  long n = 0;
+  while(sc.hasNext()){
+   System.out.print(n+" "+sc.nextLine());
+   n++;
+  }
+ }
+}
+
+The error report from the compiler was as follows:
+
+Solution.java:7: error: variable n might not have been initialized
+   System.out.print(n+" "+sc.nextLine());
+                    ^
+1 error
+
+In this case the error message was absolutely correct: n had not been 
+initialized.
+In general, the lesson to learn from this error is to try not to use variables 
+without immediately initializing them to some "default" value.
+I would hope that future languages would always give a reasonable default value 
+so that we would be only left with "logical errors" rather than syntactic 
+errors.
+Contrary to popular belief, logical errors can be eliminated with appropriate 
+behavioral conditioning and have a larger pay off than the conditioning needed 
+to eliminate syntactic errors.
+
+The corrected code is as follows, but there is still an error (a logical one):
+
+import java.util.Scanner;
+public class Solution {
+ public static void main(String[] args) {
+  Scanner sc = new Scanner(System.in);
+  long n = 0;
+  while(sc.hasNext()){
+   System.out.print(n+" "+sc.nextLine());
+   n++;
+  }
+ }
+}
+
+In fact there are two logical errors.
+One of them is trivial, n needs to be initialized to 1 because I was asked to 
+label the lines with numerals beginning with the numeral 1 not the numeral 0.
+The other is that each line is to be printed on its own line (which seems 
+obvious), but I was under the impression that sc.nextLine() returned a string 
+which was terminated by a new line character, but running the code:
+
+import java.util.Scanner;
+public class Solution {
+ public static void main(String[] args) {
+  Scanner sc = new Scanner(System.in);
+  long n = 1;
+  while(sc.hasNext()){
+   System.out.print(n+" "+sc.nextLine());
+   n++;
+  }
+ }
+}
+
+Gives the following output:
+
+1 Hello world2 I am a file3 Read me until end-of-file.
+
+Which clearly shows that no new line character was captured at the end of the 
+String returned by sc.nextLine().
+The fix is in the following (finally) correct code:
+
+import java.util.Scanner;
+public class Solution {
+ public static void main(String[] args) {
+  Scanner sc = new Scanner(System.in);
+  long n = 1;
+  while(sc.hasNext()){
+   System.out.println(n+" "+sc.nextLine());
+   n++;
+  }
+ }
+}
+
+There is an alternate fix: instead of using println I could have simply 
+happened the newline character to the end myself using the code:
+
+System.out.print(n+" "+sc.nextline()+"\n");
+
+I don't know which is clearer: I suspect its the solution with println.
+
+
+
+
+
 20151109T1311 Java Literals: -9223372036854775808L is not -9223372036854775808
 While solving a Hacker Rank problem I came across another silly mistake that 
 has happened to me well before I started recording my errors systematically.
