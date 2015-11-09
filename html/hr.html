@@ -8,6 +8,95 @@ Hacker Rank Problems and Solutions
 https://www.hackerrank.com/jmeuser
 All problem statements are from www.hackerrank.com.
 
+All Domains  Java  Introduction  Java Loops
+Problem Statement
+In this problem you will test your knowledge of Java loops. Given three 
+integers a, b, and n, output the following series:
+a+2^0 *b,a+2^0*b+2^1*b,......,a+2^0b+2^1b+...+2^n−1b
+Input Format
+The first line will contain the number of testcases t. Each of the next t lines 
+will have three integers, a, b, and n.
+
+Constraints:
+0&lt;=a,b&lt;=50
+1&lt;=n&lt;=15
+
+Output Format
+Print the answer to each test case in separate lines.
+
+Solution (Java, 10m)
+import java.util.Scanner;
+public class Solution {
+ public static void main(String[] args) {
+  Scanner sc = new Scanner(System.in);
+  int t = sc.nextInt();
+  int a,b,n; // b,n &lt; a &lt; 50 + 15 * 2^14 * 50 = 12 288 050 &lt; 2 147 483 
+647
+  for(int i=0;i&lt;t;i++){
+   a = sc.nextInt();
+   b = sc.nextInt();
+   n = sc.nextInt();
+   for(int j=0; j&lt;n; j++){
+    a += b * Math.pow(2,j);
+    System.out.print(a+" ");
+   }
+   System.out.println();
+  }
+ }
+}
+
+
+
+
+
+All Domains  Java  Introduction  Java Output Formatting
+Problem Statement
+Java System.out.printf function allowes you to print formatted output. This 
+problem will test your knowledge on this topic.
+Take exactly 3 lines of input. Each line consists of a string and an integer. 
+Suppose this is the sample input:
+java 100
+cpp 65
+python 50
+The strings will have at most 10 alphabetic characters and the integers will 
+range between 0 to 999.
+In each line of output there should be two columns. The string should be in the 
+first column and the integer in the second column. This is the output for the 
+input above:
+================================
+java           100 
+cpp            065 
+python         050 
+================================
+The first column should be left justified using exactly 15 characters. The 
+integer of the second column should have exactly 3 digits. If the original 
+input has less than 3 digits, you should pad with zeros to the left.
+
+To make the problem easier, some part of the solution is already given in the 
+editor, just complete the remaining parts.
+
+Solution (Java, 5m)
+import java.util.Scanner;
+
+public class Solution {
+ public static void main(String[] args) {
+  Scanner sc=new Scanner(System.in);
+  System.out.println("================================");
+  String s1;
+  int x;
+  for(int i=0;i&lt;3;i++) {
+   s1=sc.next();
+   x=sc.nextInt();
+   System.out.printf("%-15s%03d%n",s1,x);
+  }
+  System.out.println("================================");
+ }
+}
+
+
+
+
+
 All Domains  Java  Introduction  Java Stdin and Stdout 2
 Problem Statement
 In most of the problems in Hackerrank, you need to read input from stdin or 

@@ -58,8 +58,14 @@ s.close()       // close s
 
 
 
-System.out.printf(fmt,x,y,z);
-
+System.out.format(fmt, args); // same as System.out.printf(fmt,args)
+out is a PrintStream and format(fmt, args) returns a PrintStream
+PrintStream extends FilterOutputStream which extends OutputStream which 
+represents an output stream of bytes.
+For information on the fmt see:
+https://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html#syntax
+http://web.cerritos.edu/jwilson/SitePages/java_language_resources/Java_printf_me
+thod_quick_reference.pdf
 
 Notation
 Items enclosed in square brackets are optional e.g. "[public] class ClassName 
