@@ -8,6 +8,60 @@ Hacker Rank Problems and Solutions
 https://www.hackerrank.com/jmeuser
 All problem statements are from www.hackerrank.com.
 
+All Domains  Java  Strings  Java Anagrams
+Problem Statement
+Two strings A and B are called anagrams if they consist same characters, but 
+may be in different orders. So the list of anagrams of CAT are "CAT", "ACT" , 
+"TAC", "TCA" ,"ATC" and "CTA.
+Given two strings, print "Anagrams" if they are anagrams, print "Not Anagrams" 
+if they are not. The strings may consist at most 50 english characters, the 
+comparision should NOT be case sensitive.
+This exercise will verify that you are able to sort the characters of a string, 
+or compare frequencies of characters.
+
+Solution (Java, 15m)
+Not the best solution, but a working one is better than nothing.
+I'm trying to solve problems and just move on rather than get caught up on any 
+specific one.
+
+import java.util.Scanner;
+
+public class Solution {
+
+   static boolean isAnagram(String A, String B) {
+       // start my code
+       int[] f = new int[26];
+       if(A.length()!=B.length())
+           return false;
+       for(char c : A.toLowerCase().toCharArray())
+           f[c-'a']++;
+       for(char c : B.toLowerCase().toCharArray())
+           if((f[c-'a']--)&lt;0)
+            return false;
+       for(int n:f)
+           if(0&lt;n)
+            return false;
+       return true;
+       // end my code
+   }
+    public static void main(String[] args) {
+        
+        Scanner sc=new Scanner(System.in);
+        String A=sc.next();
+        String B=sc.next();
+        boolean ret=isAnagram(A,B);
+        if(ret)System.out.println("Anagrams");
+        else System.out.println("Not Anagrams");
+        
+    }
+}
+
+
+
+
+
+
+
 All Domains  Java  Strings  Java String Reverse
 Problem Statement
 Given a string A, print "Yes" if it is a palindrome, print "No" otherwise. The 
