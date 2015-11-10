@@ -8,6 +8,84 @@ Errors
 This is a list of errors that I've made.
 It is organize in reverse chronological order.
 
+20151109T1859 Java Comparing Strings
+While solving a Hacker Rank problem I came upon an interesting error.
+It is somewhat logical, somewhat syntactic.
+I believe the correct name for this type of bug is "Interface Bug".
+I was using an interface incorrectly.
+The moral of the story is that when you use a method make sure you understand 
+its return behavior, otherwise weird things can happen (things that you can 
+only catch by testing).
+
+As part of a problem I was asked to compare one string to another and report if 
+the one came after the other.
+Let A be the first string.
+Let B be the second string.
+I was comparing A to B using the following code:
+
+A.compareTo(B)
+
+The book I was reading described the compareTo method as follows:
+
+"
+Compares this string to another string, using alphabetical order.
+Returns -1 if this string comes before the other string, 0 if the strings are 
+the same, and 1 if this string comes after the other string.
+" Lowe Java All-in-One For Dummies 4th Edition pg. 353
+
+This is not flat out WRONG.
+
+Here is the specification from Oracle's documentation of String's methods:
+
+"
+Returns:
+the value 0 if the argument string is equal to this string; a value less than 0 
+if this string is lexicographically less than the string argument; and a value 
+greater than 0 if this string is lexicographically greater than the string 
+argument.
+" 
+https://docs.oracle.com/javase/8/docs/api/java/lang/String.html#compareTo-java.l
+ang.String-
+
+The way that I found this out is when I tried to submit the following solution:
+
+import java.util.Scanner;
+public class Solution {
+  private static String firstToUpperCase(String x){
+   return x.substring(0,1).toUpperCase()+x.substring(1);
+  }
+  public static void main(String[] args) {  
+   Scanner sc=new Scanner(System.in);
+   String A=sc.next();
+   String B=sc.next();
+   System.out.println(A.length()+B.length());
+   System.out.println(1==A.compareTo(B)?"Yes":"No"); // THIS IS WRONG!!!!!
+   System.out.println(firstToUpperCase(A)+" "+firstToUpperCase(B));        
+  }
+}
+
+As you can see, I compared the result of A.compareTo(B) to the value 1 rather 
+than testing if it was greater than 1.
+The code 1==A.compareTo(B) gives false negatives.
+The corrected code is below:
+
+import java.util.Scanner;
+public class Solution {
+  private static String firstToUpperCase(String x){
+   return x.substring(0,1).toUpperCase()+x.substring(1);
+  }
+  public static void main(String[] args) {  
+   Scanner sc=new Scanner(System.in);
+   String A=sc.next();
+   String B=sc.next();
+   System.out.println(A.length()+B.length());
+   System.out.println(0&lt;A.compareTo(B)?"Yes":"No"); // This Works As Intended
+   System.out.println(firstToUpperCase(A)+" "+firstToUpperCase(B));        
+  }
+}
+
+
+
 20151109T1342 Java local variables are not Assigned default values to 
 uninitialized local variables
 While solving a Hacker Rank problem I came across the following interesting 

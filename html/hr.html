@@ -8,6 +8,122 @@ Hacker Rank Problems and Solutions
 https://www.hackerrank.com/jmeuser
 All problem statements are from www.hackerrank.com.
 
+All Domains  Java  Strings  Java Strings Introduction
+Problem Statement
+A string is traditionally a sequence of characters, either as a literal 
+constant or as some kind of variable. (Wikipedia)
+In this problem we will test your knowledge of Java Strings. A string can be 
+declared in following way:
+String my_string="Hello World!"
+Each elements of a string is called a character. Number of characters in a 
+string is called string length.
+In this problem you wil be given two strings A and B as input. They will 
+contain only lower case english letters. You have to answer the following 
+questions:
+
+What is the total length of string A and B?
+Is string A lexicographically larger than than B? print "Yes" or "No".
+Make first letter of both the strings uppercase and print them in a single line 
+seperated by a space.
+[Note: Lexicographic order is also known as alphabetic order dictionary order. 
+So "ball" is smaller than "cat", "dog" is smaller than "dorm" and "dogg". ]
+
+Sample Input
+ hello
+ java
+
+Sample Output
+9
+No
+Hello Java
+
+Solution (Java, 15m)
+
+import java.util.Scanner;
+
+public class Solution {
+
+  private static String firstToUpperCase(String x){
+   return x.substring(0,1).toUpperCase()+x.substring(1);
+  }
+
+  public static void main(String[] args) {  
+   Scanner sc=new Scanner(System.in);
+   String A=sc.next();
+   String B=sc.next();
+   System.out.println(A.length()+B.length());
+   System.out.println(0&lt;A.compareTo(B)?"Yes":"No");
+   System.out.println(firstToUpperCase(A)+" "+firstToUpperCase(B));        
+  }
+}
+
+
+
+All Domains  Java  Introduction  Java Static Initializer Block
+Problem Statement
+Static initialization blocks are executed when the class is loaded, and you can 
+initialize static variables in those blocks.
+It's time to test your knowledge of Static initialization blocks. You can read 
+about it here.
+You are given a class Solution with a main method. Complete the given code so 
+that it outputs the area of a parallelogram with breadth B and height H. You 
+should read the variables from the standard input.
+If B&lt;=0 or H &lt;=0, the output should be "java.lang.Exception: Breadth and 
+height must be positive" without quotes.
+
+Input Format
+There are two lines of input. The first line contains B: the breadth of the 
+parallelogram. The next line contains H: the height of the parallelogram.
+
+Constraints 
+−100&lt;=B&lt;=100 
+−100&lt;=H&lt;=100
+
+Output Format
+If both values are greater than zero, then the main method must output the area 
+of the parallelogram. Otherwise, print "java.lang.Exception: Breadth and height 
+must be positive" without quotes.
+
+Solution (Java, 15m)
+
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+//begin my code
+private static Scanner sc = new Scanner(System.in);
+private static boolean flag = false;
+
+public static int B,H;
+static{
+    B = sc.nextInt();
+    H = sc.nextInt();
+    if(0&lt;B &amp;&amp; 0&lt;H)
+        flag = true;
+    else
+        System.out.println("java.lang.Exception: Breadth and height must be 
+positive");
+}
+//end my code
+
+public static void main(String[] args){
+		if(flag){
+			int area=B*H;
+			System.out.print(area);
+		}
+		
+	}//end of main
+
+}//end of class
+
+
+
+
+
 All Domains  Java  Introduction  Java End-of-file
 Problem Statement
 In computing, End Of File (commonly abbreviated EOF) is a condition in a 
