@@ -8,6 +8,41 @@ Errors
 This is a list of errors that I've made.
 It is organize in reverse chronological order.
 
+20151110T1449 Error in Lowe's Java All-in-One For Dummies 4th Edition pg. 353
+Though I mentioned this error in my 20151109T1859 note, I want to give it its 
+own note.
+The following excerpt from Lowe's Java All-in-One For Dummies 4th Edition on 
+pg. 353 contradicts Oracles official documentation of Java Platform SE 8 (which 
+is printed below the erroneous information):
+
+"
+int compareTo(String)
+
+Compares this string to another string, using alphabetical order.
+Returns -1 if this string comes before the other string, 0 if the strings are 
+the same, and 1 if this string comes after the other string.
+" Lowe Java All-in-One For Dummies 4th Edition pg. 353
+
+This is not flat out WRONG.
+
+Here is the specification from Oracle's documentation of String's methods:
+
+"
+public int compareTo(String anotherString)
+..
+Returns:
+the value 0 if the argument string is equal to this string; a value less than 0 
+if this string is lexicographically less than the string argument; and a value 
+greater than 0 if this string is lexicographically greater than the string 
+argument.
+" 
+https://docs.oracle.com/javase/8/docs/api/java/lang/String.html#compareTo-java.l
+ang.String-
+
+
+
+
+
 20151109T1859 Java Comparing Strings
 While solving a Hacker Rank problem I came upon an interesting error.
 It is somewhat logical, somewhat syntactic.
