@@ -8,6 +8,72 @@ Hacker Rank Problems and Solutions
 https://www.hackerrank.com/jmeuser
 All problem statements are from www.hackerrank.com.
 
+All Domains  Java  Strings  Java String Reverse
+Problem Statement
+Given a string A, print "Yes" if it is a palindrome, print "No" otherwise. The 
+strings will consist lower case english letters only. The strings will have at 
+most 50 characters.
+
+Solution (Java, 20m with live music at Starbucks)
+import java.util.Scanner;
+public class Solution {
+    private static boolean P(String x){
+        return 0==x.compareTo(new StringBuilder(x).reverse().toString());
+    }
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        String A= sc.next();
+        System.out.println(P(A)?"Yes":"No");
+    }
+}
+
+
+
+
+
+All Domains  Java  Strings  Java String Compare
+Problem Statement
+Given a string, find out the lexicographically smallest and largest substring 
+of length k.
+[Note: Lexicographic order is also known as alphabetic order dictionary order. 
+So "ball" is smaller than "cat", "dog" is smaller than "dorm". Capital letter 
+always comes before smaller letter, so "Happy" is smaller than "happy" and 
+"Zoo" is smaller than "ball".]
+
+Input Format
+First line will consist a string containing english alphabets which has at most 
+1000 characters. 2nd line will consist an integer k.
+
+Output Format
+In the first line print the lexicographically minimum substring. In the second 
+line print the lexicographically maximum substring.
+
+Solution (Java, 15m)
+import java.util.Scanner;
+public class Solution{
+    private static String maxString(String A, String B){
+        return 0&lt;A.compareTo(B)?A:B;
+    }
+    private static String minString(String A, String B){
+        return 0&lt;A.compareTo(B)?B:A;
+    }
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        String s = sc.next();
+        int k = sc.nextInt();
+        String m,M; m = M = s.substring(0,k);
+        for(int i=1;i&lt;s.length()-k+1;++i){
+            m = minString(m,s.substring(i,i+k));
+            M = maxString(M,s.substring(i,i+k));
+        }
+        System.out.println(m);
+        System.out.println(M);
+    }
+}
+
+
+
+
 All Domains  Java  Strings  Java Strings Introduction
 Problem Statement
 A string is traditionally a sequence of characters, either as a literal 
