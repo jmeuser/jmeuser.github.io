@@ -6,11 +6,14 @@ href="http://fonts.googleapis.com/css?family=Inconsolata">
 <body><pre>
 Data Structures
 
-Words, Nodes, Fields, Links
-A word is the unit of data of a CPU.
-A node is one or more consecutive words of memory.
-Node words are split into named parts called fields.
-The address of a node is the location in memory of its first word.
+CPUs act on words.
+Words have size and position.
+Fields have value.
+The value of a  word is the value of its largest field.
+Memory is the collection of positions of words upon which the CPU can act.
+
+A node is one or more consecutive words.
+The address of a node is the position of its first word.
 
 Linear Lists
 The n nodes of a linear list are labeled by 0,1,...,n-1.
