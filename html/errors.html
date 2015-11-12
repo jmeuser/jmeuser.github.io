@@ -8,6 +8,80 @@ Errors
 This is a list of errors that I've made.
 It is organize in reverse chronological order.
 
+20151112T1536 Parsing an IP address with Regex
+In a Hacker Rank problem I was asked to check whether a string was a valid IP 
+address.
+The definition of IP address was given as follows
+"
+IP address is a string in the form "A.B.C.D", where the value of A, B, C, and D 
+may range from 0 to 255. Leading zeros are allowed. The length of A, B, C, or D 
+can't be greater than 3.
+" https://www.hackerrank.com/challenges/java-regex
+
+I used the following regex to match strings representing numbers from 0-255 
+which allow leading zeros:
+
+(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])
+
+One could also separate it out so its more "logical" and less "regex-tricky" as 
+follows:
+
+(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|0?1[0-9]|0?0?[0-9])
+
+Ultimately, I used the previous regex to produce the following (ERRONEOUS) code:
+
+class myRegex{
+    public String pattern = 
+"^(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9]\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0
+-9])$";
+}
+
+Although, even that erroneous code was the result of learning from a previous 
+mistake (You must use the escape sequence \\ to put a \ in the regex so that 
+you can use the regex escape sequence \. to represent a period... so many 
+layers of nested escape sequences can bring a person to the brink if you don't 
+take things slow or experiment/test your proposed solutions to a problem).
+
+Now, as I said, the previous code is wrong, and it took me a long while to 
+figure out what was missing.
+It's one of those "You'll figure it out if you stare at it long enough" kind of 
+things.
+More importantly, as I was writing this error report I realized that if I had 
+just written out what I was thinking then I would have avoided the error.
+Here is the corrected solution, just to see if you can even notice the 
+difference between the right answer and the wrong answer.
+
+class myRegex{
+    public String pattern = 
+"^((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?
+[0-9])$";
+}
+
+If you've spotted it then you might have spent just as much time staring at it 
+as I did.
+The difference is a pair of parenthesis.
+Specifically the error was written this way
+
+(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9]\\.){3}
+
+When it should have been written this way:
+
+((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}
+
+The reason is that each of the 3 initial parts of an ip address must contain a 
+tailing period.
+The incorrect code made the period only a part of the [01]?[0-9]?[0-9]\\. part 
+of the "X|Y|Z" statement.
+
+The broad error that I made here was not clearly separating the "Make a plan." 
+and "Carry out the plan." parts of Polya's general problem solving process.
+I was carrying out the plan at the same time I was making it, and that always 
+leads to lost steps in carrying out the plan.
+
+
+
+
+
 20151110T1449 Error in Lowe's Java All-in-One For Dummies 4th Edition pg. 353
 Though I mentioned this error in my 20151109T1859 note, I want to give it its 
 own note.
