@@ -4,7 +4,6 @@ href="http://fonts.googleapis.com/css?family=Inconsolata">
  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen">
 </head>
 <body><pre>
-Alphabet
 a b c  1 2 3  A B C
 d : e  4 5 6  D ; E
 f g h  7 8 9  F G H
@@ -17,10 +16,9 @@ u v w  @ " &amp;  U V W
 x y z  ` ^ '  X Y Z
 [ { (  / ~ \  ) } ]
 
-Vocabulary
 !  
 " quote
-# take     shape
+# take(read) shape
 $          reverse|transpose
 % quotient isqrt
 &amp; copy     where
@@ -34,10 +32,10 @@ $          reverse|transpose
 : is
 ; link
 &lt; min      box
-= pd       (abs?)
+= pd
 &gt; max      unbox
 ?          
-@            
+@          atom
 \ 
 ^ redo
 _ base     floor
@@ -45,38 +43,27 @@ _ base     floor
 | digits   numerals
 ~ similar  evaluate
 
-Design
-fast
-clear
-exact
-simple
-general
-mnemonic
-idiomatic
-unavoidable
-N-dimensional
+Transformation Rules
+pronoms   m n
+verbs     f g h
+sentences M N Q R
 
-Rules of the Similarity Calculus (using bracket notation i.e. variables)
-m,n are variable signs
-f,g,h stand for verbs
-M,N,Q,R stand for sentences
+    [f n] ~ [g n]
+    -------------
+    (f N) ~ (g N)
 
-     [f n] ~ [g n]
-     -------------
-     (f N) ~ (g N)
+  [m f n] ~ [m g n]
+  -----------------
+  (M f N) ~ (M g N)
 
-   [m f n] ~ [m g n]
-   -----------------
-   (M f N) ~ (M g N)
+        M ~ N
+    -------------
+    (f M) ~ (f N)
 
-         M ~ N
-     -------------
-     (f M) ~ (f N)
-
-         M ~ N
-         Q ~ R
-   -----------------
-   (M f N) ~ (Q f R)
+        M ~ N
+        Q ~ R
+  -----------------
+  (M f N) ~ (Q f R)
 
         N ~ Q
         N ~ R
@@ -110,21 +97,21 @@ It is included here for the sake of completeness and exactness.
 It is also included to show how removing space practically eliminates human 
 readability.
 
-         (f N) ~ (f(N))
-       (f g N) ~ (f(g(N)))
-     (f g h N) ~ (f(g(h(N))))
+        (f N) ~ (f(N))
+      (f g N) ~ (f(g(N)))
+    (f g h N) ~ (f(g(h(N))))
 
-       ((f) N) ~ (f(N))
-     ((f g) N) ~ (f(g(N)))
-   ((f g h) N) ~ (f(g(h(N))))
+      ((f) N) ~ (f(N))
+    ((f g) N) ~ (f(g(N)))
+  ((f g h) N) ~ (f(g(h(N))))
 
-       (M f N) ~ ((M)f(N))
-     (M f g N) ~ (f((M)g(N)))
-   (M f g h N) ~ (((M)f(N))g((M)h(N)))
+      (M f N) ~ ((M)f(N))
+    (M f g N) ~ (f((M)g(N)))
+  (M f g h N) ~ (((M)f(N))g((M)h(N)))
 
-     (M (f) N) ~ ((M)f(N))
-   (M (f g) N) ~ (f((M)g(N)))
- (M (f g h) N) ~ ((((M)f(N))g((M)h(N)))
+    (M (f) N) ~ ((M)f(N))
+  (M (f g) N) ~ (f((M)g(N)))
+(M (f g h) N) ~ ((((M)f(N))g((M)h(N)))
 
 Copyright John Meuser 2015
 </pre></body></html>
