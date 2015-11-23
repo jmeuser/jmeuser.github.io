@@ -1,2 +1,2 @@
 # jmeuser.github.io
-# John Meuser's Home Page
+John Meuser's Home Page
