@@ -38,12 +38,12 @@ typedef void V;
 #include&lt;stdio.h&gt;
 #define GC()    getchar()
 #define PC()    putchar()
-#define S(e...) scanf(e)
-#define P(e...) printf(e)
+#define SF(e...) scanf(e)
+#define PF(e...) printf(e)
 
 // Assert, Predicate, Error
 #define A(e...)   {if(!(e))R 0;} 
-#define Q(c,e...) {if(c)R(e);}
+#define P(c,e...) {if(c)R(e);}
 #define E(c,e...) {if(c)R P("ERROR: %s\n",(e)),(S)0;}
 
 Type   Format b&gt; Range&gt;
