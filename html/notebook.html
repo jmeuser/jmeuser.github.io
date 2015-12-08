@@ -9,6 +9,46 @@ These are clumps of raw unprocessed thought dredged into words and maybe even
 sentences.
 They are organized as a stack i.e. the most recent note is at the top.
 
+20151207T2002 My First Answer to a Stack Overflow Question
+The question can be found here: 
+http://stackoverflow.com/questions/30787453/can-you-pass-a-struct-fieldname-in-t
+o-a-function-in-golang/34146666#34146666
+
+It asked if it was possible to pass a field name as a value to a function. This 
+is my solution:
+
+Use type assertions on an interface value:
+
+package main
+
+import "fmt"
+
+type Test struct {
+    S string
+    I int
+}
+
+func (t *Test) setField(name string, value interface{}) {
+    switch name {
+        case "S":
+            t.S = value.(string)
+        case "I":
+            t.I = value.(int)
+    }
+}
+
+func main() {
+    t := &amp;Test{"Hello", 0}
+    fmt.Println(t.S, t.I)
+    t.setField("S", "Goodbye")
+    t.setField("I", 1)
+    fmt.Println(t.S, t.I)
+}
+
+
+
+
+
 20151205T1743 Constructive Formalism
 Constructive formalism reduces logic to mathematics by identifying a 
 constructive (or finite) proof as a formal demonstration in a transformation 
