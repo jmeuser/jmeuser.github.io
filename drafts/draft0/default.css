@@ -1,0 +1,23 @@
+body {
+  font: normal 300 .8em'Open Sans', sans-serif;
+  overflow-x:hidden;
+}
+ol {
+  width: 500px;
+  margin: 0 auto 0 auto;
+  background-color: #999;
+  height: 20px;
+  display: block;
+}
+li {
+  display:inline;
+  margin: 0 1.5% 0 1.5%;
+  width: 30%;
+}
+ol a {
+  color: white;
+  text-decoration: none;
+}
+ol a:hover {
+  color: #333;
+}
