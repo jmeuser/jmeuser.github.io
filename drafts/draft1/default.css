@@ -1,7 +1,7 @@
 body {
  background-color: #002B36;
  font-family: "Arial";
- font-size: 16px;
+ font-size: 15px;
  color: #839496;
 }
 
@@ -11,7 +11,7 @@ nav {
  top: 0;
  right: 0;
  left: 0;
- height: 65px;
+ height: 95px;
  width: 100%;
  min-width: 320px;
  display: block;
@@ -50,7 +50,7 @@ a:hover {
 }
 
 p {
-  margin: 80px 0 0 0;
+  margin: 120px 0 0 0;
 }
 
 
