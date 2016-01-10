@@ -1,8 +1,8 @@
 body {
- background-color: #FC3;
+ background-color: #FFDD8B;
  font-family: "Arial";
  font-size: 16px;
- color: #000;
+ color: #532B08;
 }
 
 nav {
@@ -37,7 +37,7 @@ nav li {
 }
 
 nav a.down {
- color: #E00;
+ color: #ED5027;
 }
 
 
@@ -47,7 +47,7 @@ a {
 }
 
 a:hover {
- color: #E00;
+ color: #ED5027;
 }
 
 p {
