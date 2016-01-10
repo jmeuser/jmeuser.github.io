@@ -1,8 +1,8 @@
 body {
- background-color: #FFDD8B;
+ background-color: #FCF7D9;
  font-family: "Arial";
  font-size: 16px;
- color: #532B08;
+ color: #4D3124;
 }
 
 nav {
@@ -42,7 +42,7 @@ nav a.down {
 
 
 a {
- color: #FFF;
+ color: #B4AD8B;
  text-decoration: none;
 }
 
