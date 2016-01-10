@@ -1,8 +1,8 @@
 body {
- background-color: #002B36;
+ background-color: #FFCC00;
  font-family: "Arial";
- font-size: 15px;
- color: #839496;
+ font-size: 16px;
+ color: #000;
 }
 
 nav {
@@ -11,7 +11,7 @@ nav {
  top: 0;
  right: 0;
  left: 0;
- height: 95px;
+ height: 110px;
  width: 100%;
  min-width: 320px;
  display: block;
@@ -27,6 +27,7 @@ nav ol {
 
 nav li {
  text-align: center;
+ font-size: 30px;
  display: inline;
  width: 33.33%;
  height: 100%;
@@ -36,21 +37,21 @@ nav li {
 }
 
 nav a.down {
- color: #268BD2;
+ color: #E00000;
 }
 
 
 a {
- color: #CB4B16;
+ color: #FFF;
  text-decoration: none;
 }
 
 a:hover {
- color: #268BD2;
+ color: #E00000;
 }
 
 p {
-  margin: 120px 0 0 0;
+  margin: 140px 0 0 0;
 }
 
 
