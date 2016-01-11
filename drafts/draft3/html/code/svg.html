@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name = "viewport" content = "width = device-width">
+    <link rel="stylesheet" href="../css/math.css">
+    <title>jmeuser</title>
+  </head>
+  <body>
+
+    <header>
+      <h1><a href="../main.html">Constructive Formalism</a></h1>
+      <nav>
+        <ul>
+          <li><a href="../math.html">MATH</a>
+          <li><a href="../art.html">ART</a>
+          <li><a href="../code.html">CODE</a>
+        </ul>
+      </nav>
+    </header>
+
+    <h1>Scalable Vector Graphics (SVG)</h1>
+
+    <p> Scalable Vector Graphics (SVG) is a language for telling  computers what role basic graphics play in a document.</p>
+
+    <section>
+      <h2>Contents</h2>
+      <nav>
+        <ol>
+          <li>The Canvas
+        </ol>
+      </nav>
+    </section>
+
+    <section>
+    <h2>The Canvas</h2>
+    <p>As in art, SVG graphics are drawn on a canvas.</p>
+
+    <div>
+      <h3>Example</h3>
+      <p>This canvas has a width of 300px and a height of 100px. The perimeter of a rectangle, with width and height equal to those of the canvas, is drawn in black.</p> 
+      <div>
+        <svg
+          width="300px"
+          height="100px"
+        >
+          <rect
+            x="0px"
+            y="0px"
+            width="300px"
+            height="100px"
+            fill="transparent" 
+            stroke="black" 
+            stroke-width="1px"
+         />
+        </svg> 
+
+        <h4>Code</h4>
+        <code>
+          &#60;svg
+            width="300px"
+            height="100px"
+          &#62;
+            &#60;rect
+              x="0px"
+              y="0px"
+              width="300px"
+              height="100px"
+              fill="transparent" 
+              stroke="black" 
+              stroke-width="1px"
+            /&#62;
+          &#60;/svg&#62;
+        </code>
+      </div>
+    </div>
+
+    <div>
+      <h3>Example</h3>
+      <p>This canvas has a width of 300px and a height of 100px. The perimeter of a rectangle, this time with a width and height 2px less than those of the canvas, is drawn in black.</p> 
+      <div>
+        <svg
+          width="300px"
+          height="100px"
+        >
+          <rect
+            x="1px"
+            y="1px"
+            width="298px"
+            height="98px"
+            fill="transparent" 
+            stroke="black" 
+            stroke-width="1px"
+         />
+        </svg> 
+
+        <h4>Code</h4>
+        <code>
+          &#60;svg
+            width="300px"
+            height="100px"
+          &#62;
+            &#60;rect
+              x="1px"
+              y="1px"
+              width="298px"
+              height="98px"
+              fill="transparent" 
+              stroke="black" 
+              stroke-width="1px"
+            /&#62;
+          &#60;/svg&#62;
+        </code>
+      </div>
+    </div>
+    </section>
+
+  </body>
+</html>
