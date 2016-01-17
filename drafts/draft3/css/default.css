@@ -1,17 +1,17 @@
 body {
- background-color: #DCE0E6;
+ background-color: #FFDD63;
  font-family: "Arial";
  font-size: 12pt;
- color: #1F1F20;
+ color: black;
 }
 
 h1, h2, h3, h4, h5, h6 {
- color: #606D80;
+ color: #E83405;
 }
 
 
 a {
- color: #567EBB;
+ color: #026F8C;
  text-decoration: none;
 }
 a:hover {
