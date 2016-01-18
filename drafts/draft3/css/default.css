@@ -1,19 +1,23 @@
 body {
- background-color: #FFDD63;
+ background-color: #FD6;
  font-family: "Arial";
  font-size: 12pt;
  color: black;
 }
 
 h1, h2, h3, h4, h5, h6 {
- color: #E83405;
+ color: #F00;
 }
 
 
 a {
- color: #026F8C;
+ color: #00F;
  text-decoration: none;
 }
 a:hover {
- color: #E83405;
+ color: #F00;
+}
+
+ul li {
+ list-style:none;
 }
