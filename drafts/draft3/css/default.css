@@ -1,21 +1,27 @@
 body {
- background-color: #FD6;
+ background-color: #FFF;
  font-family: "Arial";
  font-size: 12pt;
- color: black;
+ color: #000;
 }
 
 h1, h2, h3, h4, h5, h6 {
- color: #F00;
+ color: #ED1C24;
 }
 
 
 a {
  color: #00F;
  text-decoration: none;
+ padding: 2px;
+ border: 1px solid transparent;
+ margin: 1px;
 }
 a:hover {
- color: #F00;
+ color: #00F;
+ padding: 2px;
+ border: 1px solid #00F;
+ margin: 1px;
 }
 
 ul li {
