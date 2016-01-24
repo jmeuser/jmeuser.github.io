@@ -5,36 +5,46 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
- color: #ED1C24;
 }
 
 
 a {
- color: #00F;
+ color: #FFF;
+ background: #666;
  text-decoration: none;
- padding: 1px;
- border: 1px solid transparent;
- margin: 1px;
 }
 a:hover {
- color: #00F;
- padding: 1px;
- border: 1px solid #00F;
- margin: 1px;
+ color: #000;
+ background-color:#EEE;
 }
 
-ul,ol{
+ol, ul{
  display: flex;
  flex-direction: column;
- justify-content: space-between;
+ justify-content: space-around;
+}
+
+li{
+ margin: 1% 0 1% 0;
 }
 
 ul li {
- list-style:none;
+ list-style: none;
+}
+
+header {
+ width: 100%;
 }
 
 header nav {
  display: flex;
  justify-content: space-around;
- font-size: 200%;
+ font-size: 300%;
+}
+
+header nav a {
+ display:flex;
+ flex:auto;
+ justify-content: space-around;
+ margin: 0 1% 0 1%;
 }
