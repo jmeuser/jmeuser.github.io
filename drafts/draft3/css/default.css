@@ -1,7 +1,6 @@
 body {
  background-color: #FFF;
- font-family: "Arial";
- font-size: 12pt;
+ font: 12pt "Arial";
  color: #000;
 }
 
@@ -13,17 +12,29 @@ h1, h2, h3, h4, h5, h6 {
 a {
  color: #00F;
  text-decoration: none;
- padding: 2px;
+ padding: 1px;
  border: 1px solid transparent;
  margin: 1px;
 }
 a:hover {
  color: #00F;
- padding: 2px;
+ padding: 1px;
  border: 1px solid #00F;
  margin: 1px;
 }
 
+ul,ol{
+ display: flex;
+ flex-direction: column;
+ justify-content: space-between;
+}
+
 ul li {
  list-style:none;
+}
+
+header nav {
+ display: flex;
+ justify-content: space-around;
+ font-size: 200%;
 }
