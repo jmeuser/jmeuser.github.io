@@ -1,0 +1,21 @@
+.rows {
+ width: 100%;
+ display: flex;
+ flex-flow:row wrap;
+ justify-content: flex-start;
+ align-content: flex-start;
+}
+
+.columns {
+ height: 100%;
+ display: flex;
+ flex-flow:column wrap;
+ justify-content: flex-start;
+ align-content: flex-start;
+}
+
+.item {
+ padding:1em;
+ margin:.5em;
+ border: .1em solid black;
+}
