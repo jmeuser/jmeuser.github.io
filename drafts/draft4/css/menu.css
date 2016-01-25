@@ -9,28 +9,12 @@ body {
  color: #000;
 }
 
-.item {
- display:flex;
- flex-flow:column nowrap;
- justify-content: center;
- align-items: center;
-}
-
 a {
  text-decoration: none;
-
  font-size:6em;
- padding: 0em .25em;
-
- 
- background: #DDD;
- color: #444;
- border: 1px solid transparent;
-
+ color: #999;
 }
 
 a:hover {
- background:#DDD;
  color: #444;
- border: 1px solid #444;
 }
