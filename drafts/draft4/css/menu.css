@@ -1,12 +1,12 @@
 body {
- font: 12pt "Arial";
- background: #FFF;
- color: #000;
-
  display: flex;
  flex-flow:column nowrap;
  justify-content: space-around;
  align-items: center;
+
+ font: 12pt "Arial";
+ background: #DDD;
+ color: #000;
 }
 
 .item {
@@ -17,16 +17,20 @@ body {
 }
 
 a {
- width: 67%;
  text-decoration: none;
- font-size:5em;
- margin: 1px 0;
+
+ font-size:6em;
+ padding: 0em .25em;
+
  
- background: #555;
- color: #FFF;
+ background: #DDD;
+ color: #444;
+ border: 1px solid transparent;
+
 }
 
-a:hover, a:active {
- background:#EEE;
+a:hover {
+ background:#DDD;
  color: #444;
+ border: 1px solid #444;
 }
