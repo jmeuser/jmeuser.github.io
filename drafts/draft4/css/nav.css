@@ -9,17 +9,19 @@ body {
 }
 
 .item {
+ flex: auto;
+
  display:flex;
- flex-flow:row nowrap;
+ flex-flow:column nowrap;
  justify-content: center;
+ align-items: center;
 }
 
-a { 
+a {
  text-decoration: none;
- font-size:4em;
+ font-size:5em;
  
- border: solid #FFF;
- border-width: .025em .1em;
+ margin: .29em 11%;
 
  background: #666;
  color: #FFF;
