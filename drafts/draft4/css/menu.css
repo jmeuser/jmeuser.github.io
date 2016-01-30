@@ -1,24 +1,31 @@
 body {
- font: 12pt "Arial";
+ font-family:"Helvetica Neue", "Helvetica", "Arial", "Verdana", "sans-serif";
+ font-size: 12pt;
  background: #DDD;
  color: #000;
 }
 
 a {
  text-decoration: none;
- color:#AAA;
- transition: color .7s;
+ color:#888;
+ transition: color .3s;
 }
 a:hover {
  color:#000;
 }
 
+h2 {
+ color:#666;
+}
+
 
 header a {
  font-size:3em;
+ color:#AAA;
+ transition: color .7s;
 }
 header a.frontpage {
- animation-duration: .5s;
+ animation-duration: 1s;
  animation-name:fadeup;
 }
 header #here{
@@ -34,41 +41,31 @@ header #here{
  }
 }
 
-
-.contents{
+.column-left {
+ width:100%;
+ display: flex;
+ flex-flow: column;
+ justify-content: space-around;
+}
+.column-center {
+ width:100%;
  display: flex;
  flex-flow: column;
  justify-content: flex-start;
- font-size: 2em;
+ align-items: center;
 }
-
-
-.column {
+.column-right {
+ width:100%;
  display: flex;
  flex-flow: column;
- justify-content: space-around;
- align-items: center;
-}
-.column-between {
- height:100%;
- display: flex;
- flex-flow: column nowrap;
- justify-content: space-between;
- align-items: center;
-}
-.column-end {
- height:100%;
- display: flex;
- flex-flow: column;
- justify-content: flex-end;
- align-items: center;
+ justify-content: center;
+ align-items:flex-end;
 }
 
 .row {
- width:100%;
  display:flex;
  flex-flow: row wrap;
- justify-content: space-around;
+ justify-content: space-between;
  align-items: center;
 }
 
