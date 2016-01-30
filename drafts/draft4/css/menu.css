@@ -1,9 +1,4 @@
 body {
- display: flex;
- flex-flow:column nowrap;
- justify-content: space-around;
- align-items: center;
-
  font: 12pt "Arial";
  background: #DDD;
  color: #000;
@@ -11,10 +6,75 @@ body {
 
 a {
  text-decoration: none;
- font-size:6em;
- color: #999;
+ color:#AAA;
+ transition: color .7s;
+}
+a:hover {
+ color:#000;
 }
 
-a:hover {
- color: #444;
+
+header a {
+ font-size:3em;
 }
+header a.frontpage {
+ animation-duration: .5s;
+ animation-name:fadeup;
+}
+header #here{
+ color:#000;
+}
+
+@keyframes fadeup{
+ from {
+  color:#DDD;
+ }
+ to {
+   color:#AAA;
+ }
+}
+
+
+.contents{
+ display: flex;
+ flex-flow: column;
+ justify-content: flex-start;
+ font-size: 2em;
+}
+
+
+.column {
+ display: flex;
+ flex-flow: column;
+ justify-content: space-around;
+ align-items: center;
+}
+.column-between {
+ height:100%;
+ display: flex;
+ flex-flow: column nowrap;
+ justify-content: space-between;
+ align-items: center;
+}
+.column-end {
+ height:100%;
+ display: flex;
+ flex-flow: column;
+ justify-content: flex-end;
+ align-items: center;
+}
+
+.row {
+ width:100%;
+ display:flex;
+ flex-flow: row wrap;
+ justify-content: space-around;
+ align-items: center;
+}
+
+.row-left {
+ width:100%;
+ display:flex;
+ flex-flow: row wrap;
+ justify-content: flex-begin;
+ align-items: center;
