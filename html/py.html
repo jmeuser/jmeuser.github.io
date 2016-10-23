@@ -1,260 +1,0 @@
-<html><head>
- <link rel="stylesheet" type="text/css" 
-href="http://fonts.googleapis.com/css?family=Inconsolata">
- <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen">
-</head>
-<body><pre>
-Python
-
-Print("Hello, World")
-
-Assignment
-=   gets
-+=  plus gets (x += y is x = x + y)
--=  minus gets
-*=  times gets
-/=  quotient gets
-%=  residue gets
-**= power gets
-//= floor-quotient gets
-
-Logic
-bool(x) True if x is true else False
-not x   False if x else True
-x or y  x if x else y
-x and y y if x else x
-any(x)  True if any item of x is true
-all(x)  True if all items of x are true
-==      equal
-!=      not equal
-&lt;&gt;      not equal
-&gt;       more
-&lt;       less
-&gt;=      more or equal
-&lt;=      less or equal
-
-Arithmetic
-int(x)       integer form of the string x
-bin(x)       binary string form of the integer x
-complex(x,y) complex number with real part x and imaginary part y; x + y * 1j
-x+y          x plus y
-x-y          x minus y
-x*y          x times y
-x/y          quotient of x divided by y
-x%y          remainder of x divided by y; x mod y; (divisor's sign: 3 % -6 == 
--3)
-x**y         x to the power of y
-x//y         integer quotient of x divided by y
-abs(x)       absolute value of x
-divmod(x,y)  (x // y , x % y)
-pow(x,y,z)   (x**y)%z
-max(x)       maximum item of x
-min(x)       minimum item of x
-x+=y         x plus gets y; x = x + y
--=           minus gets
-*=           times gets
-/=           quotient gets
-%=           residue gets
-**=          power gets
-//=          floor-quotient gets
-==           equal
-!=           not equal
-&lt;&gt;           not equal
-&gt;            more
-&lt;            less
-&gt;=           more or equal
-&lt;=           less or equal
-
-Lists
-
-len(x)        length of x
-x.append(y)   insert y after the last item of x
-x.extend(y)   join the list y to the end of the list x
-x.insert(y,z) insert z before the item of x with index y
-x.remove(y)   remove first occurrence of y in x
-x.pop()       return then remove the last item of x
-x.pop(y)      return then remove the item of x with index y
-x.index(y)    give index of first occurrence of y in x (error otherwise)
-x.count(y)    give count of occurrences of y in x
-x.sort()      sort x in increasing order
-x.reverse()   reverse the order of items of x
-
-Sets
-x.add(y)                   put y in x
-x.remove(y)                take y from x give KeyError if y is not in x
-x.discard(y)               take y from x
-x.pop()                    return an item from x, remove it, and give KeyError 
-if x empty
-len(x)                             cardinality of set x
-x in y                             is x in y?
-x not in y                         is x not in y?
-x.issubset(y)              x &lt;= y  is x a subset of y?
-x.issuperset(y)            x &gt;= y  is x a superset of y?
-x.union(y)                 x |  y  give union of x and y
-x.intersection(y)          x &amp;  y  give intersection of x and y
-x.difference(y)            x -  y  give complement of y in x
-x.symmetric_difference(y)  x ^  y  give symmetric difference of x and y
-x.update(y)                x |= y  x gets x|y
-x.intersection_update(y)   x &amp;= y  x gets x&amp;y
-x.difference_update(y)     x -= y  x gets x-y
-x.symmetric_difference_update(y)  x ^= y  x gets x^y
-
-Strings
-'abc'    give string 'abc'
-"abc"    give string 'abc'
-'"'      give string '"'
-"'"      give string "'"
-
-'\''     give string "'"
-"\""     give string '"'
-'''
-a
-b
-c'''     give string '\na\nb\nc'
-"""
-a
-b
-c"""     give string '\na\nb\nc'
-'''
-"""
-'''      give string '\n"""\n'
-"""
-'''
-"""      give string "\n'''\n"
-'''\
-a\
-b\
-c\
-'''      give string 'abc'
-"""\
-a\
-b\
-c\
-"""      give string 'abc'
-'a' 'b'  give string 'ab'
-"a" "b"  give string 'ab'
-'a' "b"  give string 'ab'
-r'...'  raw string i.e. escape characters are not interpreted
-3*'c'   gives 'ccc'
-len(x)        length of string x
-x.isalnum()   are all characters in string x alphanumeric characters?
-x.isalhpa()   are all characters in x alphabetic characters?
-x.isdigit()   are characters of x digits only?
-x.islower()   are alphabetic characters of x lowercase?
-x.isupper()   are alphabetic characters of x uppercase?
-x.ljust(y,z)  right justify x on line of width y padded by char z
-x.center(y,z) center justify x on line of width y padded by char z
-x.rjust(y,z)  left justify x on width y line, pad with char z
-x.join(y)     join string items of y after inserting x between items of y
-
-Control
-x or y    x if x else y
-x and y   y if x else x
-for x in y:          perform f(x) for each x in y
-    f(x)
-if c:                cond c;t;f
-    t
-else:
-    f
-if c0:               cond c0 t0;
-    t0                    c1 t1;
-elseif c1:                 1  d
-    t1
-else:
-    d
-for x in y:          this will run forever
-    y.insert(0,x)
-for x in y[:]:       this will not run forever, x iterates over y[:] rather 
-than y
-    y.insert(0,x)
-
-Idioms
-x[1:]==x[:-1]   True if all items of x are the same
-
-Built-In Functions
-abs(x)        give the classical norm of xall(x)        give True if each item of x is trueany(x)        give True if any item of x is trueascii()bin(x)        give binary (string) form of int xbool(x)       give True if x is true else give Falsebytearray() bytes()callable()chr(x)        give string for Unicode character at xclassmethod()compile()complex(x,y)  give x + y * 1jdelattr()dict()dir()divmod()enumerate()eval()exec()filter()float()format()frozenset()getattr()globals()hasattr()hash()help()hex()id()input()int()isinstance()issubclass()iter()len()list()locals()map()max()memoryview()min()next()object()oct()open()ord()pow()print()property()range()repr()reversed()round()set()setattr()slice()sorted()staticmethod()str()sum()super()tuple()type()vars()zip()__import__()
-
-Implementations of k Functions
-import itertools
-def where(x):
- return itertools.chain.from_iterable([[i]*j for i,j in enumerate(x)])
-def where(x):
- return [i for i in range(len(x)) for _ in range(x[i])]
-def drop(x,y):
- return y[x:]
-def take(x,y):
- return [y[i] for i in x]
-
-import cmath
-cmath.phase(x)   gives the phase or argument of the complex number x
-abs(x)           gives the absolute value of the complex number x
-cmath.polar(x)   gives polar representation of complex x i.e. 
-(abs(x),cmath.phase(x))
-cmath.rect(x,y)  rect from polar: x * (math.cos(y) + math.sin(y)*1j)
-
-from collections import Counter
-Counter(x)        count items of x using a map(dict)
-x.elements()      give iterator of elements y of counter x each repeated x[y] 
-times
-x.most_common()   give list of (item, count) ordered by count (equals listed 
-arbitrarily)
-x.most_common(y)  give first y items of x.most_common()
-x.subtract(y)     subtract item's count in y from item's count in x
-x.update(y)       add count of items in a Counter y, or Counter(y) if y is list 
-etc.
-
-import calendar
-calendar.weekday(y,m,d) give index of day of week on ymd with 0 = Monday
-calendar.day_name       array of name of day of week in current local 0=Monday
-
-import time
-time.strptime(x)   change x from "%a %b %d %H:%M:%S %Y" to time.struct_time 
-form (tuple)
-time.strptime(x,y) change string x from format string y to time.struct_time
-time.mktime(x)     change struct_time x into the (float) number of seconds 
-since epoch
-
-import textwrap
-textwrap.wrap(x,y) give lines of string x with width y
-textwrap.fill(x,y) gives string of lines of string x with width y
-
-from datetime import datetime
-x=datetime.strptime(y,z) x gets datetime object from string y formatted by z
-time.struct_time # https://docs.python.org/3/library/time.html#time.struct_time
-Time String Format Codes 
-(https://docs.python.org/3/library/time.html#time.strftime)
-%a Locale’s abbreviated weekday name.  
-%A Locale’s full weekday name.  
-%b Locale’s abbreviated month name.  
-%B Locale’s full month name.  
-%c Locale’s appropriate date and time representation.  
-%d Day of the month as a decimal number [01,31].  
-%H Hour (24-hour clock) as a decimal number [00,23].  
-%I Hour (12-hour clock) as a decimal number [01,12].  
-%j Day of the year as a decimal number [001,366].  
-%m Month as a decimal number [01,12].  
-%M Minute as a decimal number [00,59].  
-%p Locale’s equivalent of either AM or PM.
-%S Second as a decimal number [00,61].
-%U Week number of the year (Sunday as the first day of the week) as a decimal 
-number [00,53]. All days in a new year preceding the first Sunday are 
-considered to be in week 0.
-%w Weekday as a decimal number [0(Sunday),6].  
-%W Week number of the year (Monday as the first day of the week) as a decimal 
-number [00,53]. All days in a new year preceding the first Monday are 
-considered to be in week 0.
-%x Locale’s appropriate date representation.  
-%X Locale’s appropriate time representation.  
-%y Year without century as a decimal number [00,99].  
-%Y Year with century as a decimal number.  
-%z Time zone offset indicating a positive or negative time difference from 
-UTC/GMT of the form +HHMM or -HHMM, where H represents decimal hour digits and 
-M represents decimal minute digits [-23:59, +23:59].  
-%Z Time zone name (no characters if no time zone exists).  
-%% A literal '%' character.
-
-
-
-Sources
-https://www.python.org/doc/
-</pre></body></html>
