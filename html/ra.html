@@ -1,0 +1,51 @@
+<html><head>
+ <link rel="stylesheet" type="text/css" 
+href="http://fonts.googleapis.com/css?family=Inconsolata">
+ <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen">
+</head>
+<body><pre>
+Notes on Recursive Analysis by R. L. Goodstein
+
+"
+Recursive analysis is a free variable theory of functions in a rational field, 
+founded on recursive arithmetic.
+It involves no logical presuppositions and proceeds from definition to theory 
+by means of derivation schemata alone.
+
+The elementary formulae of recursive arithmetic are equations between terms, 
+and the class of formulae is constructed from the elementary formulae by the 
+operations of propositional calculus.
+The terms are the free numeral variables, the sign 0 and the signs for 
+functions.
+The function signs include the sign S(x) for the successor function (so that 
+S(x) plays the part of x+1 in elementary algebra) and signs for functions 
+introduced by recursion.
+The derivation rules are taken to be sufficient to establish the universally 
+valid sentences of the propositional calculus, and include a schema permitting 
+the substitution of terms for variables, the schema of equality
+
+a = b -&gt; {A(a) -&gt; A(b)},
+
+and the induction schema
+
+A(0), A(n) -&gt; A(S(n))
+---------------------
+        A(n)
+
+the schemata for explicit definition of functions for any number of arguments, 
+and finally schemata for definition by recursion.
+The simplest definition schema for recursion, the schema of primitive 
+recursion, is 
+
+f(0, a) = g(a), f(S(n), a) = h(n, a, f(n, a))
+
+Specifically this schema defines f(n, a) by primitive recursion from the 
+functions g and h.
+We take as initial primitive recursive functions the successor function S(x), 
+the identity function I(x), defined explicitly by the equation I(x)=x, and the 
+zero function Z(x) defined by Z(x)=0.
+A function is said to be primitive recursive if it is an initial function or is 
+defined from primitive recursion functions by substitution or by primitive 
+recursion.
+" Goodstein Recursive Analysis Chapter 1 Section 1 pg. 1 and 2
+</pre></body></html>

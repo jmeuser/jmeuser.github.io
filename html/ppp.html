@@ -1,0 +1,93 @@
+<html><head>
+ <link rel="stylesheet" type="text/css" 
+href="http://fonts.googleapis.com/css?family=Inconsolata">
+ <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen">
+</head>
+<body><pre>
+Notes on Programming Principles and Practice Using C++ Second Edition by Bjarne 
+Stroustrup
+
+Part I The Basics
+
+Chapter 2 Hello, World!
+
+2.2 The classic first program
+
+// This program outputs the message "Hello, World!" to the monitor
+#include "std_lib_facilities.h"
+
+int main()  // C++ programs start by executing the function main
+{
+ cout&lt;&lt;"Hello, World!\n"; // output "Hello, World!"
+ return 0;
+}
+
+Noun      Definition
+"string"  string
+cout      character output stream
+//comment everything after // is ignored by the compiler
+.h        header file
+main()    where every C++ program starts executing
+
+Four Pats of a Function
+Part            Definition
+return type     what the function gives back
+name            how we refer to the function
+parameter list  enclosed in ()
+function body   enclosed in {}
+
+
+2.3 Compilation
+
+Noun         Definition
+source code  program text with .cpp file suffix
+object code  machine code executed by the computer
+compiler     transforms source code to object code
+
+
+2.4 Linking
+
+Noun                Definition
+linker              puts together object files (translation units) to form an 
+executable
+library             code accessed using declarations (found in an #include file)
+declaration         program statement specifying how a piece of code can be used
+compile-time error  errors found by the compiler
+link-time errors    errors found by the linker
+run-time errors     logical errors found when a program is executed (run)
+
+
+2.5 Programming Environments
+
+Drill
+Run the hello_world.cpp program in your environment of choice.
+
+20150914T2025
+To get Stroustrup's std_lib_facilities.h to work on my MacBook Air took some 
+effort.
+Ultimately, I was led to http://libcxx.llvm.org and, near the bottom of the 
+page, read:
+
+"
+Using libc++ in your programs
+
+FreeBSD and Mac OS X
+To use your system-installed libc++ with clang you can:
+
+clang++ -stdlib=libc++ test.cpp
+clang++ -std=c++11 -stdlib=libc++ test.cpp
+" http://libcxx.llvm.org on 20150914
+
+Oddly, Apple redirects calls to g++ or gcc to clang without alerting you.
+
+
+Chapter 2 Objects, Types, and Values
+
+3.1 Input
+
+
+
+Sources
+http://www.stroustrup.com/Programming/
+http://libcxx.llvm.org   for compiling Stroustrup's code on a mac
+</pre></body></html>

@@ -1,0 +1,258 @@
+<html><head>
+ <link rel="stylesheet" type="text/css" 
+href="http://fonts.googleapis.com/css?family=Inconsolata">
+ <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen">
+</head>
+<body><pre>
+The Practice of Programming by Rob Pike, Brian Kernighan
+
+simplicity, short and manageable
+clarity, easy to understand
+generality, works well in a broad range of situations and adapts to new ones
+automation, let the machine do the work for you
+
+Names
+Use descriptive names for globals, short names for locals.
+Be consistent. Give related things related names that show their relationship 
+and highlight their difference.
+Use active names for functions. Function names should be based on active verbs, 
+perhaps followed by nouns.
+Be accurate. A name not only labels, it conveys information to the reader. A 
+misleading name can result in mystifying bugs.
+
+Expressions And Statements
+Write expressions and statements in a way that makes their meaning as 
+transparent as possible. Write the clearest code that does the job. Use spaces 
+around operators to suggest grouping; more generally, format to help 
+readability.
+Indent to show structure.
+Use the natural form for expressions. Write expressions as you might speak them.
+Parenthesize to resolve ambiguity. Parenthesis specify grouping and can be used 
+to make the intent clear even when they are not required.
+Break up complex expressions.
+Be clear. Write clear code, not clever code.
+Be careful with side effects: besides returning a value, they also modify an 
+underlying value.
+
+Consistency And Idioms
+If the same computation is done the same way every time it appears, any 
+variation suggests a genuine difference, one worth noting.
+Use a consistent indentation and brace style.
+Use idioms for consistency. Like natural languages, programming languages have 
+idioms, conventional ways that experienced programmers write common pieces of 
+code.
+Use else-ifs for multiway decisions. Align vertically. Avoid nested ifs.
+
+Function Macros
+Avoid function macros. Parenthesize the macro body and argument.
+
+Magic Numbers
+Magic numbers are the constants, array sizes, character positions, conversion 
+factors, and other literal numeric values that appear in a program.
+Give names to magic numbers.
+Define numbers as constants, not macros.
+Use character constants, not integers.
+Use the language to calculate the size of an object.
+
+Comments
+The best comments aid the understanding of a program by briefly pointing out 
+salient details or by providing a larger-scale view of the proceedings.
+Don't belabor the obvious.
+Comment functions and global data.
+Don't comment bad code, rewrite it.
+Don't contradict the code.
+Clarify, don't confuse.
+
+Why Bother?
+Main concerns of programming style:
+ descriptive names
+ clarity in expressions
+ straightforward control flow
+ readability of code and comments
+ consistent use of conventions and idioms
+Good style should be a matter of habit.
+
+Algorithms And Data Structures
+Only a handful of basic algorithms show up in almost every programing - 
+primarily searching and sorting.
+Almost every data structure is derived from a few fundamental ones.
+
+Searching
+Nothing beats an array for storing static tabular data.
+Sequential/Linear search is fast enough when the amount of data is small.
+Binary search is fast enough when the amount of data is larger and it is sorted.
+
+Sorting
+If repeated searches are going to be made in some data set, it will be 
+profitable to sort once and then use binary sort.
+Quick sort was invented by C. A. R. Hoare in 1960. It works by partitioning and 
+array into little and big parts:
+ Pick one element of the array (the "pivot").
+ Partition the other elements into two groups:
+  "little ones" that are less than the pivot value, and
+  "big ones" that are great than or equal to the pivot value.
+ Recursively sort each group.
+
+Growing Arrays
+Growing a sorted array by inserting n elements one at a time is an O n ^ 2 
+operation that should be avoided if n is large.
+Arrays are sometimes appropriate when working with a variable yet small number 
+of things, in which case arrays should be resized in chunks.
+
+Lists
+A singly-linked list is a set of items, each with data and a pointer to the 
+next item. The head of a list is a pointer to the first item and the end is 
+marked by a null pointer.
+Arrays have fixed size, but a list is always exactly the size it needs to be to 
+hold its contents, plus some per-item storage overhead to hold the pointers.
+Lists can be rearranged by exchanging a few pointers and is cheaper than the 
+block move necessary in an array.
+When items are inserted or deleted from a list the other items aren't moved.
+Fundamental list operations: add a new item to the front or back, find a 
+specific item, add a new item before or after a specific item, perhaps delete 
+an item.
+
+Trees
+A tree is a hierarchical data structure that stores a set of items in which 
+each item has a value, may point to zero or more others, and is pointed to by 
+exactly one other. The root of the tree is the sole exception: no item points 
+to it.
+
+Hash Tables
+A hash table is a combination of arrays, lists, and math.
+A typical application is a symbol table, which associates some value with each 
+member of a dynamic set of strings.
+The idea is to pass the key through a hash function to generate a hash value 
+that will be evenly distributed through a modest-sized integer range. This hash 
+value is used to index a table where the information is stored.
+
+Summary Of Algorithms And Data Structures
+Most programs are based largely on arrays, lists, trees, and hash tables.
+
+Design And Implementation Lessons
+Choose simple algorithms and data structures.
+Start detailed design with data structures, often the algorithms follow 
+naturally.
+It's hard to design a program completely then build it: constructing real 
+programs involves iteration and experimentation.
+Start with something simple and evolve it as experience dictates.
+
+Interfaces
+The essence of design is to balance competing goals and constraints.
+Among the issues to be worked out in design are
+ Interfaces: what services and access are provided? The interface is, in 
+effect, a contract between supplier and customer. The idea is to provide 
+services that are uniform and convenient, with enough functionality to be easy 
+to use but not so much as to become unwieldy.
+ Information Hiding: What information is visible and what is private? an 
+interface must provide straightforward access to the components while hiding 
+the details of the implementation so they can be changed without affecting 
+users.
+ Resource Management: Who is responsible for managing memory and other limited 
+resources? Here the main problems are allocating and freeing storage, and 
+managing shared copies of information.
+ Error Handling: Who detects errors, who reports them, and how? When an error 
+is detected, what recovery is attempted.
+Build an interface to throw away: a prototype.
+Prototyping reveals unidentified design decisions.
+
+Interface Principles
+An interface is that detailed boundary between code that provides a service and 
+the code that uses it.
+To prosper an interface must be well suited for its task - simple, general, 
+regular, predictable, robust - and it must adapt gracefully as its users and 
+implementation change.
+Hide implementation details. the implementation of the interface should be 
+hidden so that it can be changed without affecting or breaking anything.
+Choose a small orthogonal set of primitives. An interface should provide as 
+much functionality as necessary but no more, and the functions should not 
+overlap excessively in their capabilities.
+Do one thing, and do it well.
+Don't reach behind the user's back. A library function should not write secret 
+files and variables or change global data.
+Do the same thing the same way everywhere. Consistency and regularity are 
+important.
+Related things should be achieved by related means.
+
+Resource Management
+Free a resource at the same layer that allocated it. Have the same interface 
+that allocates it reclaim it.
+Write reentrant code, it works regardless of the number of simultaneous 
+executions.
+
+Abort, Retry, Fail
+Detect errors at a low level, handle them at a high level.
+Use exceptions only for exceptional situations.
+
+Debugging
+Look for similar patterns.
+Examine the most recent changes.
+Don't make the same mistake twice.
+Debug it now, not later.
+Get a stack trace.
+Read before typing.
+Explain your code to someone else.
+Make the bug reproducible.
+Divide and conquer.
+Study the numerology of failures.
+Display output to localize your search.
+Write self checking code.
+Write a log file.
+Draw a picture.
+Use tools.
+Keep records.
+
+Testing
+Test code at its boundaries.
+Test pre and post conditions.
+Use assertions.
+Program defensively.
+Check error returns.
+Test incrementally.
+Test simple parts first.
+Know what output to expect.
+Verify conservation properties.
+Compare independent implementations.
+Measure test coverage.
+Automate regressions testing.
+Create self-contained tests.
+
+Performance
+Automate timing measurements.
+Use a profiler.
+Concentrate on the hot spots.
+Draw a picture.
+Use a better algorithm or data structure.
+Enable compiler optimizations.
+Tune the code.
+Don't optimize what doesn't matter.
+Collect common subexpressions.
+Replace expensive operations by cheap ones.
+Unroll or eliminate loops.
+Cache frequently-used values.
+Write a special-purpose allocator.
+Buffer input and output.
+Handle special cases separately.
+Precompute results.
+Use approximate values.
+Rewrite in a lower level language.
+Save space by using the smallest possible data type.
+Don't store what you can easily recompute.
+
+Portability
+Stick to the standard.
+Program in the main stream.
+Beware of language trouble spots.
+Try several compilers.
+Use standard libraries.
+Use only features available everywhere.
+Avoid conditional compilation.
+Localize system dependencies in separate files.
+Hide system dependencies behind interfaces.
+Use text for data exchange.
+Use a fixed byte order for data exchange.
+Change the name if you change the specification.
+Maintain compatibility with existing programs and data.
+Don't assume ASCII.
+Don't assume English.
+</pre></body></html>

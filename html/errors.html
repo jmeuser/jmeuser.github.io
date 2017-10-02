@@ -1,0 +1,1053 @@
+<html><head>
+ <link rel="stylesheet" type="text/css" 
+href="http://fonts.googleapis.com/css?family=Inconsolata">
+ <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen">
+</head>
+<body><pre>
+Errors
+This is a list of errors that I've made.
+It is organize in reverse chronological order.
+
+20151129T1354 open -e file.type
+The command
+
+$ open -e file.type
+
+opens file.type in TextEdit on a Mac.
+
+
+
+
+
+20151122T2144 In Go func()() can be replaced by func()
+This is not so much an error as a note that a function that takes no values and 
+returns no values has type func() and that func()() is fine, but it does not 
+follow the pattern e.g. func(int)int or func(int).
+
+
+
+
+
+20151116T1936 Google Drive and OS X 
+OS X allows filenames to have spaces, but spaces in filenames are not dealt 
+with uniformly across modern operating systems.
+After installing Google drive on OS X a new folder is created in $HOME and give 
+then name 'Google Drive' with a space between the word 'Google' and 'Drive'.
+For now I prefer that names for my files or folders not contain spaces.
+Furthermore, if the name of the folder is best described using two words, then 
+I would prefer those words be combined into a single word with the initial 
+character of each sub word capitalized.
+Under this constraint I wanted to transform the filename 'Google Drive' to the 
+file name 'GoogleDrive'.
+Doing so is not as straightforward as it should be (also, Google should know 
+better than to add unnecessary complexity to a well worn habit of file naming 
+across past OSs).
+First, you must quit Google Drive.
+Second, you must rename your Google Drive folder.
+Third, you must start Google Drive.
+You will immediately be given a message claiming that there was a synch error 
+and that the Google Drive folder could not be found.
+You must click on the Google Drive icon and select the error message and will 
+be asked to select the Google Drive folder that could not be found.
+
+
+
+
+
+20151112T1536 Parsing an IP address with Regex
+In a Hacker Rank problem I was asked to check whether a string was a valid IP 
+address.
+The definition of IP address was given as follows
+"
+IP address is a string in the form "A.B.C.D", where the value of A, B, C, and D 
+may range from 0 to 255. Leading zeros are allowed. The length of A, B, C, or D 
+can't be greater than 3.
+" https://www.hackerrank.com/challenges/java-regex
+
+I used the following regex to match strings representing numbers from 0-255 
+which allow leading zeros:
+
+(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])
+
+One could also separate it out so its more "logical" and less "regex-tricky" as 
+follows:
+
+(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|0?1[0-9]|0?0?[0-9])
+
+Ultimately, I used the previous regex to produce the following (ERRONEOUS) code:
+
+class myRegex{
+    public String pattern = 
+"^(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9]\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0
+-9])$";
+}
+
+Although, even that erroneous code was the result of learning from a previous 
+mistake (You must use the escape sequence \\ to put a \ in the regex so that 
+you can use the regex escape sequence \. to represent a period... so many 
+layers of nested escape sequences can bring a person to the brink if you don't 
+take things slow or experiment/test your proposed solutions to a problem).
+
+Now, as I said, the previous code is wrong, and it took me a long while to 
+figure out what was missing.
+It's one of those "You'll figure it out if you stare at it long enough" kind of 
+things.
+More importantly, as I was writing this error report I realized that if I had 
+just written out what I was thinking then I would have avoided the error.
+Here is the corrected solution, just to see if you can even notice the 
+difference between the right answer and the wrong answer.
+
+class myRegex{
+    public String pattern = 
+"^((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?
+[0-9])$";
+}
+
+If you've spotted it then you might have spent just as much time staring at it 
+as I did.
+The difference is a pair of parenthesis.
+Specifically the error was written this way
+
+(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9]\\.){3}
+
+When it should have been written this way:
+
+((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}
+
+The reason is that each of the 3 initial parts of an ip address must contain a 
+tailing period.
+The incorrect code made the period only a part of the [01]?[0-9]?[0-9]\\. part 
+of the "X|Y|Z" statement.
+
+The broad error that I made here was not clearly separating the "Make a plan." 
+and "Carry out the plan." parts of Polya's general problem solving process.
+I was carrying out the plan at the same time I was making it, and that always 
+leads to lost steps in carrying out the plan.
+
+
+
+
+
+20151110T1449 Error in Lowe's Java All-in-One For Dummies 4th Edition pg. 353
+Though I mentioned this error in my 20151109T1859 note, I want to give it its 
+own note.
+The following excerpt from Lowe's Java All-in-One For Dummies 4th Edition on 
+pg. 353 contradicts Oracles official documentation of Java Platform SE 8 (which 
+is printed below the erroneous information):
+
+"
+int compareTo(String)
+
+Compares this string to another string, using alphabetical order.
+Returns -1 if this string comes before the other string, 0 if the strings are 
+the same, and 1 if this string comes after the other string.
+" Lowe Java All-in-One For Dummies 4th Edition pg. 353
+
+This is not flat out WRONG.
+
+Here is the specification from Oracle's documentation of String's methods:
+
+"
+public int compareTo(String anotherString)
+..
+Returns:
+the value 0 if the argument string is equal to this string; a value less than 0 
+if this string is lexicographically less than the string argument; and a value 
+greater than 0 if this string is lexicographically greater than the string 
+argument.
+" 
+https://docs.oracle.com/javase/8/docs/api/java/lang/String.html#compareTo-java.l
+ang.String-
+
+
+
+
+
+20151109T1859 Java Comparing Strings
+While solving a Hacker Rank problem I came upon an interesting error.
+It is somewhat logical, somewhat syntactic.
+I believe the correct name for this type of bug is "Interface Bug".
+I was using an interface incorrectly.
+The moral of the story is that when you use a method make sure you understand 
+its return behavior, otherwise weird things can happen (things that you can 
+only catch by testing).
+
+As part of a problem I was asked to compare one string to another and report if 
+the one came after the other.
+Let A be the first string.
+Let B be the second string.
+I was comparing A to B using the following code:
+
+A.compareTo(B)
+
+The book I was reading described the compareTo method as follows:
+
+"
+Compares this string to another string, using alphabetical order.
+Returns -1 if this string comes before the other string, 0 if the strings are 
+the same, and 1 if this string comes after the other string.
+" Lowe Java All-in-One For Dummies 4th Edition pg. 353
+
+This is not flat out WRONG.
+
+Here is the specification from Oracle's documentation of String's methods:
+
+"
+Returns:
+the value 0 if the argument string is equal to this string; a value less than 0 
+if this string is lexicographically less than the string argument; and a value 
+greater than 0 if this string is lexicographically greater than the string 
+argument.
+" 
+https://docs.oracle.com/javase/8/docs/api/java/lang/String.html#compareTo-java.l
+ang.String-
+
+The way that I found this out is when I tried to submit the following solution:
+
+import java.util.Scanner;
+public class Solution {
+  private static String firstToUpperCase(String x){
+   return x.substring(0,1).toUpperCase()+x.substring(1);
+  }
+  public static void main(String[] args) {  
+   Scanner sc=new Scanner(System.in);
+   String A=sc.next();
+   String B=sc.next();
+   System.out.println(A.length()+B.length());
+   System.out.println(1==A.compareTo(B)?"Yes":"No"); // THIS IS WRONG!!!!!
+   System.out.println(firstToUpperCase(A)+" "+firstToUpperCase(B));        
+  }
+}
+
+As you can see, I compared the result of A.compareTo(B) to the value 1 rather 
+than testing if it was greater than 1.
+The code 1==A.compareTo(B) gives false negatives.
+The corrected code is below:
+
+import java.util.Scanner;
+public class Solution {
+  private static String firstToUpperCase(String x){
+   return x.substring(0,1).toUpperCase()+x.substring(1);
+  }
+  public static void main(String[] args) {  
+   Scanner sc=new Scanner(System.in);
+   String A=sc.next();
+   String B=sc.next();
+   System.out.println(A.length()+B.length());
+   System.out.println(0&lt;A.compareTo(B)?"Yes":"No"); // This Works As Intended
+   System.out.println(firstToUpperCase(A)+" "+firstToUpperCase(B));        
+  }
+}
+
+
+
+20151109T1342 Java local variables are not Assigned default values to 
+uninitialized local variables
+While solving a Hacker Rank problem I came across the following interesting 
+error.
+I was under the false impression that Java gave default values to variables 
+that had been declared but not initialized, but this is not the case for local 
+variables.
+The error occurred while I was trying to run the following code:
+
+import java.util.Scanner;
+public class Solution {
+ public static void main(String[] args) {
+  Scanner sc = new Scanner(System.in);
+  long n = 0;
+  while(sc.hasNext()){
+   System.out.print(n+" "+sc.nextLine());
+   n++;
+  }
+ }
+}
+
+The error report from the compiler was as follows:
+
+Solution.java:7: error: variable n might not have been initialized
+   System.out.print(n+" "+sc.nextLine());
+                    ^
+1 error
+
+In this case the error message was absolutely correct: n had not been 
+initialized.
+In general, the lesson to learn from this error is to try not to use variables 
+without immediately initializing them to some "default" value.
+I would hope that future languages would always give a reasonable default value 
+so that we would be only left with "logical errors" rather than syntactic 
+errors.
+Contrary to popular belief, logical errors can be eliminated with appropriate 
+behavioral conditioning and have a larger pay off than the conditioning needed 
+to eliminate syntactic errors.
+
+The corrected code is as follows, but there is still an error (a logical one):
+
+import java.util.Scanner;
+public class Solution {
+ public static void main(String[] args) {
+  Scanner sc = new Scanner(System.in);
+  long n = 0;
+  while(sc.hasNext()){
+   System.out.print(n+" "+sc.nextLine());
+   n++;
+  }
+ }
+}
+
+In fact there are two logical errors.
+One of them is trivial, n needs to be initialized to 1 because I was asked to 
+label the lines with numerals beginning with the numeral 1 not the numeral 0.
+The other is that each line is to be printed on its own line (which seems 
+obvious), but I was under the impression that sc.nextLine() returned a string 
+which was terminated by a new line character, but running the code:
+
+import java.util.Scanner;
+public class Solution {
+ public static void main(String[] args) {
+  Scanner sc = new Scanner(System.in);
+  long n = 1;
+  while(sc.hasNext()){
+   System.out.print(n+" "+sc.nextLine());
+   n++;
+  }
+ }
+}
+
+Gives the following output:
+
+1 Hello world2 I am a file3 Read me until end-of-file.
+
+Which clearly shows that no new line character was captured at the end of the 
+String returned by sc.nextLine().
+The fix is in the following (finally) correct code:
+
+import java.util.Scanner;
+public class Solution {
+ public static void main(String[] args) {
+  Scanner sc = new Scanner(System.in);
+  long n = 1;
+  while(sc.hasNext()){
+   System.out.println(n+" "+sc.nextLine());
+   n++;
+  }
+ }
+}
+
+There is an alternate fix: instead of using println I could have simply 
+happened the newline character to the end myself using the code:
+
+System.out.print(n+" "+sc.nextline()+"\n");
+
+I don't know which is clearer: I suspect its the solution with println.
+
+
+
+
+
+20151109T1311 Java Literals: -9223372036854775808L is not -9223372036854775808
+While solving a Hacker Rank problem I came across another silly mistake that 
+has happened to me well before I started recording my errors systematically.
+It is the problem of using "big" literals in your code.
+Specifically, I tried to compile the following code (and it failed):
+
+import java.util.Scanner;
+
+class Solution{
+ public static void main(String []argh){
+  Scanner sc = new Scanner(System.in);
+  int t=sc.nextInt();
+  for(int i=0;i&lt;t;i++) {
+   try{
+    long x=sc.nextLong();
+    System.out.println(x+" can be fitted in:");
+    if(-128&lt;=x &amp;&amp; x&lt;=127)System.out.println("* byte");
+    if(-32768&lt;=x &amp;&amp; x&lt;=32767)System.out.println("* short");
+    if(-2147483648&lt;=x &amp;&amp; x&lt;=2147483647)System.out.println("* 
+int");
+    if(-9223372036854775808&lt;=x &amp;&amp; 
+x&lt;=9223372036854775807)System.out.println("* long");
+   }
+   catch(Exception e){
+    System.out.println(sc.next()+" can't be fitted anywhere.");
+   }
+  }
+ }
+}
+
+First, I do not like this code, but much of it was already given to me and 
+ultimately that fact is irrelevant to this error report.
+My compiler gave me the following error message:
+
+Solution.java:18: error: integer number too large: -9223372036854775808
+                if(-9223372036854775808&lt;=x &amp;&amp; 
+x&lt;=9223372036854775807)System.out.println("* long");
+                    ^
+Solution.java:18: error: integer number too large: 9223372036854775807
+                if(-9223372036854775808&lt;=x &amp;&amp; 
+x&lt;=9223372036854775807)System.out.println("* long");
+                                                 ^
+2 errors
+
+The hint is that "integer number too large".
+Java has the following kinds of literals as specified in "The Java Language 
+Specification Java SE 8 Edition"
+
+"Literal: IntegerLiteral
+ FloatingPointLiteral
+ BooleanLiteral
+ CharacterLiteral
+ StringLiteral
+ NullLiteral
+" The Java Language Specification Java SE 8 Edition pg.24
+
+"
+An integer literal may be expressed in decimal (base 10), hexadecimal (base 
+16), octal (base 8), or binary (base 2).
+IntegerLiteral:
+ DecimalIntegerLiteral 
+ HexIntegerLiteral 
+ OctalIntegerLiteral 
+ BinaryIntegerLiteralDecimalIntegerLiteral: 
+ DecimalNumeral [IntegerTypeSuffix]HexIntegerLiteral: HexNumeral [IntegerTypeSuffix]OctalIntegerLiteral: OctalNumeral [IntegerTypeSuffix]BinaryIntegerLiteral: BinaryNumeral [IntegerTypeSuffix]IntegerTypeSuffix: (one of) lLAn integer literal is of type long if it is suffixed with an ASCII letter L or 
+l (ell);otherwise it is of type int (§4.2.1).The suffix L is preferred, because the letter l (ell) is often hard to 
+distinguish from the digit1 (one).
+" The Java Language Specification Java SE 8 Edition pg.25
+
+Though I did not go on to read the reference to section 4.2.1 I was able to 
+solve this problem by realizing that the compiler thought -9223372036854775808 
+needed to be put into an int rather than a long, and hence it claimed that 
+-9223372036854775808 was "too large" because it was trying to put it in an int.
+The solution is to tell the compiler that the number -9223372036854775808 is to 
+be interpreted as a long literal by appending a capital-ell to the end of the 
+string: -9223372036854775808L.
+Thus the corrected code is as follows:
+
+import java.util.Scanner;
+
+class Solution{
+ public static void main(String []argh){
+  Scanner sc = new Scanner(System.in);
+  int t=sc.nextInt();
+  for(int i=0;i&lt;t;i++) {
+   try{
+    long x=sc.nextLong();
+    System.out.println(x+" can be fitted in:");
+    if(-128&lt;=x &amp;&amp; x&lt;=127)System.out.println("* byte");
+    if(-32768&lt;=x &amp;&amp; x&lt;=32767)System.out.println("* short");
+    if(-2147483648&lt;=x &amp;&amp; x&lt;=2147483647)System.out.println("* 
+int");
+    if(-9223372036854775808L&lt;=x &amp;&amp; 
+x&lt;=9223372036854775807L)System.out.println("* long");
+   }
+   catch(Exception e){
+    System.out.println(sc.next()+" can't be fitted anywhere.");
+   }
+  }
+ }
+}
+
+
+
+
+
+20151108T1321 Opening files in a specific application from within Terminal 
+Version 2.6 (361)
+Using the command
+
+$open x
+
+where x is a file name will open x in the whatever application the OS thinks is 
+appropriate for that file.
+Thus, if you input
+
+$open x.java
+
+the OS will take it upon itself to open this in Xcode (for example).
+Sadly, that is not what I wanted.
+I wanted to simply view a file x.java in TextEdit (I can't even remember why I 
+wanted to do this honestly).
+I discovered that the following solves the problem:
+
+$open -a TextEdit x.java
+
+
+
+
+
+20151108T1239 Java, Scanner, .nextInt(), .nextLine() and '\n'
+One must be careful when using a Scanner in order to get data of differing 
+types.
+Specifically, if you are using a Scanner to get an integer at the end of a 
+line, and then you want to read in the next line as a String you must remember 
+that .nextLine() will give you the remainder of the current line before it will 
+skip over a '\n' in order to get at the "next line".
+
+The following Java code showcases how you might work around this problem.
+In general, parsing is never as easy as it seems.
+
+/*
+This example shows that you must be careful when reading tokens using a scanner.
+Reading a token that is "at" the end of a line does not put the scanner "past" 
+the new line character which is "really at" the end of a line.
+If you read an int from a string like "12\nHello\n" then a .nextLine() gives 
+"\n" not "Hello\n".
+*/
+import java.util.Scanner;
+public class temp{
+ public static void main(String[] args){
+  String x;
+  x = "12\nHello World\n";
+  Scanner sc = new Scanner(x);
+  int y = sc.nextInt();
+  System.out.println(sc.nextLine()); // prints the newline character to stdout
+  String s = sc.nextLine();
+  System.out.printf("%-15s%05d%n",s,y);
+ }
+}
+
+
+
+
+
+20151104T1353 java is not javac
+A common mistake, which brought me back to my first experiences with Java over 
+five years ago, is to use the command "java" from the command line instead of 
+using the command "javac".
+The "c" in "javac" stands for compile, which is exactly what you want to do to 
+a plain text document.
+The particular problem I had was silly, I was trying to check the my JDK 
+installation had gone smoothly by writing the simplest little Hello World 
+program as prescribed in the oracal/java tutorial and got the following error:
+
+Error: Could not find or load main class HelloWorldApp.java
+
+At which point I realized I had written:
+
+$java HelloWorldApp.java
+
+instead of the correct solution which is:
+
+$javac HelloWorldApp.java
+
+Once I did the right thing I was able to get everything working and knew that, 
+as far as I know, I've probably installed the JDK to my mac.
+My fingers are now crossed that I do not have any of the trouble that some 
+people seemed to have when they were working with Java during the lifetime of 
+OS X Yosemite.
+
+
+
+
+
+20151104T1339 JRE is not JDK
+I made the mistake of installing jre-8u65-macosx-x64.dmg instead of 
+jdk-8u65-macosx-x64.dmg and was surprised when I went to Terminal.app and typed 
+in "java" and "javac" only to be confronted by the message
+
+Error: No Java runtime present, requesting install.
+
+Which made me scratch my head a little.
+The solution was, as I have already said, to install the latest JDK rather than 
+the latest JRE.
+The Java Developer Kit contains all those tools that you need in order to work 
+at developing with java on your machine, but the Java Runtime Environment is, 
+as it obviously says, only what is needed in order to run a program compiled 
+into Java bytecode.
+The JDK lets you write plaintext then compile to Java bytecode and then lets 
+you use a Java virtual machine which is part of the JRE to actually run the 
+compiled bytecode on your local machine through the Java virtual machine.
+
+
+
+
+
+20151010T1535 \r and \n
+Always check to see whether \r or \n are used to indicate "new lines"
+The following code was written as a solution to the HTML Parser - Part 2 
+problem at HackerRank:
+
+from html.parser import HTMLParser
+class hp(HTMLParser):
+    def handle_data(self, x):
+        if x!='\n':
+            print('&gt;&gt;&gt; Data')
+            print(x)
+    def handle_comment(self, x):
+        y = x.split('\n')
+        if 1==len(y):
+            print('&gt;&gt;&gt; Single-line Comment')
+            print(*y)
+        else:
+            print('&gt;&gt;&gt; Multi-line Comment')
+            for z in y:
+                print(z)
+N = int(input())
+I = ''.join([input() for _ in range(N)])
+p = hp()
+p.feed(I)
+
+The reason I used '\n' was because the problem statement said that I should not 
+print data that is a single character '\n', but in the representation of the 
+input (in the definition of I) I did not know that each line was ended with a 
+'\r' instead of a '\n'.
+Thus the corrected code is:
+
+from html.parser import HTMLParser
+class hp(HTMLParser):
+    def handle_data(self, x):
+        if x!='\r':
+            print('&gt;&gt;&gt; Data')
+            print(x)
+    def handle_comment(self, x):
+        y = x.split('\r')
+        if 1==len(y):
+            print('&gt;&gt;&gt; Single-line Comment')
+            print(*y)
+        else:
+            print('&gt;&gt;&gt; Multi-line Comment')
+            for z in y:
+                print(z)
+N = int(input())
+I = ''.join([input() for _ in range(N)])
+p = hp()
+p.feed(I)
+
+
+
+
+
+20151004T1300 HTMLParser : html.parser :: Python 2.x : Python 3.x 
+The module HTMLParser from Python 2.x has been renamed html.parser in Python 3.x
+It took a surprisingly long amount of time to figure this out even though I was 
+reading about the HTML Parser directly from the python 3.x library 
+documentation.
+This is because my first introduction to the functions of this module was under 
+the name from Python 2.x (HTMLParser) and my brain simply parsed html.parser as 
+HTMLParser since that is the name of the class that I was trying to 
+
+
+
+
+
+20151002T1031 El Capitan Mail: Unable to Send Outgoing Email
+I tried to send an email from Mail today.
+It must have been the first time I had tried to send an email after upgrading 
+to El Capitan for after clicking the send icon a dialogue box popped down and 
+said that I was unable to send a message because I hadn't selected an Outgoing 
+Mail Server (SMTP).
+My understanding of the situation was that by having an iCloud account I was 
+using Apple's mail servers in order to send and receive email.
+Interestingly, the dialogue box that popped down indicated that I should select 
+one of the SMTP servers from below, but there was no list from which I could 
+select anything: only a button for acknowledging that my message would not be 
+sent.
+At first I thought that all I would need to do is go to Mail's Preferences and 
+Accounts and select an appropriate Outgoing Mail Server (SMTP).
+Sadly, there was nothing to select.
+The simplest solution at that point was to go to Internet Accounts and to log 
+out of my iCloud account and log back in.
+This worked, although it was very nerve racking as I wasn't sure what I would 
+loose and what I wouldn't (even after being told what information would be 
+removed and whether I wanted to save it on my local computer by a series of 
+dialogue boxes).
+Upon logging back on and restarting my computer, I was able to send mail again.
+Sadly, I didn't have all of my mailboxes back.
+The solution to that was to go under Mailboxes and select Rebuild.
+That solved the problem.
+
+This is the first error I've reported on that isn't strictly a programming 
+error, and I hope to increase this pattern of reporting on errors outside the 
+scope of pure programming.
+
+
+
+
+
+20150930T1605 Always test your regular expressions against inappropriate inputs
+Though the mistake I made wasn't exactly along the lines of breaking because of 
+inappropriate inputs I am reminded of something I read in Stroustrup's PPP 
+about giving the code for a program as an input to the program and seeing what 
+happens.
+I was solving a hacker rank problem which asked to create a regular expression 
+for checking whether the input was a valid Roman Numeral.
+I quickly Googled roman numeral notation as I couldn't remember what letters 
+were used past ten.
+The denominations are:
+
+I one
+V five
+X ten
+L fifty
+C one hundred
+D five hundred
+M one thousand
+
+and subtraction notation means that
+
+IV four
+IX nine
+XL forty
+XC ninety
+CD four hundred
+CM nine hundred
+
+from which I wrote down the first few roman numerals in order:
+
+I
+II
+III
+IV
+V
+VI
+VII
+VIII
+IX
+X
+XI
+XII
+XIII
+XIV
+XV
+XVI
+XVII
+XVIII
+XIX
+XX
+XXI
+
+and so on.
+
+From this I produced the following regular expression (after carefully 
+consulting the Python 3.5 documentation)
+
+'M{0,3}(CM|CD|D?C{1,3})(XC|XL|L?X{1,3})(IX|IV|V?I{1,3})'
+
+and used it in this program:
+
+from re import match
+re='(M{0,3})(CM|CD|D?C{1,3})(XC|XL|L?X{1,3})(IX|IV|V?I{1,3})'
+print('True' if match(re,input()) else 'False')
+
+I submitted it and found that it failed on three test cases.
+I thought that the problem was that I hadn't included notation so that the only 
+string on the line was a roman numeral i.e. that I needed to put ^ at the 
+beginning of re and $ at the end of re like so
+
+'^M{0,3}(CM|CD|D?C{1,3})(XC|XL|L?X{1,3})(IX|IV|V?I{1,3})$'
+
+In actuality, and after submitting my program with these changes, I still 
+failed those tests.
+It became immediately obvious to me that I was silly to write C{1,3} X{1,3} and 
+I{1,3} because I needed to allow the case where there were no instances of 
+either in their respective regular expressions.
+The final corrected solution is:
+
+from re import match
+re='^(M{0,3})(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$'
+print('True' if match(re,input()) else 'False')
+
+
+
+
+
+20150929T1039 Converging Substitutions in Strings
+A hacker rank problem asked to replace all occurrences of ' &amp;&amp; ' with ' 
+and ', and ' || ' with ' or '.
+My first solution was as follows:
+
+from re import sub
+I=[input() for _ in range(int(input()))]
+A=[sub(' &amp;&amp; ',' and ',x) for x in I]
+A=[sub(' \|\| ',' or ',x) for x in A]
+for x in A:
+    print(x)
+
+For most of the test-cases this code seemed to work perfectly.
+For some it did not.
+It became apparent that the problem was with the stages at which the 
+substitutions occurred.
+Here is the specific example input that revealed my error:
+
+1
+text &amp;&amp; &amp;&amp; text
+
+With my incorrect algorithm the output is as follows:
+
+text and &amp;&amp; text
+
+Notice that the second occurrence of ' &amp;&amp; ' was not replaced with ' and 
+'.
+This is because it is only after the substitution of ' and ' for the left most 
+occurrence of ' &amp;&amp; ' that the second substring ' &amp;&amp; ' was 
+actually formed.
+That is, it is not until AFTER the substitution sub(' &amp;&amp; ',' and ',x) 
+had been performed on the input string that the second substring ' &amp;&amp; ' 
+would occur.
+Thus, rather than needing a single pass, I needed to perform a convergent 
+iteration of substitutions until the collected lines were no longer changed by 
+a substitution.
+Though this operation is easily called upon in J or k (as it is obviously 
+primitive) it was not so difficult to implement the relevant behavior in python 
+as follows:
+
+from re import sub
+I=[input() for _ in range(int(input()))]
+A=I
+B=[]
+while A!=B:
+    B=A
+    A=[sub(' &amp;&amp; ',' and ',x) for x in A]
+    A=[sub(' \|\| ',' or ',x) for x in A]
+for x in A:
+    print(x)
+
+Though, I do not prefer this solution, as it does not seem properly "clear" or 
+"clean", I was not motivated enough to go beyond this functioning correction to 
+my initial logical error.
+
+
+
+
+
+20150928T1527 Sorted Strings instead of Integers
+In a Hacker Rank problem I was asked to read in a table of data and then to 
+sort by its values down the k-th column.
+My first solution was
+
+I=[input().split() for _ in range(int(input().split()[0]))]
+k=int(input())
+O=sorted(I,key=lambda x: x[k])
+for x in O:
+    print(*x)
+
+Which sorted I correctly, but the atoms of I were strings rather than integers, 
+so the ordering was for strings, where as the question was asking that the 
+input be ordered after interpreting it as a table of integers.
+The correction is to convert each entry in the input table into an integer as 
+it is being read in so that the sorting will take place with regards to 
+integers rather than strings.
+I.e. rather than sorting alphabetically they will be sorted numerically.
+Thus the final correct code is as follows:
+
+I=[[int(x) for x in input().split()] for _ in range(int(input().split()[0]))]
+k=int(input())
+O=sorted(I,key=lambda x: x[k])
+for x in O:
+    print(*x)
+
+
+
+
+
+20150928T1121 replace 'import datetime' with 'from datetime import datetime'
+While solving a HackerRank problem on dates and times in different timezones I 
+came across a large number of interesting errors.
+The most significant error was in my thinking that time was no big problem 
+because computers must be great at keeping track of time.
+While computers are great at keeping track of local time (for the most part, as 
+long as you compute in a temperature controlled environment) there is little 
+else they do well.
+The largest error in time is that our methods of recording it are driving by 
+politics over reason.
+Thus, as long as time is a political problem, there will always be money for 
+the poor programmer that must deal with computing across timezones and 
+political barriers.
+It is my desire that Knuth write some time management algorithms so that we 
+might discover a data structure whose form is unavoidably necessary when 
+dealing with time, but that is only a hope.
+
+My original code was as follows,
+
+import datetime
+I=[[datetime.strptime(input(),'%a %d %b %Y %H:%M:%S %z') for x in range(2)] for 
+_ in range(int(input()))]
+O=[(x[0]-x[1]).total_seconds() for x in I]
+for x in O:
+    print(int(x))
+
+There are actually two errors in this code, though one is much easier to fix 
+than the other.
+The question asked to take in two strings representing a time having the 
+following form:
+
+Day dd Mon yyyy hh:mm:ss +xxxx
+
+Below this descriptive string I was told that +xxxx recorded the timezone.
+I later found out that it is actually a record of an offset from UTC which is, 
+for now, a politically stable time throughout the world (as stable as any 
+political thing can be).
+I immediately Googled "Python 3.x time zones" and was bombarded with an endless 
+stream of "oh god help us all" type posts.
+I ignored them all and went straight to the Python documentation for 3.5 on 
+datetime.
+There it seemed that it was possible to deal with timezones in a 
+semi-meaningful way.
+The documentation told me that the .strptime() method was independent of the 
+operating system or available C libraries so I chose to parse the string that 
+way.
+In the language described by Python for sending format information to 
+.strptime() the date format used in the problem is given by this string
+
+'%a %d %b %Y %H:%M:%S %z'
+
+The %z part is the one that gave me the real trouble.
+I thought that all I needed was to import datetime and use the method 
+.strptime() on the inputs.
+What I didn't understand was that datetime is both the name of a module and the 
+name of a class in that module.
+Furthermore, the module provides a .strptime() method that acts kind of like 
+the .strptime() method of the class with the same name as that module.
+One significant difference is that the module method doesn't deal with the 
+timezone offset in the way that an object of the class does.
+So over a two day period I struggled to understand if I was using the wrong 
+module or not, when, the entire time, I was using the right module, but had 
+been calling a module method rather than an object method.
+Finally, the corrected code was as follows:
+
+from datetime import datetime
+I=[[datetime.strptime(input(),'%a %d %b %Y %H:%M:%S %z') for x in range(2)] for 
+_ in range(int(input()))]
+O=[x[0]-x[1].total_seconds() for x in I]
+for x in O:
+    print(int(x))
+
+Though, there is still one error left.
+This logical error is my having forgot that the absolute value of the 
+difference between the given pairs of date times was needed not the signed 
+difference.
+So, thankfully, arithmetic with timedelta objects is mostly like that with 
+normal numbers so all I needed to do is wrap the difference in an absolute 
+value.
+
+from datetime import datetime
+I=[[datetime.strptime(input(),'%a %d %b %Y %H:%M:%S %z') for x in range(2)] for 
+_ in range(int(input()))]
+O=[abs(x[0]-x[1]).total_seconds() for x in I]
+for x in O:
+    print(int(x))
+
+With that, I passed the tests, and realized I would never get back those two 
+days of confusion ever again.
+This is probably the best example of why you want to record errors you make 
+while programming, because they tend to cross boundaries from logical to 
+runtime and back again.
+
+
+
+
+
+20150926T1405 Python: raw_input() from python 2.x became input() in python 3
+I was solving a problem for my application to LaunchCode and was using an 
+expression
+
+[sorted([int(x) for x in input().split()]) for _ in range(int(input()))]
+
+and couldn't understand why it was giving a weird syntax error (I was not able 
+to capture the error, but I tried to recreate it on my personal computer)
+
+&gt;&gt;&gt; input()
+12 12
+Traceback (most recent call last):
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+  File "&lt;string&gt;", line 1
+    12 12
+        ^
+SyntaxError: unexpected EOF while parsing
+
+Here you can see that input() was called from the command line and I gave it 12 
+12.
+It then gives a syntax error.
+I discovered, after some rapid Googling, that I had learned of input() as a 
+Python 3.x command, and that in Python 2.x I should have used raw_input().
+I'm still not certain what the "real" problem is because it is ultimately 
+irrelevant.
+I just need to know that input() in python 3.x means raw_input() in Python 2.x
+
+
+
+
+
+20150923T1637 Python: List Items vs. List Slices
+While solving the HackerRank problem "Set .discard(), .remove() &amp; .pop()" I 
+got this error
+
+IndexError: list index out of range
+
+from this code
+
+input()
+s={int(x) for x in input().split()}
+I=[input().split() for x in range(int(input()))]
+for x in I: eval('s.'+x[0]+'('+','.join(x[1])+')')
+print(sum(s))
+
+The problem was that x[1] referred to the second element of x when it should 
+have referred to a potentially empty list of the remaining elements of x i.e. 
+x[1] should have been x[1:].
+The correct code is below.
+
+input()
+s={int(x) for x in input().split()}
+I=[input().split() for x in range(int(input()))]
+for x in I: eval('s.'+x[0]+'('+','.join(x[1:])+')')
+print(sum(s))
+
+
+
+
+
+20150921T1539 Python: .sort() occurs "in place"
+While solving the HackerRank problem Sets - Symmetric Difference I came across 
+an interest error in my thinking about the the sort method of lists.
+
+Here is the code that I thought would work to solve the problem (the final 
+solution can be found at jmeuser.github.io/html/hr.html under Sets - Symmetric 
+Difference).
+
+z=list((x.union(y)).difference(x.intersection(y))).sort()
+
+where x and y are sets that were derived from the input.
+I thought this code would set z to be a sorted list.
+What it returned to z was actually nothing.
+Specifically it returned this type error when I tried to iterate over it
+
+TypeError: 'NoneType' object is not iterable
+
+Sorting occurs "in place" I guess and thus the correct code is as follows:
+
+z=list((x.union(y)).difference(x.intersection(y)))
+z.sort()
+
+These two commands will make it so that z is now a list sorted in ascending 
+order.
+I must admit that I don't like these side effects: there must be some serious 
+performance trade off for such terrible notation.
+
+
+
+
+
+20150915T1337
+This python code was meant to be a solution to a simple Hacker Rank problem.
+It asked to produce a pyramid of numbers using only the given for-loop and 
+basic arithmetic.
+The output should have looked like the following pyramid given an input of 4:
+1
+22
+333
+4444
+But, as you can see in the code below, I tried to use ^ as the exponential 
+operator.
+In python ** denotes the exponential or power operator.
+Alternatively, one can use pow(a,b) to denote a**b.
+
+Error Code:
+
+for i in range(1,input()):
+    print(i*(10^i-1)/9)
+
+Corrected code:
+
+for i in range(1,input()):
+    print(i*(10**i-1)/9)
+</pre></body></html>

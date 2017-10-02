@@ -1,0 +1,100 @@
+<html><head>
+ <link rel="stylesheet" type="text/css" 
+href="http://fonts.googleapis.com/css?family=Inconsolata">
+ <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen">
+</head>
+<body><pre>
+Java
+
+public class HelloWorld {
+ public static void main(String[] args) {
+  System.out.println("Hello World!");
+ }
+}
+
+// Class Declaration
+class ClassName {
+ // code
+}
+
+// Public Class Declaration
+public class ClassName {  // source file must be "ClassName.java"
+ // code
+}
+
+// 
+public class ClassName {
+  public static void main(String[] args){
+    // code
+  }
+}
+
+Type  Default b= Range
+byte        0  8 -128 to 127
+short       0 16 -32768 to 32767
+int         0 32 -2147483648 to 2147483647
+long        0 64 -9223372036854775808 to 9223372036854775807
+float     0.0 32 +-1.4E-45 to +-3.4028235E+38
+double    0.0 64 +-4.9E-324 to +-1.7976931348623157E+308
+char   \u0000 16 \u0000 to \uFFFF
+boolean false    true or false
+
+import java.util.Scanner; 
+//https://docs.oracle.com/javase/8/docs/api/java/util/Scanner.html
+
+Scanner s = new Scanner(source); // s is a new Scanner from source
+s.hasNext()     // return true if s has another token
+s.next()        // return next token of s
+s.nextByte()    // return next byte token of s
+s.nextShort()   // return next short token of s
+s.nextInt()     // return next int token of s
+s.nextLong()    // return next long token of s
+s.nextFloat()   // return next float token of s
+s.nextDouble()  // return next double token of s
+s.nextBoolean() // return next boolean token of s
+s.nextLine()    // return next String line of s
+s.close()       // close s
+
+
+
+System.out.format(fmt, args); // same as System.out.printf(fmt,args)
+out is a PrintStream and format(fmt, args) returns a PrintStream
+PrintStream extends FilterOutputStream which extends OutputStream which 
+represents an output stream of bytes.
+For information on the fmt see:
+https://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html#syntax
+http://web.cerritos.edu/jwilson/SitePages/java_language_resources/Java_printf_me
+thod_quick_reference.pdf
+
+Notation
+Items enclosed in square brackets are optional e.g. "[public] class ClassName 
+{class-body}" means that the string "public" may be omitted in the given 
+expression.
+
+[public] class x {y}   declares a class named x with class body y
+
+
+Dictionary
+accessors          the getters and setters of a class
+class body         field*method*constructor*initializer*inner class*interfaces
+class constructor  code called when an object is created
+class declaration  the name and body of a class
+class member       field*method*class*interface of a class
+class field        a variable of a class defined outside its methods
+class variable     see class field
+constructor        see class constructor
+get accessor       class method that gets a field value e.g. getFieldName()
+getter             see get accessor
+inner class        a class included within a class
+method signature   its name and the number and type of parameters
+nested class       see inner class
+overloading        distinguish methods by their signature
+set accessor       class method that sets a field's value e.g. setFieldName(T x)
+setter             see set accessor
+signature          see method signature
+
+References
+http://docs.oracle.com/javase/8/
+http://docs.oracle.com/javase/8/docs/
+http://docs.oracle.com/javase/specs/index.html
+</pre></body></html>

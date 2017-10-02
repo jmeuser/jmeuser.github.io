@@ -1,0 +1,300 @@
+<html><head>
+ <link rel="stylesheet" type="text/css" 
+href="http://fonts.googleapis.com/css?family=Inconsolata">
+ <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen">
+</head>
+<body><pre>
+The Art of Computer Programming by Knuth
+
+1.2 Mathematical Preliminaries
+"Mathematical notation is used for two main purposes in this book: to describe 
+portions of an algorithm, and to analyze the performance characteristics of an 
+algorithm."
+
+1.2.1 Mathematical Induction
+
+"
+Suppose we want to prove that P(n) is true for all positive integers n.
+ 1 Give a proof that P(1) is true.
+ 2 Give a proof that "if all of P(1),P(2),...,P(n) are true, then P(n+1) is 
+also true"; this proof should be valid for any positive integer n.
+" Knuth's TAOCP V1E3 p.11
+
+In N we have,
+   |0
+()
+   |1
+0
+   |2
+0 1
+   |3
+0 1 2
+   |4
+0 1 2 3
+and so on (i.e. (|1+n)=(|n),n ) then P'1+|n or P(1+|n) or just P 1+|n gives 
+(P 1),(P 2),(P 3),..,P n
+So Knuth's description of "an important way to do this" where "this" is "to 
+prove that P(n) is true for all positive integers n" can be rewritten 
+(restated) as
+
+1 Give a proof that P 1 is true.
+2 Give a proof that "if all of P 1+|n are true then P 1+n is also true"; this 
+proof should be valid for any positive integer n.
+
+If we choose to begin with 0 instead of 1 then
+
+1 Give a proof that P 0 is true.
+2 Give a proof that "if all of P|n are true then P n is also true"; this proof 
+should be valid for any positive integer n.
+
+For people who don't like spaces between propositional functions and their 
+arguments:
+
+1 Give a proof that P.0 is true.
+2 Give a proof that "if all P|n are true then P.n is also true"; this proof 
+should be valid for any positive integer n.
+
+For now, I will replace Knuth's notation with the appropriate N notation.
+
+"
+We can regard this method as an algorithmic proof procedure.
+In fact, the following algorithm produces a proof of P.n for any positive 
+integer n, assuming that steps 1 and 2 above have been worked out:
+
+Algorithm I (Construct a proof).
+Given a positive integer n, this algorithm will output a proof that P.n is true.
+I1.[Prove P.0] Set k:0, and, according to 1, output a proof of P.0 .
+I2.[k=n] If k=n, terminate the algorithm; the required proof has been output.
+I3.[Prove P.k] According to 1, output a proof that if +/P|k then P.k . Also 
+output "We have already proved P|k; hence P.k is true."
+I4.[Increase k.] Increase k by 1 and go to step I2.
+" Knuth's TAOCP V1E3 p.11-12
+
+"
+Algorithm E (Extended Euclid's Algorithm).
+Given two positive integers m and n, we compute their greatest common divisor 
+d, an we also compute two not-necessarily-positive integers a and b such that 
+d=(a*m)+b*n.
+E1.[Initialize.] Set ax:b:1, a:bx:0, c:m, d:n .
+E2.[Divide.] q:c%d, r:c|d . (We have c=r+q*d and r ~ r &gt; 0 and r ~ r &lt; d.)
+E3.[Remainder zero?] If 0=r, the algorithm terminates; we have in this case 
+d=(a*m)+b*n as desired.
+E4.[Recycle.] Set c:d, d:r, t:ax, ax:a, a:t-q*a, t:bx, bx:b, b:t-q*b, and go 
+back to E2.
+" Knuth's TAOCP V1E3 p.14
+
+
+Contents
+
+Volume 1 Fundamental Algorithms
+
+Chapter 1 Basic Concepts
+
+Algorithms
+
+Mathematical Preliminaries
+Mathematical Induction
+Numbers, Powers, and Logarithms
+Sums and Products
+Integer Functions and Elementary Number Theory
+Permutations and Factorials
+Binomial Coefficients
+Harmonic Numbers
+Fibonacci Numbers
+Generating Functions
+Analysis of an Algorithm
+Asymptotic Representations
+The O-notation
+Euler's summation formula
+Some asymptotic calculations
+
+MIX
+Description of MIX
+The MIX Assembly Language
+Applications to Permutations
+
+Some Fundamental Programming Techniques
+Subroutines
+Coroutines
+Interpretive Routines
+A MIX simulator
+Trace Routines
+Input and Output
+History and Bibliography
+
+Chapter 2 Information Structures
+
+Introduction
+
+Linear Lists
+Stacks, Queues, and Deques
+Sequential Allocation
+Linked Allocation
+Circular Lists
+Doubly Linked Lists
+Arrays and Orthogonal Lists
+
+Trees
+Traversing Binary Trees
+Binary Tree Representation of Trees
+Other Representations of Trees
+Basic Mathematical Properties of Trees
+Free Trees
+Oriented Trees
+The 'infinity lemma'
+Enumeration of trees
+Path Length
+History and Bibliography
+
+Multilink Structures
+Dynamic Storage Allocation
+History and Bibliography
+
+Answers to Exercises
+
+
+Volume 2 Seminumerical Algorithms
+
+Chapter 3 Random Numbers
+
+Introduction
+
+Generating Uniform Random Numbers
+The Linear Congruential Method
+Choice of Modulus
+Choice of multiplier
+Potency
+Other Methods
+
+Statistical Tests
+General Test Procedures for Studying Random Data
+Empirical Tests
+Theoretical Tests
+The Spectral Test
+
+Other Types of Random Quantities
+Numerical Distributions
+Random Sampling and Shuffling
+
+What Is a Random Sequence?
+Summary
+
+Chapter 4 Arithmetic
+Positional Number Systems
+
+Floating Point Arithmetic
+Single-Precision Calculations
+Accuracy of Floating Point Arithmetic
+Double Precision Calculations
+Distribution of Floating Point Numbers
+
+Multiple-Precision Arithmetic
+The Classical Algorithms
+Modular Arithmetic
+How Fast Can We Multiply?
+
+Radix Conversion
+
+Rational Arithmetic
+Fractions
+The Greatest Common Divisor
+Analysis of Euclid's Algorithm
+Factoring into Primes
+
+Polynomial Arithmetic
+Division of Polynomials
+Factorization of Polynomials
+Evaluation of Powers
+Evaluation of Polynomials
+
+Manipulation of Power Series
+
+Answer to Exercises
+
+
+Volume 3 Sorting and Searching
+
+Chapter 5 Sorting
+
+Combinatorial Properties of Permutations
+Inversions
+Permutations of a Multiset
+Runs
+Tableaux and Involutions
+
+Internal Sorting
+Sorting by Insertion
+Sorting by Exchanging
+Sorting by Selection
+Sorting by Merging
+Sorting by Distribution
+
+Optimum Sorting
+Minimum-Comparison Sorting
+Minimum-Comparison Merging
+Minimum-Comparison Selection
+Networks for Sorting
+
+External Sorting
+Multiway Merging and Replacement Selection
+The Polyphase Merge
+The Cascade Merge
+Reading Tape Backwards
+The Oscillating Sort
+Practical Considerations for Tape Merging
+External Radix Sorting
+Two-Tape Sorting
+Disks and Drums
+
+Summary, History, and Bibliography
+
+Chapter 6 Searching
+
+Sequential Searching
+
+Searching by Comparison of Keys
+Searching an Ordered Table
+Binary Tree Searching
+Balanced Trees
+Multiway Trees
+
+Digital Searching
+Hashing
+Retrieval on Secondary Keys
+
+Answer to Exercises
+
+
+Volume 4 Combinatorial Algorithms
+
+Chapter 7 Combinatorial Searching Part I
+
+Zeros and Ones
+Boolean Basics
+Boolean Evaluation
+Bitwise Tricks and Techniques
+Binary Decision Diagrams
+
+Generating All Possibilities
+Generating Basic Combinatorial Patterns
+Generating all n-tuples
+Generating all permutations
+Generating all combinations
+Generating all partitions
+Generating all set partitions
+Generating all trees
+History and further references
+
+Answer to Exercises
+Appendix D Index to Combinatorial Problems
+
+Chapter 8 Recursion
+Volume 5 Syntactical Algorithms
+Chapter 9 Lexical Scanning
+Chapter 10 Parsing
+Volume 6 The Theory of Languages
+Volume 7 Compilers
+
+Sources
+http://www-cs-faculty.stanford.edu/~uno/taocp.html
+</pre></body></html>

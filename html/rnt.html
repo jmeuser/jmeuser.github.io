@@ -1,0 +1,80 @@
+<html><head>
+ <link rel="stylesheet" type="text/css" 
+href="http://fonts.googleapis.com/css?family=Inconsolata">
+ <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen">
+</head>
+<body><pre>
+Notes on Recursive Number Theory by R. L. Goodstein
+
+I've used an N like language to describe his work here.
+
+Chapter I Definition by Recursion
+
+1. Variables
+
+"
+In terms of two operations
+1 replacing x by 1+x,
+2 replacing x by 0,
+we define numerals to be signs constructed from x by the repeated applications 
+of the operation 1 followed by an application of operation 2.
+Starting with the sign x the process of constructing numerals may be regarded 
+as a process of eliminating x using only the operations 1 and 2.
+" RNT Goodstein pg. 13
+
+"
+The defining property of a numeral variable x is that it may be replaced by 
+zero or 1+x .
+Any letter may of course serve as a numeral variable, but in this chapter only 
+the letters x,y, z and w will be used.
+By means of variables we can make general statements about numbers, statements 
+which hold true when any particular numeral is substituted for the variable.
+" RNT Goodstein pg. 13
+
+"
+the only axioms are explicit and (primitive) recursive function definitions, 
+and the only inference rules are the substitution schemata
+
+Sb1:
+F(x) = G(x)
+-----------
+F(A) = G(A)
+
+Sb2:
+   A = B
+-----------
+F(A) = F(B)
+
+T:
+A = B
+A = C
+-----
+B = C
+
+where F(x), G(x) are recursive functions and A,B,C are recursive terms, and the 
+primitive recursive uniqueness rule
+
+U
+F(Sx) = H(x, F(x))
+------------------
+ F(x) = H^x F(0)
+
+where the iterative function H^x t is define by the primitive recursion H^0 t = 
+t, H^Sx t = H(x, H^x t); in the schema U, F may contain additional parameters 
+but H is a function of not more than two variables.
+In Sb1, the function G(x) may be replaced by a term G independent of x, 
+provided that G(A) is also replaced by G.
+
+...
+
+the defining equations for these operations to be:
+
+a+0=a , a+Sb=S(a+b);
+0-1=0 , Sa-1=a;
+a-0=a , a-Sb=(a-b)-1;
+a*0=0 , a*Sb=a*b+a
+" Goodstein Recursive Number Theory pg. 104 and 106
+
+
+
+</pre></body></html>

@@ -1,0 +1,26 @@
+<html><head>
+ <link rel="stylesheet" type="text/css" 
+href="http://fonts.googleapis.com/css?family=Inconsolata">
+ <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen">
+</head>
+<body><pre>
+Transform preformatted .txt to .html
+for i in *.txt
+do
+sed $'s/\\&amp;/\\&amp;amp;/g\ns/&lt;/\\&amp;lt;/g\ns/&gt;/\\&amp;gt;/g' $i|cat 
+html-prologue.txt - html-epilogue.txt&gt;../html/${i%.txt}.html
+done
+
+PS1="\e[1;31m.\]\e[m\]"
+60 columns by 15 rows
+
+For Compiling C++ code on OS X El Capitan
+alias cpp='clang++ -std=c++11 -stdlib=libc++'
+
+Fold .txt at space between words and transform into .html
+for i in *.txt
+do
+sed $'s/\\&amp;/\\&amp;amp;/g\ns/&lt;/\\&amp;lt;/g\ns/&gt;/\\&amp;gt;/g' $i|cat 
+html-prologue.txt - html-epilogue.txt|fold -s&gt;../html/${i%.txt}.html
+done
+</pre></body></html>

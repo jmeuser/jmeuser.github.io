@@ -1,0 +1,100 @@
+<html><head>
+ <link rel="stylesheet" type="text/css" 
+href="http://fonts.googleapis.com/css?family=Inconsolata">
+ <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen">
+</head>
+<body><pre>
+MMIX by Knuth
+
+Notes on TAOCP Fascicle 1 MMIX by Knuth
+1.3.1 Description of MMIX
+
+Bits and bytes. "MMIX works with patterns of 0s and 1s"
+bits:&amp;/(|/'01'=)"
+
+Binary Digits
+0 = 2$'0'
+1 = 2$'1'
+0 = 2$'00'
+1 = 2$'01'
+2 = 2$'10'
+3 = 2$'11'
+
+Numerals without leading base notation are assumed to be base 10 e.g. 10 = 
+10$'10'.
+
+Hexadecimal Digits
+(16$'0') = 2$'0000'
+(16$'1') = 2$'0001'
+(16$'2') = 2$'0010'
+(16$'3') = 2$'0011'
+(16$'4') = 2$'0100'
+(16$'5') = 2$'0101'
+(16$'6') = 2$'0110'
+(16$'7') = 2$'0111'
+(16$'8') = 2$'1000'
+(16$'9') = 2$'1001'
+(16$'A') = 2$'1010'
+(16$'B') = 2$'1011'
+(16$'C') = 2$'1100'
+(16$'D') = 2$'1101'
+(16$'E') = 2$'1110'
+(16$'F') = 2$'1111'
+
+(16$'9E3779B97F4A7C16') = 
+2$'1001111000110111011110011011100101111111010010100111110000010110'
+
+"A sequence of eight bits, or two hexadecimal digits, is commonly called a 
+byte."
+
+bbyte:&amp;/(|/'01'=)",8=#
+hbyte:&amp;/(|/'0123456789ABCDEF'=)",2=#
+
+"Most computers now consider bytes be their basic, individually addressable 
+units of information."
+"One octabyte equals four wydes equals eight bytes equals sixty-four bits."
+
+     bit byte wyde tetra octa
+byte   8    1  1f2   1f4  1f8
+wyde  16    2    1   1f2  1f4
+tetra 32    4    2     1  1f2
+octa  64    8    4     2    1
+
+bbyte: &amp;/(|/'01'=)",8=#
+bwyde: &amp;/(|/'01'=)",16=#
+btetra:&amp;/(|/'01'=)",32=#
+bocta: &amp;/(|/'01'=)",64=#
+
+hbyte: &amp;/(|/'0123456789ABCDEF'=)",2=#
+hwyde: &amp;/(|/'0123456789ABCDEF'=)",4=#
+htetra:&amp;/(|/'0123456789ABCDEF'=)",8=#
+hocta: &amp;/(|/'0123456789ABCDEF'=)",16=#
+
+       &amp; |
+ubyte  0                  255
+uwyde  0                65535
+utetra 0           4294967295
+uocta  0 18446744073709551615
+
+(bbyte&lt;:0&lt;:&amp;255&gt;:)2$
+(bwyde&lt;:0&lt;:&amp;65535&gt;:)2$
+(btetra&lt;:0&lt;:&amp;4294967295&gt;:)2$
+(bocta&lt;:0&lt;:&amp;18446744073709551615&gt;:)2$
+
+"Integers are also commonly represented by using two's complement notation"
+"the leftmost bit indicates the sign"
+"if the leading bit is 1, we subtract 2^n to get the integer corresponding to 
+an n-bit number"
+
+       &amp;                    |
+sbyte                  -128                 127
+swyde                -32768               32767
+stetra          -2147483648          2147483647
+socta  -9223372036854775808 9223372036854775807
+
+-1 = -16$'FF'
+-1 =  -2$'11111111'
+
+Sources
+http=//www-cs-faculty.stanford.edu/~uno/mmix.html
+</pre></body></html>
