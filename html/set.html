@@ -71,7 +71,7 @@
     <div class="r">latency</div>
   </div>
   <div class="frame">
-    <div class="sd">The weakest stimulus sufficient to elict it a response marks the <i>threshold</i> of the reflex. A tap on the knee will not elicit a kick if it is below the _____.</div>
+    <div class="sd">The weakest stimulus sufficient to elicit a response marks the <i>threshold</i> of the reflex. A tap on the knee will not elicit a kick if it is below the _____.</div>
     <div class="r">threshold</div>
   </div>
   <div class="frame">
@@ -189,10 +189,10 @@ $(function() {
           x=$(this);
           if (Array.isArray(rs[i])) {
             return rs[i].some(function(y,j,a){
-              return x.val() === y;
+              return x.val().toLowerCase() === y;
             });
           } else {
-            return x.val() === rs[i];
+            return x.val().toLowerCase() === rs[i];
           }
         }).get().every(function(x){return x})){
           if ($frame.next().length>0) {
@@ -216,7 +216,7 @@ $(function() {
           $('#'+i).after(x);
         }
       });
-    }, 8000)
+    }, 9000)
   }
 });
 </script>
